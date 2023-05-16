@@ -1,0 +1,2023 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/editor/index">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div id="example">
+        <div class="demo-section wide">
+            <textarea id="editor" rows="10" cols="30" style="width:100%; height:840px" aria-label="editor">
+                &lt;br /&gt;
+                &lt;p style="text-align:center;"&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:large;"&gt;&lt;strong&gt;One of the Most Beautiful Islands on Earth - Tenerife&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Overview&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p style="font-size: small;"&gt;
+                    &lt;strong&gt;Tenerife &lt;/strong&gt;is the largest and most populated island of the eight &lt;a href="https://en.wikipedia.org/wiki/Canary_Islands" target="_blank"&gt;Canary Islands&lt;/a&gt;. It is also the most populated island of &lt;strong&gt;Spain&lt;/strong&gt;, with a land area of 2,034.38 square kilometers (785 sq mi) and 904,713 inhabitants, 43% of the total population of the &lt;strong&gt;Canary Islands&lt;/strong&gt;.&amp;nbsp;The archipelago's beaches, climate, and important natural attractions make it a major tourist destination with over 12 million visitors per year.
+                &lt;/p&gt;
+                &lt;br /&gt;
+                &lt;img src="../content/web/editor/tenerife.png" style="float: right;" alt="" width="350" height="206" /&gt;
+
+                &lt;p&gt;&lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;
+                    &lt;strong&gt;Trip Highlights in Tenerife&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;span style="white-space:pre;"&gt;&lt;/span&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;
+                            &lt;strong style="color: rgb(0,80,5);"&gt;Trip to Loro Parque &lt;/strong&gt; &lt;br /&gt; Our top tip is to visit the famous &lt;em&gt;Loro Parque&lt;/em&gt; or 'Loro Park. It is a 13.5-hectare zoo on the outskirts of Puerto de la Cruz in Tenerife, Spain where it houses an extensive and diverse reserve of animal and plant species.
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(46,125,50);"&gt;Whale and Dolphin Watching Tour&amp;nbsp;&lt;br /&gt;&lt;/span&gt;&lt;/strong&gt; Another great option is to take boat excursion with almost guaranteed sightings of whales and dolphins. This is a day-long trip that includes lunch, island visits, fishing, and amazing views of ocean sceneries.
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(96,173,94);"&gt;Teide National Park Stargazing&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;Last, but not least you can take a stargazing trip to Teide National Park, the 3rd best place in the world to view stars and described by NASA as a window to the universe.
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;br /&gt;
+                &lt;p&gt;
+                        &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Climate&lt;/strong&gt;&lt;/span&gt;
+                &lt;/p&gt;
+
+                &lt;table style="width:100%;height:225px;text-align:center;"&gt;
+                &lt;tbody&gt;
+                &lt;tr style="height:20%;background-color: rgb(96,173,94);"&gt;
+                    &lt;td style="width:473px;text-align:center; font-size:medium; color: rgb(255,255,255);" colspan="14"&gt;&lt;strong&gt;Climate Data for &lt;a href="https://en.wikipedia.org/wiki/Santa_Cruz_de_Tenerife" target="_blank"&gt;Santa Cruz de Tenerife&lt;/a&gt;&lt;/strong&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:9.33333%;"&gt;
+                    &lt;td style="width:230px;"&gt;
+                        &lt;span style="font-size:small; color: rgb(46,125,50);"&gt;
+                            &lt;strong&gt;Month&lt;/strong&gt;
+                        &lt;/span&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jan&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Feb&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Mar&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Apr&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;May&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jun&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jul&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Aug&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Sep&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Oct&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Nov&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Dec&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Year&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtDaily mean &amp;deg;C (&amp;deg;F)&lt;/strong&gt&lt;/td&gt;
+                    &lt;td style=""&gt;18.2&lt;br /&gt;(64.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;18.3&lt;br /&gt;(64.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.0&lt;br /&gt;(66.2)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.7&lt;br /&gt;(67.5)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.0&lt;br /&gt;(69.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;22.9&lt;br /&gt;(73.2)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;25.0&lt;br /&gt;(77.0)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;25.5&lt;br /&gt;(77.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;24.9&lt;br /&gt;(76.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;23.4&lt;br /&gt;(74.1)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.3&lt;br /&gt;(70.3)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.4&lt;br /&gt;(66.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.5&lt;br /&gt;(70.7)&lt;br /&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtAverage rainy days (&amp;ge; 1.0 mm)&lt;/strong&gt&lt;/td&gt;
+                    &lt;td style=""&gt;8.0&lt;/td&gt;
+                    &lt;td style=""&gt;7.2&lt;/td&gt;
+                    &lt;td style=""&gt;6.9&lt;/td&gt;
+                    &lt;td style=""&gt;5.5 &lt;/td&gt;
+                    &lt;td style=""&gt;2.9&lt;/td&gt;
+                    &lt;td style=""&gt;0.9&lt;/td&gt;
+                    &lt;td style=""&gt;0.2&lt;/td&gt;
+                    &lt;td style=""&gt;0.8 &lt;/td&gt;
+                    &lt;td style=""&gt;2.7&lt;/td&gt;
+                    &lt;td style=""&gt;6.1&lt;/td&gt;
+                    &lt;td style=""&gt;8.8&lt;/td&gt;
+                    &lt;td style=""&gt;9.4&lt;/td&gt;
+                    &lt;td style=""&gt;59.4&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtMean monthly &lt;a href="https://en.wikipedia.org/wiki/Sunshine_duration" target="_blank"&gt;sunshine hours&lt;/strong&gt&lt;/a&gt;&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;178&lt;/td&gt;
+                    &lt;td style=""&gt;186&lt;/td&gt;
+                    &lt;td style=""&gt;221&lt;/td&gt;
+                    &lt;td style=""&gt;237&lt;/td&gt;
+                    &lt;td style=""&gt;282&lt;/td&gt;
+                    &lt;td style=""&gt;306&lt;/td&gt;
+                    &lt;td style=""&gt;337&lt;/td&gt;
+                    &lt;td style=""&gt;319&lt;/td&gt;
+                    &lt;td style=""&gt;253&lt;/td&gt;
+                    &lt;td style=""&gt;222&lt;/td&gt;
+                    &lt;td style=""&gt;178&lt;/td&gt;
+                    &lt;td style=""&gt;168&lt;/td&gt;
+                    &lt;td style=""&gt;2,887&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;/tbody&gt;
+                &lt;/table&gt;
+                &lt;p&gt;
+                &lt;em&gt;* The data used in this demo is taken from &lt;a href="https://wikipedia.com" target="_blank"&gt;wikipedia.com&lt;/a&gt;.&lt;/em&gt;&lt;br /&gt;
+                &lt;em&gt;** The displayed photos are sourced from &lt;a href="https://pixabay.com" target="_blank"&gt;pixabay.com&lt;/a&gt;&lt;/em&gt;
+                &lt;/p&gt;
+        </textarea>
+
+            <script>
+                var editor = $("#editor").kendoEditor({
+                    stylesheets: [
+                        "../content/shared/styles/editor.css",
+                    ],
+                    tools: [
+                        "bold",
+                        "italic",
+                        "underline",
+                        "undo",
+                        "redo",
+                        "justifyLeft",
+                        "justifyCenter",
+                        "justifyRight",
+                        "insertUnorderedList",
+                        "createLink",
+                        "unlink",
+                        "insertImage",
+                        "tableWizard",
+                        "createTable",
+                        "addRowAbove",
+                        "addRowBelow",
+                        "addColumnLeft",
+                        "addColumnRight",
+                        "deleteRow",
+                        "deleteColumn",
+                        "mergeCellsHorizontally",
+                        "mergeCellsVertically",
+                        "splitCellHorizontally",
+                        "splitCellVertically",
+                        "tableAlignLeft",
+                        "tableAlignCenter",
+                        "tableAlignRight",
+                        "formatting",
+                        {
+                            name: "fontName",
+                            items: [
+                                { text: "Andale Mono", value: "\"Andale Mono\"" }, // Font-family names composed of several words should be wrapped in \" \"
+                                { text: "Arial", value: "Arial" },
+                                { text: "Arial Black", value: "\"Arial Black\"" },
+                                { text: "Book Antiqua", value: "\"Book Antiqua\"" },
+                                { text: "Comic Sans MS", value: "\"Comic Sans MS\"" },
+                                { text: "Courier New", value: "\"Courier New\"" },
+                                { text: "Georgia", value: "Georgia" },
+                                { text: "Helvetica", value: "Helvetica" },
+                                { text: "Impact", value: "Impact" },
+                                { text: "Symbol", value: "Symbol" },
+                                { text: "Tahoma", value: "Tahoma" },
+                                { text: "Terminal", value: "Terminal" },
+                                { text: "Times New Roman", value: "\"Times New Roman\"" },
+                                { text: "Trebuchet MS", value: "\"Trebuchet MS\"" },
+                                { text: "Verdana", value: "Verdana" },
+                            ]
+                        },
+                        "fontSize",
+                        "foreColor",
+                        "backColor",
+                    ]
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="example2">
+        <div class="demo-section wide">
+            <div>
+                <h3>Enter some content</h3>
+                <textarea data-role="editor"
+                          data-tools="['bold',
+                                    'italic',
+                                    'underline',
+                                    'strikethrough',
+                                    'justifyLeft',
+                                    'justifyCenter',
+                                    'justifyRight',
+                                    'justifyFull']"
+                          data-bind="visible: isVisible,
+                                    value: html,
+                                    events: { change: onChange }"
+                          style="height: 200px;"></textarea>
+            </div>
+        </div>
+
+        <script>
+            var viewModel = kendo.observable({
+                html: null,
+                isVisible: true,
+                onChange: function () {
+                    kendoConsole.log("event :: change (" + kendo.htmlEncode(this.get("html")) + ")");
+                }
+            });
+            kendo.bind($("#example2"), viewModel);
+        </script>
+    </div>
+
+
+    <div class="kd-example-console">
+         <div class="header">
+             <span class="title">CONSOLE LOG</span>
+             <span class="clear kd-text-secondary">Clear log</span>
+         </div>
+         <div class="console"></div>
+    </div>
+
+     <div id="example3">
+            <div class="demo-section wide">
+                <div id="topEditor3">
+                    <h2>
+                        Comprehensive HTML5/JavaScript framework <br />
+                        for modern web and mobile app development
+                    </h2>
+                    <p>
+                        Kendo UI is everything professional developers need
+                        to build HTML5 sites and mobile apps. Today, productivity
+                        of an average HTML/jQuery developer is hampered by
+                        assembling a Frankenstein framework of disparate
+                        JavaScript libraries and plug-ins.
+                    </p>
+                    <p>
+                        Kendo UI has it all: rich jQuery-based widgets,
+                        a simple and consistent programming interface,
+                        a rock-solid DataSource, validation, internationalization,
+                        a MVVM framework, themes, templates and the list goes on.
+                    </p>
+                </div>
+
+                <div class="column">
+                    <img src="../content/web/editor/web.png" />
+                    <h3>Web app <br />development framework</h3>
+                    <p>
+                        Kendo UI Web provides you with a simple and consistent
+                        programming interface, polished and innovative
+                        UI widgets for the web, powered by jQuery, HTML5 &amp; CSS3,
+                        a MVVM framework, themes which are easily customizable to
+                        fit the widgets to your web application, templates
+                        and much more. All that's left to do is to develop modern
+                        desktop and mobile web applications by leveraging your web
+                        development skills while unlocking the power of JavaScript,
+                        HTML5 &amp; CSS3, and using the intuitive <br />
+                        <a href="https://www.telerik.com/kendo-ui-web" title="Kendo UI Web">Kendo UI Web</a>.
+                    </p>
+                </div>
+                <div class="column">
+                    <img src="../content/web/editor/mobile.png" />
+                    <h3>Mobile app <br />development framework</h3>
+                    <p>
+                        Build native-like mobile apps for iPhone, Android and Blackberry,
+                        and deliver unmatched user experience without any extra coding.
+                    </p>
+                    <p>
+                        <a href="https://www.telerik.com/kendo-ui-mobile" title="Kendo UI Mobile">Kendo UI Mobile</a>
+                        is packed with easy-to-use jQuery-based widgets and built-in
+                        rich components for your fast mobile application development.
+                    </p>
+                </div>
+                <div class="column">
+                    <img src="../content/web/editor/dataviz.png" />
+                    <h3>Rich UI widgets for interactive <br />data visualization </h3>
+                    <p>
+                        Create interactive data visualization with HTML5 and JavaScript,
+                        build rich web apps that look and behave native on any platform or device.
+                        Kendo UI DataViz uses SVG, and brings you a collection of UI widgets,
+                        including jQuery charts, gauges, and more.
+                    </p>
+                    <p>
+                        <a href="https://www.telerik.com/kendo-ui-dataviz" title="Kendo UI DataViz">Kendo UI DataViz</a>
+                        uses automatic hardware acceleration for all animations and rendering,
+                        maximizing performance and minimizing the impact on CPU resources.
+                    </p>
+                </div>
+            </div>
+
+            <style>
+                .k-editor-inline {
+                    margin: 0;
+                    padding: 20px 20px 10px;
+                    box-shadow: none;
+                    background: none;
+                }
+
+                #topEditor h2, .column h3 {
+                    font-size: 24px;
+                    color: #2db245;
+                    font-family: "Droid Sans",DroidSansWeb,"Segoe UI","Lucida Sans Unicode",Arial,Helvetica,sans-serif;
+                }
+
+                .k-editor-inline p {
+                    font-size: 13px;
+                }
+
+                .column {
+                    display: inline-block;
+                    vertical-align: top;
+                    max-width: 250px;
+                }
+
+                .column a {
+                    color: #e15613;
+                }
+
+                .column h3 {
+                    padding-top: 10px;
+                    font-size: 15px;
+                }
+            </style>
+
+            <script>
+                $(document).ready(function() {
+                    $("#topEditor3").kendoEditor({
+                        tools: [
+                            "bold",
+                            "italic",
+                            "underline",
+                            "strikethrough",
+                            "justifyLeft",
+                            "justifyCenter",
+                            "justifyRight",
+                            "justifyFull",
+                            "createLink",
+                            "unlink",
+                            "insertImage",
+                            "createTable",
+                            "addColumnLeft",
+                            "addColumnRight",
+                            "addRowAbove",
+                            "addRowBelow",
+                            "deleteRow",
+                            "deleteColumn",
+                            "foreColor",
+                            "backColor"
+                        ]
+                    });
+
+                    $(".column").kendoEditor({
+                        tools: [
+                            "bold",
+                            "italic",
+                            "underline",
+                            "createLink",
+                            "unlink",
+                            "insertImage"
+                        ]
+                    });
+                });
+            </script>
+     </div>
+
+     <div id="example">
+        <div class="demo-section wide">
+            <textarea id="editor4" rows="10" cols="30" style="width:100%; height:790px" aria-label="editor">
+                &lt;br /&gt;
+                &lt;p style="text-align:center;"&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:large;"&gt;&lt;strong&gt;One of the Most Beautiful Islands on Earth - Tenerife&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Overview&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p style="font-size: small;"&gt;
+                    &lt;strong&gt;Tenerife &lt;/strong&gt;is the largest and most populated island of the eight &lt;a href="https://en.wikipedia.org/wiki/Canary_Islands" target="_blank"&gt;Canary Islands&lt;/a&gt;. It is also the most populated island of &lt;strong&gt;Spain&lt;/strong&gt;, with a land area of 2,034.38 square kilometers (785 sq mi) and 904,713 inhabitants, 43% of the total population of the &lt;strong&gt;Canary Islands&lt;/strong&gt;.&amp;nbsp;The archipelago's beaches, climate, and important natural attractions make it a major tourist destination with over 12 million visitors per year.
+                &lt;/p&gt;
+                &lt;br /&gt;
+                &lt;img src="../content/web/editor/tenerife.png" style="float: right;" alt="" width="350" height="206" /&gt;
+
+                &lt;p&gt;&lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;
+                    &lt;strong&gt;Trip Highlights in Tenerife&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;span style="white-space:pre;"&gt;&lt;/span&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;
+                            &lt;strong style="color: rgb(0,80,5);"&gt;Trip to Loro Parque &lt;/strong&gt; &lt;br /&gt; Our top tip is to visit the famous &lt;em&gt;Loro Parque&lt;/em&gt; or 'Loro Park. It is a 13.5-hectare zoo on the outskirts of Puerto de la Cruz in Tenerife, Spain where it houses an extensive and diverse reserve of animal and plant species. 
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(46,125,50);"&gt;Whale and Dolphin Watching Tour&amp;nbsp;&lt;br /&gt;&lt;/span&gt;&lt;/strong&gt; Another great option is to take boat excursion with almost guaranteed sightings of whales and dolphins. This is a day-long trip that includes lunch, island visits, fishing, and amazing views of ocean sceneries.
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(96,173,94);"&gt;Teide National Park Stargazing&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;Last, but not least you can take a stargazing trip to Teide National Park, the 3rd best place in the world to view stars and described by NASA as a window to the universe.
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;br /&gt;
+                &lt;p&gt;
+                        &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Climate&lt;/strong&gt;&lt;/span&gt;
+                &lt;/p&gt;
+          
+                &lt;table style="width:100%;height:225px;text-align:center;"&gt;
+                &lt;tbody&gt;
+                &lt;tr style="height:20%;background-color: rgb(96,173,94);"&gt;
+                    &lt;td style="width:473px;text-align:center; font-size:medium; color: rgb(255,255,255);" colspan="14"&gt;&lt;strong&gt;Climate Data for &lt;a href="https://en.wikipedia.org/wiki/Santa_Cruz_de_Tenerife" target="_blank"&gt;Santa Cruz de Tenerife&lt;/a&gt;&lt;/strong&gt; 
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:9.33333%;"&gt;
+                    &lt;td style="width:230px;"&gt;
+                        &lt;span style="font-size:small; color: rgb(46,125,50);"&gt;
+                            &lt;strong&gt;Month&lt;/strong&gt;
+                        &lt;/span&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jan&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Feb&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Mar&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Apr&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;May&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jun&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jul&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Aug&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Sep&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Oct&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Nov&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Dec&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Year&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtDaily mean &amp;deg;C (&amp;deg;F)&lt;/strong&gt&lt;/td&gt;
+                    &lt;td style=""&gt;18.2&lt;br /&gt;(64.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;18.3&lt;br /&gt;(64.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.0&lt;br /&gt;(66.2)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.7&lt;br /&gt;(67.5)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.0&lt;br /&gt;(69.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;22.9&lt;br /&gt;(73.2)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;25.0&lt;br /&gt;(77.0)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;25.5&lt;br /&gt;(77.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;24.9&lt;br /&gt;(76.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;23.4&lt;br /&gt;(74.1)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.3&lt;br /&gt;(70.3)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.4&lt;br /&gt;(66.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.5&lt;br /&gt;(70.7)&lt;br /&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtAverage rainy days (&amp;ge; 1.0 mm)&lt;/strong&gt&lt;/td&gt;
+                    &lt;td style=""&gt;8.0&lt;/td&gt;
+                    &lt;td style=""&gt;7.2&lt;/td&gt;
+                    &lt;td style=""&gt;6.9&lt;/td&gt;
+                    &lt;td style=""&gt;5.5 &lt;/td&gt;
+                    &lt;td style=""&gt;2.9&lt;/td&gt;
+                    &lt;td style=""&gt;0.9&lt;/td&gt;
+                    &lt;td style=""&gt;0.2&lt;/td&gt;
+                    &lt;td style=""&gt;0.8 &lt;/td&gt;
+                    &lt;td style=""&gt;2.7&lt;/td&gt;
+                    &lt;td style=""&gt;6.1&lt;/td&gt;
+                    &lt;td style=""&gt;8.8&lt;/td&gt;
+                    &lt;td style=""&gt;9.4&lt;/td&gt;
+                    &lt;td style=""&gt;59.4&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtMean monthly &lt;a href="https://en.wikipedia.org/wiki/Sunshine_duration" target="_blank"&gt;sunshine hours&lt;/strong&gt&lt;/a&gt;&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;178&lt;/td&gt;
+                    &lt;td style=""&gt;186&lt;/td&gt;
+                    &lt;td style=""&gt;221&lt;/td&gt;
+                    &lt;td style=""&gt;237&lt;/td&gt;
+                    &lt;td style=""&gt;282&lt;/td&gt;
+                    &lt;td style=""&gt;306&lt;/td&gt;
+                    &lt;td style=""&gt;337&lt;/td&gt;
+                    &lt;td style=""&gt;319&lt;/td&gt;
+                    &lt;td style=""&gt;253&lt;/td&gt;
+                    &lt;td style=""&gt;222&lt;/td&gt;
+                    &lt;td style=""&gt;178&lt;/td&gt;
+                    &lt;td style=""&gt;168&lt;/td&gt;
+                    &lt;td style=""&gt;2,887&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;/tbody&gt;
+                &lt;/table&gt;
+                &lt;p&gt;
+                &lt;em&gt;* The data used in this demo is taken from &lt;a href="https://wikipedia.com" target="_blank"&gt;wikipedia.com&lt;/a&gt;.&lt;/em&gt;&lt;br /&gt;
+                &lt;em&gt;** The displayed photos are sourced from &lt;a href="https://pixabay.com" target="_blank"&gt;pixabay.com&lt;/a&gt;&lt;/em&gt;
+                &lt;/p&gt;
+        </textarea>
+
+            <script type="text/x-kendo-template" id="backgroundColor-template4">
+                <label for='templateTool4' style='vertical-align:middle;'>Background:</label>
+                <select id='templateTool4' style='width:90px'><option value=''>none</option><option value='\#ff9'>yellow</option><option value='\#dfd'>green</option></select>
+            </script>
+
+            <script>
+                $("#editor4").kendoEditor({
+                    tools: [
+                        {
+                            name: "fontName",
+                            items: [].concat(
+                                kendo.ui.Editor.prototype.options.fontName[8],
+                                [{ text: "Garamond", value: "Garamond, serif" }]
+                            )
+                        },
+                        {
+                            name: "fontSize",
+                            items: [].concat(
+                                kendo.ui.Editor.prototype.options.fontSize[0],
+                                [{ text: "16px", value: "16px" }]
+                            )
+                        },
+                        {
+                            name: "formatting",
+                            items: [].concat(
+                                kendo.ui.editor.FormattingTool.prototype.options.items[0],
+                                [{ text: "Fieldset", value: "fieldset" }]
+                            )
+                        },
+                        {
+                            name: "customTemplate",
+                            template: $("#backgroundColor-template4").html()
+                        },
+                        {
+                            name: "custom",
+                            tooltip: "Insert a horizontal rule",
+                            exec: function (e) {
+                                var editor = $(this).data("kendoEditor");
+                                editor.exec("inserthtml", { value: "<hr />" });
+                            }
+                        }
+                    ]
+                });
+
+                $("#templateTool3").kendoDropDownList({
+                    change: function (e) {
+                        $("#editor3").data("kendoEditor").body.style.backgroundColor = e.sender.value();
+                    }
+                });
+
+            </script>
+
+        </div>
+    </div>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <ul class="options">
+                <li>Allowed file types for the Image browser are: jpg, jpeg, gif, png</li>
+                <li>Allowed file types for the File browser for this demo are: txt, doc, docx, xls, xlsx, ppt, pptx, zip, rar, jpg, jpeg, gif, png</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="example5">
+        <div class="demo-section wide">
+            <textarea id="editor5" rows="10" cols="30" style="width:100%; height:470px" aria-label="editor">
+                &lt;br /&gt;
+                &lt;p style="text-align:center;"&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:large;"&gt;&lt;strong&gt;One of the Most Beautiful Islands on Earth - Tenerife&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Overview&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p style="font-size: small;"&gt;
+                    &lt;strong&gt;Tenerife &lt;/strong&gt;is the largest and most populated island of the eight &lt;a href="https://en.wikipedia.org/wiki/Canary_Islands" target="_blank"&gt;Canary Islands&lt;/a&gt;. It is also the most populated island of &lt;strong&gt;Spain&lt;/strong&gt;, with a land area of 2,034.38 square kilometers (785 sq mi) and 904,713 inhabitants, 43% of the total population of the &lt;strong&gt;Canary Islands&lt;/strong&gt;.&amp;nbsp;The archipelago's beaches, climate, and important natural attractions make it a major tourist destination with over 12 million visitors per year.
+                &lt;/p&gt;
+                &lt;br /&gt;
+                &lt;img src="../content/web/editor/tenerife.png" style="float: right;" alt="" width="350" height="206" /&gt;
+
+                &lt;p&gt;&lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;
+                    &lt;strong&gt;Trip Highlights in Tenerife&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;span style="white-space:pre;"&gt;&lt;/span&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;
+                            &lt;strong style="color: rgb(0,80,5);"&gt;Trip to Loro Parque &lt;/strong&gt; &lt;br /&gt; Our top tip is to visit the famous &lt;em&gt;Loro Parque&lt;/em&gt; or 'Loro Park. It is a 13.5-hectare zoo on the outskirts of Puerto de la Cruz in Tenerife, Spain where it houses an extensive and diverse reserve of animal and plant species. 
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(46,125,50);"&gt;Whale and Dolphin Watching Tour&amp;nbsp;&lt;br /&gt;&lt;/span&gt;&lt;/strong&gt; Another great option is to take boat excursion with almost guaranteed sightings of whales and dolphins. This is a day-long trip that includes lunch, island visits, fishing, and amazing views of ocean sceneries.
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(96,173,94);"&gt;Teide National Park Stargazing&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;Last, but not least you can take a stargazing trip to Teide National Park, the 3rd best place in the world to view stars and described by NASA as a window to the universe.
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+            </textarea>
+            <script>
+                $(document).ready(function () {
+                    // create Editor from textarea HTML element with default set of tools
+                    $("#editor5").kendoEditor({
+                        tools: [
+                            "insertImage",
+                            "insertFile"
+                        ],
+                        stylesheets: [
+                            "../content/shared/styles/editor.css",
+                        ],
+                        imageBrowser: {
+                            messages: {
+                                dropFilesHere: "Drop files here"
+                            },
+                            transport: {
+                                read: "/kendo-ui/service/ImageBrowser/Read",
+                                destroy: {
+                                    url: "/kendo-ui/service/ImageBrowser/Destroy",
+                                    type: "POST"
+                                },
+                                create: {
+                                    url: "/kendo-ui/service/ImageBrowser/Create",
+                                    type: "POST"
+                                },
+                                thumbnailUrl: "/kendo-ui/service/ImageBrowser/Thumbnail",
+                                uploadUrl: "/kendo-ui/service/ImageBrowser/Upload",
+                                imageUrl: "/kendo-ui/service/ImageBrowser/Image?path={0}"
+                            }
+                        },
+                        fileBrowser: {
+                            messages: {
+                                dropFilesHere: "Drop files here"
+                            },
+                            transport: {
+                                read: "/kendo-ui/service/FileBrowser/Read",
+                                destroy: {
+                                    url: "/kendo-ui/service/FileBrowser/Destroy",
+                                    type: "POST"
+                                },
+                                create: {
+                                    url: "/kendo-ui/service/FileBrowser/Create",
+                                    type: "POST"
+                                },
+                                uploadUrl: "/kendo-ui/service/FileBrowser/Upload",
+                                fileUrl: "/kendo-ui/service/FileBrowser/File?fileName={0}"
+                            }
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="example6">
+        <div class="demo-section wide">
+            <textarea id="editor6" rows="10" cols="30" style="width:100%; height:840px" aria-label="editor">
+                &lt;br /&gt;
+                &lt;p style="text-align:center;"&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:large;"&gt;&lt;strong&gt;One of the Most Beautiful Islands on Earth - Tenerife&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Overview&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p style="font-size: small;"&gt;
+                    &lt;strong&gt;Tenerife &lt;/strong&gt;is the largest and most populated island of the eight &lt;a href="https://en.wikipedia.org/wiki/Canary_Islands" target="_blank"&gt;Canary Islands&lt;/a&gt;. It is also the most populated island of &lt;strong&gt;Spain&lt;/strong&gt;, with a land area of 2,034.38 square kilometers (785 sq mi) and 904,713 inhabitants, 43% of the total population of the &lt;strong&gt;Canary Islands&lt;/strong&gt;.&amp;nbsp;The archipelago's beaches, climate, and important natural attractions make it a major tourist destination with over 12 million visitors per year.
+                &lt;/p&gt;
+                &lt;br /&gt;
+                &lt;img src="../content/web/editor/tenerife.png" style="float: right;" alt="" width="350" height="206" /&gt;
+
+                &lt;p&gt;&lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;
+                    &lt;strong&gt;Trip Highlights in Tenerife&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;span style="white-space:pre;"&gt;&lt;/span&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;
+                            &lt;strong style="color: rgb(0,80,5);"&gt;Trip to Loro Parque &lt;/strong&gt; &lt;br /&gt; Our top tip is to visit the famous &lt;em&gt;Loro Parque&lt;/em&gt; or 'Loro Park. It is a 13.5-hectare zoo on the outskirts of Puerto de la Cruz in Tenerife, Spain where it houses an extensive and diverse reserve of animal and plant species.
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(46,125,50);"&gt;Whale and Dolphin Watching Tour&amp;nbsp;&lt;br /&gt;&lt;/span&gt;&lt;/strong&gt; Another great option is to take boat excursion with almost guaranteed sightings of whales and dolphins. This is a day-long trip that includes lunch, island visits, fishing, and amazing views of ocean sceneries.
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(96,173,94);"&gt;Teide National Park Stargazing&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;Last, but not least you can take a stargazing trip to Teide National Park, the 3rd best place in the world to view stars and described by NASA as a window to the universe.
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;br /&gt;
+                &lt;p&gt;
+                        &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Climate&lt;/strong&gt;&lt;/span&gt;
+                &lt;/p&gt;
+
+                &lt;table style="width:100%;height:225px;text-align:center;"&gt;
+                &lt;tbody&gt;
+                &lt;tr style="height:20%;background-color: rgb(96,173,94);"&gt;
+                    &lt;td style="width:473px;text-align:center; font-size:medium; color: rgb(255,255,255);" colspan="14"&gt;&lt;strong&gt;Climate Data for &lt;a href="https://en.wikipedia.org/wiki/Santa_Cruz_de_Tenerife" target="_blank"&gt;Santa Cruz de Tenerife&lt;/a&gt;&lt;/strong&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:9.33333%;"&gt;
+                    &lt;td style="width:230px;"&gt;
+                        &lt;span style="font-size:small; color: rgb(46,125,50);"&gt;
+                            &lt;strong&gt;Month&lt;/strong&gt;
+                        &lt;/span&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jan&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Feb&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Mar&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Apr&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;May&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jun&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jul&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Aug&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Sep&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Oct&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Nov&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Dec&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Year&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtDaily mean &amp;deg;C (&amp;deg;F)&lt;/strong&gt&lt;/td&gt;
+                    &lt;td style=""&gt;18.2&lt;br /&gt;(64.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;18.3&lt;br /&gt;(64.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.0&lt;br /&gt;(66.2)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.7&lt;br /&gt;(67.5)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.0&lt;br /&gt;(69.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;22.9&lt;br /&gt;(73.2)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;25.0&lt;br /&gt;(77.0)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;25.5&lt;br /&gt;(77.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;24.9&lt;br /&gt;(76.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;23.4&lt;br /&gt;(74.1)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.3&lt;br /&gt;(70.3)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.4&lt;br /&gt;(66.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.5&lt;br /&gt;(70.7)&lt;br /&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtAverage rainy days (&amp;ge; 1.0 mm)&lt;/strong&gt&lt;/td&gt;
+                    &lt;td style=""&gt;8.0&lt;/td&gt;
+                    &lt;td style=""&gt;7.2&lt;/td&gt;
+                    &lt;td style=""&gt;6.9&lt;/td&gt;
+                    &lt;td style=""&gt;5.5 &lt;/td&gt;
+                    &lt;td style=""&gt;2.9&lt;/td&gt;
+                    &lt;td style=""&gt;0.9&lt;/td&gt;
+                    &lt;td style=""&gt;0.2&lt;/td&gt;
+                    &lt;td style=""&gt;0.8 &lt;/td&gt;
+                    &lt;td style=""&gt;2.7&lt;/td&gt;
+                    &lt;td style=""&gt;6.1&lt;/td&gt;
+                    &lt;td style=""&gt;8.8&lt;/td&gt;
+                    &lt;td style=""&gt;9.4&lt;/td&gt;
+                    &lt;td style=""&gt;59.4&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtMean monthly &lt;a href="https://en.wikipedia.org/wiki/Sunshine_duration" target="_blank"&gt;sunshine hours&lt;/strong&gt&lt;/a&gt;&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;178&lt;/td&gt;
+                    &lt;td style=""&gt;186&lt;/td&gt;
+                    &lt;td style=""&gt;221&lt;/td&gt;
+                    &lt;td style=""&gt;237&lt;/td&gt;
+                    &lt;td style=""&gt;282&lt;/td&gt;
+                    &lt;td style=""&gt;306&lt;/td&gt;
+                    &lt;td style=""&gt;337&lt;/td&gt;
+                    &lt;td style=""&gt;319&lt;/td&gt;
+                    &lt;td style=""&gt;253&lt;/td&gt;
+                    &lt;td style=""&gt;222&lt;/td&gt;
+                    &lt;td style=""&gt;178&lt;/td&gt;
+                    &lt;td style=""&gt;168&lt;/td&gt;
+                    &lt;td style=""&gt;2,887&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;/tbody&gt;
+                &lt;/table&gt;
+                &lt;p&gt;
+                &lt;em&gt;* The data used in this demo is taken from &lt;a href="https://wikipedia.com" target="_blank"&gt;wikipedia.com&lt;/a&gt;.&lt;/em&gt;&lt;br /&gt;
+                &lt;em&gt;** The displayed photos are sourced from &lt;a href="https://pixabay.com" target="_blank"&gt;pixabay.com&lt;/a&gt;&lt;/em&gt;
+                &lt;/p&gt;
+        </textarea>
+
+            <script>
+                $("#editor6").kendoEditor({
+                    tools: [
+                        "bold",
+                        "italic",
+                        "underline",
+                        "undo",
+                        "redo",
+                        "strikethrough",
+                        "justifyLeft",
+                        "justifyCenter",
+                        "justifyRight",
+                        "justifyFull",
+                        "insertUnorderedList",
+                        "insertOrderedList",
+                        "insertUpperRomanList",
+                        "insertLowerRomanList",
+                        "indent",
+                        "outdent",
+                        "createLink",
+                        "unlink",
+                        "insertImage",
+                        "insertFile",
+                        "subscript",
+                        "superscript",
+                        "tableWizard",
+                        "createTable",
+                        "addRowAbove",
+                        "addRowBelow",
+                        "addColumnLeft",
+                        "addColumnRight",
+                        "deleteRow",
+                        "deleteColumn",
+                        "mergeCellsHorizontally",
+                        "mergeCellsVertically",
+                        "splitCellHorizontally",
+                        "splitCellVertically",
+                        "tableAlignLeft",
+                        "tableAlignCenter",
+                        "tableAlignRight",
+                        "viewHtml",
+                        "formatting",
+                        "cleanFormatting",
+                        "copyFormat",
+                        "applyFormat",
+                        "fontName",
+                        "fontSize",
+                        "foreColor",
+                        "backColor",
+                        "print"
+                    ]
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <textarea id="editor7" style="height: 600px;" tabindex="0" accesskey="w">
+            &lt;h3 class=&quot;&quot;&gt;&lt;span&gt; &lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;strong&gt;Wonders of Italy&lt;/strong&gt;&lt;/h3&gt;
+            &lt;h6 style=&quot;font-family: inherit; font-size: 12px; line-height: normal; font-weight: 400; margin: 8px 0px 0px; color: rgb(186, 186, 186);&quot;&gt;Jul 6, 2019&lt;/h6&gt;
+            &lt;p&gt;&lt;strong&gt;&lt;span style=&quot;color: rgb(51, 153, 255);&quot;&gt;Overview&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+            &lt;p&gt;The Italian Republic is a history lover&rsquo;s paradise with thousands of museums, churches and archaeological sites dating back to Roman and Greek times. Visitors will also find a hub for fashion and culture unlike anywhere else in the world. Explore Ancient history in &lt;strong&gt;Rome&lt;/strong&gt; at the &lt;span style=&quot;text-decoration: underline;&quot;&gt;Colosseum&lt;/span&gt; and &lt;span style=&quot;text-decoration: underline;&quot;&gt;Rome&rsquo;s Ruins&lt;/span&gt;.&amp;nbsp;Rome&rsquo;s greatest gladiator arena has history of unimaginable violence&mdash;games that would last 100 days in some cases and involve the slaughter of up to 10,000 animals&mdash;but today, it is one of the most majestic sites for Italian tourism.&amp;nbsp;&lt;/p&gt;
+            &lt;ul&gt;
+                &lt;li&gt;
+                    &lt;p&gt;&lt;a href=&quot;https://www.telerik.com&quot;&gt;Book Rome Attraction Tickets&amp;nbsp;&lt;/a&gt;&lt;/p&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;p&gt;&lt;a href=&quot;https://www.telerik.com&quot;&gt;Book accommodation&lt;/a&gt;&lt;/p&gt;
+                &lt;/li&gt;
+                &lt;li&gt;Rome Trips&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;table&gt;
+                &lt;tbody&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Trip Type&lt;/td&gt;
+                        &lt;td&gt;Duration&lt;/td&gt;
+                        &lt;td&gt;Price&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Family Walk Around Rome&lt;/td&gt;
+                        &lt;td&gt;Day Trip (approx. 6 hours)&lt;/td&gt;
+                        &lt;td&gt;50 euro per person&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Sightseeing Trip Around Rome&lt;/td&gt;
+                        &lt;td&gt;Two Days (includes travel and accommodation)&lt;/td&gt;
+                        &lt;td&gt;200 euro per person&amp;nbsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;Custom Trips&lt;/td&gt;
+                        &lt;td&gt;Defined by Customer&lt;/td&gt;
+                        &lt;td&gt;To be Determined&amp;nbsp;&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;p&gt; &lt;strong&gt;&lt;span style=&quot;color: rgb(51, 153, 255);&quot;&gt;Trip Ideas&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+            &lt;p&gt; Take a trip to the &lt;span style=&quot;text-decoration: underline;&quot;&gt;Sistine Chapel &lt;/span&gt;in Vatican City where Michelangelo&rsquo;s Genesis (Creation), commissioned by Pope Julius II and painted by Michelangelo between 1508 and 1512, attracts droves of visitors each year. &lt;/p&gt;
+            &lt;p&gt; Take a water-bus tour of the Grand Canal and stop along the way for a bite to eat and some shopping. Take in the most famous of the city&rsquo;s churches and one of the best known examples of the Italo-Byzantine architecture, the Basilica of Saint Mark, which lies at the eastern end the Piazza San Marco, adjacent and connected to the Doge&rsquo;s Palace. And don&rsquo;t miss the Duomo of Florence.&lt;/p&gt;
+            &lt;p&gt;Visit beautiful Villa Borghese Gardens&amp;nbsp;The Gardens cover an area of 80 hectares and were developed in 1606 by Cardinal Scipione Borges, who wanted to turn his former vineyard into the most extensive gardens built in Rome.&lt;/p&gt;
+            &lt;p&gt; &lt;/p&gt;
+            &lt;p&gt;&lt;img src=&quot;https://demos.telerik.com/aspnet-core/shared/web/timeline/images/Wonders_of_Italy.jpg&quot; style=&quot;border: 0px; max-width: 100%; overflow: hidden;&quot;&gt;&lt;/p&gt;
+        </textarea>
+            <script>
+                $("#editor7").kendoEditor({
+                    tools: [
+                        "copyFormat",
+                        "applyFormat",
+                        "cleanFormatting"
+                    ]
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <textarea id="editor8" rows="10" cols="30" style="width:100%;height:400px">
+            &lt;table class=&quot;k-table&quot; style=&quot;width: 769px; height: 178px;&quot;&gt;
+                &lt;tbody&gt;
+                    &lt;tr style=&quot;height: 22.905%;&quot; data-role=&quot;resizable&quot;&gt;
+                        &lt;td style=&quot;width: 12.5%;&quot; data-role=&quot;resizable&quot; colspan=&quot;2&quot;&gt;&lt;strong&gt;Next&lt;/strong&gt;&lt;strong&gt; Q Marketing
+                                Budget&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot; colspan=&quot;2&quot;&gt;&lt;strong&gt;January&lt;/strong&gt;
+                        &lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; colspan=&quot;2&quot; data-role=&quot;resizable&quot;&gt;&lt;strong&gt;February&lt;/strong&gt;
+                        &lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; colspan=&quot;2&quot;&gt;&lt;strong&gt;March&lt;/strong&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr style=&quot;height: 22.905%;&quot; data-role=&quot;resizable&quot;&gt;
+                        &lt;td style=&quot;width: 12.5%;&quot; data-role=&quot;resizable&quot; rowspan=&quot;5&quot;&gt;&lt;strong&gt;Campaign&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%;&quot; data-role=&quot;resizable&quot;&gt;&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;Planned&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;Actual&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;Planned&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;Actual&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;Planned&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot;&gt;Actual&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr style=&quot;height: 15.0838%;&quot; data-role=&quot;resizable&quot;&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;Social Media&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;2000&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;1850&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;&lt;span
+                                style=&quot;text-align: center;&quot;&gt;2000&lt;/span&gt;&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;&lt;span
+                                style=&quot;text-align: center;&quot;&gt;2000&lt;/span&gt;&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;&lt;span
+                                style=&quot;text-align: center;&quot;&gt;2000&lt;/span&gt;&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot;&gt;&lt;span style=&quot;text-align: center;&quot;&gt;2000&lt;/span&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr style=&quot;height: 14.5251%;&quot; data-role=&quot;resizable&quot;&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;TV Ads&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;40 000&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;55 000&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;&lt;span style=&quot;text-align: center;&quot;&gt;40
+                                000&lt;/span&gt;&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;40 000&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;&lt;span
+                                style=&quot;text-align: center;&quot;&gt;-&lt;/span&gt;&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot;&gt;-&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr style=&quot;height: 12.8492%;&quot; data-role=&quot;resizable&quot;&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;Flyers&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;550&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;550&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;-&amp;nbsp;&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;-&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;-&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot;&gt;-&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr style=&quot;height: 11.7318%;&quot;&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;Radio Ads&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;15 000&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;15 000&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;10 000&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;10 000&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot; data-role=&quot;resizable&quot;&gt;5000&lt;/td&gt;
+                        &lt;td style=&quot;width: 12.5%; text-align: center;&quot;&gt;5000&lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        </textarea>
+
+            <script>
+                $("#editor8").kendoEditor({
+                    tools: [
+                        "tableWizard",
+                        "createTable",
+                        "addRowAbove",
+                        "addRowBelow",
+                        "addColumnLeft",
+                        "addColumnRight",
+                        "deleteRow",
+                        "deleteColumn",
+                        "mergeCellsHorizontally",
+                        "mergeCellsVertically",
+                        "splitCellHorizontally",
+                        "splitCellVertically",
+                        "tableAlignLeft",
+                        "tableAlignCenter",
+                        "tableAlignRight"
+                    ]
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <textarea id="editor9" rows="10" cols="30">
+                Put the cursor after this text and use the "Insert HTML" tool.
+            </textarea>
+            <script>
+                $(document).ready(function () {
+                    $("#editor9").kendoEditor({
+                        tools: [
+                            {
+                                name: "insertHtml",
+                                items: [
+                                    { text: "Signature", value: "<p>Regards,<br /> John Doe,<br /><a href='mailto:john.doe@example.com'>john.doe@example.com</a></p>" },
+                                    { text: "Kendo UI Online Demos", value: " <a href='//demos.telerik.com/kendo-ui'>Kendo UI for jQuery Online Demos</a> " }
+                                ]
+                            }
+                        ]
+                    });
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <textarea id="editor10" rows="10" cols="30" style="width:100%; height:810px" aria-label="editor">
+                &lt;br /&gt;
+                &lt;p style="text-align:center;"&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:large;"&gt;&lt;strong&gt;One of the Most Beautiful Islands on Earth - Tenerife&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Overview&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p style="font-size: small;"&gt;
+                    &lt;strong&gt;Tenerife &lt;/strong&gt;is the largest and most populated island of the eight &lt;a href="https://en.wikipedia.org/wiki/Canary_Islands" target="_blank"&gt;Canary Islands&lt;/a&gt;. It is also the most populated island of &lt;strong&gt;Spain&lt;/strong&gt;, with a land area of 2,034.38 square kilometers (785 sq mi) and 904,713 inhabitants, 43% of the total population of the &lt;strong&gt;Canary Islands&lt;/strong&gt;.&amp;nbsp;The archipelago's beaches, climate, and important natural attractions make it a major tourist destination with over 12 million visitors per year.
+                &lt;/p&gt;
+                &lt;br /&gt;
+                &lt;img src="../content/web/editor/tenerife.png" style="float: right;" alt="" width="350" height="206" /&gt;
+
+                &lt;p&gt;&lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;
+                    &lt;strong&gt;Trip Highlights in Tenerife&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;span style="white-space:pre;"&gt;&lt;/span&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;
+                            &lt;strong style="color: rgb(0,80,5);"&gt;Trip to Loro Parque &lt;/strong&gt; &lt;br /&gt; Our top tip is to visit the famous &lt;em&gt;Loro Parque&lt;/em&gt; or 'Loro Park. It is a 13.5-hectare zoo on the outskirts of Puerto de la Cruz in Tenerife, Spain where it houses an extensive and diverse reserve of animal and plant species. 
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(46,125,50);"&gt;Whale and Dolphin Watching Tour&amp;nbsp;&lt;br /&gt;&lt;/span&gt;&lt;/strong&gt; Another great option is to take boat excursion with almost guaranteed sightings of whales and dolphins. This is a day-long trip that includes lunch, island visits, fishing, and amazing views of ocean sceneries.
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(96,173,94);"&gt;Teide National Park Stargazing&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;Last, but not least you can take a stargazing trip to Teide National Park, the 3rd best place in the world to view stars and described by NASA as a window to the universe.
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;br /&gt;
+                &lt;p&gt;
+                        &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Climate&lt;/strong&gt;&lt;/span&gt;
+                &lt;/p&gt;
+          
+                &lt;table style="width:100%;height:225px;text-align:center;"&gt;
+                &lt;tbody&gt;
+                &lt;tr style="height:20%;background-color: rgb(96,173,94);"&gt;
+                    &lt;td style="width:473px;text-align:center; font-size:medium; color: rgb(255,255,255);" colspan="14"&gt;&lt;strong&gt;Climate Data for &lt;a href="https://en.wikipedia.org/wiki/Santa_Cruz_de_Tenerife" target="_blank"&gt;Santa Cruz de Tenerife&lt;/a&gt;&lt;/strong&gt; 
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:9.33333%;"&gt;
+                    &lt;td style="width:230px;"&gt;
+                        &lt;span style="font-size:small; color: rgb(46,125,50);"&gt;
+                            &lt;strong&gt;Month&lt;/strong&gt;
+                        &lt;/span&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jan&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Feb&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Mar&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Apr&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;May&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jun&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jul&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Aug&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Sep&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Oct&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Nov&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Dec&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Year&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtDaily mean &amp;deg;C (&amp;deg;F)&lt;/strong&gt&lt;/td&gt;
+                    &lt;td style=""&gt;18.2&lt;br /&gt;(64.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;18.3&lt;br /&gt;(64.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.0&lt;br /&gt;(66.2)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.7&lt;br /&gt;(67.5)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.0&lt;br /&gt;(69.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;22.9&lt;br /&gt;(73.2)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;25.0&lt;br /&gt;(77.0)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;25.5&lt;br /&gt;(77.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;24.9&lt;br /&gt;(76.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;23.4&lt;br /&gt;(74.1)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.3&lt;br /&gt;(70.3)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.4&lt;br /&gt;(66.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.5&lt;br /&gt;(70.7)&lt;br /&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtAverage rainy days (&amp;ge; 1.0 mm)&lt;/strong&gt&lt;/td&gt;
+                    &lt;td style=""&gt;8.0&lt;/td&gt;
+                    &lt;td style=""&gt;7.2&lt;/td&gt;
+                    &lt;td style=""&gt;6.9&lt;/td&gt;
+                    &lt;td style=""&gt;5.5 &lt;/td&gt;
+                    &lt;td style=""&gt;2.9&lt;/td&gt;
+                    &lt;td style=""&gt;0.9&lt;/td&gt;
+                    &lt;td style=""&gt;0.2&lt;/td&gt;
+                    &lt;td style=""&gt;0.8 &lt;/td&gt;
+                    &lt;td style=""&gt;2.7&lt;/td&gt;
+                    &lt;td style=""&gt;6.1&lt;/td&gt;
+                    &lt;td style=""&gt;8.8&lt;/td&gt;
+                    &lt;td style=""&gt;9.4&lt;/td&gt;
+                    &lt;td style=""&gt;59.4&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtMean monthly &lt;a href="https://en.wikipedia.org/wiki/Sunshine_duration" target="_blank"&gt;sunshine hours&lt;/strong&gt&lt;/a&gt;&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;178&lt;/td&gt;
+                    &lt;td style=""&gt;186&lt;/td&gt;
+                    &lt;td style=""&gt;221&lt;/td&gt;
+                    &lt;td style=""&gt;237&lt;/td&gt;
+                    &lt;td style=""&gt;282&lt;/td&gt;
+                    &lt;td style=""&gt;306&lt;/td&gt;
+                    &lt;td style=""&gt;337&lt;/td&gt;
+                    &lt;td style=""&gt;319&lt;/td&gt;
+                    &lt;td style=""&gt;253&lt;/td&gt;
+                    &lt;td style=""&gt;222&lt;/td&gt;
+                    &lt;td style=""&gt;178&lt;/td&gt;
+                    &lt;td style=""&gt;168&lt;/td&gt;
+                    &lt;td style=""&gt;2,887&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;/tbody&gt;
+                &lt;/table&gt;
+                &lt;p&gt;
+                &lt;em&gt;* The data used in this demo is taken from &lt;a href="https://wikipedia.com" target="_blank"&gt;wikipedia.com&lt;/a&gt;.&lt;/em&gt;&lt;br /&gt;
+                &lt;em&gt;** The displayed photos are sourced from &lt;a href="https://pixabay.com" target="_blank"&gt;pixabay.com&lt;/a&gt;&lt;/em&gt;
+                &lt;/p&gt;
+        </textarea>
+
+            <script>
+                $("#editor10").kendoEditor({
+                    tools: [
+                        {
+                            name: "formatting", width: 150, items: [
+                                { text: "Highlight Error", value: ".hlError" },
+                                { text: "Highlight OK", value: ".hlOK" },
+                                { text: "Inline Code", value: ".inlineCode" }
+                            ]
+                        }
+                    ],
+                    stylesheets: [
+                        "https://demos.telerik.com/kendo-ui/content/web/editor/editorStyles.css"
+                    ]
+                });
+            </script>
+        </div>
+    </div>
+    <div id="example">
+        <div class="demo-section wide">
+            <textarea id="editor11" rows="10" cols="30" style="width:100%; height:700px" aria-label="editor">
+                &lt;br /&gt;
+                &lt;p style="text-align:center;"&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:large;"&gt;&lt;strong&gt;One of the Most Beautiful Islands on Earth - Tenerife&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Overview&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p style="font-size: small;"&gt;
+                    &lt;strong&gt;Tenerife &lt;/strong&gt;is the largest and most populated island of the eight &lt;a href="https://en.wikipedia.org/wiki/Canary_Islands" target="_blank"&gt;Canary Islands&lt;/a&gt;. It is also the most populated island of &lt;strong&gt;Spain&lt;/strong&gt;, with a land area of 2,034.38 square kilometers (785 sq mi) and 904,713 inhabitants, 43% of the total population of the &lt;strong&gt;Canary Islands&lt;/strong&gt;.&amp;nbsp;The archipelago's beaches, climate, and important natural attractions make it a major tourist destination with over 12 million visitors per year.
+                &lt;/p&gt;
+                &lt;br /&gt;
+                &lt;img src="../content/web/editor/tenerife.png" style="float: right;" alt="" width="350" height="206" /&gt;
+
+                &lt;p&gt;&lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;
+                    &lt;strong&gt;Trip Highlights in Tenerife&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;span style="white-space:pre;"&gt;&lt;/span&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;
+                            &lt;strong style="color: rgb(0,80,5);"&gt;Trip to Loro Parque &lt;/strong&gt; &lt;br /&gt; Our top tip is to visit the famous &lt;em&gt;Loro Parque&lt;/em&gt; or 'Loro Park. It is a 13.5-hectare zoo on the outskirts of Puerto de la Cruz in Tenerife, Spain where it houses an extensive and diverse reserve of animal and plant species. 
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(46,125,50);"&gt;Whale and Dolphin Watching Tour&amp;nbsp;&lt;br /&gt;&lt;/span&gt;&lt;/strong&gt; Another great option is to take boat excursion with almost guaranteed sightings of whales and dolphins. This is a day-long trip that includes lunch, island visits, fishing, and amazing views of ocean sceneries.
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(96,173,94);"&gt;Teide National Park Stargazing&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;Last, but not least you can take a stargazing trip to Teide National Park, the 3rd best place in the world to view stars and described by NASA as a window to the universe.
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;br /&gt;
+                &lt;p&gt;
+                        &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Climate&lt;/strong&gt;&lt;/span&gt;
+                &lt;/p&gt;
+          
+                &lt;table style="width:100%;height:150px;text-align:center;"&gt;
+                &lt;tbody&gt;
+                &lt;tr style="height:15%;background-color: rgb(96,173,94);"&gt;
+                    &lt;td style="width:473px;text-align:center; font-size:medium; color: rgb(255,255,255);" colspan="14"&gt;&lt;strong&gt;Climate Data for &lt;a href="https://en.wikipedia.org/wiki/Santa_Cruz_de_Tenerife" target="_blank"&gt;Santa Cruz de Tenerife&lt;/a&gt;&lt;/strong&gt; 
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:9.33333%;"&gt;
+                    &lt;td style="width:230px;"&gt;
+                        &lt;span style="font-size:small; color: rgb(46,125,50);"&gt;
+                            &lt;strong&gt;Month&lt;/strong&gt;
+                        &lt;/span&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jan&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Feb&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Mar&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Apr&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;May&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jun&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jul&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Aug&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Sep&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Oct&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Nov&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Dec&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Year&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:9.33333%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtDaily mean &amp;deg;C (&amp;deg;F)&lt;/strong&gt&lt;/td&gt;
+                    &lt;td style=""&gt;18.2&lt;br /&gt;(64.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;18.3&lt;br /&gt;(64.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.0&lt;br /&gt;(66.2)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.7&lt;br /&gt;(67.5)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.0&lt;br /&gt;(69.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;22.9&lt;br /&gt;(73.2)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;25.0&lt;br /&gt;(77.0)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;25.5&lt;br /&gt;(77.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;24.9&lt;br /&gt;(76.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;23.4&lt;br /&gt;(74.1)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.3&lt;br /&gt;(70.3)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.4&lt;br /&gt;(66.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.5&lt;br /&gt;(70.7)&lt;br /&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;/tbody&gt;
+                &lt;/table&gt;
+                &lt;p&gt;
+                &lt;em&gt;* The data used in this demo is taken from &lt;a href="https://wikipedia.com" target="_blank"&gt;wikipedia.com&lt;/a&gt;.&lt;/em&gt;&lt;br /&gt;
+                &lt;em&gt;** The displayed photos are sourced from &lt;a href="https://pixabay.com" target="_blank"&gt;pixabay.com&lt;/a&gt;&lt;/em&gt;
+                &lt;/p&gt;
+        </textarea>
+            <!-- Load Pako ZLIB library to enable PDF compression -->
+            <script src="https://kendo.cdn.telerik.com/2017.3.913/js/pako_deflate.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    // create Editor from textarea HTML element with default set of tools
+                    $("#editor11").kendoEditor({
+                        tools: ["pdf"],
+                        stylesheets: ["../content/web/editor/pdf-export-styles.css"],
+                        pdf: {
+                            fileName: "NewDocument.pdf",
+                            proxyURL: "https://demos.telerik.com/kendo-ui/service/export",
+                            paperSize: "a4",
+                            margin: {
+                                bottom: 20,
+                                left: 20,
+                                right: 20,
+                                top: 20
+                            }
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </div>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Paste clean-up options:</h4>
+            <ul class="options" id="pasteCleanupList12">
+                <li>
+                    <input type="checkbox" class="paste-option" id="allCheck" value="all" />
+                    <label for="allCheck">all</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="paste-option" id="cssCheck" value="css" />
+                    <label for="cssCheck">css</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="paste-option" id="keepNewLinesCheck" value="keepNewLines" />
+                    <label for="keepNewLinesCheck" value="">keepNewLines</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="paste-option" id="msAllFormattingCheck" value="msAllFormatting" />
+                    <label for="msAllFormattingCheck" value="">msAllFormatting</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="paste-option" id="msConvertListsCheck" value="msConvertLists" checked="checked" />
+                    <label for="msConvertListsCheck" value="">msConvertLists</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="paste-option" id="msTagsCheck" value="msTags" checked="checked" />
+                    <label for="msTagsCheck" value="">msTags</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="paste-option" id="noneCheck" value="none" />
+                    <label for="noneCheck" value="">none</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="paste-option" id="spanCheck" value="span" />
+                    <label for="spanCheck" value="">span</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <textarea id="editor12" rows="10" cols="30" style="width:100%; height:470px" aria-label="editor">
+            &lt;br /&gt;
+            &lt;p style="text-align:center;"&gt;
+                &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:large;"&gt;&lt;strong&gt;One of the Most Beautiful Islands on Earth - Tenerife&lt;/strong&gt;
+                &lt;/span&gt;
+            &lt;/p&gt;
+            &lt;p&gt;
+                &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Overview&lt;/strong&gt;
+                &lt;/span&gt;
+            &lt;/p&gt;
+            &lt;p style="font-size: small;"&gt;
+                &lt;strong&gt;Tenerife &lt;/strong&gt;is the largest and most populated island of the eight &lt;a href="https://en.wikipedia.org/wiki/Canary_Islands" target="_blank"&gt;Canary Islands&lt;/a&gt;. It is also the most populated island of &lt;strong&gt;Spain&lt;/strong&gt;, with a land area of 2,034.38 square kilometers (785 sq mi) and 904,713 inhabitants, 43% of the total population of the &lt;strong&gt;Canary Islands&lt;/strong&gt;.&amp;nbsp;The archipelago's beaches, climate, and important natural attractions make it a major tourist destination with over 12 million visitors per year.
+            &lt;/p&gt;
+            &lt;br /&gt;
+            &lt;img src="../content/web/editor/tenerife.png" style="float: right;" alt="" width="350" height="206" /&gt;
+
+            &lt;p&gt;&lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;
+                &lt;strong&gt;Trip Highlights in Tenerife&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;span style="white-space:pre;"&gt;&lt;/span&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;
+                        &lt;strong style="color: rgb(0,80,5);"&gt;Trip to Loro Parque &lt;/strong&gt; &lt;br /&gt; Our top tip is to visit the famous &lt;em&gt;Loro Parque&lt;/em&gt; or 'Loro Park. It is a 13.5-hectare zoo on the outskirts of Puerto de la Cruz in Tenerife, Spain where it houses an extensive and diverse reserve of animal and plant species. 
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;strong&gt;&lt;span style="color: rgb(46,125,50);"&gt;Whale and Dolphin Watching Tour&amp;nbsp;&lt;br /&gt;&lt;/span&gt;&lt;/strong&gt; Another great option is to take boat excursion with almost guaranteed sightings of whales and dolphins. This is a day-long trip that includes lunch, island visits, fishing, and amazing views of ocean sceneries.
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;strong&gt;&lt;span style="color: rgb(96,173,94);"&gt;Teide National Park Stargazing&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;Last, but not least you can take a stargazing trip to Teide National Park, the 3rd best place in the world to view stars and described by NASA as a window to the universe.
+                        &lt;br /&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            </textarea>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                // create Editor from textarea HTML element with default set of tools
+                var editor = $("#editor12").kendoEditor({
+                    stylesheets: [
+                        "../content/shared/styles/editor.css",
+                    ],
+                    pasteCleanup: {
+                        all: false,
+                        css: false,
+                        keepNewLines: false,
+                        msAllFormatting: false,
+                        msConvertLists: true,
+                        msTags: true,
+                        none: false,
+                        span: false
+                    }
+                }).getKendoEditor();
+
+                $(".paste-option:checkbox").on("click", function () {
+                    editor.options.pasteCleanup[this.value] = this.checked;
+                });
+
+            });
+        </script>
+        <style>
+            #pasteCleanupList {
+                width: 50em;
+            }
+
+            #pasteCleanupList li {
+                float: left;
+                width: 15em;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <style>
+                .k-editor p {
+                    margin: 1em 0px;
+                }
+
+                .k-editor *[contenteditable='false'] {
+                    opacity: 0.5;
+                    cursor: default;
+                }
+
+
+                .k-editor .selected-immutable {
+                    background: rgba(128, 128, 128, 0.1);
+                }
+            </style>
+
+            <div id="editor13" rows="10" cols="30" style="height:400px">
+                <div class="headerField" contenteditable="false" style="font-size:32px; color: #078e23; text-align:center;">
+                    <p>Company Name</p>
+                    <hr />
+                </div>
+
+                <div class="addressField" contenteditable="false" style="width: 100%; text-align:right;">
+                    1010 Street,<br />
+                    City,<br />
+                    Country, <br />
+                    +000 000 555 666<br />
+                </div>
+
+                <p><span contenteditable="false">Dear </span> Your Name,</p>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel nunc velit. Proin dictum ac justo eu varius. Fusce vehicula, erat ac sagittis consequat, leo libero tristique dolor, et maximus eros ante quis quam. Aliquam erat volutpat. Cras nec mattis dui, sed rhoncus magna. Maecenas eget tristique nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec nisl elementum, rhoncus ligula at, fringilla odio. Curabitur semper ultricies tristique. Donec dapibus placerat dui nec fermentum. Nunc non cursus nibh. Nulla rhoncus vitae erat id facilisis.
+                </p>
+                <p>
+                    Aenean lacinia eros eu interdum placerat. Pellentesque elit tellus, condimentum eu nulla quis, iaculis gravida sapien. Aliquam elementum dapibus eros sed pretium. Praesent porta odio magna, nec efficitur arcu pharetra a. Nulla lacus orci, pretium eu pellentesque id, ornare eget turpis. Quisque condimentum quam ante, ornare cursus nisl suscipit ac. Nulla non leo semper, finibus mauris eu, interdum ex.
+                </p>
+
+                <p contenteditable="false">Best regards,</p>
+                <p>Your Name</p>
+                <div class="addressField" contenteditable="false" style="width: 100%; text-align:left;">
+                    1010 Street,<br />
+                    City,<br />
+                    Country, <br />
+                    +000 000 555 666<br />
+                </div>
+            </div>
+
+            <script>
+                $(document).ready(function () {
+                    $("#editor13").kendoEditor({
+                        immutables: {
+                            serialization: function (node) {
+                                $("[contenteditable='false']", editor.body).removeClass("selected-immutable");
+                                var immutableName = node.className || node.nodeName.toLowerCase();
+                                var textAlign = node.style.textAlign;
+                                var result = textAlign ?
+                                    kendo.format("<{0} style='text-align:{1};'></{0}>", immutableName, textAlign) :
+                                    kendo.format("<{0}></{0}>", immutableName);
+
+                                return result;
+                            },
+                            deserialization: function (node, immutable) {
+                                immutable.style.textAlign = node.style.textAlign;
+                            }
+                        },
+                        select: function (e) {
+                            var editor = e.sender;
+                            var selection = e.sender.getSelection();
+                            var selectedNode = selection.anchorNode;
+
+                            $("[contenteditable='false']", editor.body).removeClass("selected-immutable");
+                            $(selectedNode).closest("[contenteditable='false']").addClass("selected-immutable");
+                        },
+                        serialization: {
+                            custom: function (html) {
+                                return html.replace(/selected-immutable/, "");
+                            }
+                        },
+                        tools: ["bold",
+                            "italic",
+                            "underline",
+                            "justifyLeft",
+                            "justifyCenter",
+                            "justifyRight",
+                            "justifyFull",
+                            "indent",
+                            "outdent",
+                            "createLink",
+                            "unlink",
+                            "createTable",
+                            "addRowAbove",
+                            "addRowBelow",
+                            "addColumnLeft",
+                            "addColumnRight",
+                            "deleteRow",
+                            "deleteColumn",
+                            "viewHtml"]
+                    });
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <textarea id="editor14" rows="10" cols="30" style="width:100%; height:470px" aria-label="editor">
+                &lt;br /&gt;
+                &lt;p style="text-align:center;"&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:large;"&gt;&lt;strong&gt;One of the Most Beautiful Islands on Earth - Tenerife&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Overview&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p style="font-size: small;"&gt;
+                    &lt;strong&gt;Tenerife &lt;/strong&gt;is the largest and most populated island of the eight &lt;a href="https://en.wikipedia.org/wiki/Canary_Islands" target="_blank"&gt;Canary Islands&lt;/a&gt;. It is also the most populated island of &lt;strong&gt;Spain&lt;/strong&gt;, with a land area of 2,034.38 square kilometers (785 sq mi) and 904,713 inhabitants, 43% of the total population of the &lt;strong&gt;Canary Islands&lt;/strong&gt;.&amp;nbsp;The archipelago's beaches, climate, and important natural attractions make it a major tourist destination with over 12 million visitors per year.
+                &lt;/p&gt;
+                &lt;br /&gt;
+                &lt;img src="../content/web/editor/tenerife.png" style="float: right;" alt="" width="350" height="206" /&gt;
+
+                &lt;p&gt;&lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;
+                    &lt;strong&gt;Trip Highlights in Tenerife&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;span style="white-space:pre;"&gt;&lt;/span&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;
+                            &lt;strong style="color: rgb(0,80,5);"&gt;Trip to Loro Parque &lt;/strong&gt; &lt;br /&gt; Our top tip is to visit the famous &lt;em&gt;Loro Parque&lt;/em&gt; or 'Loro Park. It is a 13.5-hectare zoo on the outskirts of Puerto de la Cruz in Tenerife, Spain where it houses an extensive and diverse reserve of animal and plant species. 
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(46,125,50);"&gt;Whale and Dolphin Watching Tour&amp;nbsp;&lt;br /&gt;&lt;/span&gt;&lt;/strong&gt; Another great option is to take boat excursion with almost guaranteed sightings of whales and dolphins. This is a day-long trip that includes lunch, island visits, fishing, and amazing views of ocean sceneries.
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(96,173,94);"&gt;Teide National Park Stargazing&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;Last, but not least you can take a stargazing trip to Teide National Park, the 3rd best place in the world to view stars and described by NASA as a window to the universe.
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+        </textarea>
+        </div>
+
+        <script>
+            function onChange(e) {
+                kendoConsole.log("value change");
+            }
+            function onSelect(e) {
+                kendoConsole.log("selection change");
+            }
+            function onExecute(e) {
+                kendoConsole.log("command :: " + e.name);
+            }
+            function onPaste(e) {
+                kendoConsole.log("paste :: " + kendo.htmlEncode(e.html));
+            }
+
+            $("#editor14").kendoEditor({
+                resizable: {
+                    content: false,
+                    toolbar: true
+                },
+                stylesheets: [
+                    "../content/shared/styles/editor.css",
+                ],
+                change: onChange,
+                select: onSelect,
+                execute: onExecute,
+                paste: onPaste
+            });
+        </script>
+    </div>
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+    
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Get value</h4>
+            <ul class="options">
+                <li>
+                    <button id="get">Get value</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Set value</h4>
+            <ul class="options">
+                <li>
+                    <textarea id="value" style="width: 200px;" rows="4" cols="20">new value</textarea>
+                </li>
+                <li>
+                    <button id="set">Set value</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="example">
+        <div class="demo-section wide">
+            <textarea id="editor15" rows="10" cols="30" style="width:100%; height:810px" aria-label="editor">
+            &lt;br /&gt;
+            &lt;p style="text-align:center;"&gt;
+                &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:large;"&gt;&lt;strong&gt;One of the Most Beautiful Islands on Earth - Tenerife&lt;/strong&gt;
+                &lt;/span&gt;
+            &lt;/p&gt;
+            &lt;p&gt;
+                &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Overview&lt;/strong&gt;
+                &lt;/span&gt;
+            &lt;/p&gt;
+            &lt;p style="font-size: small;"&gt;
+                &lt;strong&gt;Tenerife &lt;/strong&gt;is the largest and most populated island of the eight &lt;a href="https://en.wikipedia.org/wiki/Canary_Islands" target="_blank"&gt;Canary Islands&lt;/a&gt;. It is also the most populated island of &lt;strong&gt;Spain&lt;/strong&gt;, with a land area of 2,034.38 square kilometers (785 sq mi) and 904,713 inhabitants, 43% of the total population of the &lt;strong&gt;Canary Islands&lt;/strong&gt;.&amp;nbsp;The archipelago's beaches, climate, and important natural attractions make it a major tourist destination with over 12 million visitors per year.
+            &lt;/p&gt;
+            &lt;br /&gt;
+            &lt;img src="../content/web/editor/tenerife.png" style="float: right;" alt="" width="350" height="206" /&gt;
+
+            &lt;p&gt;&lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;
+                &lt;strong&gt;Trip Highlights in Tenerife&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;span style="white-space:pre;"&gt;&lt;/span&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;
+                        &lt;strong style="color: rgb(0,80,5);"&gt;Trip to Loro Parque &lt;/strong&gt; &lt;br /&gt; Our top tip is to visit the famous &lt;em&gt;Loro Parque&lt;/em&gt; or 'Loro Park. It is a 13.5-hectare zoo on the outskirts of Puerto de la Cruz in Tenerife, Spain where it houses an extensive and diverse reserve of animal and plant species. 
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;strong&gt;&lt;span style="color: rgb(46,125,50);"&gt;Whale and Dolphin Watching Tour&amp;nbsp;&lt;br /&gt;&lt;/span&gt;&lt;/strong&gt; Another great option is to take boat excursion with almost guaranteed sightings of whales and dolphins. This is a day-long trip that includes lunch, island visits, fishing, and amazing views of ocean sceneries.
+                        &lt;br /&gt;
+                        &lt;br /&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;strong&gt;&lt;span style="color: rgb(96,173,94);"&gt;Teide National Park Stargazing&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;Last, but not least you can take a stargazing trip to Teide National Park, the 3rd best place in the world to view stars and described by NASA as a window to the universe.
+                        &lt;br /&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;br /&gt;
+            &lt;p&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Climate&lt;/strong&gt;&lt;/span&gt;
+            &lt;/p&gt;
+
+            &lt;table style="width:100%;height:225px;text-align:center;"&gt;
+            &lt;tbody&gt;
+            &lt;tr style="height:20%;background-color: rgb(96,173,94);"&gt;
+                &lt;td style="width:473px;text-align:center; font-size:medium; color: rgb(255,255,255);" colspan="14"&gt;&lt;strong&gt;Climate Data for &lt;a href="https://en.wikipedia.org/wiki/Santa_Cruz_de_Tenerife" target="_blank"&gt;Santa Cruz de Tenerife&lt;/a&gt;&lt;/strong&gt; 
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr style="height:9.33333%;"&gt;
+                &lt;td style="width:230px;"&gt;
+                    &lt;span style="font-size:small; color: rgb(46,125,50);"&gt;
+                        &lt;strong&gt;Month&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/td&gt;
+                &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jan&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Feb&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Mar&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Apr&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;May&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jun&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jul&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Aug&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Sep&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Oct&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Nov&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Dec&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Year&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr style="height:23%;"&gt;
+                &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtDaily mean &amp;deg;C (&amp;deg;F)&lt;/strong&gt&lt;/td&gt;
+                &lt;td style=""&gt;18.2&lt;br /&gt;(64.8)&lt;br /&gt;&lt;/td&gt;
+                &lt;td style=""&gt;18.3&lt;br /&gt;(64.9)&lt;br /&gt;&lt;/td&gt;
+                &lt;td style=""&gt;19.0&lt;br /&gt;(66.2)&lt;br /&gt;&lt;/td&gt;
+                &lt;td style=""&gt;19.7&lt;br /&gt;(67.5)&lt;br /&gt;&lt;/td&gt;
+                &lt;td style=""&gt;21.0&lt;br /&gt;(69.8)&lt;br /&gt;&lt;/td&gt;
+                &lt;td style=""&gt;22.9&lt;br /&gt;(73.2)&lt;br /&gt;&lt;/td&gt;
+                &lt;td style=""&gt;25.0&lt;br /&gt;(77.0)&lt;br /&gt;&lt;/td&gt;
+                &lt;td style=""&gt;25.5&lt;br /&gt;(77.9)&lt;br /&gt;&lt;/td&gt;
+                &lt;td style=""&gt;24.9&lt;br /&gt;(76.8)&lt;br /&gt;&lt;/td&gt;
+                &lt;td style=""&gt;23.4&lt;br /&gt;(74.1)&lt;br /&gt;&lt;/td&gt;
+                &lt;td style=""&gt;21.3&lt;br /&gt;(70.3)&lt;br /&gt;&lt;/td&gt;
+                &lt;td style=""&gt;19.4&lt;br /&gt;(66.9)&lt;br /&gt;&lt;/td&gt;
+                &lt;td style=""&gt;21.5&lt;br /&gt;(70.7)&lt;br /&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr style="height:23%;"&gt;
+                &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtAverage rainy days (&amp;ge; 1.0 mm)&lt;/strong&gt&lt;/td&gt;
+                &lt;td style=""&gt;8.0&lt;/td&gt;
+                &lt;td style=""&gt;7.2&lt;/td&gt;
+                &lt;td style=""&gt;6.9&lt;/td&gt;
+                &lt;td style=""&gt;5.5 &lt;/td&gt;
+                &lt;td style=""&gt;2.9&lt;/td&gt;
+                &lt;td style=""&gt;0.9&lt;/td&gt;
+                &lt;td style=""&gt;0.2&lt;/td&gt;
+                &lt;td style=""&gt;0.8 &lt;/td&gt;
+                &lt;td style=""&gt;2.7&lt;/td&gt;
+                &lt;td style=""&gt;6.1&lt;/td&gt;
+                &lt;td style=""&gt;8.8&lt;/td&gt;
+                &lt;td style=""&gt;9.4&lt;/td&gt;
+                &lt;td style=""&gt;59.4&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr style="height:23%;"&gt;
+                &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtMean monthly &lt;a href="https://en.wikipedia.org/wiki/Sunshine_duration" target="_blank"&gt;sunshine hours&lt;/strong&gt&lt;/a&gt;&lt;br /&gt;&lt;/td&gt;
+                &lt;td style=""&gt;178&lt;/td&gt;
+                &lt;td style=""&gt;186&lt;/td&gt;
+                &lt;td style=""&gt;221&lt;/td&gt;
+                &lt;td style=""&gt;237&lt;/td&gt;
+                &lt;td style=""&gt;282&lt;/td&gt;
+                &lt;td style=""&gt;306&lt;/td&gt;
+                &lt;td style=""&gt;337&lt;/td&gt;
+                &lt;td style=""&gt;319&lt;/td&gt;
+                &lt;td style=""&gt;253&lt;/td&gt;
+                &lt;td style=""&gt;222&lt;/td&gt;
+                &lt;td style=""&gt;178&lt;/td&gt;
+                &lt;td style=""&gt;168&lt;/td&gt;
+                &lt;td style=""&gt;2,887&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;p&gt;
+            &lt;em&gt;* The data used in this demo is taken from &lt;a href="https://wikipedia.com" target="_blank"&gt;wikipedia.com&lt;/a&gt;.&lt;/em&gt;&lt;br /&gt;
+            &lt;em&gt;** The displayed photos are sourced from &lt;a href="https://pixabay.com" target="_blank"&gt;pixabay.com&lt;/a&gt;&lt;/em&gt;
+            &lt;/p&gt;
+    </textarea>
+
+            <script>
+                $(document).ready(function () {
+                    $("#editor15").kendoEditor({
+                        stylesheets: [
+                            "../content/shared/styles/editor.css",
+                        ],
+                        resizable: {
+                            content: false,
+                            toolbar: true
+                        }
+                    });
+
+                    var editor = $("#editor15").data("kendoEditor");
+
+                    var setValue = function () {
+                        editor.value($("#value").val());
+                    };
+
+                    $("#get").click(function () {
+                        alert(editor.value());
+                    });
+
+                    $("#set").click(setValue);
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="example">
+        <div class="k-rtl">
+            <div id="example" class="demo-section wide">
+                <textarea id="editor16" rows="10" cols="30" style="width:100%; height:810px" aria-label="editor">
+                    &lt;br /&gt;
+                    &lt;p style="text-align:center;"&gt;
+                        &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:large;"&gt;&lt;strong&gt;One of the Most Beautiful Islands on Earth - Tenerife&lt;/strong&gt;
+                        &lt;/span&gt;
+                    &lt;/p&gt;
+                    &lt;p&gt;
+                        &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Overview&lt;/strong&gt;
+                        &lt;/span&gt;
+                    &lt;/p&gt;
+                    &lt;p style="font-size: small;"&gt;
+                        &lt;strong&gt;Tenerife &lt;/strong&gt;is the largest and most populated island of the eight &lt;a href="https://en.wikipedia.org/wiki/Canary_Islands" target="_blank"&gt;Canary Islands&lt;/a&gt;. It is also the most populated island of &lt;strong&gt;Spain&lt;/strong&gt;, with a land area of 2,034.38 square kilometers (785 sq mi) and 904,713 inhabitants, 43% of the total population of the &lt;strong&gt;Canary Islands&lt;/strong&gt;.&amp;nbsp;The archipelago's beaches, climate, and important natural attractions make it a major tourist destination with over 12 million visitors per year.
+                    &lt;/p&gt;
+                    &lt;br /&gt;
+                    &lt;img src="../content/web/editor/tenerife.png" style="float: left;" alt="" width="350" height="206" /&gt;
+
+                    &lt;p&gt;&lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;
+                        &lt;strong&gt;Trip Highlights in Tenerife&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;span style="white-space:pre;"&gt;&lt;/span&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;
+                                &lt;strong style="color: rgb(0,80,5);"&gt;Trip to Loro Parque &lt;/strong&gt; &lt;br /&gt; Our top tip is to visit the famous &lt;em&gt;Loro Parque&lt;/em&gt; or 'Loro Park. It is a 13.5-hectare zoo on the outskirts of Puerto de la Cruz in Tenerife, Spain where it houses an extensive and diverse reserve of animal and plant species. 
+                                &lt;br /&gt;
+                                &lt;br /&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;strong&gt;&lt;span style="color: rgb(46,125,50);"&gt;Whale and Dolphin Watching Tour&amp;nbsp;&lt;br /&gt;&lt;/span&gt;&lt;/strong&gt; Another great option is to take boat excursion with almost guaranteed sightings of whales and dolphins. This is a day-long trip that includes lunch, island visits, fishing, and amazing views of ocean sceneries.
+                                &lt;br /&gt;
+                                &lt;br /&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;strong&gt;&lt;span style="color: rgb(96,173,94);"&gt;Teide National Park Stargazing&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;Last, but not least you can take a stargazing trip to Teide National Park, the 3rd best place in the world to view stars and described by NASA as a window to the universe.
+                                &lt;br /&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;br /&gt;
+                    &lt;p&gt;
+                            &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Climate&lt;/strong&gt;&lt;/span&gt;
+                    &lt;/p&gt;
+          
+                    &lt;table style="width:100%;height:225px;text-align:center;"&gt;
+                    &lt;tbody&gt;
+                    &lt;tr style="height:20%;background-color: rgb(96,173,94);"&gt;
+                        &lt;td style="width:473px;text-align:center; font-size:medium; color: rgb(255,255,255);" colspan="14"&gt;&lt;strong&gt;Climate Data for &lt;a href="https://en.wikipedia.org/wiki/Santa_Cruz_de_Tenerife" target="_blank"&gt;Santa Cruz de Tenerife&lt;/a&gt;&lt;/strong&gt; 
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr style="height:9.33333%;"&gt;
+                        &lt;td style="width:230px;"&gt;
+                            &lt;span style="font-size:small; color: rgb(46,125,50);"&gt;
+                                &lt;strong&gt;Month&lt;/strong&gt;
+                            &lt;/span&gt;
+                        &lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jan&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Feb&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Mar&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Apr&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;May&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jun&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jul&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Aug&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Sep&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Oct&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Nov&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Dec&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Year&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr style="height:23%;"&gt;
+                        &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtDaily mean &amp;deg;C (&amp;deg;F)&lt;/strong&gt&lt;/td&gt;
+                        &lt;td style=""&gt;18.2&lt;br /&gt;(64.8)&lt;br /&gt;&lt;/td&gt;
+                        &lt;td style=""&gt;18.3&lt;br /&gt;(64.9)&lt;br /&gt;&lt;/td&gt;
+                        &lt;td style=""&gt;19.0&lt;br /&gt;(66.2)&lt;br /&gt;&lt;/td&gt;
+                        &lt;td style=""&gt;19.7&lt;br /&gt;(67.5)&lt;br /&gt;&lt;/td&gt;
+                        &lt;td style=""&gt;21.0&lt;br /&gt;(69.8)&lt;br /&gt;&lt;/td&gt;
+                        &lt;td style=""&gt;22.9&lt;br /&gt;(73.2)&lt;br /&gt;&lt;/td&gt;
+                        &lt;td style=""&gt;25.0&lt;br /&gt;(77.0)&lt;br /&gt;&lt;/td&gt;
+                        &lt;td style=""&gt;25.5&lt;br /&gt;(77.9)&lt;br /&gt;&lt;/td&gt;
+                        &lt;td style=""&gt;24.9&lt;br /&gt;(76.8)&lt;br /&gt;&lt;/td&gt;
+                        &lt;td style=""&gt;23.4&lt;br /&gt;(74.1)&lt;br /&gt;&lt;/td&gt;
+                        &lt;td style=""&gt;21.3&lt;br /&gt;(70.3)&lt;br /&gt;&lt;/td&gt;
+                        &lt;td style=""&gt;19.4&lt;br /&gt;(66.9)&lt;br /&gt;&lt;/td&gt;
+                        &lt;td style=""&gt;21.5&lt;br /&gt;(70.7)&lt;br /&gt;&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr style="height:23%;"&gt;
+                        &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtAverage rainy days (&amp;ge; 1.0 mm)&lt;/strong&gt&lt;/td&gt;
+                        &lt;td style=""&gt;8.0&lt;/td&gt;
+                        &lt;td style=""&gt;7.2&lt;/td&gt;
+                        &lt;td style=""&gt;6.9&lt;/td&gt;
+                        &lt;td style=""&gt;5.5 &lt;/td&gt;
+                        &lt;td style=""&gt;2.9&lt;/td&gt;
+                        &lt;td style=""&gt;0.9&lt;/td&gt;
+                        &lt;td style=""&gt;0.2&lt;/td&gt;
+                        &lt;td style=""&gt;0.8 &lt;/td&gt;
+                        &lt;td style=""&gt;2.7&lt;/td&gt;
+                        &lt;td style=""&gt;6.1&lt;/td&gt;
+                        &lt;td style=""&gt;8.8&lt;/td&gt;
+                        &lt;td style=""&gt;9.4&lt;/td&gt;
+                        &lt;td style=""&gt;59.4&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;tr style="height:23%;"&gt;
+                        &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtMean monthly &lt;a href="https://en.wikipedia.org/wiki/Sunshine_duration" target="_blank"&gt;sunshine hours&lt;/strong&gt&lt;/a&gt;&lt;br /&gt;&lt;/td&gt;
+                        &lt;td style=""&gt;178&lt;/td&gt;
+                        &lt;td style=""&gt;186&lt;/td&gt;
+                        &lt;td style=""&gt;221&lt;/td&gt;
+                        &lt;td style=""&gt;237&lt;/td&gt;
+                        &lt;td style=""&gt;282&lt;/td&gt;
+                        &lt;td style=""&gt;306&lt;/td&gt;
+                        &lt;td style=""&gt;337&lt;/td&gt;
+                        &lt;td style=""&gt;319&lt;/td&gt;
+                        &lt;td style=""&gt;253&lt;/td&gt;
+                        &lt;td style=""&gt;222&lt;/td&gt;
+                        &lt;td style=""&gt;178&lt;/td&gt;
+                        &lt;td style=""&gt;168&lt;/td&gt;
+                        &lt;td style=""&gt;2,887&lt;/td&gt;
+                    &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                    &lt;/table&gt;
+                    &lt;p&gt;
+                    &lt;em&gt;* The data used in this demo is taken from &lt;a href="https://wikipedia.com" target="_blank"&gt;wikipedia.com&lt;/a&gt;.&lt;/em&gt;&lt;br /&gt;
+                    &lt;em&gt;** The displayed photos are sourced from &lt;a href="https://pixabay.com" target="_blank"&gt;pixabay.com&lt;/a&gt;&lt;/em&gt;
+                    &lt;/p&gt;
+            </textarea>
+        </div>
+
+            <script>
+                $(document).ready(function() {
+                    // create Editor from textarea HTML element with default set of tools
+                    $("#editor16").kendoEditor({
+                        stylesheets: [
+                            "../content/shared/styles/editor.css",
+                        ]
+                    });
+                });
+            </script>
+        </div>
+    </div>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <label for="language">Choose language:</label>
+            <input id="language" value="en-US" />
+        </div>
+    </div>
+
+    <div id="example17">
+        <div class="demo-section wide">
+            <textarea id="editor17" rows="10" cols="30" style="width:100%;height:400px"></textarea>
+
+        <script>
+            function changeLanguage() {
+                kendo.ui.progress($("#editor17"), true);
+                var baseUrl = 'https://kendo.cdn.telerik.com/2022.3.1109/js/messages/kendo.messages.';
+                $.getScript(baseUrl + this.value() + ".min.js", function() {
+                    kendo.ui.progress($("#editor17"), false);
+                    createEditor();
+                });
+            }
+
+            $(document).ready(function() {
+                $("#language").kendoDropDownList({
+                    change: changeLanguage,
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    dataSource: [
+                        {text: "bg-BG"},
+                        {text: "zh-CN"},
+                        {text: "en-US"},
+                    ]
+                });
+
+                $("#language").data("kendoDropDownList").trigger("change");
+            });
+
+            function createEditor() {
+                var element = $("#editor17"),
+                    editor = element.data("kendoEditor");
+
+                if (editor) {
+                    wrapper = editor.wrapper;
+                    editor.destroy();
+                    wrapper.remove();
+                    element.appendTo($("#example17"));
+                }
+
+                element.kendoEditor({
+                    encoded: false,
+                    tools: [
+                        "bold",
+                        "italic",
+                        "underline",
+                        "strikethrough",
+                        "justifyLeft",
+                        "justifyCenter",
+                        "justifyRight",
+                        "justifyFull",
+                        "insertUnorderedList",
+                        "insertOrderedList",
+                        "indent",
+                        "outdent",
+                        "createLink",
+                        "unlink",
+                        "insertImage",
+                        "insertFile",
+                        "subscript",
+                        "superscript",
+                        "createTable",
+                        "addRowAbove",
+                        "addRowBelow",
+                        "addColumnLeft",
+                        "addColumnRight",
+                        "deleteRow",
+                        "deleteColumn",
+                        "viewHtml",
+                        "formatting",
+                        "cleanFormatting",
+                        "fontName",
+                        "fontSize",
+                        "foreColor",
+                        "backColor"
+                    ]
+                });
+            }
+
+            </script>
+        </div>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <textarea id="editor18" rows="10" cols="30" style="width:100%; height: 440px;">
+                &lt;br /&gt;
+                &lt;p style="text-align:center;"&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:large;"&gt;&lt;strong&gt;One of the Most Beautiful Islands on Earth - Tenerife&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Overview&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p style="font-size: small;"&gt;
+                    &lt;strong&gt;Tenerife &lt;/strong&gt;is the largest and most populated island of the eight &lt;a href="https://en.wikipedia.org/wiki/Canary_Islands" target="_blank"&gt;Canary Islands&lt;/a&gt;. It is also the most populated island of &lt;strong&gt;Spain&lt;/strong&gt;, with a land area of 2,034.38 square kilometers (785 sq mi) and 904,713 inhabitants, 43% of the total population of the &lt;strong&gt;Canary Islands&lt;/strong&gt;.&amp;nbsp;The archipelago's beaches, climate, and important natural attractions make it a major tourist destination with over 12 million visitors per year.
+                &lt;/p&gt;
+                &lt;br /&gt;
+
+                &lt;p&gt;&lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;
+                    &lt;strong&gt;Trip Highlights in Tenerife&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;span style="white-space:pre;"&gt;&lt;/span&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;
+                            &lt;strong style="color: rgb(0,80,5);"&gt;Trip to Loro Parque &lt;/strong&gt; &lt;br /&gt; Our top tip is to visit the famous &lt;em&gt;Loro Parque&lt;/em&gt; or 'Loro Park. It is a 13.5-hectare zoo on the outskirts of Puerto de la Cruz in Tenerife, Spain where it houses an extensive and diverse reserve of animal and plant species. 
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(46,125,50);"&gt;Whale and Dolphin Watching Tour&amp;nbsp;&lt;br /&gt;&lt;/span&gt;&lt;/strong&gt; Another great option is to take boat excursion with almost guaranteed sightings of whales and dolphins. This is a day-long trip that includes lunch, island visits, fishing, and amazing views of ocean sceneries.
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(96,173,94);"&gt;Teide National Park Stargazing&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;Last, but not least you can take a stargazing trip to Teide National Park, the 3rd best place in the world to view stars and described by NASA as a window to the universe.
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                </textarea>
+
+            <script>
+                $(document).ready(function () {
+                    // create Editor from textarea HTML element with default set of tools
+                    $("#editor18").kendoEditor({
+                        resizable: {
+                            content: false,
+                            toolbar: true
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</body>

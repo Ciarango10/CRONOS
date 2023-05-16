@@ -1,0 +1,524 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/radiogroup/index#">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div id="example">
+        <div class="demo-section">
+            <label class="label">How to get in touch?</label>
+            <div class="k-form-field-wrap">
+                <ul id="radiogroup"></ul>
+                <div class="k-form-hint">You won`t be receiving advertising materials.</div>
+            </div>            
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                // create RadioGroup from input HTML element
+                $("#radiogroup").kendoRadioGroup({
+                    items: ["Phone (SMS)", "E-mail", "None"],
+                    layout: "vertical",
+                    value: "Phone (SMS)"
+                });
+            });
+        </script>
+
+        <style>
+            .label {
+                font: normal 14px/16px Metric, Arial, Helvetica, sans-serif;
+                color: #656565;
+                display: inline-block;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+            }
+            .k-form-hint {
+                margin-top: 10px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Layout Settings</h4>
+                <ul class="options">
+                    <li>
+                        <label for="layout">Layout:</label>
+                        <input id="layout" name="layout" />
+                    </li>
+                    <li>
+                        <label for="labelPosition">Label position:</label>
+                        <input id="labelPosition" name="labelPosition" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <div>
+                <label for="radiogroup" class="label">Select language:</label>
+                <ul id="radiogroup2"></ul>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+
+                $("#layout").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "horizontal",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Horizontal", value: "horizontal" },
+                        { text: "Vertical", value: "vertical" }
+                    ]
+                });
+
+                $("#labelPosition").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "before",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Before", value: "before" },
+                        { text: "After", value: "after" }
+                    ]
+                });
+
+                var original = $("#radiogroup2").clone(true);
+
+                function onChange(e) {
+                    e.preventDefault();
+                    var radioGroup = $("#radiogroup2"),
+                        clone = original.clone(true);
+
+                    radioGroup.data("kendoRadioGroup");
+                    radioGroup.replaceWith(clone);
+                    initRadioGroup();
+                }
+
+                var initRadioGroup = function () {
+                    var layout = $("#layout").data("kendoDropDownList").value();
+                    var labelPosition = $("#labelPosition").data("kendoDropDownList").value();
+
+                    $("#radiogroup2").kendoRadioGroup({
+                        items: ["English", "German", "Italian", "Russian", "Spanish"],
+                        layout: layout,
+                        labelPosition: labelPosition,
+                        value: "Italian"
+                    }).data("kendoRadioGroup");
+                };
+
+                initRadioGroup();
+            });
+        </script>
+        <style>
+            .label {
+                font: normal 14px/16px Metric, Arial, Helvetica, sans-serif;
+                color: #656565;
+                display: inline-block;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+            }
+
+            .k-form-hint {
+                margin-top: 10px;
+            }
+
+            .k-radio-label {
+                width: 50px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <label class="label">How to get in touch?</label>
+            <div class="k-form-field-wrap">
+                <ul id="radiogroup3"></ul>
+                <div class="k-form-hint">You won`t be receiving advertising materials.</div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {           
+                $("#radiogroup3").kendoRadioGroup({
+                    items: ["Phone (SMS)", "E-mail", "None"],
+                    layout: "vertical",
+                    value: "Phone (SMS)",
+                    change: function (e) {
+                        kendoConsole.log("Change event fired! --> Old value: " + e.oldValue + " --> New value: " + e.newValue);
+                    },
+                    focus: function (e) {
+                        kendoConsole.log("Focused: " + $(e.target[0]).val());
+                    },
+                    select: function (e) {
+                        kendoConsole.log("Selected: " + $(e.target[0]).val());
+                    }
+                });
+            });
+        </script>
+
+        <style>
+            .label {
+                font: normal 14px/16px Metric, Arial, Helvetica, sans-serif;
+                color: #656565;
+                display: inline-block;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+            }
+
+            .k-form-hint {
+                margin-top: 10px;
+            }
+        </style>
+    </div>
+
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Enable / Disable RadioGroup</h4>
+                <ul class="options">
+                    <li>
+                        <button id="enableRadioGroup" type="button">Enable</button>
+                        <button id="disableRadioGroup" type="button">Disable</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="box-col">
+                <h4>Enable / Disable item</h4>
+                <ul class="options">
+                    <li>
+                        <input type="number" value="0" id="buttonIndexEnable" /> <button type="button" id="enableItem">Enable item at index</button>
+                    </li>
+                    <li>
+                        <input type="number" value="0" id="buttonIndexDisable" /> <button type="button" id="disableItem">Disable item at index</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="box-col">
+                <h4>Get items</h4>
+                <ul class="options">
+                    <li>
+                        <input type="number" value="0" id="inputGetItem" /><button id="buttonGetItem" type="button">Get item at index</button>
+                    </li>
+                    <li>
+                        <button id="getAllItems" type="button">Get all values</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Get/Set value</h4>
+                <ul class="options">
+                    <li>
+                        <input type="text" value="1" id="inputSetValue" /><button id="buttonSetValue" type="button">Set value</button>
+                    </li>
+                    <li>
+                        <button id="getValue" type="button">Get value</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <div id="dialog"></div>
+            <div>
+                <label for="radiogroup" class="label">Select country:</label>
+                <ul id="radiogroup4"></ul>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                var radioGroup = $("#radiogroup4").kendoRadioGroup({
+                    items: [
+                        {
+                            enabled: true,
+                            encoded: false,
+                            label: "Spain",
+                            value: "1"
+                        },
+                        {
+                            enabled: true,
+                            encoded: false,
+                            label: "<i> Italy </i>",
+                            value: "2"
+                        },
+                        {
+                            enabled: true,
+                            encoded: true,
+                            label: "Russia",
+                            value: "3"
+                        },
+                        {
+                            enabled: false,
+                            encoded: false,
+                            label: "Japan",
+                            value: "4"
+                        },
+                        {
+                            enabled: true,
+                            encoded: false,
+                            cssClass: "custom-class",
+                            label: "Portugal",
+                            value: "5"
+                        },
+                    ],
+                    layout: "vertical",
+                    value: "3"
+                }).data("kendoRadioGroup");
+
+                $("#buttonIndexEnable").kendoNumericTextBox({
+                    min: 0,
+                    decimal: 0,
+                    format: "n0",
+                    value: 0
+                });
+
+                $("#buttonIndexDisable").kendoNumericTextBox({
+                    min: 0,
+                    decimal: 0,
+                    format: "n0",
+                    value: 0
+                });
+
+                $("#inputGetItem").kendoNumericTextBox({
+                    min: 0,
+                    decimal: 0,
+                    format: "n0",
+                    value: 0
+                });
+
+                var dialog = $("#dialog").kendoDialog({
+                    visible: false,
+                    modal: false,
+                    width: "400px",
+                    content: ""
+                }).data("kendoDialog");
+
+                $("#enableRadioGroup").click(function () {
+                    radioGroup.enable(true);
+                });
+
+                $("#disableRadioGroup").click(function () {
+                    radioGroup.enable(false);
+                });
+
+                $("#enableItem").click(function () {
+                    radioGroup.enableItem(true, $("#buttonIndexEnable").val());
+                });
+
+                $("#disableItem").click(function () {
+                    radioGroup.enableItem(false, $("#buttonIndexDisable").val());
+                });
+
+                $("#buttonGetItem").click(function () {
+                    var index = $("#inputGetItem").val()
+                    var item = radioGroup.item(index);
+                    dialog.content("<strong>Item at index: </strong>" + index + " <strong> Value: </strong>" + $(item[0]).val());
+                    dialog.open();
+                });
+
+                $("#getValue").click(function () {
+                    dialog.content("<strong>RadioGroup value:</strong>" + radioGroup.value());
+                    dialog.open();
+                });
+
+                $("#buttonSetValue").click(function () {
+                    radioGroup.value($("#inputSetValue").val());
+                });
+
+                $("#getAllItems").click(function () {
+                    var items = radioGroup.items();
+                    var texts = []
+                    for (var i = 0; i < items.length; i++) {
+                        texts.push($(items[i]).val())
+                    }
+                    dialog.content("<strong>RadioGroup values:</strong>" + texts);
+                    dialog.open();
+                });
+            });
+        
+                    </script>
+        <style>
+            .label {
+                font: normal 14px/16px Metric, Arial, Helvetica, sans-serif;
+                color: #656565;
+                display: inline-block;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+            }
+
+            .custom-class {
+                font-weight: bold;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="k-rtl">
+            <div class="demo-section">
+                <div>
+                    <label for="radiogroup" class="label">Select language:</label>
+                    <ul id="radiogroup5"></ul>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#radiogroup5").kendoRadioGroup({
+                    items: ["English", "German", "Italian", "Russian", "Spanish"],
+                    layout: "vertical",
+                    value: "English"
+                });
+            });
+        </script>
+        <style>
+            .label {
+                font: normal 14px/16px Metric, Arial, Helvetica, sans-serif;
+                color: #656565;
+                display: inline-block;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+            }
+
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <div>
+                <label for="radiogroup" class="label">Select language:</label>
+                <ul id="radiogroup6"></ul>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#radiogroup6").kendoRadioGroup({
+                    items: ["English", "German", "Italian", "Russian", "Spanish"],
+                    layout: "vertical",
+                    value: "English"
+                });
+
+                $(document).on("keydown.examples", function (e) {
+                    if (e.altKey && e.keyCode == 87) {
+                        var radiogroup = $("#radiogroup").data("kendoRadioGroup");
+                        var item = radiogroup.item();
+                        $(item).focus()
+                    }
+                });
+            });
+        </script>
+        <style>
+            .label {
+                font: normal 14px/16px Metric, Arial, Helvetica, sans-serif;
+                color: #656565;
+                display: inline-block;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+            }
+        </style>
+    </div>
+
+    <div id="example7">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Configuration</h4>
+                <ul>
+                    <li><label><input type="checkbox" data-bind="checked: isEnabled"> Enable</label></li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Information</h4>
+                Kendo UI RadioGroup supports the
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a> bindings.
+            </div>
+        </div>
+        <div class="demo-section">
+            <div>
+                <label class="label">Select color:</label>
+                <ul data-role="radiogroup"
+                        data-layout="horizontal"
+                        data-input-name="radiogroup"
+                        data-label-position="before"
+                        data-items='[{ attributes: { "data-custom": "custom-attribute" }, cssClass: "green", enabled: true, encoded: false, label: "<b>Green</b>", value: "green" }, { label: "Blue", value: "blue", cssClass: "blue"},{ label:"Red", value: "red", cssClass: "red"} ]'
+                        data-bind="value: value, enabled: isEnabled,
+                    events: {
+                        select: onSelect,
+                        focus: onFocus,
+                        change: onChange
+                    }"></ul>
+            </div>
+
+            <script>
+                var viewModel = kendo.observable({
+                    value: "green",
+                    isEnabled: true,
+                    onSelect: function (e) {
+                        kendoConsole.log("Selected: " + $(e.target[0]).val());
+                    },
+                    onFocus: function (e) {
+                        kendoConsole.log("Focused: " + $(e.target[0]).val());
+                    },
+                    onChange: function (e) {
+                        kendoConsole.log("Change event fired! --> Old value: " + e.oldValue + " --> New value: " + e.newValue);
+                    }
+                });
+                kendo.bind($("#example7"), viewModel);
+            </script>
+            <style>
+                .label {
+                    font: normal 14px/16px Metric, Arial, Helvetica, sans-serif;
+                    color: #656565;
+                    display: inline-block;
+                    text-transform: uppercase;
+                    margin-bottom: 10px;
+                }           
+
+                .green {
+                    color: green;
+                }
+
+                .blue {
+                    color: blue;
+                }
+
+                .red {
+                    color: red;
+                }
+            </style>
+        </div>
+    </div>
+
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+</body>

@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Listado Sucursal</h1>
+
+@*<fieldset>
+    <legend>Datos Sucursal</legend>
+    <form method="post" id="frmSucursal" class="mb-3" enctype="multipart/form-data" >
+        <div class="row">
+            <div class="col-md-6">
+                <label>Id Sucursal</label>
+                <input type="text" readonly name="iidsucursal" class="form-control" />
+            </div>
+            <div class="col-md-6">
+                <label>Nombre</label>
+                <input type="text" name="nombre" class="form-control ob max-100 min-3 sl" />
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6">
+                <label>Direcciòn</label>
+                <textarea name="direccion" class="form-control ob max-200 min-5 slcenb"></textarea>
+            </div>
+
+            <div class="col-md-6">
+                <label>Suba una Foto</label>
+                <br />
+                <img id="imgFoto" width="100" class="ob" height="100" name="base64"  />
+                <br />
+                <input accept=".jpg,.png" id="fupFoto"  type="file" name="fotoEnviar" />
+            </div>
+
+        </div>
+    </form>
+    <button class="btn btn-primary" onclick="GuardarDatos()">Guardar</button>
+    <button class="btn btn-danger" onclick="LimpiarSucursal()">Limpiar</button>
+</fieldset>
+
+*@
+<div class="input-group mb-3 mt-3" id="divSucursalBusqueda">
+  <input type="text" class="form-control" id="txtnombrebusqueda"
+  placeholder="Ingrese nombre sucursal">
+  <button class="btn btn-primary" type="button" id="button-addon2" onclick="BuscarSucursal()">Buscar</button>
+  <button class="btn btn-danger" type="button" id="button-addon2" onclick="LimpiarListaSucursal()">Limpiar</button>
+</div>
+<div id="divTabla">
+
+</div>
+<script src="~/js/sweetalert.js"></script>
+<script src="~/js/generic.js"></script>
+<script src="~/js/sucursal.js"></script>
+
+

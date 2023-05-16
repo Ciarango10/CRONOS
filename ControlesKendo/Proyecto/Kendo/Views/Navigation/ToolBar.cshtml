@@ -1,0 +1,727 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/toolbar/index">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+     <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div id="example">
+        <div class="demo-section wide">
+            <div id="toolbar"></div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#toolbar").kendoToolBar({
+                    items: [
+                        { type: "button", text: "Button" },
+                        { type: "button", text: "Toggle Button", togglable: true },
+                        {
+                            type: "splitButton",
+                            text: "Insert",
+                            menuButtons: [
+                                { text: "Insert above", icon: "insert-up" },
+                                { text: "Insert between", icon: "insert-middle" },
+                                { text: "Insert below", icon: "insert-down" }
+                            ]
+                        },
+                        { type: "separator" },
+                        { template: "<label for='dropdown'>Format:</label>" },
+                        {
+                            template: "<input id='dropdown' style='width: 150px;' />",
+                            overflow: "never"
+                        },
+                        { type: "separator" },
+                        {
+                            type: "buttonGroup",
+                            buttons: [
+                                { icon: "align-left", text: "Left", togglable: true, group: "text-align" },
+                                { icon: "align-center", text: "Center", togglable: true, group: "text-align" },
+                                { icon: "align-right", text: "Right", togglable: true, group: "text-align" }
+                            ]
+                        },
+                        {
+                            type: "buttonGroup",
+                            buttons: [
+                                { icon: "bold", text: "Bold", togglable: true },
+                                { icon: "italic", text: "Italic", togglable: true },
+                                { icon: "underline", text: "Underline", togglable: true }
+                            ]
+                        },
+                        {
+                            type: "button",
+                            text: "Action",
+                            overflow: "always"
+                        },
+                        {
+                            type: "button",
+                            text: "Another Action",
+                            overflow: "always"
+                        },
+                        {
+                            type: "button",
+                            text: "Something else here",
+                            overflow: "always"
+                        }
+                    ]
+                });
+
+                $("#dropdown").kendoDropDownList({
+                    optionLabel: "Paragraph",
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    dataSource: [
+                        { text: "Heading 1", value: 1 },
+                        { text: "Heading 2", value: 2 },
+                        { text: "Heading 3", value: 3 },
+                        { text: "Title", value: 4 },
+                        { text: "Subtitle", value: 5 }
+                    ]
+                });
+            });
+        </script>
+
+    </div>
+
+    <div id="example">
+        <span id="undo" style="display:none" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md">Click here to open the window.</span>
+
+        <div id="window">
+            <div id="toolbar2"></div>
+            <div id="content">
+                <div class="demo-section">
+                    <ul>
+                        <li>
+                            <label>To:</label>
+                            <span class="k-textbox k-input k-input-md k-rounded-md k-input-solid" style="width: 570px;">
+                                <input id="to" type="text" class="k-input-inner" />
+                            </span>
+                        </li>
+                        <li>
+                            <label>Title:</label>
+                            <span class="k-textbox k-input k-input-md k-rounded-md k-input-solid" style="width: 570px;">
+                                <input id="title" type="text" class="k-input-inner" />
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#window").kendoWindow({
+                    resizable: true,
+                    width: 890,
+                    height: 200,
+                    minWidth: 430,
+                    maxWidth: 1200,
+                    title: "Message",
+                    close: function () {
+                        $("#undo").show();
+                    }
+                });
+
+                $("#undo").bind("click", function () {
+                    $("#window").data("kendoWindow").open();
+                    $("#undo").hide();
+                });
+
+                $("#toolbar2").kendoToolBar({
+                    items: [
+                        {
+                            template: "<img src='../content/web/toolbar/user.png' class='user-image' />",
+                            overflow: "never"
+                        },
+                        { type: "button", text: "Send", overflow: "never" },
+                        { type: "button", text: "Discard", overflow: "never" },
+                        { type: "separator" },
+                        {
+                            type: "splitButton",
+                            imageUrl: "../content/web/toolbar/save.png",
+                            text: "Save",
+                            menuButtons: [
+                                { imageUrl: "../content/web/toolbar/save.png", text: "Save as" },
+                                { imageUrl: "../content/web/toolbar/upload.png", text: "Upload to drive" }
+                            ]
+                        },
+                        {
+                            type: "splitButton",
+                            imageUrl: "../content/web/toolbar/reply.png",
+                            text: "Reply",
+                            menuButtons: [
+                                { imageUrl: "../content/web/toolbar/save.png", text: "Reply All" },
+                                { imageUrl: "../content/web/toolbar/forward.png", text: "Forward" },
+                                { imageUrl: "../content/web/toolbar/reply.png", text: "Reply & Delete" }
+                            ]
+                        },
+                        { type: "separator" },
+
+                        {
+                            template: "<span><label>Contacts:</label><input id='contacts' style='width: 150px;' /></span>",
+                            overflow: "never"
+                        },
+                        {
+                            template: "<div><label>Labels:</label><input id='labels' style='width: 150px;' /></div>",
+                            overflowTemplate: "<span></span>"
+                        },
+                        { type: "separator" },
+                        {
+                            type: "buttonGroup",
+                            buttons: [
+                                { imageUrl: "../content/web/toolbar/done.png", text: "Done", togglable: true, group: "category" },
+                                { imageUrl: "../content/web/toolbar/todo.png", text: "To Do", togglable: true, group: "category" },
+                                { imageUrl: "../content/web/toolbar/important.png", text: "Important", togglable: true, group: "category" }
+                            ]
+                        },
+                    ]
+                });
+
+                $("#contacts").kendoDropDownList({
+                    optionLabel: "Ann Devon",
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    dataSource: [
+                        { text: "Ana Trujillo", value: 1 },
+                        { text: "Antonio Moreno", value: 2 },
+                        { text: "Christina Berglund", value: 3 },
+                        { text: "Felipe Izquierdo", value: 4 }
+                    ]
+                });
+
+                $("#labels").kendoDropDownList({
+                    optionLabel: "Forums",
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    dataSource: [
+                        { text: "Follow up", value: 1 },
+                        { text: "Misc", value: 2 },
+                        { text: "Priority", value: 3 },
+                        { text: "Deleted Messages", value: 4 }
+                    ]
+                });
+
+                $("#masked").kendoNumericTextBox();
+
+            });
+        </script>
+
+        <style>
+            div.k-window-content {
+                padding: 0;
+            }
+
+            #toolbar {
+                border-width: 0 0 1px;
+            }
+
+            .user-image {
+                margin: 0 .5em;
+            }
+
+            #example {
+                height: 500px;
+            }
+
+                #example .box p {
+                    padding-bottom: 5px;
+                }
+
+            #content .demo-section {
+                margin: 0;
+                padding: 10px;
+                border-width: 0 0 1px 0;
+            }
+
+                #content .demo-section label {
+                    display: inline-block;
+                    width: 40px;
+                    text-align: right;
+                    line-height: 2.5em;
+                    vertical-align: middle;
+                }
+
+                #content .demo-section input {
+                    width: 80%;
+                }
+        </style>
+
+    </div>
+
+    <div id="example">
+
+        <div id="toolbar3"></div>
+
+        <script>
+            $(document).ready(function () {
+                $("#toolbar3").kendoToolBar({
+                    items: [
+                        {
+                            type: "button",
+                            id: "button1",
+                            text: "Button 1",
+                            click: buttonClickHandler
+                        },
+                        {
+                            type: "button",
+                            id: "button2",
+                            text: "Button 2",
+                            click: buttonClickHandler
+                        },
+                        { type: "separator" },
+                        {
+                            type: "button",
+                            id: "toggle1",
+                            text: "Toggle 1",
+                            togglable: true,
+                            toggle: buttonToggleHandler
+                        },
+                        {
+                            type: "button",
+                            id: "toggle1",
+                            text: "Toggle 2",
+                            togglable: true,
+                            toggle: buttonToggleHandler
+                        },
+                        { type: "separator" },
+                        {
+                            type: "splitButton",
+                            id: "mainButton",
+                            text: "Split Button",
+                            click: splitButtonClickHandler,
+                            menuButtons: [
+                                { text: "Action 1", id: "action1" },
+                                { text: "Action 2", id: "action2" },
+                                { text: "Action 3", id: "action3" }
+                            ]
+                        },
+                        { type: "separator" },
+                        {
+                            type: "buttonGroup",
+                            buttons: [
+                                { text: "Radio 1", id: "radio1", togglable: true, group: "radio", toggle: buttonToggleHandler },
+                                { text: "Radio 2", id: "radio2", togglable: true, group: "radio", toggle: buttonToggleHandler },
+                                { text: "Radio 3", id: "radio3", togglable: true, group: "radio", toggle: buttonToggleHandler }
+                            ]
+                        },
+                        {
+                            type: "button",
+                            id: "overflowButton",
+                            text: "Overflow button",
+                            overflow: "always"
+                        }
+                    ],
+                    click: onClick,
+                    toggle: onToggle,
+                    overflowOpen: onOverflowOpen,
+                    overflowClose: onOverflowClose,
+                    open: onOpen,
+                    close: onClose
+                });
+            });
+
+            function buttonClickHandler(e) {
+                kendoConsole.log(e.target.text() + " 'click' event is fired.");
+            }
+
+            function buttonToggleHandler(e) {
+                kendoConsole.log(e.target.text() + " 'toggle' event is fired.");
+            }
+
+            function splitButtonClickHandler(e) {
+                kendoConsole.log("SplitButton event: " + e.id + " is clicked.");
+            }
+
+            function onClick(e) {
+                kendoConsole.log("ToolBar 'click' event is fired for element with id: " + e.id);
+            }
+
+            function onToggle(e) {
+                if (e.group == "radio") {
+                    kendoConsole.log("Toolbar 'toggle' event: " + e.id + " button is selected from group: " + e.group);
+                } else {
+                    kendoConsole.log("ToolBar 'toggle' event: " + e.id + " button is changed");
+                }
+            }
+
+            function onOverflowOpen(e) {
+                kendoConsole.log("Overflow container open");
+            }
+
+            function onOverflowClose(e) {
+                kendoConsole.log("Overflow container close");
+            }
+
+            function onOpen(e) {
+                kendoConsole.log("SplitButton popup open");
+            }
+
+            function onClose(e) {
+                kendoConsole.log("SplitButton popup close");
+            }
+        </script>
+    </div>
+
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Get selected action</h4>
+                <ul class="options">
+                    <li>
+                        <button class="getSelected">Get selected action</button>
+                    </li>
+                    <li>
+                        Selected: <span id="selectedFromGroup"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Show / Hide</h4>
+                <ul class="options">
+                    <li>
+                        <button class="togglePlayerControlsVisibility">Hide player controls</button>
+                    </li>
+                    <li>
+                        <button class="toggleRepeatVisibility">Hide Repeat</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Enable / Disable</h4>
+                <ul class="options">
+                    <li>
+                        <button class="toggleRepeat">Enable/Disable Repeat</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Add</h4>
+                <ul class="options">
+                    <li>
+                        <button class="addItem">Add new button</button>
+                    </li>
+                    <li>
+                        <button class="addSplitButton">Add new SplitButton</button>
+                    </li>
+                    <li>
+                        <button class="addButtonGroup">Add new ButtonGroup</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Remove</h4>
+                <ul class="options">
+                    <li>
+                        <button class="removeItem">Remove by ID</button>
+                        <input type="text" value="#delete" id="forRemoval" style="width:130px" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section wide">
+            <div id="toolbar4"></div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#toolbar4").kendoToolBar({
+                    items: [
+                        {
+                            type: "buttonGroup",
+                            id: "playerControls",
+                            buttons: [
+                                { id: "play", text: "play", togglable: true, group: "player" },
+                                { id: "pause", text: "pause", togglable: true, group: "player", selected: true },
+                                { id: "stop", text: "stop", togglable: true, group: "player" }
+                            ]
+                        },
+                        { type: "button", togglable: true, id: "repeat", text: "repeat" },
+                        {
+                            type: "splitButton",
+                            id: "save",
+                            text: "save",
+                            menuButtons: [
+                                { id: "favourites", text: "add to favourites" },
+                                { id: "later", text: "listen later" },
+                                { id: "download", text: "download" }
+                            ]
+                        },
+                        { type: "button", id: "delete", text: "delete" }
+                    ]
+                });
+
+                $(".getSelected").click(function () {
+                    var toolbar = $("#toolbar4").data("kendoToolBar"),
+                        selected;
+
+                    selected = toolbar.getSelectedFromGroup("player");
+                    $("#selectedFromGroup").text(selected.text());
+                });
+
+                $(".togglePlayerControlsVisibility").click(function (e) {
+                    var toolbar = $("#toolbar4").data("kendoToolBar"),
+                        buttonGroup = $("#playerControls"),
+                        isVisible = buttonGroup.is(":visible");
+
+                    if (isVisible) {
+                        toolbar.hide(buttonGroup);
+                        $(e.target).text("Show player controls");
+                    } else {
+                        toolbar.show(buttonGroup);
+                        $(e.target).text("Hide player controls");
+                    }
+                });
+
+                $(".toggleRepeat").click(function () {
+                    var toolbar = $("#toolbar4").data("kendoToolBar"),
+                        repeatButton = $("#repeat"),
+                        isDisabled = repeatButton.hasClass("k-disabled");
+
+                    toolbar.enable(repeatButton, isDisabled);
+                });
+
+                $(".toggleRepeatVisibility").click(function (e) {
+                    var toolbar = $("#toolbar4").data("kendoToolBar"),
+                        repeatButton = $("#repeat"),
+                        isVisible = repeatButton.is(":visible");
+
+                    if (isVisible) {
+                        toolbar.hide(repeatButton);
+                        $(e.target).text("Show Repeat");
+                    } else {
+                        toolbar.show(repeatButton);
+                        $(e.target).text("Hide Repeat");
+                    }
+                });
+
+                $(".removeItem").click(function () {
+                    var toolbar = $("#toolbar4").data("kendoToolBar"),
+                        id = $("#forRemoval").val();
+
+                    toolbar.remove(id);
+                });
+
+                $(".addItem").click(function () {
+                    var toolbar = $("#toolbar4").data("kendoToolBar");
+                    toolbar.add({ type: "button", text: "New Button", id: "newButton", togglable: true });
+                });
+
+                $(".addSplitButton").click(function () {
+                    var toolbar = $("#toolbar4").data("kendoToolBar");
+
+                    toolbar.add({
+                        type: "splitButton",
+                        text: "New SplitButton",
+                        menuButtons: [
+                            { text: "Option 1" },
+                            { text: "Option 2" }
+                        ]
+                    });
+                });
+
+                $(".addButtonGroup").click(function () {
+                    var toolbar = $("#toolbar4").data("kendoToolBar");
+
+                    toolbar.add({
+                        type: "buttonGroup",
+                        buttons: [
+                            { text: "Left" },
+                            { text: "Middle" },
+                            { text: "Right" }
+                        ]
+                    });
+                });
+            });
+        </script>
+
+        <style>
+            #toolbar {
+                margin: 0 auto;
+            }
+
+            #selectedFromGroup {
+                font-weight: bold;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide k-rtl">
+            <div id="toolbar5"></div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#toolbar5").kendoToolBar({
+                    items: [
+                        { type: "button", text: "Button" },
+                        { type: "button", text: "Toggle Button", togglable: true },
+                        {
+                            type: "splitButton",
+                            text: "Insert",
+                            menuButtons: [
+                                { text: "Insert above", icon: "insert-up" },
+                                { text: "Insert between", icon: "insert-middle" },
+                                { text: "Insert below", icon: "insert-down" }
+                            ]
+                        },
+                        { type: "separator" },
+                        { template: "<label>Format:</label>" },
+                        {
+                            template: "<input id='dropdown5' style='width: 150px;' />",
+                            overflow: "never"
+                        },
+                        { type: "separator" },
+                        {
+                            type: "buttonGroup",
+                            buttons: [
+                                { icon: "align-left", text: "Left", togglable: true, group: "text-align" },
+                                { icon: "align-center", text: "Center", togglable: true, group: "text-align" },
+                                { icon: "align-right", text: "Right", togglable: true, group: "text-align" }
+                            ]
+                        },
+                        {
+                            type: "buttonGroup",
+                            buttons: [
+                                { icon: "bold", text: "Bold", togglable: true, showText: "overflow" },
+                                { icon: "italic", text: "Italic", togglable: true, showText: "overflow" },
+                                { icon: "underline", text: "Underline", togglable: true, showText: "overflow" }
+                            ]
+                        },
+                        {
+                            type: "button",
+                            text: "Action",
+                            overflow: "always"
+                        },
+                        {
+                            type: "button",
+                            text: "Another Action",
+                            overflow: "always"
+                        },
+                        {
+                            type: "button",
+                            text: "Something else here",
+                            overflow: "always"
+                        }
+                    ]
+                });
+
+                $("#dropdown5").kendoDropDownList({
+                    optionLabel: "Paragraph",
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    dataSource: [
+                        { text: "Heading 1", value: 1 },
+                        { text: "Heading 2", value: 2 },
+                        { text: "Heading 3", value: 3 },
+                        { text: "Title", value: 4 },
+                        { text: "Subtitle", value: 5 }
+                    ]
+                });
+            });
+        </script>
+
+    </div>
+
+     <div id="example">
+    <div class="demo-section wide">
+        <div id="toolbar6"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#toolbar6").kendoToolBar({
+                items: [
+                    { type: "button", text: "Button" },
+                    { type: "button", text: "Toggle Button", togglable: true },
+                    {
+                        type: "splitButton",
+                        text: "Insert",
+                        menuButtons: [
+                            { text: "Insert above", icon: "insert-up" },
+                            { text: "Insert between", icon: "insert-middle" },
+                            { text: "Insert below", icon: "insert-down" }
+                        ]
+                    },
+                    { type: "separator" },
+                    { template: "<label>Format:</label>" },
+                    {
+                        template: "<input id='dropdown6' style='width: 150px;' />",
+                        overflow: "never"
+                    },
+                    { type: "separator" },
+                    {
+                        type: "buttonGroup",
+                        buttons: [
+                            { icon: "align-left", text: "Left", togglable: true, group: "text-align" },
+                            { icon: "align-center", text: "Center", togglable: true, group: "text-align" },
+                            { icon: "align-right", text: "Right", togglable: true, group: "text-align" }
+                        ]
+                    },
+                    {
+                        type: "buttonGroup",
+                        buttons: [
+                            { icon: "bold", text: "Bold", togglable: true, showText: "overflow" },
+                            { icon: "italic", text: "Italic", togglable: true, showText: "overflow" },
+                            { icon: "underline", text: "Underline", togglable: true, showText: "overflow" }
+                        ]
+                    },
+                    {
+                        type: "button",
+                        text: "Action",
+                        overflow: "always"
+                    },
+                    {
+                        type: "button",
+                        text: "Another Action",
+                        overflow: "always"
+                    },
+                    {
+                        type: "button",
+                        text: "Something else here",
+                        overflow: "always"
+                    }
+                ]
+            });
+
+            //initialize the DropDownList widget
+            $("#dropdown6").kendoDropDownList({
+                optionLabel: "Paragraph",
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: [
+                    { text: "Heading 1", value: 1 },
+                    { text: "Heading 2", value: 2 },
+                    { text: "Heading 3", value: 3 },
+                    { text: "Title", value: 4 },
+                    { text: "Subtitle", value: 5 }
+                ]
+            });
+
+            //focus the widget
+            $(document).on("keydown", function(e) {
+                if (e.altKey && e.keyCode === 87 /* w */) {
+                    $("#toolbar6").data("kendoToolBar").wrapper.find(":kendoFocusable").first().focus();
+                }
+            });
+        });
+    </script>
+</div>
+
+</body>

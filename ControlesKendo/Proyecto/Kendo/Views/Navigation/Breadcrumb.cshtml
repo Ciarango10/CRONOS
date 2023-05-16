@@ -1,0 +1,466 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="https://demos.telerik.com/kendo-ui/breadcrumb/index">
+    <base href="https://demos.telerik.com/kendo-ui/breadcrumb/api">
+    <base href="https://demos.telerik.com/kendo-ui/breadcrumb/keyboard-navigation#">
+    <base href="https://demos.telerik.com/kendo-ui/breadcrumb/mvvm">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+
+
+
+</head>
+<body>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <button onClick="window.location.reload()">
+                    <span class="k-icon k-i-refresh"></span>Refresh Breadcrumb
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-section wide">
+            <h4>Breadcrumb Basic Usage</h4>
+            <nav id="breadcrumb"></nav>
+        </div>
+
+        <script>
+            $("#breadcrumb").kendoBreadcrumb({
+                items: [
+                    {
+                        type: "rootitem",
+                        href: "https://demos.telerik.com/kendo-ui/",
+                        text: "All Components",
+                        showText: true,
+                        icon: "home",
+                        showIcon: true
+                    },
+                    {
+                        type: "item",
+                        href: "/breadcrumb",
+                        text: "Breadcrumb",
+                        showText: true
+                    },
+                    {
+                        type: "item",
+                        href: "/index",
+                        text: "Basic Usage",
+                        showText: true
+                    }
+                ]
+            });
+        </script>
+
+        <style>
+            .configurator button .k-icon {
+                margin-right: 4px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <h4>Breadcrumb Navigation</h4>
+            <nav id="breadcrumb2"></nav>
+        </div>
+
+    <script>
+        $("#breadcrumb2").kendoBreadcrumb({
+            bindToLocation: true,
+            navigational: true
+        });
+    </script>
+    </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <button onClick="window.location.reload()">
+                    <span class="k-icon k-i-refresh"></span>Refresh Breadcrumb
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-section wide">
+            <h4>Breadcrumb Icons</h4>
+            <nav id="breadcrumb3"></nav>
+        </div>
+
+        <script>
+            $("#breadcrumb3").kendoBreadcrumb({
+                items: [
+                    { type: "rootitem", href: "https://demos.telerik.com/kendo-ui/", text: "All Components", showText: true, icon: "globe" },
+                    { type: "item", href: "/breadcrumb", text: "Breadcrumb", showText: true, icon: "gear", showIcon: true },
+                    { type: "item", href: "/icons", text: "Icons", icon: "cloud", showText: true, showIcon: true },
+                ],
+                delimiterIcon: "line"
+            });
+        </script>
+        <style>
+            .configurator button .k-icon {
+                margin-right: 4px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <button onClick="window.location.reload()">
+                    <span class="k-icon k-i-refresh"></span>Refresh Breadcrumb
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-section wide">
+            <h4>Breadcrumb Editing</h4>
+            <nav id="breadcrumb4"></nav>
+        </div>
+
+        <script>
+            $("#breadcrumb4").kendoBreadcrumb({
+                items: [
+                    { type: "rootitem", href: "https://demos.telerik.com/kendo-ui/", text: "All Components", showText: true, icon: "home" },
+                    { type: "item", href: "/breadcrumb", text: "Breadcrumb", showText: true },
+                    { type: "item", href: "/editing", text: "Editing", showText: true, icon: "edit", showIcon: true },
+                ],
+                editable: true
+            });
+        </script>
+        <style>
+            .configurator button .k-icon{
+                margin-right: 4px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <button onClick="window.location.reload()">
+                    <span class="k-icon k-i-refresh"></span>Refresh Breadcrumb
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-section wide">
+            <h4>Breadcrumb Events</h4>
+            <nav id="breadcrumb5"></nav>
+        </div>
+
+        <script>
+            $("#breadcrumb5").kendoBreadcrumb({
+                items: [
+                    { type: "rootitem", href: "https://demos.telerik.com/kendo-ui/", text: "All Components", showText: true, icon: "home" },
+                    { type: "item", href: "/breadcrumb", text: "Breadcrumb", showText: true },
+                    { type: "item", href: "/events", text: "Events", showText: true },
+                ],
+                editable: true,
+                click: onClick,
+                change: onChange
+
+            });
+
+            function onClick(e) {
+                kendoConsole.log("Has Clickeado. :: target: " + e.item.text + ". Tipo :: " + e.item.type);
+            }
+
+            function onChange(e) {
+                kendoConsole.log("Cambio Realizado. Valor nuevo :: " + e.value);
+            }
+        </script>
+        <style>
+            .configurator button .k-icon {
+                margin-right: 4px;
+            }
+        </style>
+    </div>
+
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Get / Set Items</h4>
+                <ul class="options">
+                    <li>
+                        <button id="getItems">Get Item</button>
+                        <button id="resetItems">Reset Item</button>
+                        <button id="setItems">Set Item</button>
+
+                    </li>
+                </ul>
+                <div class="refreshBtn">
+                    <button onclick="window.location.reload()">
+                        <span class="k-icon k-i-refresh"></span>Refresh Breadcrumb
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section wide">
+            <h4>Breadcrumb API</h4>
+            <nav id="breadcrumb6" name="breadcrumb" style="width: 100%;"></nav>
+        </div>
+        <script>
+            $(document).ready(function() {
+                var breadcrumb = $("#breadcrumb6").kendoBreadcrumb({
+                    items: [
+                        {
+                            type: "rootitem",
+                            href: "https://demos.telerik.com/kendo-ui/",
+                            text: "All Components",
+                            showText: true,
+                            icon: "home",
+                            showIcon: true,
+                            itemClass: "root",
+                            iconClass: "root",
+                            linkClass: "root"
+                        },
+                        {
+                            type: "item",
+                            href: "/breadcrumb",
+                            text: "Breadcrumb",
+                            showText: true,
+                            itemClass: "item",
+                            iconClass: "item",
+                            linkClass: "item"
+                        },
+                        {
+                            type: "item",
+                            href: "/api",
+                            text: "API",
+                            showText: true,
+                            itemClass: "item",
+                            iconClass: "item",
+                            linkClass: "item"
+                        }
+                    ]
+                }).getKendoBreadcrumb();
+
+                var setItems = function () {
+                    breadcrumb.items([
+                        {
+                            type: "rootitem",
+                            href: "https://demos.telerik.com/kendo-ui/",
+                            text: "All Components",
+                            icon: "globe"
+                        },
+                        {
+                            type: "item",
+                            href:"/breadcrumb",
+                            text:"Breadcrumb",
+                            showText: true
+                        },
+                        {
+                            type:"item",
+                            href:"/api",
+                            text:"API",
+                            showText: true
+                        },
+                    ])
+                };
+
+                $("#setItems").click(setItems);
+
+                $("#getItems").click(function (){
+                    if(breadcrumb.items()[0]) {
+                        alert(breadcrumb.items()[0].text);
+                    }
+                });
+
+                $("#resetItems").click(function (){
+                    breadcrumb.items([]);
+                });
+              
+            });
+        </script>
+    </div>
+    <style>
+        .configurator button .k-icon{
+            margin-right: 4px;
+        }
+
+        refreshBtn{
+            margin-top: 20px;
+        }
+    </style>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <button onclick="window.location.reload()">
+                    <span class="k-icon k-i-refresh"></span>Refresh Breadcrumb
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-section k-rtl wide">
+            <h4>Breadcrumb Right-To-Left Support</h4>
+            <nav id="breadcrumb7"></nav>
+        </div>
+
+        <script>
+            $("#breadcrumb7").kendoBreadcrumb({
+                items:[
+                    {
+                        type:"rootitem",
+                        href: "https://demos.telerik.com/kendo-ui/",
+                        text: "All Components",
+                        showText: true,
+                        icon: "home",
+                        showIcon: true
+                    },
+                    {
+                        type:"item",
+                        href:"/breadcrumb",
+                        text:"Breadcrumb", 
+                        showText: true,
+                    },
+                    {
+                        type:"item",
+                        href:"/right-to-left-support",
+                        text:"Right-To-Left",
+                        showText:true
+                    }
+                ]
+            });
+        </script>
+    </div>
+
+    <style>
+        .k-i-home{
+            margin-left: 14px;
+        }
+        .configurator button .k-icon{
+            margin-right: 4px;
+        }
+    </style>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <button onClick="window.location.reload()">
+                    <span class="k-icon k-i-refresh"></span>Refresh Breadcrumb
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-section wide">
+            <h4>Breadcrumb - Editable</h4>
+            <nav id="breadcrumbEdit" name="breadcrumb" style="width: 100%;" />
+
+        </div>
+        <div class="demo-section wide">
+            <h4>Breadcrumb - Navigational</h4>
+            <nav id="breadcrumbNav" name="breadcrumb" style="width: 100%;" />
+        </div>
+
+        <script>
+            $(function () {
+                $("#breadcrumbEdit").kendoBreadcrumb({
+                    items: [
+                        { type: "rootitem", text: "All Components", showText: false, icon: "home", showIcon: true },
+                        { type: "item", text: "Breadcrumb", showText: true },
+                        { type: "item", text: "Keyboard Navigation", showText: true }
+                    ],
+                    editable: true,
+                    navigational: false
+                });
+
+                $("#breadcrumbNav").kendoBreadcrumb({
+                    items: [
+                        { type: "rootitem", href: "https://demos.telerik.com/kendo-ui/", text: "All Components", showText: false, icon: "home", showIcon: true },
+                        { type: "item", href: "https://demos.telerik.com/kendo-ui/breadcrumb", text: "Breadcrumb", showText: true },
+                        { type: "item", href: "https://demos.telerik.com/kendo-ui/breadcrumb/keyboard-navigation", text: "Keyboard Navigation", showText: true }
+                    ],
+                    editable: false,
+                    navigational: true
+                });
+
+                //focus the widget
+                $(document.body).keydown(function (e) {
+                    if (e.altKey && e.keyCode === 87 /* w */) {
+                        $("#breadcrumbEdit").data("kendoBreadcrumb").wrapper.focus();
+                    }
+                });
+            });
+        </script>
+        <style>
+            .configurator button .k-icon {
+                margin-right: 4px;
+            }
+        </style>
+    </div>
+
+    <div id="example8">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <button onclick="window.location.reload()">
+                    <span class="k-icon k-i-refresh"></span> Refresh Breadcrumb
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-section wide">
+            <nav id="breadcrumb8" data-role="breadcrumb" data-editable=true, data-navigational=false, data-bind="value: value, events: {change: onChange, click: onClick}"></nav>
+        </div>
+
+        <script>
+            var viewModel = kendo.observable({
+                value: "Telerik/Breadcrumb/MVVM",
+                isEditable: true,
+                isNavigational: true,
+                onChange: function (e) {
+                    kendoConsole.log("event :: Cambio (" + e.value + ")");
+                },
+                onClick: function(e) {
+                    kendoConsole.log("event :: Clickeaste (" + e.item.type + ")");
+                }
+            });
+
+            kendo.bind($("#example8"), viewModel);
+        </script>
+        <style>
+            .configurator button .k-icon {
+                margin-right: 4px;
+            }
+        </style>
+    </div>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+</body>
+</html>

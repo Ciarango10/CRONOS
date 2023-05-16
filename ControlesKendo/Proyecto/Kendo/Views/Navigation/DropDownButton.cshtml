@@ -1,0 +1,556 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="https://demos.telerik.com/kendo-ui/dropdownbutton/index">
+    <base href="https://demos.telerik.com/kendo-ui/dropdownbutton/events#">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div id="example">
+        <div class="demo-section">
+            <div class='column'>
+                <h4>Default Button:</h4>
+                <button id="default">Paste</button>
+            </div>
+
+            <div class='column'>
+                <h4>Flat Button:</h4>
+                <button id="flat">Paste</button>
+            </div>
+
+            <div class='column'>
+                <h4>Outline Button:</h4>
+                <button id="outline">Paste</button>
+            </div>
+            <div class='column'>
+                <h4>Primary Button:</h4>
+                <button id="primary">Paste</button>
+            </div>
+
+            <script>
+                $("#default").kendoDropDownButton({
+                    icon: "paste",
+                    items: [
+                        { id: "keep-text", text: "Keep Text Only", icon: "paste-plain-text", click: function () { alert("Keep Text Only") } },
+                        { id: "paste-html", text: "Paste as HTML", icon: "paste-as-html", click: function () { alert("Paste as HTML") } },
+                        { id: "paste-markdown", text: "Paste Markdown", icon: "paste-markdown", click: function () { alert("Paste Markdown") } },
+                        { id: "paste-default", text: "Set Default Paste", click: function () { alert("Set Default Paste") } }
+                    ]
+                });
+
+                $("#flat").kendoDropDownButton({
+                    icon: "paste",
+                    fillMode: "flat",
+                    items: [
+                        { id: "keep-text", text: "Keep Text Only", icon: "paste-plain-text", click: function () { alert("Keep Text Only") } },
+                        { id: "paste-html", text: "Paste as HTML", icon: "paste-as-html", click: function () { alert("Paste as HTML") } },
+                        { id: "paste-markdown", text: "Paste Markdown", icon: "paste-markdown", click: function () { alert("Paste Markdown") } },
+                        { id: "paste-default", text: "Set Default Paste", click: function () { alert("Set Default Paste") } }
+                    ],
+                });
+
+                $("#outline").kendoDropDownButton({
+                    fillMode: "outline",
+                    icon: "paste",
+                    items: [
+                        { id: "keep-text", text: "Keep Text Only", icon: "paste-plain-text", click: function () { alert("Keep Text Only") } },
+                        { id: "paste-html", text: "Paste as HTML", icon: "paste-as-html", click: function () { alert("Paste as HTML") } },
+                        { id: "paste-markdown", text: "Paste Markdown", icon: "paste-markdown", click: function () { alert("Paste Markdown") } },
+                        { id: "paste-default", text: "Set Default Paste", click: function () { alert("Set Default Paste") } }
+                    ]
+                });
+                $("#primary").kendoDropDownButton({
+                    themeColor: "primary",
+                    icon: "paste",
+                    items: [
+                        { id: "keep-text", text: "Keep Text Only", icon: "paste-plain-text", click: function () { alert("Keep Text Only") } },
+                        { id: "paste-html", text: "Paste as HTML", icon: "paste-as-html", click: function () { alert("Paste as HTML") } },
+                        { id: "paste-markdown", text: "Paste Markdown", icon: "paste-markdown", click: function () { alert("Paste Markdown") } },
+                        { id: "paste-default", text: "Set Default Paste", click: function () { alert("Set Default Paste") } }
+                    ]
+                });
+            </script>
+        </div>
+        <style>
+            .demo-section {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .column {
+                margin-top: 100px;
+            }
+        </style>
+    </div>
+
+    <div id="example2">
+
+        <div style="margin-top: 150px">
+            <button id="button2">
+                Paste
+            </button>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                $("#button2").kendoDropDownButton({
+                    icon: "paste",
+                    items: [
+                        {id: "keep-text", text: "Keep Text Only", icon: "paste-plain-text"},
+                        {id: "paste-html", text: "Paste as HTML", hidden: true },
+                        {id: "paste-markdown", text: "Paste Markdown", icon: "paste-markdown", enabled:false },
+                        {id: "favourite", text: "Mark As Favourite", imageUrl: '../content/shared/icons/16/star.png' },
+                        {id:"paste-default", text:"Set Default Paste"}
+                           
+                    ]
+                });
+            });
+        </script>
+
+        <style>
+            #example{
+                text-align: center;
+            }
+        </style>
+    </div>
+
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <div id="example3">
+        <div class="demo-section">
+            <div style="margin:100px auto;">
+                <h3>IconCss:</h3>
+                <button id="iconCssButton">User Settings</button>
+            </div>
+
+            <div style="margin:100px auto;">
+                <h3>SpriteCssClass:</h3>
+                <button id="spriteButton">Play</button>
+            </div>
+            <script>
+                $("#iconCssButton").kendoDropDownButton({
+                    icon: "user",
+                    items: [
+                        { id: "profile", text: "My Profile", icon: "image" },
+                        { id: "friend-request", text: "Friend Requests", icon: "inbox" },
+                        { id: "settings", text: "Account Settings", icon: "gear" },
+                        { id: "support", text: "Support", icon: "question-circle" },
+                        { id: "logout", text: "Log Out", icon: "logout" }
+                    ]
+                })
+
+                $("#spriteButton").kendoDropDownButton({
+                    spriteCssClass: "k-icon videoIcon",
+                    items: [
+                        { id: "stop", text: "Stop", icon: "stop" },
+                        { id: "pause", text: "Pause", icon: "pause" },
+                        { id: "resume", text: "Resume", icon: "play" }
+                    ]
+                })
+            </script>
+        </div>
+        <style>
+            .demo-section {
+                display: flex;
+            }
+
+            .videoIcon {
+                background-image: url("../content/shared/icons/16/video.png");
+            }
+        </style>
+    </div>
+
+    <div id="example4">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Size</h4>
+                        <input id="size" name="size" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Theme Color</h4>
+                        <input id="themeColor" name="themeColor" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Fill Mode</h4>
+                        <input id="fillMode" name="fillMode" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Border Radius</h4>
+                        <input id="rounded" name="rounded" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div style="margin-top:100px;">
+            <button id="button">User Settings</button>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+
+                $("#size").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "medium",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Small", value: "small" },
+                        { text: "Medium", value: "medium" },
+                        { text: "Large", value: "large" },
+                        { text: "None", value: "none" }
+
+                    ]
+                });
+
+                $("#themeColor").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "base",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Base", value: "base" },
+                        { text: "Primary", value: "primary" },
+                        { text: "Secondary", value: "secondary" },
+                        { text: "Teritary", value: "teritary" },
+                        { text: "Info", value: "info" },
+                        { text: "Success", value: "success" },
+                        { text: "Warning", value: "warning" },
+                        { text: "Error", value: "error" },
+                        { text: "Dark", value: "dark" },
+                        { text: "Light", value: "light" },
+                        { text: "Inverse", value: "inverse" },
+                        { text: "None", value: "none" }
+                    ]
+                });
+
+                $("#rounded").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "medium",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Small", value: "small" },
+                        { text: "Medium", value: "medium" },
+                        { text: "Large", value: "large" },
+                        { text: "Full", value: "full" },
+                        { text: "None", value: "none" }
+                    ]
+                });
+
+                $("#fillMode").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "solid",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Solid", value: "solid" },
+                        { text: "Outline", value: "outline" },
+                        { text: "Flat", value: "flat" },
+                        { text: "Link", value: "link" },
+                        { text: "None", value: "none" }
+                    ]
+                });
+
+                function onChange(e) {
+                    e.preventDefault();
+                    var size = $("#size").data("kendoDropDownList").value();
+                    var themeColor = $("#themeColor").data("kendoDropDownList").value();
+                    var rounded = $("#rounded").data("kendoDropDownList").value();
+                    var fillMode = $("#fillMode").data("kendoDropDownList").value();
+
+
+                    var button = $("#button").data("kendoDropDownButton");
+                    button.setOptions({
+                        size: size,
+                        themeColor: themeColor,
+                        rounded: rounded,
+                        fillMode: fillMode,
+                    })
+                }
+
+                $("#button").kendoDropDownButton({
+                    items: [
+                        { id: "profile", text: "My Profile" },
+                        { id: "friend-request", text: "Friend Requests" },
+                        { id: "settings", text: "Account Settings" },
+                        { id: "support", text: "Support" },
+                        { id: "logout", text: "Log Out" }
+                    ]
+                });
+            });
+        </script>
+        <style>
+            #example {
+                text-align: center;
+            }
+
+            .k-picker.k-dropdownlist {
+                width: 140px;
+            }
+        </style>
+    </div>
+
+    <div id="example4">
+
+        <div class="demo-section">
+            <button type="button" id="dropDownButton" style="margin-top:100px;">User Settings</button>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+
+                function onClick(e) {
+                    kendoConsole.log("event :: click (#" + e.id + ")");
+                }
+
+                function onOpen(e) {
+                    kendoConsole.log("event :: open");
+                }
+
+                function onClose(e) {
+                    kendoConsole.log("event :: close");
+                }
+
+                $("#dropDownButton").kendoDropDownButton({
+                    click: onClick,
+                    open: onOpen,
+                    close: onClose,
+                    items: [
+                        { id: "profile", text: "My Profile" },
+                        { id: "friend-request", text: "Friend Requests" },
+                        { id: "settings", text: "Account Settings" },
+                        { id: "support", text: "Support" },
+                        { id: "logout", text: "Log Out" }
+                    ]
+                });
+            });
+        </script>
+
+        <style>
+            .demo-section {
+                text-align: center;
+                margin-top: 100px;
+            }
+
+        </style>
+    </div>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div id="example5">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <button id="enableButton" type="button">Enable</button>
+                    </li>
+                    <li>
+                        <button id="disableButton" type="button">Disable</button>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <button id="showButton" type="button">Show the <b>'Settings'</b> Button</button>
+                    </li>
+                    <li>
+                        <button id="hideButton" type="button">Hide the <b>'Settings'</b> Button</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <button id="open" type="button">Open</button>
+                        <button id="close" type="button">Close</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <button id="dropDownButton7" style="margin-top:50px;">User Settings</button>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+
+                var dropDownButton = $("#dropDownButton7").kendoDropDownButton({
+                    items: [
+                        { id: "profile", text: "My Profile" },
+                        { id: "friend-request", text: "Friend Requests" },
+                        { id: "settings7", text: "Account Settings" },
+                        { id: "support", text: "Support" },
+                        { id: "logout", text: "Log Out" }
+                    ],
+                }).data("kendoDropDownButton");
+
+
+                $("#enableButton").click(function () {
+                    dropDownButton.enable(true);
+                });
+
+                $("#disableButton").click(function () {
+                    dropDownButton.enable(false);
+                });
+
+                $("#showButton").click(function () {
+                    dropDownButton.show($("#settings7"));
+                });
+
+                $("#hideButton").click(function () {
+                    dropDownButton.hide($("#settings7"));
+                });
+                $("#open").click(function () {
+                    dropDownButton.open();
+                });
+                $("#close").click(function () {
+                    dropDownButton.close();
+                });
+            });
+        </script>
+
+        <style>
+            .demo-section {
+                text-align: center;
+            }
+        </style>
+    </div>
+
+    <div id="example8">
+        <div style="margin-top:150px;">
+            <button id="button8">User Settings</button>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#button8").kendoDropDownButton({
+                    items:[
+                        { id: "profile", text: "My Profile" },
+                        { id: "friend-request", text: "Friend Requests" },
+                        { id: "settings", text: "Account Settings" },
+                        { id: "support", text: "Support"  },
+                        { id: "logout", text: "Log Out"  }
+                    ]
+                });
+            });
+
+            $(document).on("keydown", function (e){
+                if(e.altkey && e.keyCode === 87){
+                    $("#button8").focus()
+                }
+            });
+        </script>
+        <style>
+            #example {
+                text-align: center;
+            }
+        </style>
+    </div>
+
+    <div id="example9">
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Configuration</h4>
+            <div>
+                <label><input type="checkbox" data-bind="checked: isEnabled">Enable</label>
+            </div>
+            <div>
+                <label><input type="checkbox" data-bind="checked: isVisible">Visible</label>
+            </div>
+        </div>
+        <div class="box-col">
+            <h4>Information</h4>
+            The Kendo UI DropDownButton supports the
+            <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+            <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a> and
+            <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+        </div>
+    </div>
+
+    <div class="demo-section wide">
+        <div style="margin-top:50px;" >
+            <h4>DropDownButton</h4>
+            <button data-role="dropdownbutton"
+                    data-icon="paste"
+                    data-items='[
+                        { id: "keep-text", text: "Keep Text Only", icon: "paste-plain-text", click: function(e) { kendoConsole.log("event :: click #" + $(e.currentTarget).attr("id")); }},
+                        { id: "paste-html", text: "Paste as HTML", icon: "paste-as-html", click:function(e){ kendoConsole.log("event :: click #" + $(e.currentTarget).attr("id")); }},
+                        { id: "paste-markdown", text: "Paste Markdown", icon: "paste-markdown", click: function(e) { kendoConsole.log("event :: click #" + $(e.currentTarget).attr("id")); }},
+                        { id: "paste-default", text: "Set Default Paste", click: function(e){ kendoConsole.log("event :: click #" + $(e.currentTarget).attr("id"));  } }
+                    ]'
+                    data-bind="visible: isVisible, enabled: isEnabled, events: {click: onClick, open: onOpen, close: onClose}"
+                    >
+                Paste
+            </button>
+        </div>
+    </div>
+    <script>
+        var viewModel = kendo.observable({
+            isVisible: true,
+            isEnabled: true,
+            onClick: function () {
+                kendoConsole.log("event :: click");
+            },
+            onOpen: function () {
+                kendoConsole.log("event :: open");
+            },
+            onClose: function () {
+                kendoConsole.log("event :: close");
+            }
+        });
+        kendo.bind($("#example9"), viewModel);
+    </script>
+    <style>
+        .demo-section{
+            text-align:center;
+        }
+    </style>
+</div>
+
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+    
+</body>
+</html>

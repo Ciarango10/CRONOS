@@ -1,0 +1,1656 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/treeview/index">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+    <base href="https://demos.telerik.com/kendo-ui/treeview/animation">
+</head>
+<body>
+    <div id="example">
+        <div class="demo-section wide">
+            <div id="demo-section-title" class="treeview-flex">
+                <div>
+                    <h3>
+                        Select nodes, folders and drag them between the TreeViews
+                    </h3>
+                </div>
+            </div>
+            <div class="treeview-flex">
+                <div id="treeview-kendo"></div>
+            </div>
+            <div class="treeview-flex">
+                <div>
+                    <h4>Drag and Drop</h4>
+                </div>
+            </div>
+            <div class="treeview-flex">
+                <div id="treeview-telerik"></div>
+            </div>
+        </div>
+        <script id="treeview" type="text/kendo-ui-template">
+
+            # if (!item.items && item.spriteCssClass) { #
+            #: item.text #
+            <span class='k-icon k-i-close kendo-icon'></span>
+            # } else if(!item.items && !item.spriteCssClass) { #
+            <span class="k-sprite pdf"></span>
+            #: item.text #
+            <span class='k-icon k-i-close telerik-icon'></span>
+            # } else if (item.items && item.spriteCssClass){ #
+            #: item.text #
+            # } else { #
+            <span class="k-sprite folder"></span>
+            #: item.text #
+            # } #
+        </script>
+
+        <script>
+            $("#treeview-kendo").kendoTreeView({
+                template: kendo.template($("#treeview").html()),
+                dataSource: [{
+                    id: 1, text: "My Documents", expanded: true, spriteCssClass: "rootfolder", items: [
+                        {
+                            id: 2, text: "Kendo UI Project", expanded: true, spriteCssClass: "folder", items: [
+                                { id: 3, text: "about.html", spriteCssClass: "html" },
+                                { id: 4, text: "index.html", spriteCssClass: "html" },
+                                { id: 5, text: "logo.png", spriteCssClass: "image" }
+                            ]
+                        },
+                        {
+                            id: 6, text: "Reports", expanded: true, spriteCssClass: "folder", items: [
+                                { id: 7, text: "February.pdf", spriteCssClass: "pdf" },
+                                { id: 8, text: "March.pdf", spriteCssClass: "pdf" },
+                                { id: 9, text: "April.pdf", spriteCssClass: "pdf" }
+                            ]
+                        }
+                    ]
+                }],
+                dragAndDrop: true,
+                checkboxes: {
+                    checkChildren: true
+                },
+                loadOnDemand: true
+            });
+
+            $("#treeview-telerik").kendoTreeView({
+                template: kendo.template($("#treeview").html()),
+                dataSource: [{
+                    id: 1, text: "My Documents", expanded: true, items: [
+                        {
+                            id: 2, text: "New Web Site", expanded: true, items: [
+                                { id: 3, text: "mockup.pdf" },
+                                { id: 4, text: "Research.pdf" },
+                            ]
+                        },
+                        {
+                            id: 5, text: "Reports", expanded: true, items: [
+                                { id: 6, text: "May.pdf" },
+                                { id: 7, text: "June.pdf" },
+                                { id: 8, text: "July.pdf" }
+                            ]
+                        }
+                    ]
+                }],
+                dragAndDrop: true,
+                checkboxes: true,
+                loadOnDemand: true
+            });
+            // Delete button behavior
+            $(document).on("click", ".kendo-icon", function (e) {
+                e.preventDefault();
+                var treeview = $("#treeview-kendo").data("kendoTreeView");
+                treeview.remove($(this).closest(".k-item"));
+            });
+            $(document).on("click", ".telerik-icon", function (e) {
+                e.preventDefault();
+                var treeview = $("#treeview-telerik").data("kendoTreeView");
+                treeview.remove($(this).closest(".k-item"));
+            });
+        </script>
+        <style>
+
+            #demo-section-title h3 {
+                margin-bottom: 2em;
+                text-align: center;
+            }
+
+            .treeview-flex h4 {
+                color: #656565;
+                margin-bottom: 1em;
+                text-align: center;
+            }
+
+            #demo-section-title {
+                width: 100%;
+                flex: auto;
+            }
+
+            .treeview-flex {
+                flex: 1;
+                -ms-flex: 1 0 auto;
+            }
+
+            .k-treeview {
+                max-width: 240px;
+                margin: 0 auto;
+            }
+
+            #treeview-kendo .k-sprite {
+                background-image: url("../content/web/treeview/coloricons-sprite.png");
+            }
+
+            #treeview-telerik .k-sprite {
+                background-image: url("../content/web/treeview/coloricons-sprite.png");
+            }
+
+            .demo-section {
+                margin-bottom: 5px;
+                overflow: auto;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .rootfolder {
+                background-position: 0 0;
+            }
+
+            .folder {
+                background-position: 0 -16px;
+            }
+
+            .pdf {
+                background-position: 0 -32px;
+            }
+
+            .html {
+                background-position: 0 -48px;
+            }
+
+            .image {
+                background-position: 0 -64px;
+            }
+
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <ul id="treeview2">
+                <li data-expanded="true">
+                    <span class="k-sprite folder"></span>
+                    My Web Site
+                    <ul>
+                        <li data-expanded="true">
+                            <span class="k-sprite folder"></span>images
+                            <ul>
+                                <li><span class="k-sprite image"></span>logo.png</li>
+                                <li><span class="k-sprite image"></span>body-back.png</li>
+                                <li><span class="k-sprite image"></span>my-photo.jpg</li>
+                            </ul>
+                        </li>
+                        <li data-expanded="true">
+                            <span class="k-sprite folder"></span>resources
+                            <ul>
+                                <li data-expanded="true">
+                                    <span class="k-sprite folder"></span>pdf
+                                    <ul>
+                                        <li><span class="k-sprite pdf"></span>brochure.pdf</li>
+                                        <li><span class="k-sprite pdf"></span>prices.pdf</li>
+                                    </ul>
+                                </li>
+                                <li><span class="k-sprite folder"></span>zip</li>
+                            </ul>
+                        </li>
+                        <li><span class="k-sprite html"></span>about.html</li>
+                        <li><span class="k-sprite html"></span>contacts.html</li>
+                        <li><span class="k-sprite html"></span>index.html</li>
+                        <li><span class="k-sprite html"></span>portfolio.html</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                 $("#treeview2").kendoTreeView();
+            });
+        </script>
+
+        <style>
+
+            #treeview2 .k-sprite {
+                background-image: url("../content/web/treeview/coloricons-sprite.png");
+            }
+
+            .rootfolder {
+                background-position: 0 0;
+            }
+
+            .folder {
+                background-position: 0 -16px;
+            }
+
+            .pdf {
+                background-position: 0 -32px;
+            }
+
+            .html {
+                background-position: 0 -48px;
+            }
+
+            .image {
+                background-position: 0 -64px;
+            }
+        </style>
+    </div>
+
+    <div id="example3">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Configuration</h4>
+                <ul>
+                    <li><label><input type="checkbox" data-bind="checked: isVisible"> Visible</label></li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Information</h4>
+                Kendo UI TreeView supports the
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/source">source</a> and
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <div>
+                <h4>Select a node</h4>
+                <div class="files"
+                     data-role="treeview"
+                     data-drag-and-drop="true"
+                     data-text-field="name"
+                     data-spritecssclass-field="type"
+                     data-bind="visible: isVisible,
+                            source: files,
+                            events: { select: onSelect }"></div>
+            </div>
+
+            <div style="padding-top: 2em;">
+                <h4>Current view model state:</h4>
+                <pre>
+                    {
+                        name: <span data-bind="text: name"></span>,
+                        files: <span data-bind="text: printFiles"></span>
+                    }
+                </pre>
+            </div>
+        </div>
+
+        <script>
+            var viewModel = kendo.observable({
+                isVisible: true,
+                onSelect: function (e) {
+                    var treeView = e.sender;
+                    var text = treeView.text(e.node);
+                    kendoConsole.log("event :: select (" + text + ")");
+                },
+                files: kendo.observableHierarchy([
+                    {
+                        name: "My Web Site", type: "folder", expanded: true, items: [
+                            {
+                                name: "images", type: "folder", expanded: true, items: [
+                                    { name: "logo.png", type: "image" },
+                                    { name: "my-photo.jpg", type: "image" }
+                                ]
+                            },
+                            {
+                                name: "resources", type: "folder", expanded: true, items: [
+                                    { name: "resources", type: "folder" },
+                                    { name: "zip", type: "folder" }
+                                ]
+                            },
+                            { name: "about.html", type: "html" },
+                            { name: "index.html", type: "html" }
+                        ]
+                    }
+                ]),
+                printFiles: function () {
+                    // helper function that prints the relevant data from the hierarchical model
+                    var items = this.get("files").toJSON();
+
+                    function removeFields(item) {
+                        delete item.index;
+
+                        if (!item.items || !item.items.length) {
+                            delete item.items;
+                        } else {
+                            item.items = $.map(item.items, removeFields);
+                        }
+
+                        return item;
+                    }
+
+                    $.map(items, removeFields);
+
+                    var jsonString = JSON.stringify(items, null, 2);
+
+                    return jsonString.replace(/\n/gi, "\n    ")
+                        .replace(/\n\s*("name)/gi, " $1")
+                        .replace(/\n\s*("type)/gi, " $1")
+                        .replace(/\n\s*("expanded)/gi, " $1")
+                        .replace(/\n\s*("selected)/gi, " $1")
+                        .replace(/\n\s*("items)/gi, " $1")
+                        .replace(/\s*\n\s*(})/gi, " $1")
+                        .replace(/(\s*)]\n\s*}/gi, "] }");
+                }
+            });
+            kendo.bind($("#example3"), viewModel);
+        </script>
+
+        <style>
+
+            .demo-section pre {
+                font-size: 12px;
+                width: 100%;
+                white-space: pre-wrap;
+            }
+
+            .files h3 {
+                color: #787878;
+                border-bottom: 1px solid #ccc;
+                padding-bottom: .4em;
+                margin-bottom: .4em;
+            }
+
+            .files .k-treeview {
+                height: 300px;
+            }
+
+            .files .k-sprite {
+                background-image: url("../content/web/treeview/coloricons-sprite.png");
+            }
+
+            .rootfolder {
+                background-position: 0 0;
+            }
+
+            .folder {
+                background-position: 0 -16px;
+            }
+
+            .pdf {
+                background-position: 0 -32px;
+            }
+
+            .html {
+                background-position: 0 -48px;
+            }
+
+            .image {
+                background-position: 0 -64px;
+            }
+        </style>
+    </div>
+
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <div>
+                <h4>Treeview One</h4>
+                <div id="treeview-left4"></div>
+            </div>
+            <div>
+                <h4>Treeview Two</h4>
+                <div id="treeview-right4"></div>
+            </div>
+        </div>
+
+        <script>
+            $("#treeview-left4").kendoTreeView({
+                dragAndDrop: true,
+                dataSource: [
+                    {text:"Furniture", expanded: true, items: [
+                        {text: "Tables & Chairs"},
+                        {text: "Sofas"},
+                        {text: "Occasional Furniture"}
+                    ]},
+                    {text: "Decor", items: [
+                        {text:"Bed Linen"},
+                        {text:"Curtains & Blinds"},
+                        {text:"Carpets"}
+                    ]}
+                ]
+            });
+
+            $("#treeview-right4").kendoTreeView({
+                dragAndDrop: true,
+                dataSource: [
+                    {text:"Storage", expanded: true, items:[
+                        {text:"Wall Shelving"},
+                        {text:"Floor Shelving"},
+                        {text:"Kids Storage"}
+                    ]},
+                    {text:"Lights", items: [
+                        {text:"Ceiling"},
+                        {text:"Table"},
+                        {text:"Floor"}
+                    ]}
+                ]
+            });
+        </script>
+
+        <style>
+            .demo-section{
+                display:flex;
+                justify-content: space-evenly;
+            }
+        </style>
+    </div>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Animation Settings</h4>
+            <ul class="options">
+                <li>
+                    <input id="toggle5" name="animation" type="radio" />
+                    <label for="toggle5">toggle animation</label>
+                </li>
+                <li>
+                    <input id="expand5" name="animation" type="radio" checked="checked" />
+                    <label for="expand5">expand animation</label>
+                </li>
+                <li>
+                    <input id="opacity5" type="checkbox" checked="checked" />
+                    <label for="opacity5">animate opacity</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="example5">
+        <div class="demo-section">
+            <ul id="treeview5">
+                <li>
+                    Furniture
+                    <ul>
+                        <li>Tables & Chairs</li>
+                        <li>Sofas</li>
+                        <li>Occasional Furniture</li>
+                        <li>Children's Furniture</li>
+                        <li>Beds</li>
+                    </ul>
+                </li>
+                <li data-expanded="true">
+                    Decor
+                    <ul>
+                        <li>Bed Linen</li>
+                        <li>Throws</li>
+                        <li>Curtains & Blinds</li>
+                        <li>Rugs</li>
+                        <li>Carpets</li>
+                    </ul>
+                </li>
+                <li>
+                    Storage
+                    <ul>
+                        <li>Wall Shelving</li>
+                        <li>Kids Storage</li>
+                        <li>Baskets</li>
+                        <li>Multimedia Storage</li>
+                        <li>Floor Shelving</li>
+                        <li>Toilet Roll Holders</li>
+                        <li>Storage Jars</li>
+                        <li>Drawers</li>
+                        <li>Boxes</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                var original = $("#treeview5").clone(true);
+
+                $(".options input").change(function () {
+                    var treeView = $("#treeview5"),
+                        clone = original.clone(true);
+
+                    treeView.parent().empty().remove();
+                    $(".demo-section").append(clone);
+
+                    initTreeView();
+                });
+
+                var initTreeView = function () {
+                    $("#treeview5").width(200)
+                        .kendoTreeView({
+                            animation: {
+                                expand: {
+                                    effects: getEffects()
+                                }
+                            }
+                        });
+                };
+
+                var getEffects = function () {
+                    return (($("#expand5")[0].checked ? "expand:vertical " : "") +
+                        ($("#opacity5")[0].checked ? "fadeIn" : "")) || false;
+                };
+
+                initTreeView();
+            });
+        </script>
+
+        <style>
+
+            div.k-treeview {
+                overflow: visible;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <div>
+                <h4>TreeView with images</h4>
+                <div id="treeview-images6"></div>
+            </div>
+            <div>
+                <h4>TreeView with sprites</h4>
+                <div id="treeview-sprites6"></div>
+            </div>
+        </div>
+        <script>
+            $("#treeview-images6").kendoTreeView({
+                dataSource: [
+                    {
+                        text: "Inbox", imageUrl: "../content/web/treeview/mail.png",
+                        items: [
+                            { text: "Read Mail", imageUrl: "../content/web/treeview/readmail.png" }
+                        ]
+                    },
+                    {
+                        text: "Drafts", imageUrl: "../content/web/treeview/edit.png"
+                    },
+                    {
+                        text: "Search Folders", expanded: true, imageUrl: "../content/web/treeview/search.png",
+                        items: [
+                            { text: "Categorized Mail", imageUrl: "../content/web/treeview/search.png" },
+                            { text: "Large Mail", imageUrl: "../content/web/treeview/search.png" },
+                            { text: "Unread Mail", imageUrl: "../content/web/treeview/search.png" }
+                        ]
+                    },
+                    {
+                        text: "Settings", imageUrl: "../content/web/treeview/settings.png"
+                    }
+                ]
+            });
+           
+            $("#treeview-sprites6").kendoTreeView({
+                dataSource: [{
+                    text: "My Documents", expanded: true, spriteCssClass: "rootfolder", items: [
+                        {
+                            text: "Kendo UI Project", expanded: true, spriteCssClass: "folder", items: [
+                                { text: "about.html", spriteCssClass: "html" },
+                                { text: "index.html", spriteCssClass: "html" },
+                                { text: "logo.png", spriteCssClass: "image" }
+                            ]
+                        },
+                        {
+                            text: "New Web Site", expanded: true, spriteCssClass: "folder", items: [
+                                { text: "mockup.jpg", spriteCssClass: "image" },
+                                { text: "Research.pdf", spriteCssClass: "pdf" },
+                            ]
+                        },
+                        {
+                            text: "Reports", expanded: true, spriteCssClass: "folder", items: [
+                                { text: "February.pdf", spriteCssClass: "pdf" },
+                                { text: "March.pdf", spriteCssClass: "pdf" },
+                                { text: "April.pdf", spriteCssClass: "pdf" }
+                            ]
+                        }
+                    ]
+                }]
+            });
+        </script>
+
+        <style>
+            .demo-section{
+                display:flex;
+                justify-content:space-evenly;
+            }
+
+            #treeview-sprites6 .k-sprite {
+                background-image: url("../content/web/treeview/coloricons-sprite.png");
+            }
+
+            .rootfolder { background-position: 0 0; }
+            .folder { background-position: 0 -16px; }
+            .pdf { background-position: 0 -32px; }
+            .html { background-position: 0 -48px; }
+            .image { background-position: 0 -64px; }
+        </style>
+    </div>
+
+    <div id="example">
+
+        <div class="demo-section">
+            <div>
+                <h4>Check nodes</h4>
+                <div id="treeview7"></div>
+            </div>
+            <div style="padding-top: 2em;">
+                <h4>Status</h4>
+                <p id="result7">No nodes checked.</p>
+            </div>
+        </div>
+
+        <script>
+            $("#treeview7").kendoTreeView({
+                checkboxes: {
+                    checkChildren: true
+                },
+
+                check: onCheck,
+
+                dataSource: [{
+                    id: 1, text: "My Documents", expanded: true, spriteCssClass: "rootfolder", items: [
+                        {
+                            id: 2, text: "Kendo UI Project", expanded: true, spriteCssClass: "folder", items: [
+                                { id: 3, text: "about.html", spriteCssClass: "html" },
+                                { id: 4, text: "index.html", spriteCssClass: "html" },
+                                { id: 5, text: "logo.png", spriteCssClass: "image" }
+                            ]
+                        },
+                        {
+                            id: 6, text: "New Web Site", expanded: true, spriteCssClass: "folder", items: [
+                                { id: 7, text: "mockup.jpg", spriteCssClass: "image" },
+                                { id: 8, text: "Research.pdf", spriteCssClass: "pdf" },
+                            ]
+                        },
+                        {
+                            id: 9, text: "Reports", expanded: true, spriteCssClass: "folder", items: [
+                                { id: 10, text: "February.pdf", spriteCssClass: "pdf" },
+                                { id: 11, text: "March.pdf", spriteCssClass: "pdf" },
+                                { id: 12, text: "April.pdf", spriteCssClass: "pdf" }
+                            ]
+                        }
+                    ]
+                }]
+            });
+
+            // function that gathers IDs of checked nodes
+            function checkedNodeIds(nodes, checkedNodes) {
+                for (var i = 0; i < nodes.length; i++) {
+                    if (nodes[i].checked) {
+                        checkedNodes.push(nodes[i].id);
+                    }
+
+                    if (nodes[i].hasChildren) {
+                        checkedNodeIds(nodes[i].children.view(), checkedNodes);
+                    }
+                }
+            }
+
+            // show checked node IDs on datasource change
+            function onCheck() {
+                var checkedNodes = [],
+                    treeView = $("#treeview7").data("kendoTreeView"),
+                    message;
+
+                checkedNodeIds(treeView.dataSource.view(), checkedNodes);
+
+                if (checkedNodes.length > 0) {
+                    message = "IDs of checked nodes: " + checkedNodes.join(",");
+                } else {
+                    message = "No nodes checked.";
+                }
+
+                $("#result7").html(message);
+            }
+        </script>
+
+        <style>
+            #treeview7 .k-sprite {
+                background-image: url("../content/web/treeview/coloricons-sprite.png");
+            }
+
+            .rootfolder { background-position: 0 0; }
+            .folder     { background-position: 0 -16px; }
+            .pdf        { background-position: 0 -32px; }
+            .html       { background-position: 0 -48px; }
+            .image      { background-position: 0 -64px; }
+        </style>
+    </div>
+        
+    <div id="example">
+         <div class="demo-section">
+             <div id="dialog8">
+                  <div class="dialogContent">
+                      <input id="filterText8" type="text" placeholder="Search categories" />
+                      <div class="selectAll">
+                          <input type="checkbox" id="chbAll" class="k-checkbox k-checkbox-md k-rounded-md" onchange="chbAllOnChange()" />
+                          <label class="k-checkbox-label" for="chbAll">Select All</label>
+                          <span id="result8">0 categories selected</span>
+                      </div>
+                      <div id="treeview8"></div>
+                  </div>
+             </div>
+             <select id="multiselect8"></select>
+             <br />
+             <button id="openWindow8">SELECT CATEGORIES</button>
+         </div>
+         <script>
+                var myDataSource = new kendo.data.HierarchicalDataSource({
+                    data: [{
+                        id: 1, text: "Furniture", expanded: true, items: [
+                            { id: 2, text: "tables & chairs" },
+                            { id: 3, text: "sofas" },
+                            { id: 4, text: "occasional furniture" },
+                            { id: 5, text: "childrens furniture" },
+                            { id: 6, text: "beds" }
+                        ]
+                    },
+                    {
+                        id: 7, text: "Decor", expanded: true, items: [
+                            { id: 8, text: "bed linen" },
+                            { id: 9, text: "throws" },
+                            { id: 10, text: "curtains & blinds" },
+                            { id: 11, text: "rugs" },
+                            { id: 12, text: "carpets" }
+                        ]
+                    },
+                    {
+                        id: 13, text: "Storage", expanded: true, items: [
+                            { id: 14, text: "wall shelving" },
+                            { id: 15, text: "kids storage" },
+                            { id: 16, text: "multimedia storage" },
+                            { id: 17, text: "floor shelving" },
+                            { id: 18, text: "toilet roll holders" },
+                            { id: 19, text: "storage jars" },
+                            { id: 20, text: "drawers" },
+                            { id: 21, text: "boxes" }
+                        ]
+                    }
+                    ]
+                });
+
+                $("#multiselect8").kendoMultiSelect({
+                    dataTextField: "text",
+                    dataValueField: "id"
+                });
+
+                $("#treeview8").kendoTreeView({
+                    loadOnDemand: false,
+                    checkboxes: {
+                        checkChildren: true
+                    },
+                    dataSource: myDataSource,
+                    check: onCheck,
+                    expand: onExpand
+                });
+
+                $(document).ready(function () {
+                    var dialog = $("#dialog8");
+                    var multiSelect = $("#multiselect8").data("kendoMultiSelect");
+                    $("#openWindow8").kendoButton({
+                        themeColor: "primary"
+                    });
+
+                    multiSelect.readonly(true);
+
+                    $("#openWindow8").click(function () {
+                        dialog.data("kendoDialog").open();
+                        $(this).fadeOut();
+                    });
+
+                    dialog.kendoDialog({
+                        width: "400px",
+                        title: "Categories",
+                        visible: false,
+                        actions: [
+                            {
+                                text: 'Cancel',
+                                primary: false,
+                                action: onCancelClick
+                            },
+                            {
+                                text: 'Ok',
+                                primary: true,
+                                action: onOkClick
+                            }
+                        ],
+                        close: onClose
+                    }).data("kendoDialog").open();
+                });
+
+                function onCancelClick(e) {
+                    e.sender.close();
+                }
+
+                function onOkClick(e) {
+                    var checkedNodes = [];
+                    var treeView = $("#treeview8").data("kendoTreeView");
+
+                    getCheckedNodes(treeView.dataSource.view(), checkedNodes);
+                    populateMultiSelect(checkedNodes);
+
+                    e.sender.close();
+                }
+
+                function onClose() {
+                    $("#openWindow8").fadeIn();
+                }
+
+                function populateMultiSelect(checkedNodes) {
+                    var multiSelect = $("#multiselect8").data("kendoMultiSelect");
+                    multiSelect.dataSource.data([]);
+
+                    var multiData = multiSelect.dataSource.data();
+                    if (checkedNodes.length > 0) {
+                        var array = multiSelect.value().slice();
+                        for (var i = 0; i < checkedNodes.length; i++) {
+                            multiData.push({ text: checkedNodes[i].text, id: checkedNodes[i].id });
+                            array.push(checkedNodes[i].id.toString());
+                        }
+
+                        multiSelect.dataSource.data(multiData);
+                        multiSelect.dataSource.filter({});
+                        multiSelect.value(array);
+                    }
+                }
+
+                function checkUncheckAllNodes(nodes, checked) {
+                    for (var i = 0; i < nodes.length; i++) {
+                        nodes[i].set("checked", checked);
+
+                        if (nodes[i].hasChildren) {
+                            checkUncheckAllNodes(nodes[i].children.view(), checked);
+                        }
+                    }
+                }
+
+                function chbAllOnChange() {
+                    var checkedNodes = [];
+                    var treeView = $("#treeview8").data("kendoTreeView");
+                    var isAllChecked = $('#chbAll').prop("checked");
+
+                    checkUncheckAllNodes(treeView.dataSource.view(), isAllChecked)
+
+                    if (isAllChecked) {
+                        setMessage($('#treeview8 input[type="checkbox"]').length);
+                    }
+                    else {
+                        setMessage(0);
+                    }
+                }
+
+                function getCheckedNodes(nodes, checkedNodes) {
+                    var node;
+
+                    for (var i = 0; i < nodes.length; i++) {
+                        node = nodes[i];
+
+                        if (node.checked) {
+                            checkedNodes.push({ text: node.text, id: node.id });
+                        }
+
+                        if (node.hasChildren) {
+                            getCheckedNodes(node.children.view(), checkedNodes);
+                        }
+                    }
+                }
+
+                function onCheck() {
+                    var checkedNodes = [];
+                    var treeView = $("#treeview8").data("kendoTreeView");
+
+                    getCheckedNodes(treeView.dataSource.view(), checkedNodes);
+                    setMessage(checkedNodes.length);
+                }
+
+                function onExpand(e) {
+                    if ($("#filterText8").val() == "") {
+                        $(e.node).find("li").show();
+                    }
+                }
+
+                function setMessage(checkedNodes) {
+                    var message;
+
+                    if (checkedNodes > 0) {
+                        message = checkedNodes + " categories selected";
+                    }
+                    else {
+                        message = "0 categories selected";
+                    }
+
+                    $("#result8").html(message);
+                }
+
+                $("#filterText8").keyup(function (e) {
+                    var filterText = $(this).val();
+
+                    if (filterText !== "") {
+                        $(".selectAll").css("visibility", "hidden");
+
+                        $("#treeview8 .k-group .k-group .k-in").closest("li").hide();
+                        $("#treeview8 .k-group").closest("li").hide();
+                        $("#treeview8 .k-in:contains(" + filterText + ")").each(function () {
+                            $(this).parents("ul, li").each(function () {
+                                var treeView = $("#treeview8").data("kendoTreeView");
+                                treeView.expand($(this).parents("li"));
+                                $(this).show();
+                            });
+                        });
+                        $("#treeview8 .k-group .k-in:contains(" + filterText + ")").each(function () {
+                            $(this).parents("ul, li").each(function () {
+                                $(this).show();
+                            });
+                        });
+                    }
+                    else {
+                        $("#treeview8 .k-group").find("li").show();
+                        var nodes = $("#treeview > .k-group > li");
+
+                        $.each(nodes, function (i, val) {
+                            if (nodes[i].getAttribute("data-expanded") == null) {
+                                $(nodes[i]).find("li").hide();
+                            }
+                        });
+
+                        $(".selectAll").css("visibility", "visible");
+                    }
+                });
+         </script>
+            <style>
+                html .k-dialog .k-window-titlebar {
+                    padding-left: 17px;
+                }
+
+                .k-dialog .demo-section {
+                    padding: 17px;
+                }
+
+                #filterText {
+                    width: 100%;
+                    box-sizing: border-box;
+                    padding: 6px;
+                    border-radius: 3px;
+                    border: 1px solid #d9d9d9;
+                }
+
+                .selectAll {
+                    margin: 17px 0;
+                }
+
+                #result {
+                    color: #9ca3a6;
+                    float: right;
+                }
+
+                #treeview {
+                    height: 300px;
+                    overflow-y: auto;
+                    border: 1px solid #d9d9d9;
+                }
+
+                #openWindow {
+                    min-width: 180px;
+                }
+            </style>
+    </div>
+    
+    <div id="example">
+        <div class="demo-section">
+            <div id="treeview9"></div>
+        </div>
+
+        <script id="treeview-template9" type="text/kendo-ui-template">
+            #: item.text #
+            # if (!item.items) { #
+                <span class='k-icon k-i-close'></span>
+            # } #
+        </script>
+
+        <script>
+            $("#treeview9").kendoTreeView({
+                template: kendo.template($("#treeview-template9").html()),
+
+                dataSource: [{
+                    id: 1, text: "My Documents", expanded: true, spriteCssClass: "rootfolder", items: [
+                        {
+                            id: 2, text: "Kendo UI Project", expanded: true, spriteCssClass: "folder", items: [
+                                { id: 3, text: "about.html", spriteCssClass: "html" },
+                                { id: 4, text: "index.html", spriteCssClass: "html" },
+                                { id: 5, text: "logo.png", spriteCssClass: "image" }
+                            ]
+                        },
+                        {
+                            id: 6, text: "New Web Site", expanded: true, spriteCssClass: "folder", items: [
+                                { id: 7, text: "mockup.jpg", spriteCssClass: "image" },
+                                { id: 8, text: "Research.pdf", spriteCssClass: "pdf" },
+                            ]
+                        },
+                        {
+                            id: 9, text: "Reports", expanded: true, spriteCssClass: "folder", items: [
+                                { id: 10, text: "February.pdf", spriteCssClass: "pdf" },
+                                { id: 11, text: "March.pdf", spriteCssClass: "pdf" },
+                                { id: 12, text: "April.pdf", spriteCssClass: "pdf" }
+                            ]
+                        }
+                    ]
+                }]
+            });
+
+            // Delete button behavior
+            $(document).on("click", ".k-icon.k-i-close", function (e) {
+                e.preventDefault();
+                var treeview = $("#treeview9").data("kendoTreeView");
+                treeview.remove($(this).closest(".k-item"));
+            });
+        </script>
+
+    </div>
+
+    <style>
+        #treeview9 .k-sprite {
+            background-image: url("../content/web/treeview/coloricons-sprite.png");
+        }
+
+        .rootfolder {
+            background-position: 0 0;
+        }
+
+        .folder {
+            background-position: 0 -16px;
+        }
+
+        .pdf {
+            background-position: 0 -32px;
+        }
+
+        .html {
+            background-position: 0 -48px;
+        }
+
+        .image {
+            background-position: 0 -64px;
+        }
+
+        .delete-link {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            background: transparent url("/kendo-ui/content/web/treeview/close.png") no-repeat 50% 50%;
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            vertical-align: top;
+            margin: 2px 0 0 3px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+        }
+    </style>
+
+    <div id="example">
+        <div class="demo-section">
+            <div>
+                <h4>Inline data (default settings)</h4>
+                <div id="treeview-left10"></div>
+            </div>
+            <div>
+                <h4>Inline data</h4>
+                <div id="treeview-right10"></div>
+            </div>
+        </div>
+
+        <script>
+            var inlineDefault = new kendo.data.HierarchicalDataSource({
+                data: [
+                    {text: "Furniture", items: [
+                        {text:"Tables & Chairs"},
+                        {text:"Sofas"},
+                        {text:"Occasional Furniture"}
+                    ]},
+                    {text:"Decor", items:[
+                        {text:"Bed Linen"},
+                        {text:"Curtains & Blinds"},
+                        {text:"Carpets"}
+                    ]}
+                ]
+            });
+
+            $("#treeview-left10").kendoTreeView({
+                dataSource: inlineDefault
+            });
+
+            var inline = new kendo.data.HierarchicalDataSource({
+                data:[
+                    {categoryName: "Storage", subCategories: [
+                        {subCategoryName: "Wall Shelving"},
+                        {subCategoryName: "Floor Shelving"},
+                        {subCategoryName: "Kids Storage"}
+                    ]},
+                    {categoryName: "Lights", subCategories: [
+                        {subCategoryName:"Ceiling"},
+                        {subCategoryName: "Table"},
+                        {subCategoryName:"Floor"}
+                    ]}
+                ],
+                schema: {
+                    model: {
+                        children: "subCategories"
+                    }
+                }
+            });
+
+            $("#treeview-right10").kendoTreeView({
+                dataSource: inline,
+                dataTextField: ["categoryName", "subCategoryName"]
+            });
+        </script>
+
+        <style>
+            .demo-section {
+                display: flex;
+                justify-content: space-evenly;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <div id="treeview11"></div>
+        </div>
+        <script>
+            var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+            homogeneous = new kendo.data.HierarchicalDataSource({
+                transport: {
+                    read: {
+                        url: serviceRoot + "/Employees",
+                        dataType: "jsonp"
+                    }
+                },
+                schema: {
+                    model:{
+                        id: "EmployeeId",
+                        hasChildren: "HasEmployees"
+                    }
+                }
+            });
+            $("#treeview11").kendoTreeView({
+                dataSource: homogeneous,
+                dataTextField: "FullName"
+            });
+        </script>
+    </div>
+
+    <div id="example">
+            <div class="demo-section">
+                <div id="treeview12"></div>
+            </div>
+
+            <script>
+                $(document).ready(function() {
+                    // TreeView bound to Categories > Products > OrderDetails
+
+                    var OrderDetails = {
+                        type: "odata",
+                        transport: {
+                            read: {
+                                url: function(options) {
+                                    return kendo.format("https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products({0})/Order_Details", options.ProductID);
+                                }
+                            }
+                        },
+                        schema: {
+                            model: {
+                                hasChildren: function() {
+                                    return false;
+                                }
+                            }
+                        }
+                    };
+
+                    var Products = {
+                        type: "odata",
+                        schema: {
+                            model: {
+                                id: "ProductID",
+                                hasChildren: "Order_Details",
+                                children: OrderDetails
+                            }
+                        },
+                        transport: {
+                            read: {
+                                url: function(options) {
+                                    return kendo.format("https://demos.telerik.com/kendo-ui/service/Northwind.svc/Categories({0})/Products", options.CategoryID);
+                                }
+                            }
+                        }
+                    };
+
+                    var Categories = new kendo.data.HierarchicalDataSource({
+                        type: "odata",
+                        transport: {
+                            read: {
+                                url: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Categories"
+                            }
+                        },
+                        schema: {
+                            model: {
+                                hasChildren: "Products",
+                                id: "CategoryID",
+                                children: Products
+                            }
+                        }
+                    });
+
+                    $("#treeview12").kendoTreeView({
+                        dataSource: Categories,
+                        dataTextField: ["CategoryName", "ProductName", "OrderID"]
+                    });
+                });
+            </script>
+    </div>
+
+    <div id="example">
+       <div class="demo-section">
+           <div id="treeview13"></div>
+       </div>
+
+       <script>
+           $(document).ready(function() {
+            function onSelect(e) {
+                kendoConsole.log("Selecting: " + this.text(e.node));
+            }
+
+            function onCheck(e) {
+                kendoConsole.log("Checkbox changed :: " + this.text(e.node));
+            }
+
+            function onChange(e) {
+                kendoConsole.log("Selection changed");
+            }
+
+            function onCollapse(e) {
+                kendoConsole.log("Collapsing " + this.text(e.node));
+            }
+
+            function onExpand(e) {
+                kendoConsole.log("Expanding " + this.text(e.node));
+            }
+
+            function onDragStart(e) {
+                kendoConsole.log("Started dragging " + this.text(e.sourceNode));
+            }
+
+            function onDrag(e) {
+                kendoConsole.log("Dragging " + this.text(e.sourceNode));
+            }
+
+            function onDrop(e) {
+                kendoConsole.log(
+                "Dropped " + this.text(e.sourceNode) +
+                " (" + (e.valid ? "valid" : "invalid") + ")"
+                );
+            }
+
+            function onDragEnd(e) {
+                kendoConsole.log("Finished dragging " + this.text(e.sourceNode));
+            }
+
+            function onNavigate(e) {
+                if (e.node) {
+                    kendoConsole.log("Navigate " + this.text(e.node));
+                }
+            }
+
+            $("#treeview13").kendoTreeView({
+                checkboxes: true,
+                dataSource: [
+                    { text: "Furniture", expanded: true, items: [
+                        { text: "Tables & Chairs" },
+                        { text: "Sofas" },
+                        { text: "Occasional Furniture" }
+                    ] },
+                    { text: "Decor", items: [
+                        { text: "Bed Linen" },
+                        { text: "Curtains & Blinds" },
+                        { text: "Carpets" }
+                    ] },
+                    { text: "Storage" }
+                ],
+                select: onSelect,
+                check: onCheck,
+                change: onChange,
+                collapse: onCollapse,
+                expand: onExpand,
+                dragAndDrop: true,
+                /* drag & drop events */
+                dragstart: onDragStart,
+                drag: onDrag,
+                drop: onDrop,
+                dragend: onDragEnd,
+                navigate: onNavigate
+            });
+        });
+       </script>
+    </div>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Size</h4>
+                        <input id="size14" name="size" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <div id="treeview14"></div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+                homogeneous = new kendo.data.HierarchicalDataSource({
+                    transport: {
+                        read: {
+                            url: serviceRoot + "/Employees",
+                            dataType: "jsonp"
+                        }
+                    },
+                    schema: {
+                        model: {
+                            id: "EmployeeId",
+                            hasChildren: "HasEmployees"
+                        }
+                    }
+                });
+
+                var treeview = $("#treeview14").kendoTreeView({
+                    dataSource: homogeneous,
+                    dataTextField: "FullName"
+                }).data('kendoTreeView');
+
+                var size = $("#size14").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "medium",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Small", value: "small" },
+                        { text: "Medium", value: "medium" },
+                        { text: "Large", value: "large" },
+                        { text: "None", value: "none" }
+                    ]
+                }).data("kendoDropDownList");
+
+                function onChange(e) {
+                    var sizeValue = size.value();
+
+                    treeview.setOptions({
+                        size: sizeValue
+                    })
+                }
+            });
+        </script>
+
+        <style>
+            .k-picker.k-dropdownlist {
+                width: 140px;
+            }
+        </style>
+    </div>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Expand / Collapse</h4>
+            <ul class="options">
+                <li>
+                    <button id="expandAllNodes15">Expand all nodes</button>
+                </li>
+                <li>
+                    <button id="collapseAllNodes15">Collapse all nodes</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Enable / Disable</h4>
+            <ul class="options">
+                <li>
+                    <button id="disableNode15">Disable node</button>
+                </li>
+                <li>
+                    <button id="enableAllNodes15">Enable all nodes</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Add / Remove</h4>
+            <ul class="options">
+                <li>
+                    <input id="appendNodeText15" value="Node" />
+                    <button id="appendNodeToSelected15">Append node</button>
+                </li>
+                <li>
+                    <button id="removeNode15">Remove node</button>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="box-col">
+            <h4>DataSource interaction</h4>
+            <ul class="options">
+                <li>
+                    <button id="sortDataSource15">Sort</button>
+                </li>
+                <li>
+                    <input id="filterText15" value="Item 1" />
+                    <button id="filterDataSource15">Filter by text</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="example">
+        <div class="demo-section">
+            <div id="treeview15"></div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                var treeview = $("#treeview15").kendoTreeView({
+                        dataSource: {
+                            data: [
+                                { text: "Item 1", expanded: true, items: [
+                                    { text: "Item 1.1" },
+                                    { text: "Item 1.2" },
+                                    { text: "Item 1.3" }
+                                ] },
+                                { text: "Item 2", items: [
+                                    { text: "Item 2.1" },
+                                    { text: "Item 2.2" },
+                                    { text: "Item 2.3" }
+                                ] },
+                                { text: "Item 3" }
+                            ]
+                        },
+                        loadOnDemand: false
+                    }).data("kendoTreeView"),
+
+                    handleTextBox = function(callback) {
+                        return function(e) {
+                            if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode) {
+                                callback(e);
+                            }
+                        };
+                    };
+
+
+                $("#disableNode15").click(function() {
+                    var selectedNode = treeview.select();
+
+                    treeview.enable(selectedNode, false);
+                });
+
+                $("#enableAllNodes15").click(function() {
+                    var selectedNode = treeview.select();
+
+                    treeview.enable(".k-item");
+                });
+
+                $("#removeNode15").click(function() {
+                    var selectedNode = treeview.select();
+
+                    treeview.remove(selectedNode);
+                });
+
+                $("#expandAllNodes15").click(function() {
+                    treeview.expand(".k-item");
+                });
+
+                $("#collapseAllNodes15").click(function() {
+                    treeview.collapse(".k-item");
+                });
+
+                var append = handleTextBox(function(e) {
+                        var selectedNode = treeview.select();
+
+                        // passing a falsy value as the second append() parameter
+                        // will append the new node to the root group
+                        if (selectedNode.length == 0) {
+                            selectedNode = null;
+                        }
+
+                        treeview.append({
+                            text: $("#appendNodeText15").val()
+                        }, selectedNode);
+                    });
+
+                $("#appendNodeToSelected15").click(append);
+                $("#appendNodeText5").keypress(append);
+
+                // datasource actions
+
+                var ascending = false;
+
+                $("#sortDataSource15")
+                    .text(ascending ? "Sort ascending" : "Sort descending")
+                    .click(function() {
+                        treeview.dataSource.sort({
+                            field: "text",
+                            dir: ascending ? "asc" : "desc"
+                        });
+
+                        ascending = !ascending;
+
+                        $(this).text(ascending ? "Sort ascending" : "Sort descending")
+                    });
+
+                var filter = handleTextBox(function(e) {
+                    var filterText = $("#filterText15").val();
+
+                    if (filterText !== "") {
+                        treeview.dataSource.filter({
+                            field: "text",
+                            operator: "contains",
+                            value: filterText
+                        });
+                    } else {
+                        treeview.dataSource.filter({});
+                    }
+                });
+
+                $("#filterDataSource15").click(filter);
+                $("#filterText15").keypress(filter);
+            });
+        </script>
+    </div>
+
+    <div id="example">
+            <div class="k-rtl demo-section">
+                <ul id="treeview16">
+                    <li data-expanded="true">
+                        <span class="k-sprite folder"></span>
+                        My Web Site
+                        <ul>
+                            <li data-expanded="true">
+                                <span class="k-sprite folder"></span>images
+                                <ul>
+                                    <li><span class="k-sprite image"></span>logo.png</li>
+                                    <li><span class="k-sprite image"></span>body-back.png</li>
+                                    <li><span class="k-sprite image"></span>my-photo.jpg</li>
+                                </ul>
+                            </li>
+                            <li data-expanded="true">
+                                <span class="k-sprite folder"></span>resources
+                                <ul>
+                                    <li data-expanded="true">
+                                        <span class="k-sprite folder"></span>pdf
+                                        <ul>
+                                            <li><span class="k-sprite pdf"></span>brochure.pdf</li>
+                                            <li><span class="k-sprite pdf"></span>prices.pdf</li>
+                                        </ul>
+                                    </li>
+                                    <li><span class="k-sprite folder"></span>zip</li>
+                                </ul>
+                            </li>
+                            <li><span class="k-sprite html"></span>about.html</li>
+                            <li><span class="k-sprite html"></span>contacts.html</li>
+                            <li><span class="k-sprite html"></span>index.html</li>
+                            <li><span class="k-sprite html"></span>portfolio.html</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <script>
+                $(document).ready(function() {
+                    $("#treeview16").kendoTreeView();
+                });
+            </script>
+
+            <style>
+                #treeview16 .k-sprite {
+                    background-image: url("../content/web/treeview/coloricons-sprite.png");
+                }
+
+                .rootfolder { background-position: 0 0; }
+                .folder { background-position: 0 -16px; }
+                .pdf { background-position: 0 -32px; }
+                .html { background-position: 0 -48px; }
+                .image { background-position: 0 -64px; }
+            </style>
+        </div>
+</body>

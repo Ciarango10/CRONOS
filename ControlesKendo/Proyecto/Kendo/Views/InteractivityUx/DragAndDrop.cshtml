@@ -1,0 +1,71 @@
+﻿<div id="draggable-container">
+    <div id="draggable-item">Foo</div>
+</div>
+<style>
+    #draggable-container {
+        margin: 10px auto;
+        width: 200px;
+        height: 200px;
+        background: #eee;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    #draggable-item {
+        width: 20px;
+        height: 20px;
+        padding: 10px;
+        border: 1px solid black;
+        margin: 5px;
+        background: #666;
+        color: white;
+    }
+</style>
+
+Events
+<div class="demo-section">
+    <div id="droptarget" class="k-header">Drag the small circle here.</div>
+    <div id="draggable"></div>
+    <style>
+        #draggable {
+            cursor: move;
+            position: absolute;
+            top: 260px;
+            left: 50%;
+            margin-left: -28px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background-color: #03a9f4;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+        }
+
+        .painted {
+            background-color: #03a9f4;
+            color: #fff;
+        }
+
+        #draggable.hollow {
+            cursor: default;
+            background: #ececec;
+        }
+
+        #droptarget {
+            height: 200px;
+            width: 200px;
+            font-size: 14px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 200px;
+            margin: 0 auto;
+            cursor: default;
+            border: 1px solid #999;
+        }
+
+        .demo-section {
+            height: 300px;
+            position: relative;
+        }
+    </style>
+</div>
+<script src="~/js/draganddrop.js"></script>

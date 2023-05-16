@@ -1,0 +1,49 @@
+﻿
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Tipo Administracion</h1>
+
+@*<fieldset class="mb-4 mt-4">
+		<legend>Filtrado Tipo Administraciòn</legend>
+		<form id="frmBusqueda" method="post" class="mb-3">
+
+			<div class="row">
+
+				<div class="col-md-6">
+					<label>Nombre </label>
+					<input type="text" class="form-control" name="nombre"  />
+				</div>
+
+				<div class="col-md-6">
+					<label>Estado</label>
+					<br />
+					<input type="checkbox" name="estado[]" value="1" /> <label>Habilitado</label>
+					<input type="checkbox" name="estado[]" value="0"  /> <label>Deshabilitado</label>
+				</div>
+
+			</div>
+
+		</form>
+
+		<button class="btn btn-primary" onclick="BuscarDatos()">Buscar</button>
+		<button class="btn btn-danger" onclick="LimpiarLaboratorio()">Limpiar</button>
+
+	</fieldset>*@
+
+
+<div id="divTabla">
+
+</div>
+
+<script src="~/js/jquery.js"></script>
+<script src="~/js/datatable.js"></script>
+
+<script src="~/js/sweetalert.js"></script>
+<script src="~/js/bootstrap.js"></script>
+<script src="~/js/generic.js"></script>
+<script src="~/js/tipoadministracion.js"></script>
+
+
+

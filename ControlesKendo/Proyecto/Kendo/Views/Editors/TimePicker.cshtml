@@ -1,0 +1,454 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/timepicker/index">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+     <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="timepicker">Enter a date</label>
+            <input id="timepicker" value="10:00 AM" title="timepicker" />
+            <br>
+            <br>
+            <label for="textbox">Alarm description</label>
+            <span class="k-textbox k-input k-input-md k-rounded-md k-input-solid" style="width: 100%">
+                <input id="textbox" type="text" value="Wake up" class="k-input-inner" />
+            </span>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#timepicker").kendoTimePicker({
+                dateInput: true
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="timepicker">Alarm description</label>
+            <div>
+                <input id="timepicker2" title="timepicker" style="width: 100%;" />
+            </div>
+            <br>
+            <br>
+            <br>
+            <label for="dropDownList">Alarm description</label>
+            <input id="dropDownList2" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // create TimePicker from input HTML element
+            $("#timepicker2").kendoTimePicker({
+                value: new Date(),
+                format: "h:mm:ss tt",
+                componentType: "modern"
+            });
+
+            $("#dropDownList2").kendoDropDownList({
+                dataSource: ["modern", "classic"],
+                value: "modern",
+                change: function (e) {
+                    var picker = $("#timepicker2").data("kendoTimePicker");
+                    var type = this.value();
+                    var format = picker.options.format;
+                    var value = picker.value();
+                    var parent = $("#timepicker2").parent();
+
+                    picker.destroy();
+                    parent.empty();
+                    parent.append('<input id="timepicker2" title="timepicker" style="width: 100%;" />');
+                    $("#timepicker2").kendoTimePicker({
+                        format: format,
+                        value: value,
+                        componentType: type
+                    });
+                }
+            });
+        });
+    </script>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Size</h4>
+                    <input id="size" name="size" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Fill Mode</h4>
+                    <input id="fillMode" name="fillMode" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Border Radius</h4>
+                    <input id="rounded" name="rounded" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="timepicker">Enter a date</label>
+            <input id="timepicker3" value="10:00 AM" title="timepicker" style="width: 100%;" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#size").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "medium",
+                change: onChange,
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "None", value: "none" }
+                ]
+            });
+
+            $("#rounded").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "medium",
+                change: onChange,
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "Full", value: "full" },
+                    { text: "None", value: "none" }
+                ]
+            });
+
+            $("#fillMode").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "solid",
+                change: onChange,
+                dataSource: [
+                    { text: "Solid", value: "solid" },
+                    { text: "Flat", value: "flat" },
+                    { text: "Outline", value: "outline" },
+                    { text: "None", value: "none" }
+                ]
+            });
+
+            function onChange(e) {
+                var timepicker = $("#timepicker3").data("kendoTimePicker");
+                var size = $("#size").data("kendoDropDownList").value();
+                var rounded = $("#rounded").data("kendoDropDownList").value();
+                var fillMode = $("#fillMode").data("kendoDropDownList").value();
+
+                timepicker.setOptions({
+                    size: size,
+                    rounded: rounded,
+                    fillMode: fillMode
+                });
+            }
+
+            $("#timepicker3").kendoTimePicker();
+        });
+    </script>
+
+    <style>
+        .k-picker.k-dropdownlist {
+            width: 140px;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 100px;">
+	    <div class="k-w-300">
+		    <input id="timepicker4" title="timepicker" />		  
+	    </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            // create TimePicker from input HTML element
+            $("#timepicker4").kendoTimePicker({
+                label:{
+                    content:"Set alarm for:",
+                    floating:true
+                }
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="start">Start time</label>
+            <input id="start" value="8:00 AM" style="width: 100%;" />
+            <br>
+            <br>
+            <br>
+            <label for="end">End time</label>
+            <input id="end" value="8:30 AM" style="width: 100%;" />
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            function startChange() {
+                var startTime = start.value();
+
+                if (startTime) {
+                    startTime = new Date(startTime);
+
+                    end.max(startTime);
+
+                    startTime.setMinutes(startTime.getMinutes() + this.options.interval);
+
+                    end.min(startTime);
+                    end.value(startTime);
+                }
+            }
+
+            //init start timepicker
+            var start = $("#start").kendoTimePicker({
+                change: startChange
+            }).data("kendoTimePicker");
+
+            //init end timepicker
+            var end = $("#end").kendoTimePicker().data("kendoTimePicker");
+
+            //define min/max range
+            start.min("8:00 AM");
+            start.max("6:00 PM");
+
+            //define min/max range
+            end.min("8:00 AM");
+            end.max("7:30 AM");
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="timepicker">Select time</label>
+            <input id="timepicker6" />
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            function onOpen() {
+                kendoConsole.log("Open");
+            }
+
+            function onClose() {
+                kendoConsole.log("Close");
+            }
+
+            function onChange() {
+                kendoConsole.log("Change :: " + kendo.toString(this.value(), 't'));
+            }
+
+            $("#timepicker6").kendoTimePicker({
+                change: onChange,
+                close: onClose,
+                open: onOpen
+            });
+        });
+    </script>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+     <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>API Functions</h4>
+            <ul class="options">
+                <li class="li-inline-flex">
+                    <input id="value" value="10:30 AM" style="float:none; width:150px" />
+                    <button id="set">Set value</button>
+                </li>
+                <li style="text-align: right;">
+                    <button id="get">Get value</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="box-col">
+            <h4>Calendar Open / Close</h4>
+            <ul class="options">
+                <li>
+                    <button id="open">Open</button>
+                    <button id="close">Close</button>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="box-col">
+            <h4>Enable / Disable</h4>
+            <ul class="options">
+                <li>
+                    <button id="enable">Enable</button>
+                    <button id="disable">Disable</button>
+
+                </li>
+                <li>
+                    <button id="readonly">Readonly</button>
+                </li>
+            </ul>
+        </div>
+    </div>    
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">       
+			<label for="timepicker">Select time</label>
+			<input id="timepicker7"/>
+		 </div>
+	</div>
+
+    <script>
+        $(document).ready(function () {
+            $("#timepicker7").kendoTimePicker()
+                .closest(".k-widget")
+                .attr("id", "timepicker_wrapper");
+
+            var timepicker = $("#timepicker7").data("kendoTimePicker");
+
+            var setValue = function () {
+                timepicker.value($("#value").val());
+            };
+
+            $("#enable").click(function () {
+                timepicker.enable();
+            });
+
+            $("#disable").click(function () {
+                timepicker.enable(false);
+            });
+
+            $("#readonly").click(function () {
+                timepicker.readonly();
+            });
+
+            $("#open").click(function () {
+                timepicker.open();
+            });
+
+            $("#close").click(function () {
+                timepicker.close();
+            });
+
+            $("#value").kendoTimePicker();
+
+            $("#set").click(setValue);
+
+            $("#get").click(function () {
+                alert(timepicker.value());
+            });
+        });
+    </script>
+    <style>
+        .li-inline-flex {
+            display: inline-flex;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300 k-rtl">       
+			<label for="timepicker">Select time</label>
+			<input id="timepicker8"/>
+		 </div>
+	</div>
+	
+	<script>
+	    $(document).ready(function() {
+	        $("#timepicker8").kendoTimePicker();
+	    });
+	</script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="timepicker">Select time</label>
+            <input id="timepicker9" accesskey="w" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#timepicker9").kendoTimePicker();
+        });
+    </script>
+
+    <div id="demo10">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Configuration</h4>
+                <ul>
+                    <li><label><input type="checkbox" data-bind="checked: isEnabled">Enable</label></li>
+                    <li><label><input type="checkbox" data-bind="checked: isVisible">Visible</label></li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Information</h4>
+                Kendo UI TimePicker supports the
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a> and
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+            </div>
+        </div>
+
+        <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+            <div class="k-w-300">
+                <label for="timepicker">Select time</label>
+                <input data-role="timepicker"
+                       data-bind="visible: isVisible,
+                              enabled: isEnabled,
+                              value: selectedDate,
+                              events: { change: onChange }">
+            </div>
+        </div>
+        <script>
+            var viewModel = kendo.observable({
+                selectedDate: null,
+                isEnabled: true,
+                isVisible: true,
+                onChange: function () {
+                    kendoConsole.log("event :: change (" + kendo.toString(this.get("selectedDate"), "F") + ")");
+                }
+            });
+            kendo.bind($("#demo10"), viewModel);
+        </script>
+    </div>
+
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+</body>

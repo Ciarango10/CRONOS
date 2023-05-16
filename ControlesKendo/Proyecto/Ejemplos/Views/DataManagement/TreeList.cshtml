@@ -1,0 +1,139 @@
+﻿<div>
+    <div id="treelist"></div>
+    <script id="photo-template" type="text/x-kendo-template">
+        <div class='employee-name'>#: FirstName #</div>
+    </script>
+</div>
+
+<div>
+    Local Data
+    <div id="treelist2"></div>
+</div>
+
+<div>
+    Remote Data
+    <div id="treelist3"></div>
+</div>
+
+<div>
+    Drag and Drop
+    <div id="treelist4"></div>
+    <script id="photo-template" type="text/x-kendo-template">
+        <div class='employee-photo'
+             style='background-image: url(../content/web/treelist/people/#:data.EmployeeID#.jpg);'></div>
+        <div class='employee-name'>#: FirstName #</div>
+    </script>
+</div>
+
+<div>
+    Edicion
+    <div id="treelist5"></div>
+</div>
+
+<div>
+    Filtro
+    <div id="treelist6"></div>
+    <script id="photo-template" type="text/x-kendo-template">
+        <div class='employee-photo'
+             style='background-image: url(../content/web/treelist/people/#:data.EmployeeID#.jpg);'></div>
+        <div class='employee-name'>#: FirstName #</div>
+    </script>
+</div>
+
+<div>
+    Edicion dentro de celda
+    <div id="treelist7"></div>
+</div>
+
+<div>
+    Edicion Popup
+    <div id="treelist8"></div>
+</div>
+
+<div>
+    Panel de busqueda
+    <div id="treelist9"></div>
+</div>
+
+<div>
+    Column Resizing
+    <div id="treelist10"></div>
+</div>
+
+<div>
+    Checkbox Selection
+    <div id="treelist11"></div>
+</div>
+
+<div>
+    Column Reordering
+    <div id="treelist12"></div>
+</div>
+
+<div>
+    Column Menu
+    <div id="treelist13"></div>
+</div>
+
+<div>
+    Multi-Column Headers
+    <div id="treelist14"></div>
+</div>
+
+<div>
+    Frozen Columns
+    <div id="treelist15"></div>
+</div>
+
+<div>
+    Aggregates
+    <div id="treelist16"></div>
+</div>
+
+<div>
+    Persist State
+    <div class="configurator">
+        <div class="box-col">
+            <button id="save">Save State</button>
+            <button id="load">Load State</button>
+        </div>
+    </div>
+
+    <div id="treelist17"></div>
+</div>
+
+<div>
+    Eventos
+    <div id="treelist18"></div>
+</div>
+
+<div>
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Selection</h4>
+            <ul class="options">
+                <li>
+                    <input type="text" value="0" id="selectRow" />
+                    <button class="selectRow">Select row</button>
+                </li>
+                <li>
+                    <button class="clearSelection">Clear selected rows</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Expand / Collapse</h4>
+            <ul class="options">
+                <li>
+                    <input type="text" value="0" id="groupRow" />
+                    <button class="toggleGroup">Collapse/Expand group</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="treelist19"></div>
+</div>
+@section scripts{
+    <script src="~/js/treelist.js"></script>
+}

@@ -1,0 +1,629 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Kendo.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Kendo.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\11.jpg",
+      "PackagePath": "staticwebassets\\img\\11.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\12.jpg",
+      "PackagePath": "staticwebassets\\img\\12.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\31.jpg",
+      "PackagePath": "staticwebassets\\img\\31.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\32.jpg",
+      "PackagePath": "staticwebassets\\img\\32.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\33.jpg",
+      "PackagePath": "staticwebassets\\img\\33.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\59.jpg",
+      "PackagePath": "staticwebassets\\img\\59.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\60.jpg",
+      "PackagePath": "staticwebassets\\img\\60.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\72.jpg",
+      "PackagePath": "staticwebassets\\img\\72.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\andreas.png",
+      "PackagePath": "staticwebassets\\img\\andreas.png"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\audi.jpg",
+      "PackagePath": "staticwebassets\\img\\audi.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\avatar.jpg",
+      "PackagePath": "staticwebassets\\img\\avatar.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\barcelona.jpg",
+      "PackagePath": "staticwebassets\\img\\barcelona.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\card-thumbnail.jpg",
+      "PackagePath": "staticwebassets\\img\\card-thumbnail.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\envelope.png",
+      "PackagePath": "staticwebassets\\img\\envelope.png"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\error-icon.png",
+      "PackagePath": "staticwebassets\\img\\error-icon.png"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\ferrari.jpg",
+      "PackagePath": "staticwebassets\\img\\ferrari.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\home1.jpg",
+      "PackagePath": "staticwebassets\\img\\home1.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\home2.jpg",
+      "PackagePath": "staticwebassets\\img\\home2.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\home3.jpg",
+      "PackagePath": "staticwebassets\\img\\home3.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\lysa.png",
+      "PackagePath": "staticwebassets\\img\\lysa.png"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\maserati.jpg",
+      "PackagePath": "staticwebassets\\img\\maserati.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\mathew.png",
+      "PackagePath": "staticwebassets\\img\\mathew.png"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\mazda.jpg",
+      "PackagePath": "staticwebassets\\img\\mazda.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\mercedes.jpg",
+      "PackagePath": "staticwebassets\\img\\mercedes.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\mini.jpg",
+      "PackagePath": "staticwebassets\\img\\mini.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\quote_collision.jpeg",
+      "PackagePath": "staticwebassets\\img\\quote_collision.jpeg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\quote_collision_only.jpeg",
+      "PackagePath": "staticwebassets\\img\\quote_collision_only.jpeg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\quote_full.jpeg",
+      "PackagePath": "staticwebassets\\img\\quote_full.jpeg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\quote_young.jpeg",
+      "PackagePath": "staticwebassets\\img\\quote_young.jpeg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\rome.jpg",
+      "PackagePath": "staticwebassets\\img\\rome.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\sanfran.jpg",
+      "PackagePath": "staticwebassets\\img\\sanfran.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\seaview-appartments.png",
+      "PackagePath": "staticwebassets\\img\\seaview-appartments.png"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\shells.jpg",
+      "PackagePath": "staticwebassets\\img\\shells.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\sofia.jpg",
+      "PackagePath": "staticwebassets\\img\\sofia.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\south-africa.jpg",
+      "PackagePath": "staticwebassets\\img\\south-africa.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\success-icon.png",
+      "PackagePath": "staticwebassets\\img\\success-icon.png"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\img\\tulips.jpg",
+      "PackagePath": "staticwebassets\\img\\tulips.jpg"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\StockCharts.js",
+      "PackagePath": "staticwebassets\\js\\StockCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\arcGauge.js",
+      "PackagePath": "staticwebassets\\js\\arcGauge.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\areaCharts.js",
+      "PackagePath": "staticwebassets\\js\\areaCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\avatar.js",
+      "PackagePath": "staticwebassets\\js\\avatar.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\badge.js",
+      "PackagePath": "staticwebassets\\js\\badge.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\barCharts.js",
+      "PackagePath": "staticwebassets\\js\\barCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\boxPlotChart.js",
+      "PackagePath": "staticwebassets\\js\\boxPlotChart.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\bubbleCharts.js",
+      "PackagePath": "staticwebassets\\js\\bubbleCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\bulletCharts.js",
+      "PackagePath": "staticwebassets\\js\\bulletCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\calendar.js",
+      "PackagePath": "staticwebassets\\js\\calendar.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\cards.js",
+      "PackagePath": "staticwebassets\\js\\cards.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\chart.js",
+      "PackagePath": "staticwebassets\\js\\chart.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\chartApiMethods.js",
+      "PackagePath": "staticwebassets\\js\\chartApiMethods.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\chat.js",
+      "PackagePath": "staticwebassets\\js\\chat.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\circularProgressBar.js",
+      "PackagePath": "staticwebassets\\js\\circularProgressBar.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\diagram.js",
+      "PackagePath": "staticwebassets\\js\\diagram.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\dialog.js",
+      "PackagePath": "staticwebassets\\js\\dialog.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\donutCharts.js",
+      "PackagePath": "staticwebassets\\js\\donutCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\dragAndDrop.js",
+      "PackagePath": "staticwebassets\\js\\dragAndDrop.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\effects.js",
+      "PackagePath": "staticwebassets\\js\\effects.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\expansionPanel.js",
+      "PackagePath": "staticwebassets\\js\\expansionPanel.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\form.js",
+      "PackagePath": "staticwebassets\\js\\form.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\funnelCharts.js",
+      "PackagePath": "staticwebassets\\js\\funnelCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\gantt.js",
+      "PackagePath": "staticwebassets\\js\\gantt.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\heatMap.js",
+      "PackagePath": "staticwebassets\\js\\heatMap.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\lineCharts.js",
+      "PackagePath": "staticwebassets\\js\\lineCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\linearGauge.js",
+      "PackagePath": "staticwebassets\\js\\linearGauge.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\loader.js",
+      "PackagePath": "staticwebassets\\js\\loader.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\map.js",
+      "PackagePath": "staticwebassets\\js\\map.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\multiViewCalendar.js",
+      "PackagePath": "staticwebassets\\js\\multiViewCalendar.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\notification.js",
+      "PackagePath": "staticwebassets\\js\\notification.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\orgChart.js",
+      "PackagePath": "staticwebassets\\js\\orgChart.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\pdfExport.js",
+      "PackagePath": "staticwebassets\\js\\pdfExport.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\pdfViewer.js",
+      "PackagePath": "staticwebassets\\js\\pdfViewer.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\pieCharts.js",
+      "PackagePath": "staticwebassets\\js\\pieCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\polarCharts.js",
+      "PackagePath": "staticwebassets\\js\\polarCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\popover.js",
+      "PackagePath": "staticwebassets\\js\\popover.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\progressBar.js",
+      "PackagePath": "staticwebassets\\js\\progressBar.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\radarCharts.js",
+      "PackagePath": "staticwebassets\\js\\radarCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\radialGauge.js",
+      "PackagePath": "staticwebassets\\js\\radialGauge.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\rangeAreaCharts.js",
+      "PackagePath": "staticwebassets\\js\\rangeAreaCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\rangeBarCharts.js",
+      "PackagePath": "staticwebassets\\js\\rangeBarCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\rippleContainer.js",
+      "PackagePath": "staticwebassets\\js\\rippleContainer.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\scatterCharts.js",
+      "PackagePath": "staticwebassets\\js\\scatterCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\scheduler.js",
+      "PackagePath": "staticwebassets\\js\\scheduler.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\skeletonContainer.js",
+      "PackagePath": "staticwebassets\\js\\skeletonContainer.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\sortable.js",
+      "PackagePath": "staticwebassets\\js\\sortable.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\sparklines.js",
+      "PackagePath": "staticwebassets\\js\\sparklines.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\splitter.js",
+      "PackagePath": "staticwebassets\\js\\splitter.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\styling.js",
+      "PackagePath": "staticwebassets\\js\\styling.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\tileLayout.js",
+      "PackagePath": "staticwebassets\\js\\tileLayout.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\tooltip.js",
+      "PackagePath": "staticwebassets\\js\\tooltip.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\treeMap.js",
+      "PackagePath": "staticwebassets\\js\\treeMap.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\waterFallCharts.js",
+      "PackagePath": "staticwebassets\\js\\waterFallCharts.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\js\\window.js",
+      "PackagePath": "staticwebassets\\js\\window.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\ControlesKendo\\Proyecto\\Kendo\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Kendo.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Kendo.props",
+      "PackagePath": "build\\Kendo.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Kendo.props",
+      "PackagePath": "buildMultiTargeting\\Kendo.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Kendo.props",
+      "PackagePath": "buildTransitive\\Kendo.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

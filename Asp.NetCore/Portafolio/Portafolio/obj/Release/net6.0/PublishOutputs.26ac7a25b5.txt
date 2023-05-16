@@ -1,0 +1,10 @@
+D:\Usuario\Escritorio\Codigo\Cronos\Asp.NetCore\Portafolio\Portafolio\obj\Release\net6.0\PubTmp\Out\Portafolio.exe
+D:\Usuario\Escritorio\Codigo\Cronos\Asp.NetCore\Portafolio\Portafolio\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+D:\Usuario\Escritorio\Codigo\Cronos\Asp.NetCore\Portafolio\Portafolio\obj\Release\net6.0\PubTmp\Out\appsettings.json
+D:\Usuario\Escritorio\Codigo\Cronos\Asp.NetCore\Portafolio\Portafolio\obj\Release\net6.0\PubTmp\Out\Portafolio.dll
+D:\Usuario\Escritorio\Codigo\Cronos\Asp.NetCore\Portafolio\Portafolio\obj\Release\net6.0\PubTmp\Out\Portafolio.deps.json
+D:\Usuario\Escritorio\Codigo\Cronos\Asp.NetCore\Portafolio\Portafolio\obj\Release\net6.0\PubTmp\Out\Portafolio.runtimeconfig.json
+D:\Usuario\Escritorio\Codigo\Cronos\Asp.NetCore\Portafolio\Portafolio\obj\Release\net6.0\PubTmp\Out\Portafolio.pdb
+D:\Usuario\Escritorio\Codigo\Cronos\Asp.NetCore\Portafolio\Portafolio\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
+D:\Usuario\Escritorio\Codigo\Cronos\Asp.NetCore\Portafolio\Portafolio\obj\Release\net6.0\PubTmp\Out\SendGrid.dll
+D:\Usuario\Escritorio\Codigo\Cronos\Asp.NetCore\Portafolio\Portafolio\obj\Release\net6.0\PubTmp\Out\StarkbankEcdsa.dll

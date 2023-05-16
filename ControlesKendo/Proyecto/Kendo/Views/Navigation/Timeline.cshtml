@@ -1,0 +1,442 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/timeline/horizontal">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+</head>
+<body>
+    <div id="example">
+        <div class="demo-section wide">
+            <div id="timeline1"></div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#timeline1").kendoTimeline({
+                    dataSource: {
+                      transport: {
+                        read: {
+                            url: "../content/web/timeline/events-vertical-part1.json",
+                            dataType: "json"
+                        }
+                      },
+                      schema: {
+                        model: {
+                          fields: {
+                            date: {
+                              type: "date"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    alternatingMode: true,
+                    collapsibleEvents: true,
+                    orientation: "vertical"
+                });
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <div id="timeline"></div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#timeline").kendoTimeline({
+                    dataSource: {
+                        transport: {
+                            read: {
+                                url: "../content/web/timeline/events.json",
+                                dataType: "json"
+                            }
+                        },
+                        schema: {
+                            model: {
+                                fields: {
+                                    date: {
+                                        type: "date"
+                                    },
+                                }
+                            }
+                        }
+                    },
+                    orientation: "horizontal"
+                });
+            });
+        </script>
+    </div>
+
+    <style>
+        .demo-section {
+            max-width: 1200px;
+        }
+    </style>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <div id="timeline3"></div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#timeline3").kendoTimeline({
+                    dataSource: {
+                        transport: {
+                            read: {
+                                url: "../content/web/timeline/events-templates.json",
+                                dataType: "json"
+                            }
+                        },
+                        schema: {
+                            model: {
+                                fields: {
+                                    date: {
+                                        type: "date"
+                                    },
+                                }
+                            }
+                        }
+                    },
+                    orientation: "horizontal",
+                    eventTemplate: kendo.template($("#eventTemplate").html()),
+                });
+            });
+        </script>
+    </div>
+
+    <script id="eventTemplate" type="text/x-kendo-template">
+        <div class="k-card-inner">
+            <div class="k-card-header">
+                <h5 class="k-card-title">#= data.title #</h5>
+                <h6 class="k-card-subtitle"><strong>#= kendo.toString(data.date, "MMM d, yyyy")#</strong></h6>
+            </div>
+            <div class="k-card-body">
+                <div class="k-card-description">
+                    <p>#= data.description #</p>
+                    <div class="imageContainer">
+                        <img src="#= data.images[0].src #" class="k-card-image">
+                        <img src="#= data.images[1].src #" class="k-card-image">
+                    </div>
+                </div>
+            </div>
+            <div class="k-card-actions">
+                <a class="k-button k-button-flat-primary k-button-flat k-button-md k-rounded-md" href="#= data.actions[0].url #" target="_blank">#= data.actions[0].text #</a>
+            </div>
+        </div>
+    </script>
+
+    <style>
+        .demo-section, .box {
+            max-width: 1300px;
+        }
+
+        .imageContainer {
+            text-align: center;
+        }
+    </style>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Navigation</h4>
+                <ul class="options">
+                    <li>
+                        <button class="prev">Previous</button>
+                        <button class="next">Next</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Open Event at Index</h4>
+                <ul class="options">
+                    <li class="li-inline-flex">
+                        <input type="text" id="eventIndex" />
+                        <button class="openEvent">Open event</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="demo-section wide">
+            <div id="timeline3"></div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                var next = function (e) {
+                    var timeline = $("#timeline3").data("kendoTimeline");
+                    timeline.next();
+                };
+
+                var prev = function (e) {
+                    var timeline = $("#timeline3").data("kendoTimeline");
+                    timeline.previous();
+                };
+
+                var openEvent = function (e) {
+                    if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode) {
+                        var timeline = $("#timeline3").data("kendoTimeline"),
+                            eventIndex = $("#eventIndex").val(),
+                            event = timeline.element.find("li.k-timeline-track-item:not(.k-timeline-flag-wrap)").eq(eventIndex);
+
+                        timeline.open(event);
+                    }
+                };
+
+
+                $(".next").click(next);
+                $(".prev").click(prev);
+
+                $(".openEvent").click(openEvent);
+                $(".openEvent").keypress(openEvent);
+
+                $("#eventIndex").kendoNumericTextBox({
+                    min: 0,
+                    max: 20,
+                    decimal: 0,
+                    format: "n0",
+                    value: 0
+                });
+
+                $("#timeline3").kendoTimeline({
+                    dataSource: {
+                        transport: {
+                            read: {
+                                url: "../content/web/timeline/events.json",
+                                dataType: "json"
+                            }
+                        },
+                        schema: {
+                            model: {
+                                fields: {
+                                    date: {
+                                        type: "date"
+                                    },
+                                }
+                            }
+                        }
+                    },
+                    orientation: "horizontal"
+                });
+            });
+        </script>
+    </div>
+
+    <style>
+        .demo-section, .box {
+            max-width: 1200px;
+        }
+
+        .li-inline-flex {
+            display: inline-flex;
+        }
+
+            .li-inline-flex .openEvent {
+                margin-left: 5px;
+            }
+
+        .configurator input {
+            height: 30px !important;
+        }
+    </style>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <div id="timeline4"></div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                function onChange(e) {
+                    kendoConsole.log("Event Title: " + e.dataItem.title);
+                }
+
+                function onNavigate(e) {
+                    kendoConsole.log("Action: " + e.action);
+                }
+
+                function onActionClick(e) {
+                    kendoConsole.log("Action text: " + e.element.text());
+                }
+
+                function onDataBound(e) {
+                    kendoConsole.log("Events count: " + e.sender.dataSource.view().length);
+                }
+
+                $("#timeline4").kendoTimeline({
+                    dataSource: {
+                        transport: {
+                            read: {
+                                url: "../content/web/timeline/events-templates.json",
+                                dataType: "json"
+                            }
+                        },
+                        schema: {
+                            model: {
+                                fields: {
+                                    date: {
+                                        type: "date"
+                                    },
+                                }
+                            }
+                        }
+                    },
+                    orientation: "horizontal",
+                    change: onChange,
+                    navigate: onNavigate,
+                    dataBound: onDataBound,
+                    actionClick: onActionClick,
+                    eventTemplate: kendo.template($("#eventTemplate4").html()),
+                    eventHeight: 300
+                });
+            });
+        </script>
+    </div>
+
+
+    <script id="eventTemplate4" type="text/x-kendo-template">
+        <div class="k-card-header">
+            <h5 class="k-card-title">#= data.title #</h5>
+            <h6 class="k-card-subtitle"><strong>#= kendo.toString(data.date, "MMM d, yyyy")#</strong></h6>
+        </div>
+        <div class="k-card-body">
+            <div class="k-card-description">
+                <p>#= data.description #</p>
+            </div>
+        </div>
+        <div class="k-card-actions">
+            <a class="k-button k-button-flat-primary k-button-flat k-button-md k-rounded-md" href="#= data.actions[0].url #" target="_blank">#= data.actions[0].text #</a>
+        </div>
+    </script>
+
+    <style>
+        .demo-section, .box {
+            max-width: 1200px;
+        }
+    </style>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div id="example5">
+        <div class="demo-section wide">
+            <div id="timeline" data-role="timeline" data-orientation="vertical" data-collapsible-events="true" data-bind="source: events, events: {dataBound: dataBound}">
+
+            </div>
+        </div>
+        <script>
+            var timeline;
+            var viewModel = kendo.observable({
+                events: new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: "../content/web/timeline/events-vertical-part2.json",
+                            dataType:"json"
+                        }
+                    },
+                    schema: {
+                        model: {
+                            fields:{
+                                date:{
+                                    type:"date"
+                                },
+                            }
+                        }
+                    }
+                }),
+                dataBound: function(e) {
+                    var timeline = e.sender;
+
+                    timeline.expand(timeline.element.find("li.k-timeline-event:eq(1)"));
+                }
+            });
+
+            kendo.bind($("#example5"), viewModel);
+        </script>
+    </div>
+
+    <style>
+        .demo-section{
+            max-width: 800px;
+        }
+    </style>
+
+    <div id="example6">
+        <div class="configurator">
+            <div class="box-col">
+                <input id="titles" />
+                <button id="remove">Remove Item</button>
+            </div>
+        </div>
+        <div class="demo-section wide">
+            <div id="timeline6"></div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                var dataSource = new kendo.data.DataSource({
+                    pageSize: 10,
+                    transport: {
+                        read: {
+                            url: "../content/web/timeline/events-vertical-part1.json",
+                            dataType: "json"
+                        }
+                    },
+                    schema: {
+                        model: {
+                            id: "title",
+                            fields: {
+                                date: {
+                                    type: "date"
+                                }
+                            }
+                        }
+                    }
+                });
+
+                dataSource.read();
+
+                $("#titles6").kendoDropDownList({
+                    autoBind: false,
+                    optionLabel: "Select an item...",
+                    dataSource: dataSource,
+                    dataTextField: "title",
+                    dataValueField: "title",
+                    value: "Barcelona & Tenerife"
+                });
+
+                $("#timeline6").kendoTimeline({
+                    autoBind: false,
+                    dataSource: dataSource,
+                    alternatingMode: true,
+                    collapsibleEvents: true,
+                    orientation: "vertical"
+                });
+
+                $("#remove").click(function() {
+                    var ddl = $("#titles6").getKendoDropDownList();
+                    var selectedItem = ddl.value();
+                    var dataItems = $.grep(dataSource.data(), function(item){
+                      return item.title == selectedItem;
+                    });
+
+                    if (dataItems.length) {
+                        dataSource.remove(dataItems[0]);
+                    }
+
+                    ddl.value("");
+                });
+            });
+        </script>
+    </div>
+
+<style>
+    .demo-section, .box {
+        max-width: 1200px;
+    }
+</style>
+</body>

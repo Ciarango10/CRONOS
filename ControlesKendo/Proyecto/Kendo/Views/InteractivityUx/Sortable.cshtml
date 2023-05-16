@@ -1,0 +1,646 @@
+﻿<div id="playlist">
+    <div id="playlist-title"><span>My Playlist</span></div>
+    <ul id="sortable-basic">
+        <li class="sortable">Papercut <span>3:04</span></li>
+        <li class="sortable">One Step Closer <span>2:35</span></li>
+        <li class="sortable">With You <span>3:23</span></li>
+        <li class="sortable">Points of Authority <span>3:20</span></li>
+        <li class="sortable">Crawling <span>3:29</span></li>
+        <li class="sortable">Runaway <span>3:03</span></li>
+        <li class="sortable">By Myself <span>3:09</span></li>
+        <li class="sortable">In the End <span>3:36</span></li>
+        <li class="sortable">A Place for My Head <span>3:04</span></li>
+        <li class="sortable">Forgotten <span>3:14</span></li>
+        <li class="sortable">Cure for the Itch <span>2:37</span></li>
+        <li class="sortable">Pushing Me Away <span>3:11</span></li>
+    </ul>
+    <style>
+        #example {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        #playlist {
+            margin: 30px auto;
+            width: 300px;
+            background-color: #f3f5f7;
+            border-radius: 4px;
+            border: 1px solid rgba(0,0,0,.1);
+        }
+
+        #playlist-title {
+            height: 80px;
+            background: url('../content/web/sortable/playlist.png') no-repeat 50% 50% #ffffff;
+            border-radius: 4px 4px 0 0;
+            border-bottom: 1px solid rgba(0,0,0,.1);
+        }
+
+            #playlist-title span {
+                display: none;
+            }
+
+        #sortable-basic {
+            padding: 0;
+            margin: 0;
+        }
+
+        li.sortable {
+            list-style-type: none;
+            padding: 6px 8px;
+            margin: 0;
+            color: #666;
+            font-size: 1.2em;
+            cursor: move;
+        }
+
+            li.sortable:last-child {
+                border-bottom: 0;
+                border-radius: 0 0 4px 4px;
+            }
+
+            li.sortable span {
+                display: block;
+                float: right;
+                color: #666;
+            }
+
+            li.sortable:hover {
+                background-color: #dceffd;
+            }
+
+        li.hint {
+            display: block;
+            width: 200px;
+            background-color: #52aef7;
+            color: #fff;
+        }
+
+            li.hint:after {
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 6px solid transparent;
+                border-bottom: 6px solid transparent;
+                border-left: 6px solid #52aef7;
+                position: absolute;
+                left: 216px;
+                top: 8px;
+            }
+
+            li.hint:last-child {
+                border-radius: 4px;
+            }
+
+            li.hint span {
+                color: #fff;
+            }
+
+        li.placeholder {
+            background-color: #dceffd;
+            color: #52aef7;
+            text-align: right;
+        }
+    </style>
+</div>
+
+Filter / Disable Items
+<div class="demo-wrapper">
+    <div class="demo-section sortable-wrapper">
+        <h4>Disable</h4>
+        <p>Disabled items cannot be dragged but are valid drop targets.</p>
+        <div id="sortable-disable2">
+            <div class="sortable disabled">Disabled item 1</div>
+            <div class="sortable disabled">Disabled item 2</div>
+            <div class="sortable">Item 3</div>
+            <div class="sortable">Item 4</div>
+            <div class="sortable">Item 5</div>
+            <div class="sortable">Item 6</div>
+        </div>
+    </div>
+
+    <div class="demo-section sortable-wrapper">
+        <h4>Filter</h4>
+        <p>Filtered items cannot be dragged and are not valid drop targets.</p>
+        <div id="sortable-filter2">
+            <div class="not-sortable">Not sortable item 1</div>
+            <div class="not-sortable">Not sortable item 2</div>
+            <div class="sortable">Item 3</div>
+            <div class="sortable">Item 4</div>
+            <div class="sortable">Item 5</div>
+            <div class="sortable">Item 6</div>
+        </div>
+    </div>
+    <style>
+        #example {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .sortable-wrapper {
+            width: 37%;
+            margin: 20px 40px;
+            padding: 20px;
+        }
+
+        .demo-wrapper {
+            display: flex;
+        }
+
+        .sortable-wrapper p {
+            margin: 5px auto 20px;
+        }
+
+        .sortable, .not-sortable {
+            padding: 10px 0;
+            margin: 1px 0;
+            width: 358px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .sortable {
+            background-color: #51A0ED;
+            cursor: move;
+        }
+
+        .not-sortable {
+            background-color: #8E8E8E;
+            opacity: 0.5;
+        }
+
+        .disabled {
+            background-color: #FF0000;
+            opacity: 0.5;
+            cursor: auto;
+        }
+    </style>
+</div>
+
+Handler
+<div id="pages">
+    <div id="pages-title"><span>Site Menu</span></div>
+    <div id="sortable-handlers">
+        <div class="item">
+            <span class="handler">&nbsp;</span>
+            <span>About us</span>
+        </div>
+        <div class="item">
+            <span class="handler">&nbsp;</span>
+            <span>Contact us</span>
+        </div>
+        <div class="item">
+            <span class="handler">&nbsp;</span>
+            <span>Community</span>
+        </div>
+        <div class="item">
+            <span class="handler">&nbsp;</span>
+            <span>Products</span>
+        </div>
+        <div class="item">
+            <span class="handler">&nbsp;</span>
+            <span>Services</span>
+        </div>
+    </div>
+    <style>
+        #example {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        #pages {
+            margin: 30px auto;
+            width: 300px;
+            background-color: #f3f5f7;
+            border-radius: 4px;
+            border: 1px solid rgba(0,0,0,.1);
+        }
+
+        html[class*="dark"] #pages,
+        html[class*="dark"] .item {
+            background-color: #000000;
+            border: 1px solid lightgray;
+        }
+
+        #pages-title {
+            height: 60px;
+            background: url('../content/web/sortable/handlers-title.png') no-repeat 50% 15px;
+        }
+
+            #pages-title span {
+                display: none;
+            }
+
+        .item {
+            margin: 15px;
+            padding: 0 10px 0 0;
+            min-width: 200px;
+            background-color: #fff;
+            border: 1px solid rgba(0,0,0,.1);
+            border-radius: 3px;
+            font-size: 1.3em;
+            line-height: 2.5em;
+        }
+
+        .handler {
+            display: inline-block;
+            width: 30px;
+            margin-right: 10px;
+            border-radius: 3px 0 0 3px;
+            background: url('../content/web/sortable/handle.png') no-repeat 50% 50% #ccc;
+            cursor: move;
+        }
+
+            .handler:hover {
+                background-color: #2db245;
+            }
+
+        .placeholder {
+            width: 298px;
+            border: 1px solid #2db245;
+        }
+
+        .hint {
+            border: 2px solid #2db245;
+            border-radius: 6px;
+        }
+
+            .hint .handler {
+                background-color: #2db245;
+            }
+    </style>
+</div>
+
+<div class="demo-section hidden-on-narrow one-way wide">
+    <div class="list-wrapper">
+        <ul id="sortable-listA">
+            <li class="list-item">Apples</li>
+            <li class="list-item">Grapefruits</li>
+            <li class="list-item">Bananas</li>
+        </ul>
+
+        <ul id="sortable-listB">
+            <li class="list-item">Cranberries</li>
+            <li class="list-item">Pineapples</li>
+            <li class="list-item">Strawberries</li>
+        </ul>
+    </div>
+</div>
+
+<div class="demo-section hidden-on-narrow two-way wide">
+    <div class="list-wrapper">
+        <ul id="sortable-listC" style="min-height: 110px;">
+            <li class="list-item">Cherries</li>
+            <li class="list-item">Pears</li>
+            <li class="list-item">Plums</li>
+        </ul>
+
+        <ul id="sortable-listD" style="min-height: 110px;">
+            <li class="list-item">Apricots</li>
+            <li class="list-item">Grapes</li>
+            <li class="list-item">Lemons</li>
+        </ul>
+    </div>
+    <style>
+        #example {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .demo-section {
+            padding: 50px 70px;
+        }
+
+        .one-way {
+            background: url('../content/web/sortable/one-way.png') no-repeat 50% 50%;
+        }
+
+        .two-way {
+            background: url('../content/web/sortable/two-way.png') no-repeat 50% 50%;
+        }
+
+        .list-wrapper {
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #sortable-listA, #sortable-listB, #sortable-listC, #sortable-listD {
+            width: 210px;
+            min-height: 40px;
+            margin: 0;
+            padding: 0;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+        }
+
+        .list-item {
+            list-style-type: none;
+            width: 200px;
+            margin: 5px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #222222;
+            color: #ffffff;
+            border-radius: 3px;
+            cursor: move;
+        }
+
+        #sortable-listA .list-item {
+            background-color: #54b8fa;
+            color: #000000;
+        }
+
+        #sortable-listB .list-item {
+            background-color: #ff879e;
+            color: #000000;
+        }
+
+        #sortable-listC .list-item {
+            background-color: #66cc66;
+            color: #000000;
+        }
+
+        #sortable-listD .list-item {
+            background-color: #ffcc33;
+            color: #000000;
+        }
+
+        #placeholder.list-item {
+            background-color: #ffffff;
+            color: #777;
+        }
+    </style>
+</div>
+
+Sortable Panel
+<div class="dash-head hidden-on-narrow"></div>
+<div class="panel-wrap hidden-on-narrow">
+    <div id="sidebar">
+        <div id="profile" class="widget">
+            <h3>Profile <span class="collapse k-icon k-i-sort-asc-sm"></span></h3>
+            <div>
+                <div class="profile-photo"></div>
+                <h4>Lynda Schleifer</h4>
+                <p>Sales Associate</p>
+            </div>
+        </div>
+        <div id="teammates" class="widget">
+            <h3>Teammates <span class="collapse k-icon k-i-sort-asc-sm"></span></h3>
+            <div>
+                <div class="team-mate">
+                    <img src="../content/web/panelbar/andrew.jpg" alt="Kendo UI for jQuery Sortable Andrew Fuller">
+                    <h4>Andrew Fuller</h4>
+                    <p>Team Lead</p>
+                </div>
+                <div class="team-mate">
+                    <img src="../content/web/panelbar/nancy.jpg" alt="Kendo UI for jQuery Sortable Nancy Leverling">
+                    <h4>Nancy Leverling</h4>
+                    <p>Sales Associate</p>
+                </div>
+                <div class="team-mate">
+                    <img src="../content/web/panelbar/robert.jpg" alt="Kendo UI for jQuery Sortable Robert King">
+                    <h4>Robert King</h4>
+                    <p>Business System Analyst</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="main-content">
+        <div id="news" class="widget">
+            <h3>News <span class="collapse k-icon k-i-sort-asc-sm"></span></h3>
+            <div>
+
+                <h4><span>Jan 22, 2014</span> Stanford Speaker Series Looks at the Rising Tide of Eastern European High Tech Firms with Telerik CEO Vassil Terziev</h4>
+
+                <h4><span>Dec 10, 2013</span> Telerik Test Studio Now Offers Cross-Browser Test Recording and Subscription-Based Pricing for 1M-Strong Developer Community</h4>
+
+                <h4><span>Nov 22, 2013</span> Telerik AD is Named "Best Employer in Bulgaria" for Sixth Consecutive Year</h4>
+
+                <h4><span>Nov 20, 2013</span> Telerik Embraces the Responsive Web with Latest Kendo UI Improvements</h4>
+            </div>
+        </div>
+        <div id="blogs" class="widget">
+            <h3>Blogs <span class="collapse k-icon k-i-sort-asc-sm"></span></h3>
+            <div>
+                <h4>Upgrading OpenAccess ORM to Telerik Data Access</h4>
+                <p class="blog-info">Friday, February 14, 2014 by Data Access Team</p>
+                <p>OpenAccess ORM was recently renamed to Telerik Data Access and re-branded. Find out what are the changes you can expect when upgrading to the latest official release.</p>
+
+                <h4>Design, then Develop Experiences</h4>
+                <p class="blog-info">Friday, February 14, 2014 by Telerik Services</p>
+                <p>Here at Telerik, our goal is to help you develop experiences. We've got a long history of providing tools to help developers deliver great value for their customers. But maybe sometimes you need a little help figuring out just how to make your customers happy. That's where the user experience (UX) designers at Telerik Services come in.</p>
+
+                <h4>What Carl Sagan Taught Me About Software</h4>
+                <p class="blog-info">Thursday, February 13, 2014 by Kendo UI</p>
+                <p>Software ecosystems are vital to a developer's success. It's hard to place a value on the benefit derived from being able to lean on other's experience, as well as easily find and digest content that's relevant to your project. Ecosystems don't just sprout up overnight though. It takes the right timing, the perfect conditions and lots of love and cultivation. Trying to actively create a new ecosystem around a product or platform is a lot like terraforming. Carl Sagan knows a thing or two about that.</p>
+            </div>
+        </div>
+    </div>
+    <style>
+        #example {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .dash-head {
+            width: 970px;
+            height: 80px;
+            background: url('../content/web/sortable/dashboard-head.png') no-repeat 50% 50% #222222;
+        }
+
+        .panel-wrap {
+            display: table;
+            margin: 0 0 20px;
+            width: 968px;
+            background-color: #f5f5f5;
+            border: 1px solid #e5e5e5;
+        }
+
+        #sidebar {
+            display: table-cell;
+            margin: 0;
+            padding: 20px 0 20px 20px;
+            width: 220px;
+            vertical-align: top;
+        }
+
+        #main-content {
+            display: table-cell;
+            margin: 0;
+            padding: 20px;
+            width: 680px;
+            vertical-align: top;
+        }
+
+        .widget.placeholder {
+            opacity: 0.4;
+            border: 1px dashed #a6a6a6;
+        }
+
+        .widget {
+            margin: 0 0 20px;
+            padding: 0;
+            background-color: #ffffff;
+            border: 1px solid #e7e7e7;
+            border-radius: 3px;
+            cursor: move;
+        }
+
+            .widget:hover {
+                background-color: #fcfcfc;
+                border-color: #cccccc;
+            }
+
+            .widget div {
+                padding: 10px;
+                min-height: 50px;
+            }
+
+            .widget h3 {
+                font-size: 12px;
+                padding: 8px 10px;
+                text-transform: uppercase;
+                border-bottom: 1px solid #e7e7e7;
+            }
+
+                .widget h3 span {
+                    float: right;
+                }
+
+                    .widget h3 span:hover {
+                        cursor: pointer;
+                        background-color: #e7e7e7;
+                        border-radius: 20px;
+                    }
+
+        .profile-photo {
+            width: 80px;
+            height: 80px;
+            margin: 10px auto;
+            border-radius: 100px;
+            border: 1px solid #e7e7e7;
+            background: url('../content/web/Customers/ISLAT.jpg') no-repeat 50% 50%;
+        }
+
+        #profile div {
+            text-align: center;
+        }
+
+        #profile h4 {
+            width: auto;
+            margin: 0 0 5px;
+            font-size: 1.2em;
+            color: #1f97f7;
+        }
+
+        #profile p {
+            margin: 0 0 10px;
+        }
+
+        #blogs div,
+        #news div {
+            padding: 0 20px 20px;
+        }
+
+        #teammates h4,
+        #blogs h4,
+        #news h4 {
+            width: auto;
+            margin: 20px 0 2px;
+            font-size: 1.4em;
+            color: #1f97f7;
+            font-weight: normal;
+        }
+
+        .blog-info {
+            margin: 0 0 10px;
+            font-size: .9em;
+            color: #787878;
+        }
+
+        #sidebar #blogs h4 {
+            font-size: 1em;
+        }
+
+        #sidebar #blogs p {
+            display: none;
+        }
+
+        #sidebar #blogs .blog-info {
+            display: block;
+        }
+
+        #main-content #news h4 {
+            font-size: 1.2em;
+            line-height: 1.4em;
+            height: 40px;
+        }
+
+            #main-content #news h4 span {
+                display: block;
+                float: left;
+                width: 100px;
+                height: 40px;
+                color: #000;
+            }
+
+        #sidebar #news h4 {
+            font-size: 1em;
+        }
+
+            #sidebar #news h4 span {
+                display: block;
+                margin-bottom: 3px;
+                color: #000;
+            }
+
+        .team-mate:after {
+            content: ".";
+            display: block;
+            height: 0;
+            line-height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        #teammates .team-mate h4 {
+            font-size: 1.4em;
+            font-weight: normal;
+            margin-top: 12px;
+        }
+
+        .team-mate p {
+            margin: 0;
+        }
+
+        .team-mate img {
+            float: left;
+            margin: 0 15px 0 0;
+            border: 1px solid #e7e7e7;
+            border-radius: 60px;
+        }
+
+        .hint {
+            width: 250px;
+            height: 100px;
+            overflow: hidden;
+        }
+
+            .hint > h3 {
+                padding-left: 20px;
+            }
+    </style>
+</div>
+
+<script src="~/js/sortable.js"></script>

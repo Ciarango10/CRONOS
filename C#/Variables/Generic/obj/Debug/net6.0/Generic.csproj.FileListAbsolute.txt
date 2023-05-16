@@ -1,0 +1,15 @@
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\bin\Debug\net6.0\Generic.exe
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\bin\Debug\net6.0\Generic.deps.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\bin\Debug\net6.0\Generic.runtimeconfig.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\bin\Debug\net6.0\Generic.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\bin\Debug\net6.0\Generic.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\obj\Debug\net6.0\Generic.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\obj\Debug\net6.0\Generic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\obj\Debug\net6.0\Generic.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\obj\Debug\net6.0\Generic.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\obj\Debug\net6.0\Generic.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\obj\Debug\net6.0\Generic.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\obj\Debug\net6.0\refint\Generic.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\obj\Debug\net6.0\Generic.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\obj\Debug\net6.0\Generic.genruntimeconfig.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Generic\obj\Debug\net6.0\ref\Generic.dll

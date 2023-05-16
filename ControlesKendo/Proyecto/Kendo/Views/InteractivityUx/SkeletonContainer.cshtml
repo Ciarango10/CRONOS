@@ -1,0 +1,63 @@
+﻿<div id="example">
+    <div class="cards-container">
+        <div id="skeleton">
+        </div>
+        <div class="k-card">
+            <div class="k-card-header">
+                <div>
+                    <img src="~/img/avatar.jpg" class="k-card-image avatar" />
+                </div>
+                <div class="user-info">
+                    <h5 class="k-card-title">Tom Smith</h5>
+                    <h6 class="k-card-subtitle">Hace 5 Horas</h6>
+                </div>
+            </div>
+            <img src="~/img/card-thumbnail.jpg" class="k-card-image"  />
+            <div class="k-card-body">
+                <p>Divirtiendome mucho en Prague! #NaZdravi</p>
+            </div>
+        </div>
+    </div>
+    <style>
+        .k-card-header {
+            display: flex;
+            height: 70px;
+        }
+
+        .user-info {
+            padding-left: 10px;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+            .cards-container > div {
+                margin: 5%;
+            }
+
+            .cards-container .k-card .k-card-subtitle {
+                margin-top: 5px;
+            }
+
+        .avatar {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+
+        .k-card {
+            width: 340px;
+            height: 350px;
+        }
+
+        .k-card-footer {
+            text-align: center;
+        }
+    </style>
+</div>
+
+<div id="grid"></div>
+<script src="~/js/skeletoncontainer.js"></script>

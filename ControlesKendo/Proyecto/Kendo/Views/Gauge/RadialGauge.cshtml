@@ -1,0 +1,37 @@
+﻿<div id="gauge-container">
+    <div id="gauge"></div>
+    <input id="gauge-value" title="slider" value="65">
+</div>
+
+
+<div class="box-col">
+    Scale Options
+    <h4>Gauge Labels</h4>
+    <ul class="options">
+        <li>
+            <input id="labels" checked="checked" type="checkbox" autocomplete="off">
+            <label for="labels">Show labels</label>
+        </li>
+        <li>
+            <input id="labels-inside" type="radio" value="inside" name="labels-position" checked="checked">
+            <label for="labels-inside">- inside the gauge</label>
+        </li>
+        <li>
+            <input id="labels-outside" type="radio" value="outside" name="labels-position">
+            <label for="labels-outside">- outside of the gauge</label>
+        </li>
+    </ul>
+</div>
+<div class="box-col">
+    <h4>Gauge Ranges</h4>
+    <ul class="options">
+        <li>
+            <input id="ranges" checked="checked" type="checkbox" autocomplete="off">
+            <label for="ranges">Show ranges</label>
+        </li>
+    </ul>
+</div>
+<div id="gauge-container">
+    <div id="gauge2"></div>
+</div>
+<script src="~/js/radialgauge.js"></script>

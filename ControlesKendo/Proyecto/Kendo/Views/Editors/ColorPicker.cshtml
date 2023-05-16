@@ -1,0 +1,564 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/colorpicker/index">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div style="margin-top: 54px;">
+        <div id="background">
+            <div class="column">
+                <h3 class="title">Select Wall Paint</h3>
+                <input id="palette" />
+            </div>
+
+            <div class="column">
+                <h3 class="title"><label for="picker">Choose Custom Color</label></h3>
+                <input id="picker" />
+            </div>
+        </div>
+
+        <div class="responsive-message"></div>
+
+        <script>
+            function preview(e) {
+                $("#background").css("background-color", e.value);
+            }
+
+            $("#palette").kendoColorPicker({
+                view: "palette",
+                views: ["palette"],
+                change: preview,
+                buttons: false
+            });
+
+            $("#picker").kendoColorPicker({
+                input: false,
+                preview: false,
+                value: "#ffffff",
+                buttons: false,
+                select: preview,
+                views: ["gradient"]
+            });
+        </script>
+
+        <style>
+
+            #background {
+                background: transparent url(../content/web/colorpicker/interior-bg.png) no-repeat;
+                margin: 0 auto;
+                width: 600px;
+                height: 600px;
+                overflow: hidden;
+            }
+
+            .column {
+                margin-top: 384px;
+                float: left;
+                width: 300px;
+                text-align: center;
+            }
+
+                .column .title {
+                    color: #a3a3a3;
+                    text-transform: uppercase;
+                    font-size: 11px;
+                    font-weight: normal;
+                    padding: 41px 0 20px;
+                }
+
+            #palette {
+                vertical-align: top;
+                display: inline-block;
+            }
+
+            .k-colorpicker {
+                vertical-align: top;
+                margin: 20px 0;
+            }
+        </style>
+    </div>
+
+    <div class="hidden-on-narrow wide">
+        <div id="bike">
+            <div id="bike-tail"></div><div id="bike-head"></div>
+        </div>
+        <div class="picker-wrapper">
+            <label style="display: block;">Tail color</label>
+            <div id="tail" class="picker"></div>
+        </div>
+        <div class="picker-wrapper">
+            <label style="display: block;">Front &amp; side color</label>
+            <div id="head" class="picker"></div>
+        </div>
+    </div>
+    <style>
+
+        .wide {
+            text-align: center;
+            padding-top: 54px;
+        }
+
+        #bike {
+            margin: 0 0 10px;
+            background: url(../content/web/colorpicker/background.png);
+        }
+
+        #bike-head, #bike-tail {
+            background: url(../content/web/colorpicker/motor.png);
+            display: inline-block;
+            height: 299px;
+            width: 241px;
+        }
+
+        #bike-tail {
+            background-color: #000;
+        }
+
+        #bike-head {
+            background-color: #e15613;
+            background-position: -241px 0;
+        }
+
+        .picker-wrapper {
+            display: inline-block;
+            text-align: left;
+            margin: 0 18px;
+        }
+    </style>
+    <script>
+        function select(e) {
+            $("#bike-" + this.element.attr("id")).css("background-color", e.value);
+        }
+
+        $("#tail").kendoColorPicker({
+            preview: false,
+            value: "#000",
+            change: select,
+            view: "palette",
+            views: ["gradient", "palette"]
+        });
+
+        $("#head").kendoColorPicker({
+            preview: false,
+            value: "#e15613",
+            change: select,
+            view: "gradient",
+            views: ["gradient", "palette"]
+        });
+    </script>
+
+    <div class="k-d-inline-flex hidden-on-narrow wide">
+        <div class="column">
+            <label for="picker">Choose Your Color | RGB</label>
+            <input id="picker3" />
+        </div>
+        <div class="column">
+            <label for="no-inputs-picker">Choose Your Color | HEX</label>
+            <input id="no-inputs-picker" />
+        </div>
+    </div>
+
+    <script>
+
+        $("#picker3").kendoColorPicker({
+            value: "#ff0000",
+            format: "rgb",
+            formats:["rgb","hex"]
+        });
+        $("#no-inputs-picker").kendoColorPicker({
+            value: "#fff700",
+            format: "hex",
+            formats: ["rgb", "hex"]
+        });
+    </script>
+
+    <style>
+
+        .k-d-inline-flex {
+            display: inline-flex;
+            width: 100%;
+            box-sizing: border-box;
+			margin-top: 54px;
+        }
+
+        .column {
+            margin:auto;
+            text-align: center;
+        }
+		label {
+			display: block;
+		}
+
+        .k-colorpicker {
+            vertical-align: top;
+            margin: 20px 0;
+        }
+    </style>
+
+    <div class=" k-d-flex hidden-on-narrow wide" style="margin-top: 54px;">
+        <div class="column k-d-flex k-flex-col k-justify-content-center k-align-items-center">
+            <label for="foreground-picker4">Foreground Color</label>
+            <input id="foreground-picker4" />
+        </div>
+        <div class="column">
+            <div id="background4">Text for Contrast Tool Demo</div>
+        </div>
+        <div class="column k-d-flex k-flex-col k-justify-content-center k-align-items-center">
+            <label for="background-picker4">Background Color</label>
+            <input id="background-picker4" />
+        </div>
+    </div>
+
+    <script>
+        var foregroundColor = $('.k-body').css("color");
+        var backgroundColor = $('.k-body').css("background-color"); 
+        $("#foreground-picker4").kendoColorPicker({
+            opacity: true,
+            value: foregroundColor,
+            contrastTool: {
+                backgroundColor: backgroundColor
+            },
+            select: function (e) {
+                $("#background4").css("color", e.value);
+            }
+        });
+
+        $("#background-picker4").kendoColorPicker({
+            opacity: true,
+            value: backgroundColor,
+            input: false,
+            views: ["gradient"],
+            select: function (e) {
+                $("#background4").css("background-color", e.value);
+            },
+            change: function (e) {
+                var foregroundPicker = $("#foreground-picker4").data("kendoColorPicker")
+                foregroundPicker.setBackgroundColor(e.value)
+            }
+        });
+    </script>
+
+    <style>
+        #background4 {
+            border-radius:20px;
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .column {
+            margin:auto;
+        }
+
+        .k-colorpicker {
+            vertical-align: top;
+            margin: 20px 0;
+        }
+    </style>
+
+    <div id="demo5" style="margin-top: 54px;">
+		<label style="display: block">Simple (palette-based) picker:</label>
+        <input type="color" id="basic" value="#00ccff" accesskey="s"
+                data-role="colorpicker" data-palette="websafe" data-preview="false" data-views="['gradient']" data-input="false" />
+		<br>
+		<br>
+		<br>
+        <label style="display: block">HSV picker:</label>
+        <input type="color" id="hsv" value="#00ccff" accesskey="h"
+           data-role="colorpicker" data-opacity="true" data-preview="false" data-views="['gradient']" data-input="false" />
+    </div>
+
+    <script>
+        kendo.init($("#demo5"));
+    </script>
+
+    <div id="demo6" style="margin-top: 54px;">
+        <label>FlatColorPicker:</label>
+        <div id="flatcolorpicker6" data-role="flatcolorpicker" data-input="false" data-preview="false" data-views="['gradient']"></div>
+        <br>
+        <br>
+        <label>ColorPicker (palette):</label>
+        <input type="color" id="palette-picker6" value="#cc2222" data-role="colorpicker" data-palette="basic" data-input="false" data-preview="false" data-views="['gradient']">
+        <br>
+        <br>
+        <label>ColorPicker (HSV):</label>
+        <input type="color" id="hsv-picker6" value="#22cc22" data-role="colorpicker" data-input="false" data-preview="false" data-views="['gradient']">
+        <br>
+        <br>
+        <label>ColorPalette:</label>
+        <div id="palette6" data-role="colorpalette"></div>
+    </div>
+
+    <script>
+        kendo.init($("#demo6"));
+
+        $("#palette-picker6, #hsv-picker6").each(function () {
+            var colorPicker = $(this).data("kendoColorPicker");
+
+            colorPicker.bind({
+                select: function (e) {
+                    kendoConsole.log("Select in picker #" + this.element.attr("id") + " :: " + e.value);
+                },
+                change: function (e) {
+                    kendoConsole.log("Change in picker #" + this.element.attr("id") + " :: " + e.value);
+                },
+                open: function () {
+                    kendoConsole.log("Open in picker #" + this.element.attr("id"));
+                },
+                close: function () {
+                    kendoConsole.log("Close in picker #" + this.element.attr("id"));
+                }
+            });
+        });
+
+        var colorPalette = $("#palette6").data("kendoColorPalette");
+        colorPalette.bind("change", function (e) {
+            kendoConsole.log("Change in color palette :: " + e.value);
+        });
+
+        var flatColorPicker = $("#flatcolorpicker6").data("kendoFlatColorPicker");
+        flatColorPicker.bind("change", function (e) {
+            kendoConsole.log("Change in flat color picker :: " + e.value);
+        });
+    </script>
+
+    <style>
+        label {
+            display: block;
+        }
+    </style>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Size</h4>
+                    <input id="size" name="size" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Fill Mode</h4>
+                    <input id="fillMode" name="fillMode" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Border Radius</h4>
+                    <input id="rounded" name="rounded" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div style="margin-top: 54px; text-align:center;">
+        <label for="products" style="display: block">Select a color:</label>
+        <div id="colorpicker7"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var colorPicker = $('#colorpicker7').kendoColorPicker().data('kendoColorPicker');
+
+            var size = $("#size").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "medium",
+                change: onChange,
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "None", value: "none" }
+                ]
+            }).data("kendoDropDownList");
+
+            var rounded = $("#rounded").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                change: onChange,
+                value: "medium",
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "Full", value: "full" },
+                    { text: "None", value: "none" }
+                ]
+            }).data("kendoDropDownList");
+
+            var fill = $("#fillMode").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                change: onChange,
+                value: "solid",
+                dataSource: [
+                    { text: "Solid", value: "solid" },
+                    { text: "Flat", value: "flat" },
+                    { text: "Outline", value: "outline" },
+                    { text: "None", value: "none" }
+                ]
+            }).data("kendoDropDownList");
+
+            function onChange(e) {
+                var sizeValue = size.value();
+                var roundedValue = rounded.value();
+                var fillValue = fill.value();
+
+                colorPicker.setOptions({
+                    size: sizeValue,
+                    rounded: roundedValue,
+                    fillMode: fillValue
+                })
+            }
+        });
+    </script>
+
+    <style>
+        .k-picker.k-dropdownlist {
+            width: 140px;
+        }
+    </style>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Values</h4>
+            <ul class="options">
+                <li>
+                    <input id="value" value="#ff0000" style="width: 100px; margin: 0;" />
+                    <button id="set">Set value</button>
+                </li>
+                <li><button id="get">Get value</button></li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Enable/Disable</h4>
+            <ul class="options">
+                <li>
+                    <button id="enable">Enable</button>
+                    <button id="disable">Disable</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Open/Close</h4>
+            <ul class="options">
+                <li>
+                    <button id="open">Open</button>
+                    <button id="close">Close</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="margin-top: 54px; text-align:center;">
+        <label for="colorpicker" style="display: block">ColorPicker:</label>
+        <input id="colorpicker8" value="#00f" />
+    </div>
+
+    <script>
+        var colorpicker = $("#colorpicker8").kendoColorPicker({
+            input: false,
+            preview: false,
+            views:["gradient"],
+            toolIcon: "k-i-foreground-color"
+        }).data("kendoColorPicker");
+
+        $("#enable").click(function(){
+            colorpicker.enable();
+        });
+
+        $("#disable").click(function(){
+            colorpicker.enable(false);
+        });
+
+        $("#get").click(function(){
+            alert( colorpicker.value() );
+        });
+
+        $("#set").click(function(){
+            var color = $("#value").val();
+            try {
+                color = kendo.parseColor(color);
+                colorpicker.value(color);
+            } catch(ex) {
+                alert('Cannot parse color: "' + color + '"');
+            }
+        });
+
+        $("#open").click(function(){
+            colorpicker.open();
+        });
+
+        $("#close").click(function(){
+            colorpicker.close();
+        });
+    </script>
+
+    <style>
+        .configurator button {
+            min-width: 80px;
+        }
+    </style>
+
+    <div id="demo9" style="text-align:center; margin-top: 54px"> 
+            <label style="display: block">Choose a color</label>
+            <input data-role="colorpicker"
+                   data-preview="false"
+                   data-views="['gradient']"
+                   data-bind="visible: isVisible,
+                              enabled: isEnabled,
+                              value: selectedColor,
+                              events: { change: onChange }">
+    </div>
+
+    <script>
+        var viewModel = kendo.observable({
+            selectedColor: null,
+            isVisible: true,
+            isEnabled: true,
+            onChange: function() {
+                kendoConsole.log("event :: change (" + this.get("selectedColor") + ")");
+            }
+        });
+        kendo.bind($("#demo9"), viewModel);
+    </script>
+
+
+     <div class="kd-example-console">
+         <div class="header">
+              <span class="title">CONSOLE LOG</span>
+              <span class="clear kd-text-secondary">Clear log</span>
+         </div>
+         <div class="console"></div>
+     </div>
+
+
+</body>

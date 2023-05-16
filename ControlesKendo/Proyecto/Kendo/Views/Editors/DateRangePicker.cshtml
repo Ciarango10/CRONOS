@@ -1,0 +1,322 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/daterangepicker/index">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">       
+			<div id="daterangepicker" title="daterangepicker"></div>
+		</div>
+	</div>
+    <script>
+        $(document).ready(function() {
+            $("#daterangepicker").kendoDateRangePicker();
+        });
+    </script>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Size</h4>
+                        <input id="size" name="size" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Fill Mode</h4>
+                        <input id="fillMode" name="fillMode" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Border Radius</h4>
+                        <input id="rounded" name="rounded" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+            <div class="k-w-300">
+                <div id="daterangepicker2" title="daterangepicker"></div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#size").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "medium",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Small", value: "small" },
+                        { text: "Medium", value: "medium" },
+                        { text: "Large", value: "large" },
+                        { text: "None", value: "none" }
+                    ]
+                });
+
+                $("#rounded").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "medium",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Small", value: "small" },
+                        { text: "Medium", value: "medium" },
+                        { text: "Large", value: "large" },
+                        { text: "Full", value: "full" },
+                        { text: "None", value: "none" }
+                    ]
+                });
+
+                $("#fillMode").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "solid",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Solid", value: "solid" },
+                        { text: "Flat", value: "flat" },
+                        { text: "Outline", value: "outline" },
+                        { text: "None", value: "none" }
+                    ]
+                });
+
+                function onChange(e) {
+                    var daterangepicker = $("#daterangepicker2").data("kendoDateRangePicker");
+                    var size = $("#size").data("kendoDropDownList").value();
+                    var rounded = $("#rounded").data("kendoDropDownList").value();
+                    var fillMode = $("#fillMode").data("kendoDropDownList").value();
+
+                    daterangepicker.setOptions({
+                        size: size,
+                        rounded: rounded,
+                        fillMode: fillMode
+                    });
+                }
+
+                $("#daterangepicker2").kendoDateRangePicker();
+            });
+        </script>
+
+        <style>
+            .k-picker.k-dropdownlist {
+                width: 140px;
+            }
+        </style>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">       
+			<div id="daterangepicker3" title="daterangepicker"></div>
+		</div>
+	</div>
+    <script>
+        $(document).ready(function () {
+            var start = new Date();
+            var end = new Date(start.getFullYear(), start.getMonth(), start.getDate() + 20);
+
+            $("#daterangepicker3").kendoDateRangePicker({
+                range: { start: start, end: end }
+            }).data("kendoDatePicker");
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">       
+			<div id="daterangepicker4" title="daterangepicker"></div>
+		</div>
+	</div>
+   
+    <script>
+        $(document).ready(function() {
+            function onOpen() {
+                kendoConsole.log("Open");
+            }
+
+            function onClose() {
+                kendoConsole.log("Close");
+            }
+
+            function onChange() {
+                var range = this.range();
+                kendoConsole.log("Change :: start - " + kendo.toString(range.start, 'd') + " end - " + kendo.toString(range.end, 'd'));
+            }
+
+            $("#daterangepicker4").kendoDateRangePicker({
+                change: onChange,
+                close: onClose,
+                open: onOpen
+            });
+        });
+    </script>
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Open / Close</h4>
+            <ul class="options">
+                <li>
+                    <button id="open">Open</button>
+                    <button id="close">Close</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Set / Get Value</h4>
+            <ul class="options">
+                <li>
+                    <input id="startValue" value="1/19/2019" style="float:none; width:150px" />
+                    <input id="endValue" value="2/28/2019" style="float:none; width:150px" />
+                    <button id="set">Set value</button>
+                </li>
+                <li style="text-align: right;">
+                    <button id="get">Get value</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Enable / Disable</h4>
+            <ul class="options">
+                <li>
+                    <button id="enable">Enable</button>
+                    <button id="disable">Disable</button>
+                    <button id="readonly">Readonly</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">       
+			<div id="daterangepicker5" title="daterangepicker"></div>
+		</div>
+	</div>
+
+    <script>
+        $(document).ready(function () {
+
+            var startDate = $("#startValue").kendoDatePicker().data("kendoDatePicker");
+            var endDate = $("#endValue").kendoDatePicker().data("kendoDatePicker");
+
+            $("#daterangepicker5").kendoDateRangePicker();
+
+            var daterangepicker = $("#daterangepicker5").data("kendoDateRangePicker");
+
+            var setValue = function () {
+                var range = { start: startDate.value(), end: endDate.value() };
+
+                if (range.start > range.end) {
+                    alert("Start date must be before End date.")
+                } else {
+                    daterangepicker.range(range);
+                }
+            };
+
+            $("#enable").click(function () {
+                daterangepicker.enable();
+            });
+
+            $("#disable").click(function () {
+                daterangepicker.enable(false);
+            });
+
+            $("#readonly").click(function () {
+                daterangepicker.readonly();
+            });
+
+            $("#open").click(function () {
+                daterangepicker.open();
+            });
+
+            $("#close").click(function () {
+                daterangepicker.close();
+            });
+
+            $("#set").click(setValue);
+
+            $("#get").click(function () {
+                var range = daterangepicker.range()
+                alert("Start - " + range.start + " End - " + range.end);
+            });
+        });
+    </script>
+
+    <div id="demo6">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <div>
+                    <label><input type="checkbox" data-bind="checked: isEnabled">Enable</label>
+                </div>
+                <div>
+                    <label><input type="checkbox" data-bind="checked: isVisible">Visible</label>
+                </div>
+            </div>
+            <div class="box-col">
+                <h4>Information</h4>
+                Kendo UI DatePicker supports the
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a> and
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+            </div>
+        </div>
+
+        <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+            <div class="k-w-300">
+                <div data-role="daterangepicker"
+                     data-bind="visible: isVisible,
+                              start: startDate,
+                              end: endDate,
+                              enabled: isEnabled,
+                              events: { change: onChange }">
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var viewModel = kendo.observable({
+                startDate: new Date(),
+                endDate: new Date(),
+                isEnabled: true,
+                isVisible: true,
+                onChange: function () {
+                    kendoConsole.log("event :: change (" + kendo.toString(this.get("startDate"), "d") + " || " + kendo.toString(this.get("endDate"), "d") + ")");
+                }
+            });
+            kendo.bind($("#demo6"), viewModel);
+        </script>
+    </div>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+</body>

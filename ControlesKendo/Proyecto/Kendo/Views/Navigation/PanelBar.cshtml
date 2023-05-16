@@ -1,0 +1,872 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/panelbar/index#">
+    <base href="https://demos.telerik.com/kendo-ui/panelbar/ajax">
+    <base href="https://demos.telerik.com/kendo-ui/panelbar/remote-data-binding">
+    <base href="https://demos.telerik.com/kendo-ui/panelbar/events">
+    <base href="https://demos.telerik.com/kendo-ui/panelbar/api">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+</head>
+
+<body>
+    <div id="example">
+        <ul id="panelbar">
+            <li class="k-active">
+                <span class="k-link k-selected">My Teammates</span>
+                <div style="padding: 10px;">
+                    <div class="teamMate">
+                        <img src="../content/web/panelbar/andrew.jpg" alt="Andrew Fuller" />
+                        <div class="details">
+                            <h2>Andrew Fuller</h2>
+                            <p>Team Lead</p>
+                        </div>
+                    </div>
+                    <div class="teamMate">
+                        <img src="../content/web/panelbar/nancy.jpg" alt="Nancy Leverling">
+                        <div class="details">
+                            <h2>Nancy Leverling</h2>
+                            <p>Sales Associate</p>
+                        </div>
+                    </div>
+                    <div class="teamMate">
+                        <img src="../content/web/panelbar/robert.jpg" alt="Robert King">
+                        <div class="details">
+                            <h2>Robert King</h2>
+                            <p>Business System Analyst</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                Projects
+                <ul>
+                    <li>New Business Plan</li>
+                    <li>
+                        Sales Forecast
+                        <ul>
+                            <li>Q1 Forecast</li>
+                            <li>Q2 Forecast</li>
+                            <li>Q3 Forecast</li>
+                            <li>Q4 Forecast</li>
+                        </ul>
+                    </li>
+                    <li>Sales Reports</li>
+                </ul>
+            </li>
+            <li>
+                Programs
+                <ul>
+                    <li>Monday</li>
+                    <li>Tuesday</li>
+                    <li>Wednesday</li>
+                    <li>Thursday</li>
+                    <li>Friday</li>
+                </ul>
+            </li>
+            <li disabled="disabled">
+                Communication
+            </li>
+        </ul>
+
+        <style>
+            #panelBar {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .teamMate h2 {
+                font-size: 1.4em;
+                font-weight: normal;
+                margin-bottom: 0px;
+            }
+
+            .teamMate p {
+                margin: 0;
+            }
+
+            .teamMate img {
+                display: inline-block;
+                margin: 5px 15px 5px 5px;
+                border: 1px solid #ccc;
+                border-radius: 50%;
+            }
+
+            .details {
+                display: inline-block;
+                vertical-align: top;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $("#panelbar").kendoPanelBar({
+                    expandMode:"single"
+                });
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <h4>PanelBar with images</h4>
+            <ul id="panelbar-images"></ul>
+        </div>
+        <script>
+            $("#panelbar-images").kendoPanelBar({
+                dataSource: [
+                    {
+                        text: "Baseball", imageUrl: "../content/shared/icons/sports/baseball.png",
+                        items: [
+                            { text: "Top News", imageUrl: "../content/shared/icons/16/star.png" },
+                            { text: "Photo Galleries", imageUrl: "../content/shared/icons/16/photo.png" },
+                            { text: "Videos Records", imageUrl: "../content/shared/icons/16/video.png" },
+                            { text: "Radio Records", imageUrl: "../content/shared/icons/16/speaker.png" }
+                        ]
+                    },
+                    {
+                        text: "Golf", imageUrl: "../content/shared/icons/sports/golf.png",
+                        items: [
+                            { text: "Top News", imageUrl: "../content/shared/icons/16/star.png" },
+                            { text: "Photo Galleries", imageUrl: "../content/shared/icons/16/photo.png" },
+                            { text: "Videos Records", imageUrl: "../content/shared/icons/16/video.png" },
+                            { text: "Radio Records", imageUrl: "../content/shared/icons/16/speaker.png" }
+                        ]
+                    },
+                    {
+                        text: "Swimming", imageUrl: "../content/shared/icons/sports/swimming.png",
+                        items: [
+                            { text: "Top News", imageUrl: "../content/shared/icons/16/star.png" },
+                            { text: "Photo Galleries", imageUrl: "../content/shared/icons/16/photo.png" }
+                        ]
+                    },
+                    {
+                        text: "Snowboarding", imageUrl: "../content/shared/icons/sports/snowboarding.png",
+                        items: [
+                            { text: "Photo Galleries", imageUrl: "../content/shared/icons/16/photo.png" },
+                            { text: "Videos Records", imageUrl: "../content/shared/icons/16/video.png" }
+                        ]
+                    }
+                ]
+            });
+        </script>
+        <div class="demo-section">
+            <h4>PanelBar with sprites</h4>
+            <ul id="panelbar-sprites"></ul>
+        </div>
+        <script>
+            $("#panelbar-sprites").kendoPanelBar({
+                dataSource: [{
+                    text: "Brazil", spriteCssClass: "brazilFlag", items: [
+                        { text: "History", spriteCssClass: "historyIcon" },
+                        { text: "Geography", spriteCssClass: "geographyIcon" }
+                    ]
+                },
+                {
+                    text: "India", spriteCssClass: "indiaFlag", items: [
+                        { text: "History", spriteCssClass: "historyIcon" },
+                        { text: "Geography", spriteCssClass: "geographyIcon" }
+                    ]
+                },
+                {
+                    text: "Netherlands", spriteCssClass: "netherlandsFlag", items: [
+                        { text: "History", spriteCssClass: "historyIcon" },
+                        { text: "Geography", spriteCssClass: "geographyIcon" }
+                    ]
+                }]
+            });
+        </script>
+        <style> 
+            #panelbar-sprites .k-sprite {
+                background-image: url("../content/shared/styles/flags.png");
+            }
+
+            .brazilFlag {
+                background-position: 0 0;
+            }
+
+            .indiaFlag {
+                background-position: 0 -32px;
+            }
+
+            .netherlandsFlag {
+                background-position: 0 -64px;
+            }
+
+            .historyIcon {
+                background-position: 0 -96px;
+            }
+
+            .geographyIcon {
+                background-position: 0 -128px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="wrapper">
+            <ul id="panelbar2">
+                <li>
+                    BODY
+                    <div></div>
+                </li>
+                <li>
+                    ENGINE
+                    <div></div>
+                </li>
+                <li>
+                    TRANSMISSION
+                    <div></div>
+                </li>
+                <li>
+                    PERFORMANCE
+                    <div></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#panelbar2").kendoPanelBar({
+                expandMode: "single",
+                contentUrls: [
+                    '../content/web/panelbar/ajax/ajaxContent1.html',
+                    '../content/web/panelbar/ajax/ajaxContent2.html',
+                    '../content/web/panelbar/ajax/ajaxContent3.html',
+                    '../content/web/panelbar/ajax/ajaxContent4.html'
+                ]
+            });
+        });
+    </script>
+
+    <style>
+        .wrapper {
+            height: auto;
+            min-height: 400px;
+            margin: 20px auto;
+            padding: 20px 0 0;
+            background: url('../content/web/panelbar/astonmartin.png') no-repeat center 50px transparent;
+        }
+
+        #panelbar2 {
+            width: 250px;
+            margin-left:auto; margin-right:0;
+        }
+
+        #panelbar2 p {
+            padding: 1em;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+    </style>
+
+    <div id="example">
+
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Animation Settings</h4>
+                <ul class="options">
+                    <li>
+                        <input id="toggle" name="animation" type="radio" /> <label for="toggle">Toggle animation</label>
+                    </li>
+                    <li>
+                        <input id="expand" name="animation" type="radio" checked="checked" /> <label for="expand">Expand animation</label>
+                    </li>
+                    <li>
+                        <input id="opacity" type="checkbox" checked="checked" /> <label for="opacity">Animate opacity</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h4>Conversation History</h4>
+            <ul id="panelbar3">
+                <li class="k-active">
+                    Today
+                    <ul>
+                        <li>Jane King</li>
+                        <li>Bob Fuller</li>
+                        <li>Lynda Kallahan</li>
+                        <li>Matt Sutnar</li>
+                    </ul>
+                </li>
+                <li>
+                    Yesterday
+                    <ul>
+                        <li>Stewart </li>
+                        <li>Jane King</li>
+                        <li>Steven</li>
+                        <li>Ken Stone</li>
+                    </ul>
+                </li>
+                <li>
+                    Wednesday, February 01, 2012
+                    <ul>
+                        <li>Jane King</li>
+                        <li>Lynda Kallahan</li>
+                        <li>Todd </li>
+                        <li>Bob Fuller</li>
+                    </ul>
+                </li>
+                <li>
+                    Tuesday, January 31, 2012
+                    <ul>
+                        <li>Emily Davolio</li>
+                        <li>Matt Sutnar</li>
+                        <li>Bob Fuller</li>
+                        <li>Jenn Heinlein</li>
+                    </ul>
+                </li>
+                <li>
+                    Monday, January 30, 2012
+                    <ul>
+                        <li>Matt Sutnar</li>
+                        <li>Joshua</li>
+                        <li>Michael</li>
+                        <li>Jenn Heinlein</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <script>
+            $(document).ready(function () {
+                var original = $("#panelbar3").clone(true);
+                original.find(".k-active").removeClass("k-active");
+
+                $(".options input").change(function () {
+                    var panelBar = $("#panelbar3"),
+                        clone = original.clone(true);
+
+                    panelBar.data("kendoPanelBar").collapse($("#panelbar3 .k-link"));
+
+                    panelBar.replaceWith(clone);
+
+                    initPanelBar();
+                });
+
+                var initPanelBar = function () {
+                    $("#panelbar3").kendoPanelBar({ animation: { expand: { effects: getEffects() } } });
+                };
+
+                var getEffects = function () {
+                    return (($("#expand")[0].checked ? "expand:vertical " : "") +
+                        ($("#opacity")[0].checked ? "fadeIn" : "")) || false;
+                };
+
+                initPanelBar();
+            });
+        </script>
+
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <ul id="panelbar4"></ul>
+        </div>
+
+        <script>
+            var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+            var homogeneous = new kendo.data.HierarchicalDataSource({
+                transport: {
+                    read: {
+                        url: serviceRoot + "/Employees",
+                        dataType: "jsonp"
+                    }
+                },
+                schema: {
+                    model: {
+                        id:"EmployeeId",
+                        hasChildren: "HasEmployees"
+                    }
+                }
+            });
+
+            $("#panelbar4").kendoPanelBar({
+                dataSource: homogeneous,
+                dataTextField: "FullName"
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <ul id="panelbar5"></ul>
+        </div>
+        <script id="panelbar-template" type="text/kendo-ui-template">
+            #: item.text #
+            # if (!item.items){ #
+                <a class="k-icon k-i-close-outline" href='\#'></a>
+            # } #
+        </script>
+        <script>
+            $("#panelbar5").kendoPanelBar({
+                template: kendo.template($("#panelbar-template").html()),
+                dataSource: [
+                    {
+                    id:1, 
+                    text: "My Documents", 
+                    expanded: true,
+                    spriteCssClass: "rootfolder",
+                    items: [
+                        {
+                            id:2,
+                            text:"Kendo UI Project",
+                            expanded: true,
+                            spriteCssClass: "folder",
+                            items: [
+                                {
+                                    id:3,
+                                    text:"about.html",
+                                    spriteCssClass:"html"
+                                },
+                                {
+                                    id:4,
+                                    text:"index.html",
+                                    spriteCssClass:"html"
+                                },
+                                {
+                                    id:5,
+                                    text:"logo.png",
+                                    spriteCssClass:"image"
+                                },
+                            ]
+                        },
+                        {
+                            id: 6,
+                            text: "New Web Site",
+                            expanded: true,
+                            spriteCssClass: "folder",
+                            items: [
+                                {
+                                    id:7,
+                                    text:"mockup.jpg",
+                                    spriteCssClass: "image"
+                                },
+                                {
+                                    id:8,
+                                    text: "Research.pdf",
+                                    spriteCssClass: "pdf"
+                                }
+                            ]
+                        },
+                        {
+                            id: 9,
+                            text: "Reports",
+                            expanded: true,
+                            spriteCssClass: "folder",
+                            items: [
+                                {
+                                    id: 10,
+                                    text: "February.pdf",
+                                    spriteCssClass: "pdf"
+                                },
+                                {
+                                    id:11,
+                                    text:"March.pdf",
+                                    spriteCssClass:"pdf"
+                                },
+                                {
+                                    id:12,
+                                    text:"April.pdf",
+                                    spriteCssClass:"pdf"
+                                }
+                            ]
+                        }
+                    ]
+                }]
+            });
+
+            //Delete button behavior
+
+            $(document).on("click", ".k-icon.k-i-close-outline", function(e) {
+                e.preventDefault();
+                var panelbar = $("#panelbar5").data("kendoPanelBar");
+                panelbar.remove($(this).closest(".k-item"));
+            });
+        </script>
+
+        <style>
+            #panelbar5 .k-sprite {
+                background-image: url("../content/web/treeview/coloricons-sprite.png");
+            }
+
+            .rootfolder { background-position: 0 0; }
+            .folder { background-position: 0 -16px; }
+            .pdf { background-position: 0 -32px; }
+            .html { background-position: 0 -48px; }
+            .image { background-position: 0 -64px; }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <ul id="panelbar6">
+                <li class="k-active">
+                    Metallica - Master of Puppets 1986
+                    <ul>
+                        <li>Battery</li>
+                        <li>Master of Puppets</li>
+                        <li>The Thing That Should Not Be</li>
+                        <li>Welcome Home (Sanitarium)</li>
+                        <li>Disposable Heroes</li>
+                        <li>Leper Messiah</li>
+                        <li>Orion (Instrumental)</li>
+                        <li>Damage, Inc.</li>
+                    </ul>
+                </li>
+                <li>
+                    Iron Maiden - Brave New World 2000
+                    <ul>
+                        <li>The Wicker Man</li>
+                        <li>Ghost Of The Navigator</li>
+                        <li>Brave New World</li>
+                        <li>Blood Brothers</li>
+                        <li>The Mercenary</li>
+                        <li>Dream Of Mirrors</li>
+                        <li>The Fallen Angel</li>
+                        <li>The Nomad</li>
+                        <li>Out Of The Silent Planet</li>
+                        <li>The Thin Line Between Love And Hate</li>
+                    </ul>
+                </li>
+                <li>
+                    Empty Item
+                </li>
+                <li>
+                    Ajax Item
+                    <div></div>
+                </li>
+                <li>
+                    Error Item
+                    <div></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function onSelect(e) {
+            kendoConsole.log("Select: " + $(e.item).find("> .k-link").text());
+        }
+
+        function onExpand(e) {
+            kendoConsole.log("Expand: " + $(e.item).find("> .k-link").text());
+        }
+
+        function onCollapse(e) {
+            kendoConsole.log("Collapse: " + $(e.item).find("> .k-link").text());
+        }
+
+        function onActivate(e) {
+            kendoConsole.log("Activate: " + $(e.item).find("> .k-link").text());
+        }
+
+        function onContentLoad(e) {
+            kendoConsole.log("Content loaded in <b>"+ $(e.item).find("> .k-link").text() +
+                                "</b> and starts with <b>" + $(e.contentElement).text().substr(0, 20) + "...</b>");
+        }
+
+        function onError(e) {
+            kendoConsole.error("Loading failed with " + e.xhr.statusText + " " + e.xhr.status);
+        }
+
+        $("#panelbar6").kendoPanelBar({
+            expandMode: "single",
+            select: onSelect,
+            expand: onExpand,
+            collapse: onCollapse,
+            activate: onActivate,
+            contentLoad: onContentLoad,
+            error: onError,
+            contentUrls: [ , , , "../content/web/panelbar/ajax/ajaxContent1.html", "error.html"]
+        });
+    </script>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Expand / Collapse</h4>
+                <ul class="options">
+                    <li>
+                        <input type="text" value="0" id="selectIndex" /> <button class="selectItem">Select</button>
+                    </li>
+                    <li>
+                        <button class="triggerItem">Expand/Collapse</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Add / Remove</h4>
+                <ul class="options">
+                    <li>
+                        <input type="text" value="Item" id="appendText" /> <button class="appendItem">Append</button>
+                    </li>
+                    <li>
+                        <button class="removeItem">Remove</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Enable / Disable</h4>
+                <ul class="options">
+                    <li>
+                        <button class="toggleItem">Enable/Disable</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Insert Before/After</h4>
+                <ul class="options">
+                    <li>
+                        <input type="text" value="Item" id="beforeText" /> <button class="beforeItem">Insert Before</button>
+                    </li>
+                    <li>
+                        <input type="text" value="Item" id="afterText" /> <button class="afterItem">Insert After</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <ul id="panelbar7">
+                <li class="k-active">
+                    First Item
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2</li>
+                        <li>Sub Item 3</li>
+                        <li>Sub Item 4</li>
+                    </ul>
+                </li>
+                <li>
+                    Second Item
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2</li>
+                        <li>Sub Item 3</li>
+                        <li>Sub Item 4</li>
+                    </ul>
+                </li>
+                <li>
+                    Third Item
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2</li>
+                        <li>Sub Item 3</li>
+                        <li>Sub Item 4</li>
+                    </ul>
+                </li>
+                <li>
+                    Fourth Item
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2</li>
+                        <li>Sub Item 3</li>
+                        <li>Sub Item 4</li>
+                    </ul>
+                </li>
+                <li>
+                    Fifth Item
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2</li>
+                        <li>Sub Item 3</li>
+                        <li>Sub Item 4</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <script>
+            $(document).ready(function () {
+                var getItem = function (target) {
+                    var itemIndexes = target.val().split(/[.,]/),
+                        rootItem = panelBar.element.children("li").eq(itemIndexes[0]);
+
+                    return itemIndexes.length > 1 ?
+                        rootItem.find(".k-group > .k-item").eq(itemIndexes[1]) :
+                        rootItem;
+                },
+                    select = function (e) {
+                        if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode)
+                            panelBar.select(getItem($("#selectIndex")));
+                    },
+                    append = function (e) {
+                        if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode)
+                            panelBar.append({
+                                text: $("#appendText").val()
+                            }, panelBar.select());
+                    },
+                    before = function (e) {
+                        if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode)
+                            panelBar.insertBefore({
+                                text: $("#beforeText").val()
+                            }, panelBar.select());
+                    },
+                    after = function (e) {
+                        if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode)
+                            panelBar.insertAfter({
+                                text: $("#afterText").val()
+                            }, panelBar.select());
+                    };
+
+                $(".selectItem").click(select);
+                $("#selectIndex").keypress(select);
+
+                $(".appendItem").click(append);
+                $("#appendText").keypress(append);
+
+                $(".beforeItem").click(before);
+                $("#beforeText").keypress(before);
+
+                $(".afterItem").click(after);
+                $("#afterText").keypress(after);
+
+                $(".toggleItem").click(function (e) {
+                    var item = panelBar.select();
+                    panelBar.enable(item, item.hasClass("k-disabled"));
+                });
+
+                $(".triggerItem").click(function (e) {
+                    var item = panelBar.select();
+
+                    if (item.hasClass("k-active")) {
+                        panelBar.collapse(item);
+                    } else {
+                        panelBar.expand(item);
+                    }
+                });
+
+                $(".removeItem").click(function (e) {
+                    panelBar.remove(panelBar.select());
+                });
+
+            });
+
+            var panelBar = $("#panelbar7").kendoPanelBar().data("kendoPanelBar");
+        </script>
+
+    </div>
+
+    <div id="example">
+
+        <div class="demo-section k-rtl">
+            <ul id="panelbar8">
+                <li class="k-active">
+                    First Item
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2</li>
+                        <li>Sub Item 3</li>
+                        <li>Sub Item 4</li>
+                    </ul>
+                </li>
+                <li>
+                    Second Item
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2</li>
+                        <li>Sub Item 3</li>
+                        <li>Sub Item 4</li>
+                    </ul>
+                </li>
+                <li>
+                    Third Item
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2</li>
+                        <li>Sub Item 3</li>
+                        <li>Sub Item 4</li>
+                    </ul>
+                </li>
+                <li>
+                    Fourth Item
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2</li>
+                        <li>Sub Item 3</li>
+                        <li>Sub Item 4</li>
+                    </ul>
+                </li>
+                <li>
+                    Fifth Item
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2</li>
+                        <li>Sub Item 3</li>
+                        <li>Sub Item 4</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#panelbar8").kendoPanelBar();
+            });
+
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <ul id="panelbar9">
+                <li>
+                    Projects
+                    <ul>
+                        <li>New Business Plan</li>
+                        <li>
+                            Sales Forecasts
+                            <ul>
+                                <li>Q1 Forecast</li>
+                                <li>Q2 Forecast</li>
+                                <li>Q3 Forecast</li>
+                                <li>Q4 Forecast</li>
+                            </ul>
+                        </li>
+                        <li>Sales Reports</li>
+                    </ul>
+                </li>
+                <li>
+                    Programs
+                    <ul>
+                        <li>Monday</li>
+                        <li>Tuesday</li>
+                        <li>Wednesday</li>
+                        <li>Thursday</li>
+                        <li>Friday</li>
+                    </ul>
+                </li>
+                <li disabled="disabled">
+                    Communication
+                </li>
+            </ul>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#panelbar9").kendoPanelBar({
+                    expandMode:"multiple"
+                });
+
+                $(document.body).keydown(function(e) {
+                    if(e.altKey && e.keyCode == 87) {
+                        $("#panelbar9").focus();
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>

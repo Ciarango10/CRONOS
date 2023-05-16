@@ -1,0 +1,15 @@
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\bin\Debug\net6.0\TipoDatos.exe
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\bin\Debug\net6.0\TipoDatos.deps.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\bin\Debug\net6.0\TipoDatos.runtimeconfig.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\bin\Debug\net6.0\TipoDatos.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\bin\Debug\net6.0\TipoDatos.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\obj\Debug\net6.0\TipoDatos.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\obj\Debug\net6.0\TipoDatos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\obj\Debug\net6.0\TipoDatos.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\obj\Debug\net6.0\TipoDatos.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\obj\Debug\net6.0\TipoDatos.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\obj\Debug\net6.0\TipoDatos.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\obj\Debug\net6.0\refint\TipoDatos.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\obj\Debug\net6.0\TipoDatos.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\obj\Debug\net6.0\TipoDatos.genruntimeconfig.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TipoDatos\obj\Debug\net6.0\ref\TipoDatos.dll

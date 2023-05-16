@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="~/css/datatable.css" />
+
+<h1>Laboratorio</h1>
+
+<!-- Button trigger modal -->
+@*<button onclick="Editar(0)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Nuevo
+</button>*@
+
+
+
+@*<fieldset class="mb-4 mt-4">
+
+<legend>Busqueda de Laboratorio</legend>
+
+<form id="frmBusqueda" method="post"  class="mb-3">
+    
+<div class="row">
+
+<div class="col-md-6">
+     <label>Nombre Laboratorio</label>
+     <input type="text" class="form-control" name="nombre" />
+</div>
+
+<div class="col-md-6">
+     <label>Direccion Laboratorio</label>
+     <input type="text" class="form-control" name="direccion" />
+
+</div>
+    
+</div>
+<div class="row">
+      <div class="col-md-12">
+     <label>Persona Contacto</label>
+     <input type="text" class="form-control" name="personacontacto" />
+
+      </div>
+
+</div>
+
+</form>
+
+<button class="btn btn-primary" onclick="BuscarDatos()">Buscar</button>
+<button class="btn btn-danger" onclick="LimpiarLaboratorio()" >Limpiar</button>
+
+</fieldset>*@
+
+<div id="divTabla">
+
+</div>
+
+
+
+<!-- Modal -->
+@*<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="lbltitulo"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       
+          <form id="frmGuardarLaboratorio" method="post" class="mb-3">
+               
+              <div class="row">
+                    <div class="col-md-6">
+                      <label>Id Laboratorio</label>
+                      <input type="text" class="form-control" readonly name="iidlaboratorio" />
+                  </div>
+                  <div class="col-md-6">
+                      <label>Nombre Laboratorio</label>
+                      <input type="text" class="form-control sl ob max-100" name="nombre" />
+                  </div>
+
+              
+
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <label>Direccion Laboratorio</label>
+                      <input type="text" class="form-control ob max-200 snslcenb" name="direccion" />
+
+                  </div>    
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                      <label>Persona Contacto</label>
+                      <input type="text" class="form-control slcenb ob max-100" name="personacontacto" />
+
+                  </div>
+                  <div class="col-md-6">
+                      <label>Numero Contacto</label>
+                      <input type="text" class="form-control ob min-7 max-10 sn" name="numerocontacto" />
+
+                  </div>
+
+              </div>
+
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="btnCerrarModal" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="GuardarDatos()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>*@
+<script src="~/js/jquery.js"></script>
+<script src="~/js/datatable.js"></script>
+<script src="~/js/sweetalert.js"></script>
+<script src="~/js/bootstrap.js"></script>
+<script src="~/js/generic.js"></script>
+<script src="~/js/laboratorio.js"></script>
+

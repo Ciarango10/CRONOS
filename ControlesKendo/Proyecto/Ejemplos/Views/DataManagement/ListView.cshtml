@@ -1,0 +1,160 @@
+﻿<div>
+    <div id="listView"></div>
+    <script type="text/x-kendo-template" id="template">
+        <div class="product">
+            <h3>#:Nombres#</h3>
+            <p>#:kendo.toString(Ingresos, "c")#</p>
+        </div>
+    </script>
+</div>
+
+<div>
+    <div>
+        <a id="add-new-button2" role="button" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md" 
+        href="#"><span class="k-button-icon k-icon-k-i-add"></span>Agregar</a>
+        <div id="listView2"></div>
+    </div>
+    <script type="text/x-kendo-tmpl" id="template2">
+        <div class="product-view k-widget">
+            <dl>
+                <dt>Identificacion</dt>
+                <dd>#:Identificacion#</dd>
+                <dt>Nombres</dt>
+                <dd>#:Nombres#</dd>
+                <dt>Apellidos</dt>
+                <dd>#:Apellidos#</dd>
+                <dt>Celular</dt>
+                <dd>#:Celular#</dd>
+                <dt>Edad</dt>
+                <dd>#:Edad#</dd>
+                <dt>EsTrabajador</dt>
+                <dd>#:EsTrabajador#</dd>
+                <dt>FechaNacimiento</dt>
+                <dd>#:FechaNacimiento#</dd>
+                <dt>Ingresos</dt>
+                <dd>#:kendo.toString(Ingresos, "c")#</dd>
+            </dl>
+            <div class="edit-buttons">
+                <a role="button" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md k-edit-button" href="\\#">
+                    <span class="k-button-icon k-icon k-i-edit">
+                    </span>
+                </a>
+                <a role="button" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md k-delete-button" href="\\#">
+                    <span class="k-button-icon k-icon k-i-close">
+                    </span>
+               </a>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/x-kendo-tmpl" id="editTemplate2">
+        <div class="product-view k-widget">
+            <dl>
+                <dt>Identificacion</dt>
+                <dd>
+                    <span class="k-textbox k-input k-input-md k-rounded-md k-input-solid">
+                        <input type="text" class="k-input-inner" data-bind="value:Identificacion" data-role="numerictextbox" name="Identificacion" required="required" data-type="number" validationMessage="required" />
+                    </span>
+                    <span data-for="Identificacion" class="k-invalid-msg"></span>
+                </dd>
+                <dt>Nombres</dt>
+                <dd>
+                    <span class="k-textbox k-input k-input-md k-rounded-md k-input-solid">
+                        <input type="text" class="k-input-inner" data-bind="value:Nombres" name="Nombres" required="required" validationMessage="required" />
+                    </span>
+                    <span data-for="Nombres" class="k-invalid-msg"></span> 
+                </dd>
+                <dt>Apellidos</dt>
+                <dd>
+                    <span class="k-textbox k-input k-input-md k-rounded-md k-input-solid">
+                        <input type="text" class="k-input-inner" data-bind="value:Apellidos" name="Apellidos" required="required" validationMessage="required" />
+                    </span>
+                    <span data-for="Apellidos" class="k-invalid-msg"></span> 
+                </dd>
+                <dt>Edad</dt>
+                <dd>
+                    <input type="text" data-bind="value:Edad" data-role="numerictextbox" name="Edad" required="required" data-type="number" min="0" validationMessage="required" />
+                    <span data-for="Edad" class="k-invalid-msg"></span>
+                </dd>
+                <dt>Celular</dt>
+                <dd>
+                    <input type="text" data-bind="value:Celular" data-role="numerictextbox" name="Celular" required="required" data-type="number" min="0" validationMessage="required" />
+                    <span data-for="Celular" class="k-invalid-msg"></span>
+                </dd>
+                <dt>EsTrabajador</dt>
+                <dd>
+                    <input type="checkbox" name="EsTrabajador" data-bind="checked:EsTrabajador">
+                </dd>
+                <dt>Fecha Nacimiento</dt>
+                <dd>
+                    <input type="text" data-bind="value:FechaNacimiento" name="FechaNacimiento" required="required" min="0" validationMessage="required" />
+                    <span data-for="FechaNacimiento" class="k-invalid-msg"></span>
+                </dd>
+                <dt>Ingresos</dt>
+                <dd>
+                    <input type="text" data-bind="value:Ingresos" data-role="numerictextbox" name="Ingresos" required="required" data-type="number" min="0" validationMessage="required" />
+                    <span data-for="Ingresos" class="k-invalid-msg"></span>
+                </dd>
+            </dl>
+            <div class="edit-buttons">
+                <a role="button" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md k-update-button" href="\\#"><span class="k-button-icon k-icon k-i-check"></span></a>
+                <a role="button" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md k-cancel-button" href="\\#"><span class="k-button-icon k-icon k-i-cancel"></span><a/>
+            </div>
+        </div>
+    </script>
+</div>
+<div>
+    Seleccion
+    <div id="listView3"></div>
+    <script type="text/x-kendo-tmpl" id="template3">
+        <div class="product">
+            <h3>#Nombres#</h3>
+            <p>#:kendo.toString(Ingresos,"c")#</p>
+        </div>
+    </script>
+</div>
+
+<div class="demo-section">
+    Scroll Infinito
+    <div id="listView4"></div>
+</div>
+
+<script type="text/x-kendo-template" id="template4">
+    <div class="product">
+        <h3>#:Nombres#</h3>
+        <p>#:kendo.toString(Ingresos,"c")#</p>
+    </div>
+</script>
+
+<div>
+    Binding remote Data
+    <div id="listView5"></div>
+    <script type="text/x-kendo-template" id="template5">
+            <div class="product">
+                <h3>#:Nombres#</h3>
+                <p>#:kendo.toString(Ingresos, "c")#</p>
+            </div>
+    </script>
+</div>
+
+<div id="listView6" style="width:60em; margin:auto"></div>
+<script type="text/x-kendo-template" id="template6">
+    <div class="k-listview-item">
+        <h4 class="k-group-title">#= data.value #</h4>
+        <div class="cards">
+            # for (var i = 0; i < data.items.length; i++) { #
+            <div class="k-card" style="width: 15em; margin:2%">
+                <img class="k-card-image" src="#=destinationURL(data.items[i].ImageUrl)#" />
+                <div class="k-card-body">
+                    <h4 class="k-card-title">#= data.items[i].Title #</h4>
+                    <h5 class="k-card-subtitle">#= data.items[i].Description #</h5>
+                </div>
+            </div>
+            # } #
+        </div>
+        <h5 class="k-group-footer"> #=data.items.length# Destinations in #= data.value #</h5>
+    </div>
+</script>
+@section scripts {
+    <script src="~/js/listview.js"></script>
+}

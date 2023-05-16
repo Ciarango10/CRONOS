@@ -1,0 +1,1563 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/menu/index">
+    <base href="https://demos.telerik.com/kendo-ui/menu/scrollable">
+    <base href="https://demos.telerik.com/kendo-ui/menu/menu-bind-attributes">
+    <base href="https://demos.telerik.com/kendo-ui/menu/events">
+    <base href="https://demos.telerik.com/kendo-ui/menu/api">
+    <base href="https://demos.telerik.com/kendo-ui/menu/context-menu">
+    <base href="https://demos.telerik.com/kendo-ui/menu/context-menu-mvvm">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+</head>
+
+<body>
+    <div id="example1">
+        <div id="megaStore">
+            <ul id="menu1">
+                <li>
+                    Products
+                    <ul>
+                        <li>
+                            Furniture
+                            <ul>
+                                <li>Tables & Chairs</li>
+                                <li>Sofas</li>
+                                <li>Occasional Furniture</li>
+                                <li>Children's Furniture</li>
+                                <li>Beds</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Decor
+                            <ul>
+                                <li>Bed Linen</li>
+                                <li>Throws</li>
+                                <li>Curtains & Blinds</li>
+                                <li>Rugs</li>
+                                <li>Carpets</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Storage
+                            <ul>
+                                <li>Wall Shelving</li>
+                                <li>Kids Storage</li>
+                                <li>Baskets</li>
+                                <li>Multimedia Storage</li>
+                                <li>Floor Shelving</li>
+                                <li>Toilet Roll Holders</li>
+                                <li>Storage Jars</li>
+                                <li>Drawers</li>
+                                <li>Boxes</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Lights
+                            <ul>
+                                <li>Ceiling</li>
+                                <li>Table</li>
+                                <li>Floor</li>
+                                <li>Shades</li>
+                                <li>Wall Lights</li>
+                                <li>Spotlights</li>
+                                <li>Push Light</li>
+                                <li>String Lights</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Stores
+                    <ul>
+                        <li>
+                            <div id="template1" style="padding: 10px">
+                                <h2>Around the Globe</h2>
+                                <ol>
+                                    <li>United States</li>
+                                    <li>Europe</li>
+                                    <li>Canada</li>
+                                    <li>Australia</li>
+                                </ol>
+                                <img src="../content/web/menu/map.png" alt="Stores Around the Globe" />
+                                <button class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md">See full list</button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Blog
+                </li>
+                <li>
+                    Company
+                </li>
+                <li>
+                    Events
+                </li>
+                <li disable="disabled">
+                    News
+                </li>
+            </ul>
+        </div>
+
+        <style>
+            #megaStore{
+                max-width: 600px;
+                margin: 30px auto;
+                padding-top: 120px;
+                background: url('../content/web/menu/header.jpg') no-repeat center 0;
+            }
+
+            #menu h2 {
+                font-size: 1em;
+                text-transform: uppercase;
+                padding: 5px 10px;
+            }
+            #template img {
+                margin: 5px 20px 0 0;
+                float: left;
+            }
+            #template {
+                width: 380px;
+            }
+            #template ol {
+                float: left;
+                margin: 0 0 0 30px;
+                padding: 10px 10px 0 10px;
+            }
+            #template:after {
+                content: ".";
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
+            }
+            #template .k-button {
+                float: left;
+                clear: left;
+                margin: 5px 0 5px 12px;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $("#menu1").kendoMenu();
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <h4>Menu with images</h4>
+            <ul id="menu-images"></ul>
+        </div>
+
+        <script>
+            $("#menu-images").kendoMenu({
+                dataSource: [
+                    {
+                        text: "Baseball",
+                        imageUrl: "../content/shared/icons/sports/baseball.png",
+                        items: [
+                            {text: "Top News", imageUrl: "../content/shared/icons/16/star.png" },
+                            {text: "Photo Galleries", imageUrl: "../content/shared/icons/16/photo.png" },
+                            {text: "Videos Records", imageUrl: "../content/shared/icons/16/video.png" },
+                            {text: "Radio Records", imageUrl: "../content/shared/icons/16/speaker.png" },
+                        ]
+                    },
+                    {
+                        text: "Golf", 
+                        imageUrl: "../content/shared/icons/sports/golf.png",
+                        items:[
+                                {text: "Top News", imageUrl: "../content/shared/icons/16/star.png" },
+                                {text: "Photo Galleries", imageUrl: "../content/shared/icons/16/photo.png" },
+                                {text: "Videos Records", imageUrl: "../content/shared/icons/16/video.png" },
+                                {text: "Radio Records", imageUrl: "../content/shared/icons/16/speaker.png" }
+                        ]
+                    },
+                    {
+                        text:"Swimming", 
+                        imageUrl: "../content/shared/icons/sports/swimming.png",
+                        items: [
+                                {text: "Top News", imageUrl: "../content/shared/icons/16/star.png" },
+                                {text: "Photo Galleries", imageUrl: "../content/shared/icons/16/photo.png" }
+                        ]
+                    }
+                ]
+            });
+        </script>
+
+        <div class="demo-section">
+            <h4>Menu with Sprites</h4>
+            <div id="menu-sprites"></div>
+        </div>
+
+        <script>
+            $("#menu-sprites").kendoMenu({
+                dataSource: [{
+                    text: "Brazil", spriteCssClass: "brazilFlag", items: [
+                        { text: "History", spriteCssClass: "historyIcon" },
+                        { text: "Geography", spriteCssClass: "geographyIcon" },
+                    ]
+                },
+                {
+                    text: "India", spriteCssClass: "indiaFlag", items: [
+                        { text: "History", spriteCssClass: "historyIcon" },
+                        { text: "Geography", spriteCssClass: "geographyIcon" },
+                    ]
+                },
+                {
+                    text: "Netherlands", spriteCssClass: "netherlandsFlag", items: [
+                        { text: "History", spriteCssClass: "historyIcon" },
+                        { text: "Geography", spriteCssClass: "geographyIcon" },
+                    ]
+                }]
+            });
+        </script>
+
+        <style>
+            #menu-sprites .k-sprite {
+                background-image: url("../content/shared/styles/flags.png");
+            }
+
+            .brazilFlag {
+                background-position: 0 0;
+            }
+
+            .indiaFlag {
+                background-position: 0 -32px;
+            }
+
+            .netherlandsFlag {
+                background-position: 0 -64px;
+            }
+
+            .historyIcon {
+                background-position: 0 -96px;
+            }
+
+            .geographyIcon {
+                background-position: 0 -128px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Direction Settings</h4>
+            <ul class="options">
+                <li>
+                    <input id="default" name="direction" type="radio" checked="checked" /> <label for="default">default / bottom</label>
+                </li>
+                <li>
+                    <input id="left" name="direction" type="radio" /> <label for="left">left</label>
+                </li>
+                <li>
+                    <input id="right" name="direction" type="radio" /> <label for="right">right</label>
+                </li>
+                <li>
+                    <input id="top" name="direction" type="radio" /> <label for="top">top</label>
+                </li>
+                <li>
+                    <input id="custom" name="direction" type="radio" /> <label for="custom">custom:</label>
+                    <input id="customValue" type="text" value="top left" class="customValue" />
+                </li>
+            </ul>
+            <br />
+            <button id="apply" href="#" style="width: 80px;">Apply</button>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <ul id="menu3">
+            <li>
+                Men's
+                <ul>
+                    <li>
+                        Footwear
+                        <ul>
+                            <li>Leisure Trainers</li>
+                            <li>Running Shoes</li>
+                            <li>Outdoor Footwear</li>
+                            <li>Sandals/Flip Flops</li>
+                            <li>Footwear Accessories</li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        Leisure Clothing
+                        <ul>
+                            <li>T-Shirts</li>
+                            <li>Hoodies &amp; Sweatshirts</li>
+                            <li>Jackets</li>
+                            <li>Pants</li>
+                            <li>Shorts</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Sports Clothing
+                        <ul>
+                            <li>Football</li>
+                            <li>Basketball</li>
+                            <li>Golf</li>
+                            <li>Tennis</li>
+                            <li>Swimwear</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Accessories
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Women's
+                <ul>
+                    <li>
+                        Footwear
+                        <ul>
+                            <li>Leisure Trainers</li>
+                            <li>Running Shoes</li>
+                            <li>Outdoor Footwear</li>
+                            <li>Sandals/Flip Flops</li>
+                            <li>Footwear Accessories</li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        Leisure Clothing
+                        <ul>
+                            <li>T-Shirts</li>
+                            <li>Jackets</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Sports Clothing
+                        <ul>
+                            <li>Basketball</li>
+                            <li>Golf</li>
+                            <li>Tennis</li>
+                            <li>Swimwear</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Accessories
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Boy's
+                <ul>
+                    <li>
+                        Footwear
+                        <ul>
+                            <li>Leisure Trainers</li>
+                            <li>Running Shoes</li>
+                            <li>Outdoor Footwear</li>
+                            <li>Sandals/Flip Flops</li>
+                            <li>Footwear Accessories</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Leisure Clothing
+                        <ul>
+                            <li>T-Shirts</li>
+                            <li>Hoodies &amp; Sweatshirts</li>
+                            <li>Jackets</li>
+                            <li>Pants</li>
+                            <li>Shorts</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Sports Clothing
+                        <ul>
+                            <li>Football</li>
+                            <li>Basketball</li>
+                            <li>Rugby</li>
+                            <li>Tennis</li>
+                            <li>Swimwear</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Accessories
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Girl's
+                <ul>
+                    <li>
+                        Footwear
+                        <ul>
+                            <li>Leisure Trainers</li>
+                            <li>Running Shoes</li>
+                            <li>Fitness Trainers</li>
+                            <li>Sandals/Flip Flops</li>
+                            <li>Footwear Accessories</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Leisure Clothing
+                        <ul>
+                            <li>T-Shirts</li>
+                            <li>Hoodies &amp; Sweatshirts</li>
+                            <li>Jackets</li>
+                            <li>Pants</li>
+                            <li>Shorts</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Sports Clothing
+                        <ul>
+                            <li>Basketball</li>
+                            <li>Tennis</li>
+                            <li>Swimwear</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Accessories
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var original = $("#menu3").clone(true);
+
+            original.find(".k-active").removeClass("k-active");
+
+            $("#apply").click(function (e) {
+                e.preventDefault();
+                var menu = $("#menu3"),
+                    clone = original.clone(true);
+
+                menu.data("kendoMenu").close($("#menu .k-link"));
+
+                menu.replaceWith(clone);
+
+                initMenu();
+            });
+            var getDirection = function () {
+                var checked = $("input[type=radio]:checked")[0].id;
+                return /custom|customValue/.test(checked) ? $("#customValue").val() : checked;
+            };
+
+            var initMenu = function () {
+                $("#menu3").kendoMenu({
+                    direction: getDirection()
+                });
+            };
+
+            initMenu();
+        });
+    </script>
+</div>
+
+        <div id="example">
+            <div class="demo-section">
+                <h4>Horizontal</h4>
+                <ul id="horizontalMenu4">
+                    <li>
+                        Mens
+                        <ul>
+                            <li>Jackets and Coats</li>
+                            <li>Jeans</li>
+                            <li>Knitwear</li>
+                            <li>Shirts</li>
+                            <li>Belts</li>
+                            <li>Socks</li>
+                            <li>Fan Zone</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Ladies
+                        <ul>
+                            <li>Jackets and Coats</li>
+                            <li>Jeans</li>
+                            <li>Knitwear</li>
+                            <li>Shirts</li>
+                            <li>Belts</li>
+                            <li>Socks</li>
+                            <li>Fan Zone</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Kids
+                        <ul>
+                            <li>Jackets and Coats</li>
+                            <li>Jeans</li>
+                            <li>Knitwear</li>
+                            <li>Shirts</li>
+                            <li>Belts</li>
+                            <li>Socks</li>
+                            <li>Fan Zone</li>
+                        </ul>
+                    </li>
+                    <li>Sports</li>
+                    <li>Brands</li>
+                    <li>Accessories</li>
+                    <li>Promotions</li>
+                    <li>Contacts</li>
+                    <li>About us</li>
+                </ul>
+
+                <h4 style="padding-top:2em; margin-top:30px">Vertical</h4>
+
+                <ul id="verticalMenu4" style="width:150px; height:150px;">
+                    <li>
+                        Mens
+                        <ul>
+                            <li>Jackets and Coats</li>
+                            <li>Jeans</li>
+                            <li>Knitwear</li>
+                            <li>Shirts</li>
+                            <li>Belts</li>
+                            <li>Socks</li>
+                            <li>Fan Zone</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Ladies
+                        <ul>
+                            <li>Jackets and Coats</li>
+                            <li>Jeans</li>
+                            <li>Knitwear</li>
+                            <li>Shirts</li>
+                            <li>Belts</li>
+                            <li>Socks</li>
+                            <li>Fan Zone</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Kids
+                        <ul>
+                            <li>Jackets and Coats</li>
+                            <li>Jeans</li>
+                            <li>Knitwear</li>
+                            <li>Shirts</li>
+                            <li>Belts</li>
+                            <li>Socks</li>
+                            <li>Fan Zone</li>
+                        </ul>
+                    </li>
+                    <li>Sports</li>
+                    <li>Brands</li>
+                    <li>News</li>
+                    <li>About us</li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#horizontalMenu4").kendoMenu({
+                    scrollable: true
+                });
+
+                $("#verticalMenu4").kendoMenu({
+                    scrollable: true,
+                    orientation: "vertical"
+                });
+            });
+        </script>
+
+        <style>
+            .k-menu-scroll-wrapper.horizontal li.k-item.k-last {
+                border-right-width: 0;
+            }
+        </style>
+
+         <div id="example">
+            <div class="demo-section">
+                <ul id="menu5">
+                </ul>
+            </div>
+            <script>
+                var inlineDefault = new kendo.data.HierarchicalDataSource({
+                    data: [
+                        {
+                            text: "Furniture", items: [
+                                { text: "Tables & Chairs" },
+                                { text: "Sofas" },
+                                { text: "Occasional Furniture" }
+                            ]
+                        },
+                        {
+                            text: "Decor", items: [
+                                { text: "Bed Linen" },
+                                { text: "Curtains & Blinds" },
+                                { text: "Carpets" }
+                            ]
+                        }
+                    ]
+                });
+
+                $(document).ready(function() {
+                    $("#menu5").kendoMenu({
+                        dataSource: inlineDefault
+                    });
+                });
+            </script>
+        </div>
+
+        <div id="example">
+            <div class="demo-section wide">
+                <ul id="menu6">
+                </ul>
+            </div>
+
+            <script>
+                var Products = {
+                    type: "odata",
+                    schema: {
+                        model: {
+                            id: "ProductID",
+                            fields: {
+                                Name: {
+                                    from: "ProductName"
+                                },
+                            }
+                        }
+                    },
+                    transport: {
+                        read: {
+                            url: function (options) {
+                                return kendo.format("https://demos.telerik.com/kendo-ui/service/Northwind.svc/Categories({0})/Products", options.CategoryID);
+                            }
+                        }
+                    }
+                };
+
+                var Categories = new kendo.data.HierarchicalDataSource({
+                    type: "odata",
+                    transport: {
+                        read: {
+                            url: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Categories"
+                        }
+                    },
+                    schema: {
+                        model: {
+                            hasChildren: "Products",
+                            id: "CategoryID",
+                            children: Products,
+                            fields: {
+                                Name: {
+                                    from: "CategoryName"
+                                }
+                            }
+                        }
+                    }
+                });
+
+                $(document).ready(function () {
+                    $("#menu6").kendoMenu({
+                        dataTextField: "Name",
+                        dataSource: Categories
+                    });
+                });
+            </script>
+        </div>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <div id="products-wrapper">
+                <ul id="menu"></ul>
+                <div id="products"></div>
+            </div>
+            <div id="product-wrapper">
+                <h3 class="bottom-border">Product Details:</h3>
+                <div id="product"></div>
+            </div>
+        </div>
+
+        <script type="text/x-kendo-tmpl" id="template">
+            <div class="product">
+                <img src="https://demos.telerik.com/kendo-ui/content/web/foods/#:ProductID#.jpg" alt="#:ProductName# image" />
+                <div class="product-description">
+                    <h3>#:ProductName#</h3>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/x-kendo-tmpl" id="productCard">
+            <div class="productCard">
+                <h3>#:ProductName#</h3>
+                <p><img src="https://demos.telerik.com/kendo-ui/content/web/foods/#:ProductID#.jpg" alt="#:ProductName# image" /></p>
+                <div class="product-description">
+                    <table>
+                        <tr>
+                            <th>Price</th>
+                            <td>#: kendo.toString(parseFloat(UnitPrice), "c") #</td>
+                        </tr>
+                        <tr>
+                            <th>Units</th>
+                            <td>#: UnitsInStock #</td>
+                        </tr>
+                        <tr>
+                            <th>Discontinued</th>
+                            <td>#: Discontinued ? 'Yes' : 'No' #</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                dsCategories = null;
+                dsProducts = null;
+                var template = kendo.template($("#template").html());
+                var productCard = kendo.template($("#productCard").html())
+                var promises = [];
+
+                dsCategories = new kendo.data.DataSource({
+                    type: "odata",
+                    transport: {
+                        read: {
+                            url: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Categories",
+                            dataType: "jsonp"
+                        }
+                    }
+                });
+
+
+                dsProducts = new kendo.data.DataSource({
+                    type: "odata",
+                    transport: {
+                        read: {
+                            url: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products",
+                            dataType: "jsonp"
+                        }
+                    },
+                    requestStart: function () {
+                        kendo.ui.progress($("#products"), true);
+                    },
+                    requestEnd: function () {
+                        kendo.ui.progress($("#products"), false);
+                    }
+                });
+
+                $.when(dsProducts.fetch(), dsCategories.fetch())
+                    .then(prepareMenuDataSource);
+
+                function prepareMenuDataSource() {
+                    var menuDataSource = [];
+
+                    for (var i = 0; i < dsCategories.view().length; i++) {
+                        var item = dsCategories.view()[i];
+                        menuDataSource.push({
+                            text: item.CategoryName,
+                            attr: {
+                                categoryid: item.CategoryID,
+                                title: item.Description
+                            },
+                            items: getProducts(item.CategoryID)
+                        });
+
+                    }
+
+                    renderProduct();
+                    renderMenu(menuDataSource);
+                }
+
+                function getProducts(id) {
+
+                    dsProducts.filter({ field: "CategoryID", operator: "eq", value: id });
+
+                    var result = [];
+
+                    for (var i = 0; i < dsProducts.view().length; i++) {
+                        var item = dsProducts.view()[i];
+                        result.push({
+                            text: item.ProductName,
+                            attr: {
+                                categoryid: item.CategoryID,
+                                productid: item.ProductID,
+                                datasourceuid: item.uid,
+                                unitprice: item.UnitPrice,
+                                unitsinstock: item.UnitsInStock
+                            }
+                        })
+
+                    }
+                    return result;
+                }
+
+                function renderProduct() {
+                    $("#product").html(productCard(dsProducts.at(0)));
+                }
+
+                function renderMenu(dataSource) {
+                    var menuWidget = $("#menu").data("kendoMenu");
+
+                    if (!menuWidget) {
+                        $("#menu").kendoMenu({
+                            dataSource: dataSource,
+                            select: onMenuSelect
+                        });
+                    } else {
+                        menuWidget.setOptions({ dataSource: dataSource });
+                    }
+
+                    dsProducts.bind("change", renderCategory);
+                    dsProducts.filter({ field: "CategoryID", operator: "eq", value: 1 });
+                }
+
+                function onMenuSelect(ev) {
+                    showCategory($(ev.item).attr("categoryid"));
+
+                    var datasourceuid = $(ev.item).attr("datasourceuid");
+                    if (datasourceuid) {
+                        $("#product").html(productCard(dsProducts.getByUid(datasourceuid)));
+                    }
+                }
+
+                function showCategory(id) {
+                    dsProducts.filter({ field: "CategoryID", operator: "eq", value: id });
+                }
+
+                function renderCategory(ev) {
+                    $("#products").html(kendo.render(template, this.view()));
+                }
+            });
+
+
+        </script>
+
+
+        <style>
+            #products-wrapper {
+                width: 80%;
+                display: inline-block;
+                vertical-align: top;
+                border-right: 1px solid rgba(20, 53, 80, 0.137255);
+                padding-right: 40px;
+            }
+
+            #product-wrapper {
+                height: 100%;
+                margin: 15px 0 0 50px;
+                display: inline-block;
+            }
+
+            #products {
+                margin-top: 10px;
+            }
+
+            .product {
+                margin: 20px 5px 0 0;
+                display: inline-block;
+                vertical-align: top;
+            }
+
+                .product img, .productCard img {
+                    width: 110px;
+                    height: 110px;
+                }
+
+                .product h3 {
+                    max-width: 110px;
+                }
+
+                .product h3, #product-wrapper h3 {
+                    display: inline-block;
+                    margin: 0;
+                    padding: 3px 5px 0 0;
+                    overflow: hidden;
+                    line-height: 1.1em;
+                    font-size: .9em;
+                    font-weight: normal;
+                    text-transform: uppercase;
+                    color: #999;
+                }
+
+            #product-wrapper h3 {
+                color: #999;
+                max-width: 110px;
+            }
+
+            .productCard {
+                margin-top: 30px;
+            }
+
+                .productCard table {
+                    margin-top: 20px;
+                    text-align: left;
+                    font-size: .9em;
+                    color: #999;
+                }
+        </style>
+    </div>
+
+        <div id="example">
+
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Animation Settings</h4>
+                <ul class="options">
+                    <li>
+                        <input id="toggle8" name="animation" type="radio" /> <label for="toggle">toggle animation</label>
+                    </li>
+                    <li>
+                        <input id="slide8" name="animation" type="radio" checked="checked" /> <label for="slide">slide animation</label>
+                    </li>
+                    <li>
+                        <input id="expand8" name="animation" type="radio" checked="checked" /> <label for="expand">expand animation</label>
+                    </li>
+                    <li>
+                        <input id="opacity8" type="checkbox" checked="checked" /> <label for="opacity">animate opacity</label>
+                    </li>
+                    <li>
+                        <input id="delay8" name="animation" type="text" value="100" /> <label for="delay">open/close delay</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <ul id="menu8">
+                <li>
+                    Furniture
+                    <ul>
+                        <li>Tables &amp; Chairs</li>
+                        <li>Sofas</li>
+                        <li>Occasional Furniture</li>
+                        <li>Childerns Furniture</li>
+                        <li>Beds</li>
+                    </ul>
+
+                </li>
+                <li>
+                    Decor
+                    <ul>
+                        <li>Bed Linen</li>
+                        <li>Throws</li>
+                        <li>Curtains &amp; Blinds</li>
+                        <li>Rugs</li>
+                        <li>Carpets</li>
+                    </ul>
+                </li>
+                <li>
+                    Storage
+                    <ul>
+                        <li>Wall Shelving</li>
+                        <li>Kids Storage</li>
+                        <li>Baskets</li>
+                        <li>Multimedia Storage</li>
+                        <li>Floor Shelving</li>
+                        <li>Toilet Roll Holders</li>
+                        <li>Storage Jars</li>
+                        <li>Drawers</li>
+                        <li>Boxes</li>
+                    </ul>
+
+                </li>
+                <li>
+                    Lights
+                    <ul>
+                        <li>Ceiling</li>
+                        <li>Table</li>
+                        <li>Floor</li>
+                        <li>Shades</li>
+                        <li>Wall Lights</li>
+                        <li>Spotlights</li>
+                        <li>Push Light</li>
+                        <li>String Lights</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+            <script>
+                $(document).ready(function () {
+                    var original = $("#menu8").clone(true);
+
+                    original.find(".k-active").removeClass(".k-active");
+
+                    $(".options input").change(function () {
+                        var menu = $("#menu8"),
+                            clone = original.clone(true);
+
+                        menu.data("kendoMenu").close($("#menu8 .k-link"));
+
+                        menu.replaceWith(clone);
+
+                        initMenu();
+                    });
+                    var getEffects = function () {
+                        return (($("#expand8")[0].checked ? "expand:vertical " : "") +
+                            ($("#slide8")[0].checked ? "slideIn:down " : "") +
+                            ($("#opacity8")[0].checked ? "fadeIn" : "")) || false;
+                    };
+
+                    var initMenu = function () {
+                        $("#menu8").kendoMenu({
+                            animation: { open: { effects: getEffects() } },
+                            hoverDelay: $("#delay8")[0].value
+                        });
+                    };
+
+                    initMenu();
+                });
+            </script>
+        </div>
+
+        <div id="example9">                    
+            <div class="demo-section">
+                <h4>Menu</h4>
+                <ul id="menu9">
+                    <li>
+                        First Item
+                        <ul>
+                            <li>Sub Item 1</li>
+                            <li>Sub Item 2</li>
+                            <li>Sub Item 3</li>
+                            <li>Sub Item 4</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Second Item
+                        <ul>
+                            <li>Sub Item 1</li>
+                            <li>Sub Item 2</li>
+                            <li>Sub Item 3</li>
+                            <li>Sub Item 4</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Third Item
+                        <ul>
+                            <li>Sub Item 1</li>
+                            <li>Sub Item 2</li>
+                            <li>Sub Item 3</li>
+                            <li>Sub Item 4</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4 style="padding-top: 2em;">Context Menu</h4>
+                <ul id="context-menu-events9">
+                    <li>animation
+                        <ul>
+                            <li>slideIn</li>
+                            <li>fadeIn</li>
+                            <li>expand</li>
+                        </ul>
+                    </li>
+                    <li>animation.close
+                        <ul>
+                            <li>animation.close.effects</li>
+                            <li>animation.close.duration</li>
+                        </ul>
+                    </li>
+                    <li>animation.open
+                        <ul>
+                            <li>animation.open.effects</li>
+                            <li>animation.open.duration</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>A collection of <span id="context-target9">Animation (?)</span> objects, used to change default animations. A value of false will disable all animations in the widget.</p>
+            </div>            
+        </div>
+        <script>
+            $(document).ready(function() {
+                function onOpen(e) {
+                    kendoConsole.log("Opened: " + ($(e.item).children(".k-link").text() || "ContextMenu"));
+                }
+
+                function onClose(e) {
+                    kendoConsole.log("Closed: " + ($(e.item).children(".k-link").text() || "ContextMenu"));
+                }
+
+                function onSelect(e) {
+                    kendoConsole.log("Selected: " + $(e.item).children(".k-link").text());
+                }
+
+                function onActivate(e) {
+                    kendoConsole.log("Activated: " + ($(e.item).children(".k-link").text() || "ContextMenu"));
+                }
+
+                function onDeactivate(e) {
+                    kendoConsole.log("Deactivated: " + ($(e.item).children(".k-link").text() || "ContextMenu"));
+                }
+
+                $("#menu9").kendoMenu({
+                    select: onSelect,
+                    open: onOpen,
+                    close: onClose,
+                    activate: onActivate,
+                    deactivate: onDeactivate
+                });
+
+                $("#context-menu-events9").kendoContextMenu({
+                    target: "#context-target9",
+                    showOn: "click",
+                    alignToAnchor: true,
+                    select: onSelect,
+                    open: onOpen,
+                    close: onClose,
+                    activate: onActivate,
+                    deactivate: onDeactivate
+                });
+            });
+        </script>
+
+        <style>
+            .demo-section .box-col li {
+                margin-bottom: 0;
+            }
+            #context-target9 {
+                cursor: pointer;
+                color: red;
+            }
+            #context-target9:hover {
+                text-decoration: underline;
+            } 
+        </style>
+
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Enable / Disable</h4>
+                <ul class="options">
+                    <li>
+                        <input type="text" id="toggleIndex11" /> <button class="toggleItem">Enable/Disable</button>
+                    </li>
+                    <li>
+                        <button class="toggleTextItems">Enable/Disable all Sub Item 3</button>
+                    </li>
+                    <li>
+                        <button class="toggleStrongItems">Enable/Disable <strong>strong</strong> elements</button>
+                    </li>
+                    <li>
+                        <button class="toggleRedTextItems">Enable/Disable <span class="redText">.redText</span> elements</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Add / Remove</h4>
+                <ul class="options">
+                    <li>
+                        <input type="text" id="removeIndex11" /> <button class="removeItem">Remove</button>
+                    </li>
+                    <li>
+                        <input type="text" value="Item" id="appendText11" /> <span class="append-position">under</span> <input type="text" value="0.0" id="appendIndex11" /> <button class="appendItem">Append</button>
+                    </li>
+                    <li>
+                        <input type="text" value="Item" id="beforeText11" /> <span class="append-position">before</span> <input type="text" value="0" id="beforeIndex11" /> <button class="beforeItem">Append</button>
+                    </li>
+                    <li>
+                        <input type="text" value="Item" id="afterText11" /> <span class="append-position">after</span> <input type="text" value="0" id="afterIndex11" /> <button class="afterItem">Append</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Open / Close</h4>
+                <ul class="options">
+                    <li>
+                        <input type="text" id="triggerIndex11" /> <button class="triggerItem">Open/Close</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section wide">
+            <ul id="menu11"></ul>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                // You can also find an item by its cssClass
+                var getItem = function (target) {
+                    var itemIndexes = target.val().split(/[.,]/),
+                        item = menu.element;
+
+                    if (itemIndexes[0] !== "") {
+                        for (var i = 0, len = itemIndexes.length; i < len; i++) {
+                            item = item.children("li").eq(itemIndexes[i]);
+                            if (i < len - 1) {
+                                item = item.find("ul:first");
+                            }
+                        }
+                    }
+
+                    return item;
+                },
+                    toggle = function (e) {
+                        if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode) {
+                            var item = getItem($("#toggleIndex11"));
+                            menu.enable(item, item.hasClass("k-disabled"));
+                        }
+                    },
+                    trigger = function (e) {
+                        if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode) {
+                            var item = getItem($("#triggerIndex11"));
+
+                            if (item.children().eq(0).hasClass("k-active")) {
+                                menu.close(item);
+                            } else {
+                                menu.open(item);
+                            }
+                        }
+                    },
+                    remove = function (e) {
+                        if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode)
+                            menu.remove(getItem($("#removeIndex11")));
+                    },
+                    append = function (e) {
+                        if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode) {
+                            menu.append({
+                                text: $("#appendText11").val()
+                            }, getItem($("#appendIndex11")));
+                        }
+                    },
+                    before = function (e) {
+                        if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode) {
+                            menu.insertBefore({
+                                text: $("#beforeText11").val()
+                            }, getItem($("#beforeIndex11")));
+                        }
+                    },
+                    after = function (e) {
+                        if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode) {
+                            menu.insertAfter({
+                                text: $("#afterText11").val()
+                            }, getItem($("#afterIndex11")));
+                        }
+                    },
+
+                    toggleText = function () {
+                        var items = $("#menu11").find(".k-link:contains(Sub Item 3)").parent();
+                        menu.enable(items, items.hasClass("k-disabled"));
+                    },
+
+                    toggleStrong = function () {
+                        var items = $("#menu11").find(":has(> strong)").parent();
+                        menu.enable(items, items.hasClass("k-disabled"));
+                    },
+
+                    toggleRedText = function () {
+                        menu.enable(".redText", $("#menu11").find(".redText").hasClass("k-disabled"));
+                    };
+
+                $(".toggleItem").click(toggle);
+                $("#toggleIndex11").keypress(toggle);
+
+                $(".triggerItem").click(trigger);
+                $("#triggerIndex11").keypress(trigger);
+
+                $(".removeItem").click(remove);
+                $("#removeIndex11").keypress(remove);
+
+                $(".appendItem").click(append);
+                $("#appendText11,#appendIndex11").keypress(append);
+
+                $(".beforeItem").click(before);
+                $("#beforeText11,#beforeIndex11").keypress(before);
+
+                $(".afterItem").click(after);
+                $("#afterText11,#afterIndex11").keypress(after);
+
+                $(".toggleTextItems").click(toggleText);
+                $(".toggleStrongItems").click(toggleStrong);
+                $(".toggleRedTextItems").click(toggleRedText);
+            });
+
+            var menu = $("#menu11").kendoMenu({
+                dataSource: [
+                    {
+                        text: "First Item",
+                        items: [
+                            { text: "Sub Item 1" },
+                            { text: "<strong>Sub Item 2</strong>", encoded: false },
+                            { text: "Sub Item 3" },
+                            { text: "Sub Item 4" }
+                        ]
+                    },
+                    {
+                        text: "<strong>Second Item</strong>",
+                        encoded: false,
+                        items: [
+                            { text: "Sub Item 1" },
+                            { text: "Sub Item 2" },
+                            { text: "Sub Item 3" },
+                            { text: "Sub Item 4" }
+                        ]
+                    },
+                    {
+                        text: "<strong>Third Item</strong>",
+                        encoded: false,
+                        items: [
+                            { text: "Sub Item 1" },
+                            { text: "Sub Item 2" },
+                            { text: "Sub Item 3" },
+                            { text: "Sub Item 4" }
+                        ]
+                    },
+                    {
+                        text: "Fourth Item",
+                        cssClass: "redText",
+                        items: [
+                            { text: "Sub Item 1" },
+                            { text: "<strong>Sub Item 2</strong>", encoded: false },
+                            { text: "Sub Item 3" },
+                            { text: "Sub Item 4" }
+                        ]
+                    },
+                    {
+                        text: "Fifth Item",
+                        items: [
+                            { text: "Sub Item 1" },
+                            { text: "Sub Item 2", cssClass: "redText" },
+                            { text: "Sub Item 3" },
+                            { text: "Sub Item 4" }
+                        ]
+                    }
+                ]
+            }).data("kendoMenu");
+        </script>
+        <style>
+            .append-position {
+                display: inline-block;
+                min-width: 45px;
+            }
+
+            .redText,
+            .redText > .k-link {
+                color: red;
+            }
+
+                .redText.k-disabled > .k-link {
+                    color: lightcoral;
+                }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <h4>Vertical menu</h4>
+            <ul id="verticalMenu12">
+                <li>
+                    First Item
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2
+                            <ul>
+                                <li>Sub sub item 1</li>
+                                <li>Sub sub item 2</li>
+                                <li>Sub sub item 3</li>
+                                <li>Sub sub item 4</li>
+                            </ul>
+                        </li>
+                        <li>Sub Item 3</li>
+                        <li>Sub Item 4</li>
+                    </ul>
+                </li>
+                <li>
+                    Second Item
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2</li>
+                        <li>Sub Item 3</li>
+                        <li>Sub Item 4</li>
+                    </ul>
+                </li>
+                <li disabled="disabled">Disabled Item</li>
+            </ul>
+
+            <h4 style="padding-top: 2em;">Horizontal menu</h4>
+            <ul id="horizontalMenu12">
+                <li>
+                    First Item
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2
+                            <ul>
+                                <li>Sub sub item 1</li>
+                                <li>Sub sub item 2</li>
+                                <li>Sub sub item 3</li>
+                                <li>Sub sub item 4</li>
+                            </ul>
+                        </li>
+                        <li>Sub Item 3</li>
+                        <li>Sub Item 4</li>
+                    </ul>
+                </li>
+                <li>
+                    Second Item
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2</li>
+                        <li>Sub Item 3</li>
+                        <li>Sub Item 4</li>
+                    </ul>
+                </li>
+                <li disabled="disabled">Disabled Item</li>
+            </ul>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                $("#verticalMenu12").kendoMenu({orientation: "vertical" });
+                $("#horizontalMenu12").kendoMenu();
+            });
+
+                $(document.body).keydown(function(e) {
+                    if (e.altKey && e.keyCode == 87) {
+                        $("#verticalMenu12").focus();
+                    } else if (e.altKey && e.keyCode == 81) {
+                        $("#horizontalMenu12").focus();
+                    }
+                });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <div class="target" tabindex="0">Right click here!</div>
+
+            <ul id="context-menu13">
+                <li>
+                    Item 1
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2</li>
+                        <li>Sub Item 3</li>
+                    </ul>
+                </li>
+                <li>
+                    Item 2
+                    <ul>
+                        <li>Sub Item 1</li>
+                        <li>Sub Item 2</li>
+                        <li>Sub Item 3</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        $("#context-menu13").kendoContextMenu({
+            target: ".target"
+        });
+    </script>
+    <style>
+        .target {
+            background-color: #d1d1d1;
+            padding: 3em;
+        }
+    </style>
+
+    <div id="example14">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Configuration</h4>
+                <div>
+                    <label><input type="checkbox" data-bind="checked: isVisible">Visible</label>
+                </div>
+            </div>
+            <div class="box-col">
+                <h4>Information</h4>
+                Kendo UI Menu supports the
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a> and
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+            </div>
+        </div>
+        <div class="demo-section">
+            <div>
+                <h4>Select an item</h4>
+                <ul data-role="menu"
+                    data-bind="events: { select: onSelect },
+                            visible: isVisible"
+                    style="width: 100%;">
+                    <li>
+                        Products
+                        <ul>
+                            <li>
+                                Furniture
+                                <ul>
+                                    <li>Tables & Chairs</li>
+                                    <li>Sofas</li>
+                                    <li>Occasional Furniture</li>
+                                    <li>Children's Furniture</li>
+                                    <li>Beds</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            var viewModel = kendo.observable({
+                isVisible: true,
+                onSelect: function (e) {
+                    var text = $(e.item).children(".k-link").text();
+                    kendoConsole.log("event :: select(" + text + ")");
+                }
+            });
+            kendo.bind($("#example14"), viewModel);
+        </script>
+        <style>
+            .demo-section .box-col li {
+                margin-bottom: 0;
+            }
+        </style>
+    </div>
+    
+    <div id="example15">
+        <div class="demo-section">
+            <div class="hasMenu" ng-style="{ 'padding': '3em',
+                                    'background': '#d1d1d1' }">
+                Right-click me
+            </div>
+        </div>
+        <ul data-role="contextmenu"
+            data-filter=".hasMenu"
+            data-bind="events:{select:onSelect, open:onOpen, close: onClose}">
+            <li>
+                Item 1
+                <ul>
+                    <li>Subitem 1.1</li>
+                    <li>Subitem 1.2</li>
+                    <li>Subitem 1.3</li>
+                </ul>
+            </li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+        <script>
+            var viewModel = kendo.observable({
+                isVisible: false,
+                onSelect: function (e) {
+                    console.log(viewModel.isVisible)
+                    var text = $(e.item).children(".k-link").text();
+                    kendoConsole.log("event :: select(" + text + ")");
+                },
+                onOpen: function (e) {
+                    kendoConsole.log("event :: open(the menu is opened)");
+                },
+                onClose: function (e) {
+                    kendoConsole.log("event :: close(the menu is closed)");
+                },
+            });
+            kendo.bind($("#example15"), viewModel);
+        </script>
+    </div>
+
+
+   
+</body>

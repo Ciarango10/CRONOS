@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/23-03-Estilos.css">
+    <title>Listado Personas</title>
+    
+</head>
+<body onload="mostrarPersonas()">
+   
+    <div class="contenedor" id="cabecero">
+        <h1>Listado de personas</h1>
+   </div>
+
+   <div class="contenedor">
+        <div class="elemento">
+            <ul id="personas">
+                <!--<li>Juan Perez</li>-->
+            </ul>
+        </div>
+   </div>
+
+   <div class="contenedor">
+        <div style="text-align: center ;">
+            <button style="cursor: pointer;" onclick="agregarPersona()">+</button>
+        </div>
+        <form action="" id="forma">
+            <input type="text" id="nombre" placeholder="Nombre">
+            <input type="text" id="apellido" placeholder="Apellido">
+        </form>
+   </div>
+   
+   <script src="js/23-03-persona.js"></script>
+   <script src="js/23-02-App.js"></script>
+</body>
+</html>

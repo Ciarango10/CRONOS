@@ -1,0 +1,514 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/maskedtextbox/index#">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <ul id="fieldlist">
+                <li>
+                    <input id="phone_number" value="555 123 4567" />
+                </li>
+                <li>
+                    <input id="credit_card" value="1234 1234 1234 1234" />
+                </li>
+                <li>
+                    <input id="ssn" value="003-12-3456" />
+                </li>
+                <li>
+                    <input id="postcode" value="W1N 1AC" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#phone_number").kendoMaskedTextBox({
+                label: "Phone number:",
+                mask: "(999) 000-0000"
+            });
+
+            $("#credit_card").kendoMaskedTextBox({
+                label: "Credit Card number:",
+                mask: "0000 0000 0000 0000"
+            });
+
+            $("#ssn").kendoMaskedTextBox({
+                label: "Social security number:",
+                mask: "000-00-0000"
+            });
+
+            $("#postcode").kendoMaskedTextBox({
+                label: "UK postcode:",
+                mask: "L0L 0LL"
+            });
+        });
+    </script>
+
+    <style>
+        #fieldlist {
+            margin: 0 0 -2em;
+            padding: 0;
+        }
+
+            #fieldlist li {
+                list-style: none;
+                padding-bottom: 2em;
+            }
+    </style>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>SIZE</h4>
+            <ul class="options">
+                <li>
+                    <input id="size" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>BORDER RADIUS</h4>
+            <ul class="options">
+                <li>
+                    <input id="rounded" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>FILL MODE</h4>
+            <ul class="options">
+                <li>
+                    <input id="fillMode" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <input id="phone_number2" value="555 123 4567" />
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            var maskedtextbox = $("#phone_number2").kendoMaskedTextBox({
+                mask: "(999) 000-0000",
+                label: "Value"
+            }).data('kendoMaskedTextBox');
+
+            $("#size").kendoDropDownList({
+                dataSource: ["small", "medium", "large", "none"],
+                value: "medium",
+                change: function () {
+                    let value = this.value();
+                    maskedtextbox.setOptions({ size: value });
+                }
+            });
+
+            $("#rounded").kendoDropDownList({
+                dataSource: ["small", "medium", "large", "full", "none"],
+                value: "medium",
+                change: function () {
+                    let value = this.value();
+                    maskedtextbox.setOptions({ rounded: value });
+                }
+            });
+
+            $("#fillMode").kendoDropDownList({
+                dataSource: ["solid", "flat", "outline", "none"],
+                value: "solid",
+                change: function () {
+                    let value = this.value();
+                    maskedtextbox.setOptions({ fillMode: value });
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .k-picker.k-dropdownlist {
+            width: 140px;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<input id="maskedtextbox3" value="555 123 4567" />
+		</div>
+    </div>
+
+        <script>
+            $(document).ready(function() {
+                function onChange() {
+                    kendoConsole.log("Change :: " + this.value());
+                }
+
+                $("#maskedtextbox3").kendoMaskedTextBox({
+                    mask: "(999) 000-0000",
+					label: "Enter phone number",
+                    change: onChange
+                });
+            });
+        </script>
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<input id="maskedtextbox4" value="555 123 4567" />
+		</div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#maskedtextbox4").kendoMaskedTextBox({
+                mask: "(999) 000-0000",
+                label: {
+                    content: "Set phone number",
+                    floating: true
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .k-floating-label-container {
+            width: 100%;
+        }
+    </style>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Set / Get Value</h4>
+                <ul class="options">
+                    <li>
+                        <button id="get">Get value</button>
+                    </li>
+                    <li>
+                        <button id="set">Set value</button>
+                        <input id="value" value="555 123 4567" style="float:none" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Enable / Disable</h4>
+                <ul class="options">
+                    <li>
+                        <button id="enable">Enable</button>
+                        <button id="disable">Disable</button>
+                    </li>
+                    <li>
+                        <button id="readonly">Readonly</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+            <div class="k-w-300">
+                <input id="maskedtextbox5" value="555 123 4567" />
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#maskedtextbox5").kendoMaskedTextBox({
+                    mask: "(999) 000-0000",
+                    label: {
+                        content: "Set phone number",
+                        floating: true
+                    }
+                });
+
+                var maskedtextbox = $("#maskedtextbox5").data("kendoMaskedTextBox");
+
+                var setValue = function () {
+                    maskedtextbox.value($("#value").val());
+                    maskedtextbox.floatingLabel.refresh();
+                };
+
+                $("#enable").click(function () {
+                    maskedtextbox.enable();
+                });
+
+                $("#disable").click(function () {
+                    maskedtextbox.enable(false);
+                });
+
+                $("#readonly").click(function () {
+                    maskedtextbox.readonly();
+                });
+
+                $("#set").click(setValue);
+
+                $("#get").click(function () {
+                    kendo.alert(maskedtextbox.value());
+                });
+            });
+        </script>
+
+        <style>
+            #value {
+                width: 135px;
+                margin-left: 3px;
+            }
+
+            .k-floating-label-container {
+                width: 100%;
+            }
+        </style>
+    </div>
+
+    <script src="../content/web/globalization/cultures/kendo.culture.en-US.js"></script>
+        <script src="../content/web/globalization/cultures/kendo.culture.en-GB.js"></script>
+        <script src="../content/web/globalization/cultures/kendo.culture.de-DE.js"></script>
+        <script src="../content/web/globalization/cultures/kendo.culture.fr-FR.js"></script>
+        <script src="../content/web/globalization/cultures/kendo.culture.bg-BG.js"></script>
+
+
+            <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+                <div class="k-w-300">
+                    <ul id="fieldlist">
+                        <li>
+                            <label for="culture">Choose culture:</label>
+                            <input id="culture" value="en-US" />
+                        </li>
+                        <li>
+                            <label for="initial">Initial price:</label>
+                            <input id="initial" value="1234.56"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <style>
+                #fieldlist {
+                    margin: 0 0 -2em;
+                    padding: 0;
+                }
+
+                #fieldlist li {
+                    list-style: none;
+                    padding-bottom: 2em;
+                }
+
+                #fieldlist label {
+                    display: block;
+                    padding-bottom: 4px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    color: #444;
+                }
+
+            </style>
+
+            <script>
+                $(document).ready(function() {
+                    var initial = new kendo.ui.MaskedTextBox($("#initial"), {
+                        mask: "0,000.00 $"
+                    });
+
+                    function changeCulture() {
+                        kendo.culture(this.value());
+
+                        initial.setOptions(initial.options);
+                    }
+
+                    $("#culture").kendoDropDownList({
+                        change: changeCulture,
+                        dataTextField: "text",
+                        dataValueField: "value",
+                        dataSource: [
+                            {text: "de-DE", value: "de-DE"},
+                            {text: "en-US", value: "en-US"},
+                            {text: "en-GB", value: "en-GB"},
+                            {text: "fr-FR", value: "fr-FR"},
+                            {text: "bg-BG", value: "bg-BG"}
+                        ]
+                    });
+                });
+            </script>
+
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300 k-rtl">
+			<input id="maskedtextbox6" value="555 123 4567" />
+		</div>
+	</div>
+
+    <script>
+          $(document).ready(function() {
+               $("#maskedtextbox6").kendoMaskedTextBox({
+                    mask: "(999) 000-0000",
+				    label: "Set value"
+               });
+          });
+    </script>
+
+    <div id="demo8">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Configuration</h4>
+                <ul>
+                    <li><label><input type="checkbox" data-bind="checked: isEnabled"> Enable</label></li>
+                    <li><label><input type="checkbox" data-bind="checked: isVisible"> Visible</label></li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Information</h4>
+                Kendo UI KendoMaskedTextBox supports the
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a> and
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+            </div>
+        </div>
+
+        <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+            <div class="k-w-300">
+                <input data-role="maskedtextbox"
+                       data-mask="(999) 000-0000"
+                       data-bind="visible: isVisible,
+							enabled: isEnabled,
+							value: phoneNumber,
+							events: { change: onChange }">
+            </div>
+        </div>
+        <script>
+            var viewModel = kendo.observable({
+                phoneNumber: "(123) 456-6789",
+                isEnabled: true,
+                isVisible: true,
+                onChange: function () {
+                    kendoConsole.log("event :: change " + this.get("phoneNumber"));
+                }
+            });
+            kendo.bind($("#demo8"), viewModel);
+        </script>
+    </div>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <form id="employeeForm9" data-role="validator" novalidate="novalidate">
+                <ul id="fieldlist">
+                    <li>
+                        <label for="FirstName">First Name:</label>
+                        <span class="k-textbox k-input k-input-md k-rounded-md k-input-solid">
+                            <input type="text" class="k-input-inner" name="FirstName" id="FirstName" required="required" />
+                        </span>
+                    </li>
+                    <li>
+                        <label for="LastName">Last Name:</label>
+                        <span class="k-textbox k-input k-input-md k-rounded-md k-input-solid">
+                            <input type="text" class="k-input-inner" name="LastName" id="LastName" required="required" />
+                        </span>
+                    </li>
+                    <li>
+                        <label for="PhoneNumber">Phone Number:</label>
+                        <input type="text" data-role='maskedtextbox' data-mask="(999) 000-0000" id="PhoneNumber" name="PhoneNumber" data-validmask-msg="Phone number is incomplete" required="required" />
+                        <span data-for='PhoneNumber' class='k-invalid-msg'></span>
+                    </li>
+                    <li class="actions">
+                        <button type="button" data-role="button" data-icon="check" data-click='save'>Save</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            var container = $("#employeeForm9");
+            kendo.init(container);
+            container.kendoValidator({
+                rules: {
+                    validmask: function (input) {
+                        if (input.is("[data-validmask-msg]") && input.val() != "") {
+                            var maskedtextbox = input.data("kendoMaskedTextBox");
+                            return maskedtextbox.value().indexOf(maskedtextbox.options.promptChar) === -1;
+                        }
+
+                        return true;
+                    }
+                }
+            });
+        });
+
+        function save(e) {
+            var validator = $("#employeeForm9").data("kendoValidator");
+            if (validator.validate()) {
+                alert("Employee Saved");
+            }
+        }
+
+    </script>
+
+    <style>
+
+        #fieldlist {
+            margin: 0 0 -2em;
+            padding: 0;
+        }
+
+            #fieldlist li {
+                list-style: none;
+                padding-bottom: 2em;
+            }
+
+            #fieldlist label {
+                display: block;
+                padding-bottom: 4px;
+                font-weight: bold;
+                text-transform: uppercase;
+                font-size: 12px;
+            }
+
+            #fieldlist input {
+                width: 100%;
+            }
+
+        span.k-tooltip {
+            margin-top: 5px;
+            line-height: 1.7em;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+    </style>
+    <footer>
+
+    </footer>
+</body>

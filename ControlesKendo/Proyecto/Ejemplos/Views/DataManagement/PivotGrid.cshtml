@@ -1,0 +1,78 @@
+﻿<div>
+    <div class="k-pivotgrid-wrapper">
+        <div id="configurator" class="hidden-on-narrow"></div>
+        <div id="pivotgrid" class="hidden-on-narrow"></div>
+    </div>
+    <div class="responsive-message"></div>
+</div>
+<div>
+    Medidas KPI
+    <div class="k-pivotgrid-wrapper">
+        <div id="configurator2" class="hidden-on-narrow"></div>
+        <div id="pivotgrid2" class="hidden-on-narrow"></div>
+    </div>
+    <div class="responsive-message"></div>
+</div>
+@*<div>
+    Local Binding
+    <div class="k-pivotgrid-wrapper">
+        <div id="configurator3" class="hidden-on-narrow"></div>
+        <div id="pivotgrid3" class="hidden-on-narrow"></div>
+    </div>
+    <div class="responsive-message"></div>
+</div>*@
+
+<div>
+    PIVOTGRID V2
+    <div id="container4">
+        <div id="pivotgrid4"></div>
+        <div id="configurator4"></div>
+        <div id="pivotbutton4"></div>
+    </div>
+</div>
+
+@*<div>
+    Local Binding PIVOTGRID V2
+    <div id="container5">
+        <div id="pivotgrid5"></div>
+        <div id="configurator5"></div>
+        <div id="pivotbutton5"></div>
+    </div>
+</div>*@
+
+<div>
+    PIVOTGRID V2 Templates
+    <div id="container6">
+        <div id="pivotgrid6"></div>
+        <div id="configurator6"></div>
+        <div id="pivotbutton6"></div>
+    </div>
+</div>
+
+<script id="dataCellTemplate" type="text/x-kendo-tmpl">
+    <!-- "Check if there's an available dataItem. If there isn't, display 'N/A'" -->
+    # if (!dataItem) { #
+         <em>N/A</em>
+    <!-- "If there's an available dataItem, its value is more than 100 and its column is CY 2012, render it underlined and in red."  -->
+     # } else if(dataItem.value > 100 && data.columnTuple.members[0].caption == "CY 2012") { #
+        <u><span style='color: red;'>#: dataItem.fmtValue #</span></u>
+    <!-- "If there's an available dataItem and its value is more than 100, render it bolded and in red."  -->
+    # } else if(dataItem.value > 100) { #
+        <b><span style='color: red;'>#: dataItem.fmtValue #</span></b>
+    <!-- "In all other cases display the value bolded and in green."  -->
+    # } else { #
+         <b><span style='color: green;'>#: dataItem.fmtValue #</span></b>
+     # } #
+</script>
+
+<script id="headerTemplate" type="text/x-kendo-tmpl">
+    # if (!member.children.length) { #
+        <em>#: member.caption #</em>
+    # } else { #
+        #: member.caption #
+    # } #
+</script>
+@section scripts {
+    <script src="~/js/pivotgrid.js"></script>
+    <script src="../content/shared/js/products.js"></script>
+}

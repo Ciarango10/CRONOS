@@ -1,0 +1,1191 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/dropdownlist/index">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="categories">Categories:</label>
+			<input id="categories"/>
+			<br>
+			<br>
+			<br>
+
+			<label for="products">Products:</label>
+			<input id="products" disabled="disabled"/>
+			<br>
+			<br>
+			<br>
+
+			<label for="shipTo">Ship to:</label>
+			<input id="shipTo" disabled="disabled"/>
+		</div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var categories = $("#categories").kendoDropDownList({
+                optionLabel: "Select category...",
+                dataTextField: "CategoryName",
+                dataValueField: "CategoryID",
+                height: 310,
+                template: '<span class="k-state-default" style="background-image: url(\'../content/web/dropdownlist/#:data.CategoryID#.jpg\')" ></span><span class=\"k-state-default\" style=\"padding-left: 15px;\"><h3>#: data.CategoryName #</h3></span>',
+                valueTemplate: '<span class="selected-value" style="background-image: url(\'../content/web/dropdownlist/#:data.CategoryID#.jpg\')"></span><span>#:data.CategoryName#</span>',
+                footerTemplate: 'Total number of <strong>#: instance.dataSource.total() #</strong> categories found',
+                dataSource: {
+                    type: "odata",
+                    serverFiltering: true,
+                    transport: {
+                        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Categories"
+                    }
+                }
+            }).data("kendoDropDownList");
+
+            var products = $("#products").kendoDropDownList({
+                autoBind: false,
+                cascadeFrom: "categories",
+                optionLabel: "Select product...",
+                dataTextField: "ProductName",
+                dataValueField: "ProductID",
+                change: onChange,
+                dataSource: {
+                    type: "odata",
+                    serverFiltering: true,
+                    transport: {
+                        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products",
+                    }
+                }
+            }).data("kendoDropDownList");
+
+            $("#shipTo").kendoDropDownList({
+                dataTextField: "ShipAddress",
+                dataValueField: "OrderID",
+                optionLabel: "Select address...",
+                autoBind: false,
+                virtual: {
+                    itemHeight: 26,
+                    valueMapper: function (options) {
+                        $.ajax({
+                            url: "https://demos.telerik.com/kendo-ui/service/Orders/ValueMapper",
+                            type: "GET",
+                            dataType: "jsonp",
+                            data: convertValues(options.value),
+                            success: function (data) {
+                                options.success(data);
+                            }
+                        })
+                    }
+                },
+                height: 290,
+                dataSource: {
+                    type: "odata",
+                    transport: {
+                        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Orders"
+                    },
+                    schema: {
+                        model: {
+                            fields: {
+                                OrderID: { type: "number" },
+                                Freight: { type: "number" },
+                                ShipName: { type: "string" },
+                                OrderDate: { type: "date" },
+                                ShipCity: { type: "string" }
+                            }
+                        }
+                    },
+                    pageSize: 80,
+                    serverPaging: true,
+                    serverFiltering: true
+                }
+            });
+        });
+
+        function onChange(e) {
+            var orders = $("#shipTo").data("kendoDropDownList");
+            orders.value("");
+
+            if (e.sender.value() == "") {
+                orders.enable(false);
+            }
+            else {
+                orders.enable(true);
+            }
+        }
+    </script>
+
+    <script>
+        function convertValues(value) {
+            var data = {};
+            value = $.isArray(value) ? value : [value];
+
+            for (var idx = 0; idx < value.length; idx++) {
+                data["values[" + idx + "]"] = value[idx];
+            }
+
+            return data;
+        }
+    </script>
+
+    <style>
+        .k-readonly {
+            color: gray;
+        }
+
+        .selected-value {
+            display: inline-block;
+            vertical-align: middle;
+            width: 24px;
+            height: 24px;
+            background-size: 100%;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
+
+        #categories-list .k-list-item-text {
+            line-height: 1em;
+            min-width: 300px;
+        }
+
+        /* Material Theme padding adjustment*/
+        .k-material #categories-list .k-list-item-text,
+        .k-material #categories-list .k-list-item-text.k-hover,
+        .k-materialblack #categories-list .k-list-item-text,
+        .k-materialblack #categories-list .k-list-item-text.k-hover {
+            padding-left: 5px;
+            border-left: 0;
+        }
+
+        #categories-list .k-list-item-text > span {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            vertical-align: middle;
+            display: table-cell;
+            vertical-align: central;
+            margin: 10px 10px 10px 5px;
+        }
+
+        #categories-list .k-list-item-text > span:first-child {
+            -moz-box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+            -webkit-box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+            box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+            margin: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+        #categories-list h3 {
+            font-size: 1.2em;
+            font-weight: normal;
+            margin: 0 0 1px 0;
+            padding: 0;
+        }
+
+        #categories-list p {
+            margin: 0;
+            padding: 0;
+            font-size: .8em;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="cap">Customize your Kendo Cap</label>
+            <div id="cap" class="black-cap"></div>
+            <br>
+            <br>
+
+            <label for="color">Cap Color</label>
+            <input id="color" value="1" />
+            <br>
+            <br>
+
+            <label for="size">Cap Size</label>
+            <select id="size">
+                <option>S - 6 3/4"</option>
+                <option>M - 7 1/4"</option>
+                <option>L - 7 1/8"</option>
+                <option>XL - 7 5/8"</option>
+            </select>
+
+            <button class="k-button k-button-solid-primary k-button-solid k-button-md k-rounded-md" id="get" style="margin-top: 2em; float: right;">Customize</button>
+        </div>
+    </div>
+
+    <style>
+        #cap {
+            width: 242px;
+            height: 225px;
+            margin: 20px auto;
+            background-image: url('../content/web/dropdownlist/cap.png');
+            background-repeat: no-repeat;
+            background-color: transparent;
+        }
+
+        .black-cap {
+            background-position: 0 0;
+        }
+
+        .grey-cap {
+            background-position: 0 -225px;
+        }
+
+        .orange-cap {
+            background-position: 0 -450px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            var data = [
+                { text: "Black", value: "1" },
+                { text: "Orange", value: "2" },
+                { text: "Grey", value: "3" }
+            ];
+
+            // create DropDownList from input HTML element
+            $("#color").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: data,
+                index: 0,
+                change: onChange
+            });
+
+            // create DropDownList from select HTML element
+            $("#size").kendoDropDownList();
+
+            var color = $("#color").data("kendoDropDownList");
+
+            color.select(0);
+            var size = $("#size").data("kendoDropDownList");
+
+            function onChange() {
+                var value = $("#color").val();
+                $("#cap")
+                    .toggleClass("black-cap", value == 1)
+                    .toggleClass("orange-cap", value == 2)
+                    .toggleClass("grey-cap", value == 3);
+            };
+
+            $("#get").click(function () {
+                alert('Thank you! Your Choice is:\n\nColor ID: ' + color.value() + ' and Size: ' + size.value());
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="products">Products:</label>
+			<input id="products3" />
+		</div>
+	</div>
+
+    <script>
+        $(document).ready(function() {
+            $("#products3").kendoDropDownList({
+                dataTextField: "ProductName",
+                dataValueField: "ProductID",
+                dataSource: {
+                    transport: {
+                       read: {
+                          dataType: "jsonp",
+                          url: "https://demos.telerik.com/kendo-ui/service/Products",
+                       }
+                    }
+                }
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="products">Products:</label>
+            <input id="products4" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#products4").kendoDropDownList({
+                filter: "startswith",
+                dataTextField: "ProductName",
+                dataValueField: "ProductID",
+                dataSource: {
+                    type: "odata",
+                    serverFiltering: true,
+                    transport: {
+                        read: {
+                            url: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products",
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="orders">Search for shipping name:</label>
+            <input id="orders6" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#orders6").kendoDropDownList({
+                template: '<span class="order-id">#= OrderID #</span> #= ShipName #, #= ShipCountry #',
+                dataTextField: "ShipName",
+                dataValueField: "OrderID",
+                filter: "contains",
+                virtual: {
+                    itemHeight: 26,
+                    valueMapper: function (options) {
+                        $.ajax({
+                            url: "https://demos.telerik.com/kendo-ui/service/Orders/ValueMapper",
+                            type: "GET",
+                            dataType: "jsonp",
+                            data: convertValues(options.value),
+                            success: function (data) {
+                                options.success(data);
+                            }
+                        })
+                    }
+                },
+                height: 520,
+                dataSource: {
+                    type: "odata",
+                    transport: {
+                        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Orders"
+                    },
+                    schema: {
+                        model: {
+                            fields: {
+                                OrderID: { type: "number" },
+                                Freight: { type: "number" },
+                                ShipName: { type: "string" },
+                                OrderDate: { type: "date" },
+                                ShipCity: { type: "string" }
+                            }
+                        }
+                    },
+                    pageSize: 80,
+                    serverPaging: true,
+                    serverFiltering: true
+                }
+            });
+        });
+
+        function convertValues(value) {
+            var data = {};
+
+            value = $.isArray(value) ? value : [value];
+
+            for (var idx = 0; idx < value.length; idx++) {
+                data["values[" + idx + "]"] = value[idx];
+            }
+
+            return data;
+        }
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 100px;">
+	    <div class="k-w-300"> 
+		    <input id="products7" style="width: 100%;" />
+	    </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#products7").kendoDropDownList({
+                label: { 
+                    content: "Find a product...",
+                    floating: true
+                },
+                autoBind:false,
+                dataTextField: "ProductName",
+                dataValueField: "ProductID",
+                filter:"contains",
+                dataSource: {
+                    transport: {
+                        read: {
+                            dataType: "jsonp",
+                            url: "https://demos.telerik.com/kendo-ui/service/Products",
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="customers">Customers</label>
+			<input id="customers8" />
+		</div>
+	</div>
+
+    <script>
+         $(document).ready(function() {
+              $("#customers8").kendoDropDownList({
+                    dataTextField: "ContactName",
+                    dataValueField: "CustomerID",
+                    height: 400,
+                    dataSource: {
+                        type: "odata",
+                        transport: {
+                            read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Customers"
+                        },
+                        group: { field: "Country" }
+                    }
+              });
+         });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="customers">Customers</label>
+			<input id="customers10" />
+			    <p class="demo-hint">
+					Open the DropDownList to see the customized appearance.
+				</p>
+		</div>
+	</div>
+    <script>
+        $(document).ready(function () {
+            $("#customers10").kendoDropDownList({
+                dataTextField: "ContactName",
+                dataValueField: "CustomerID",
+                headerTemplate: '<div class="dropdown-header k-widget k-header">' +
+                    '<span>Photo</span>' +
+                    '<span>Contact info</span>' +
+                    '</div>',
+                footerTemplate: 'Total #: instance.dataSource.total() # items found',
+                valueTemplate: '<span class="selected-value" style="background-image: url(\'../content/web/Customers/#:data.CustomerID#.jpg\')"></span><span>#:data.ContactName#</span>',
+                template: '<span class="k-state-default" style="background-image: url(\'../content/web/Customers/#:data.CustomerID#.jpg\')"></span>' +
+                    '<span class="k-state-default"><h3>#: data.ContactName #</h3><p>#: data.CompanyName #</p></span>',
+                dataSource: {
+                    transport: {
+                        read: {
+                            dataType: "jsonp",
+                            url: "https://demos.telerik.com/kendo-ui/service/Customers",
+                        }
+                    }
+                },
+                height: 400
+            });
+
+            var dropdownlist = $("#customers").data("kendoDropDownList");
+        });
+    </script>
+ 
+    <style>
+        .dropdown-header {
+            border-width: 0 0 1px 0;
+            text-transform: uppercase;
+        }
+
+            .dropdown-header > span {
+                display: inline-block;
+                padding: 10px;
+                margin-right: 30px;
+            }
+
+                .dropdown-header > span:first-child {
+                    width: 50px;
+                }
+
+        .k-list-container > .k-footer {
+            padding: 10px;
+        }
+
+        .selected-value {
+            display: inline-block;
+            vertical-align: middle;
+            width: 24px;
+            height: 24px;
+            background-size: 100%;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
+
+        #customers-list .k-list-item-text {
+            line-height: 1em;
+            min-width: 300px;
+        }
+
+        /* Material Theme padding adjustment*/
+
+        .k-material #customers-list .k-list-item-text,
+        .k-material #customers-list .k-list-item-text.k-hover,
+        .k-materialblack #customers-list .k-list-item-text,
+        .k-materialblack #customers-list .k-list-item-text.k-hover {
+            padding-left: 5px;
+            border-left: 0;
+        }
+
+        #customers-list .k-list-item-text > span {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: top;
+            margin: 20px 10px 10px 5px;
+        }
+
+            #customers-list .k-list-item-text > span:first-child {
+                -moz-box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+                -webkit-box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+                box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+                margin: 10px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+
+        #customers-list h3 {
+            font-size: 1.2em;
+            font-weight: normal;
+            margin: 0 0 1px 0;
+            padding: 0;
+        }
+
+        #customers-list p {
+            margin: 0;
+            padding: 0;
+            font-size: .8em;
+        }
+                
+
+    </style>
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="categories">Categories:</label>
+            <input id="categories11" />
+            <br>
+            <br>
+            <br>
+
+            <label for="products">Products:</label>
+            <input id="products11" disabled="disabled" />
+            <br>
+            <br>
+            <br>
+
+            <label for="orders">Orders</label>
+            <input id="orders11" disabled="disabled" />
+
+            <button class="k-button k-button-solid-primary k-button-solid k-button-md k-rounded-md" id="get11" style="margin-top: 2em; float: right;">View Order</button>
+        </div>
+    </div>
+
+    <style>
+        .k-readonly {
+            color: gray;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            var categories = $("#categories11").kendoDropDownList({
+                optionLabel: "Select category...",
+                dataTextField: "CategoryName",
+                dataValueField: "CategoryID",
+                dataSource: {
+                    type: "odata",
+                    serverFiltering: true,
+                    transport: {
+                        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Categories"
+                    }
+                }
+            }).data("kendoDropDownList");
+
+            var products = $("#products11").kendoDropDownList({
+                autoBind: false,
+                cascadeFrom: "categories11",
+                optionLabel: "Select product...",
+                dataTextField: "ProductName",
+                dataValueField: "ProductID",
+                dataSource: {
+                    type: "odata",
+                    serverFiltering: true,
+                    transport: {
+                        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
+                    }
+                }
+            }).data("kendoDropDownList");
+
+            var orders = $("#orders11").kendoDropDownList({
+                autoBind: false,
+                cascadeFrom: "products11",
+                optionLabel: "Select order...",
+                dataTextField: "Order.ShipCity",
+                dataValueField: "OrderID",
+                dataSource: {
+                    type: "odata",
+                    serverFiltering: true,
+                    transport: {
+                        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Order_Details?$expand=Order"
+                    }
+                }
+            }).data("kendoDropDownList");
+
+            $("#get11").click(function () {
+                var categoryInfo = "\nCategory: { id: " + categories.value() + ", name: " + categories.text() + " }",
+                    productInfo = "\nProduct: { id: " + products.value() + ", name: " + products.text() + " }",
+                    orderInfo = "\nOrder: { id: " + orders.value() + ", name: " + orders.text() + " }";
+
+                alert("Order details:\n" + categoryInfo + productInfo + orderInfo);
+            });
+        });
+    </script>
+            
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="products">Type a custom product name</label>
+            <input id="products12" />
+            <div class="demo-hint">e.g. 'custom'</div>
+        </div>
+    </div>
+
+    <script id="noDataTemplate" type="text/x-kendo-tmpl">
+        <div>
+            No data found. Do you want to add new item - '#: instance.filterInput.val() #' ?
+        </div>
+        <br />
+        <button class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md" onclick="addNew('#: instance.element[0].id #', '#: instance.filterInput.val() #')">Add new item</button>
+    </script>
+
+    <script>
+        function addNew(widgetId, value) {
+            var widget = $("#" + widgetId).getKendoDropDownList();
+            var dataSource = widget.dataSource;
+
+            if (confirm("Are you sure?")) {
+                dataSource.add({
+                    ProductID: 0,
+                    ProductName: value
+                });
+
+                dataSource.one("sync", function () {
+                    widget.select(dataSource.view().length - 1);
+                });
+
+                dataSource.sync();
+            }
+        };
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service";
+            var dataSource = new kendo.data.DataSource({
+                batch: true,
+                transport: {
+                    read: {
+                        url: crudServiceBaseUrl + "/Products",
+                        dataType: "jsonp"
+                    },
+                    create: {
+                        url: crudServiceBaseUrl + "/Products/Create",
+                        dataType: "jsonp"
+                    },
+                    parameterMap: function (options, operation) {
+                        if (operation !== "read" && options.models) {
+                            return { models: kendo.stringify(options.models) };
+                        }
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "ProductID",
+                        fields: {
+                            ProductID: { type: "number" },
+                            ProductName: { type: "string" }
+                        }
+                    }
+                }
+            });
+
+            $("#products12").kendoDropDownList({
+                filter: "startswith",
+                dataTextField: "ProductName",
+                dataValueField: "ProductID",
+                dataSource: dataSource,
+                noDataTemplate: $("#noDataTemplate").html()
+            });
+        });
+    </script>
+    <style>
+        .k-no-data {
+            display: table;
+            width: 100%;
+            padding-top: 20px;
+        }
+    </style>
+           
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="dropdownlist">DropDownList</label>
+			<input id="dropdownlist13" />
+		</div>
+	</div>
+    <script>
+        $(document).ready(function () {
+            function onOpen() {
+                kendoConsole.log("event: open");
+            };
+
+            function onClose() {
+                kendoConsole.log("event: close");
+            };
+
+            function onChange() {
+                kendoConsole.log("event: change");
+            };
+
+            function onSelect(e) {
+                if ("kendoConsole" in window) {
+                    if (e.dataItem) {
+                        var dataItem = e.dataItem;
+                        kendoConsole.log("event :: select (" + dataItem.text + " : " + dataItem.value + ")");
+                    } else {
+                        kendoConsole.log("event :: select");
+                    }
+                }
+            };
+
+            function onDataBound(e) {
+                if ("kendoConsole" in window) {
+                    kendoConsole.log("event :: dataBound");
+                }
+            };
+
+            function onFiltering(e) {
+                if ("kendoConsole" in window) {
+                    kendoConsole.log("event :: filtering");
+                }
+            }
+
+            var data = [
+                { text: "Item1", value: "1" },
+                { text: "Item2", value: "2" },
+                { text: "Item3", value: "3" }
+            ];
+
+            $("#dropdownlist13").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: data,
+                filter: "startswith",
+                select: onSelect,
+                change: onChange,
+                close: onClose,
+                open: onOpen,
+                filtering: onFiltering,
+                dataBound: onDataBound
+            });
+        });
+    </script>
+
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Size</h4>
+                    <input id="size14" name="size" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Fill Mode</h4>
+                    <input id="fillMode" name="fillMode" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Border Radius</h4>
+                    <input id="rounded" name="rounded" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="products">Select a product:</label>
+            <input id="products14" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            var ddl = $("#products14").kendoDropDownList({
+                placeholder: "Select product",
+                dataTextField: "ProductName",
+                dataValueField: "ProductID",
+                filter: "contains",
+                dataSource: {
+                    type: "odata",
+                    transport: {
+                        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
+                    }
+                }
+            }).data('kendoDropDownList');
+
+            var size = $("#size14").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "medium",
+                change: onChange,
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "None", value: "none" }
+                ]
+            }).data("kendoDropDownList");
+
+            var rounded = $("#rounded").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                change: onChange,
+                value: "medium",
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "Full", value: "full" },
+                    { text: "None", value: "none" }
+                ]
+            }).data("kendoDropDownList");
+
+            var fill = $("#fillMode").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                change: onChange,
+                value: "solid",
+                dataSource: [
+                    { text: "Solid", value: "solid" },
+                    { text: "Flat", value: "flat" },
+                    { text: "Outline", value: "outline" },
+                    { text: "None", value: "none" }
+                ]
+            }).data("kendoDropDownList");
+
+            function onChange(e) {
+
+                var sizeValue = size.value();
+                var roundedValue = rounded.value();
+                var fillValue = fill.value();
+                ddl.setOptions({
+                    size: sizeValue,
+                    rounded: roundedValue,
+                    fillMode: fillValue
+                })
+            }
+        });
+    </script>
+
+    <style>
+        .k-picker.k-dropdownlist {
+            width: 140px;
+        }
+    </style>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>API Functions</h4>
+            <ul class="options">
+                <li>
+                    <button id="enable">Enable</button> <button id="disable">Disable</button>
+                </li>
+                <li>
+                    <button id="readonly">Readonly</button>
+                </li>
+                <li>
+                    <button id="open">Open</button> <button id="close">Close</button>
+                </li>
+                <li>
+                    <button id="getValue">Get value</button> <button id="getText">Get text</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Selection</h4>
+            <ul class="options">
+                <li>
+                    <input id="index" value="0" style="width: 40px; margin: 0;" /> <button id="select">Select by index</button>
+                </li>
+                <li>
+                    <input id="value" value="1" style="width: 40px; margin: 0;" /> <button id="setValue">Select by value</button>
+                </li>
+                <li>
+                    <input id="word" value="Pulp" style="width: 100px; margin: 0;" /> <button id="find">Select item starting with</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="movies">Select movie</label>
+            <input id="movies" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var data = [
+                { text: "The Shawshank Redemption", value: "1" },
+                { text: "The Godfather", value: "2" },
+                { text: "The Godfather: Part II", value: "3" },
+                { text: "Il buono, il brutto, il cattivo.", value: "4" },
+                { text: "Pulp Fiction", value: "5" },
+                { text: "12 Angry Men", value: "6" },
+                { text: "Schindler's List", value: "7" },
+                { text: "One Flew Over the Cuckoo's Nest", value: "8" },
+                { text: "Inception", value: "9" },
+                { text: "The Dark Knight", value: "10" }
+            ];
+            $("#movies").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: data,
+                height: 100
+            })
+                .closest(".k-widget")
+                .attr("id", "products_wrapper");
+            var dropdownlist = $("#movies").data("kendoDropDownList"),
+                setValue = function (e) {
+                    if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode)
+                        dropdownlist.value($("#value").val());
+                },
+                setIndex = function (e) {
+                    if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode) {
+                        var index = parseInt($("#index").val());
+                        dropdownlist.select(index);
+                    }
+                },
+                setSearch = function (e) {
+                    if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode)
+                        dropdownlist.search($("#word").val());
+                };
+            $("#enable").click(function () {
+                dropdownlist.enable();
+            });
+            $("#disable").click(function () {
+                dropdownlist.enable(false);
+            });
+            $("#readonly").click(function () {
+                dropdownlist.readonly();
+            });
+            $("#open").click(function () {
+                dropdownlist.open();
+            });
+            $("#close").click(function () {
+                dropdownlist.close();
+            });
+            $("#getValue").click(function () {
+                alert(dropdownlist.value());
+            });
+            $("#getText").click(function () {
+                alert(dropdownlist.text());
+            });
+            $("#setValue").click(setValue);
+            $("#value").keypress(setValue);
+            $("#select").click(setIndex);
+            $("#index").keypress(setIndex);
+            $("#find").click(setSearch);
+            $("#word").keypress(setSearch);
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300 k-rtl">
+			<label for="input">RTL DropDownList</label>
+			<input id="input16"/>
+		</div>
+	</div>
+    <script>
+         $(document).ready(function() {
+              var data = [
+                   {text: "Item1", value:"1"},
+                   {text: "Item2", value:"2"},
+                   {text: "Item3", value:"3"}
+              ];
+
+              $("#input16").kendoDropDownList({
+                   dataTextField: "text",
+                   dataValueField: "value",
+                   dataSource: data
+              });
+         });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="select">T-shirt Size</label>
+			<select id="select17" placeholder="Select size..." accesskey="w">
+				<option>X-Small</option>
+				<option>Small</option>
+				<option>Medium</option>
+				<option selected>Large</option>
+				<option>X-Large</option>
+				<option>2X-Large</option>
+			</select>
+		</div>
+    </div>
+
+    <script>
+         $(document).ready(function () {
+             $("#select17").kendoDropDownList();
+         });
+    </script>
+
+    <div id="demo18">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Configuration</h4>
+                <ul>
+                    <li>
+                        <input type="checkbox" data-bind="checked: isPrimitive, events: { change: primitiveChanged }" />
+                        <label>Set <strong>data-value-primitive</strong></label>
+                    </li>
+                    <li>
+                        <input type="checkbox" data-bind="checked: isEnabled" />
+                        <label>Enable</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" data-bind="checked: isVisible" />
+                        <label>Visible</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Information</h4>
+                Kendo UI DropDownList supports the
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/source">source</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a> and
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+            </div>
+        </div>
+
+	    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		    <div class="k-w-300">
+			    <div data-bind="visible: isPrimitive">
+			    <label for="dropdownlist">Choose a product e.g. 'Chai'</label>
+                <input data-role="dropdownlist"
+                       data-auto-bind="false"
+                       data-value-primitive="true"
+                       data-text-field="ProductName"
+                       data-value-field="ProductID"
+                       data-bind="value: selectedProduct,
+                                  source: products,
+                                  visible: isVisible,
+                                  enabled: isEnabled,
+                                  events: {
+                                    change: onChange,
+                                    open: onOpen,
+                                    close: onClose
+                                  }" />
+                <p class="demo-hint">
+                    <strong>data-value-primitive</strong> is set to <strong>true</strong>
+                </p>
+            </div>
+            <div data-bind="invisible: isPrimitive">
+			    <label for="dropdownlist">Choose a product e.g. 'Chai'</label>
+                <input data-role="dropdownlist"
+                       data-auto-bind="false"
+                       data-text-field="ProductName"
+                       data-value-field="ProductID"
+                       data-bind="value: selectedProduct,
+                                  source: products,
+                                  visible: isVisible,
+                                  enabled: isEnabled,
+                                  events: {
+                                    change: onChange,
+                                    open: onOpen,
+                                    close: onClose
+                                  }" />
+                <p class="demo-hint">
+                    <strong>data-value-primitive</strong> is <strong>not</strong> set.
+                </p>
+            </div>
+		    </div>
+	    </div>
+
+        <script>
+            var viewModel = kendo.observable({
+                selectedProduct: null,
+                isPrimitive: false,
+                isVisible: true,
+                isEnabled: true,
+                primitiveChanged: function () {
+                    this.set("selectedProduct", null);
+                },
+                displaySelectedProduct: function () {
+                    var selectedProduct = this.get("selectedProduct");
+                    return kendo.stringify(selectedProduct, null, 4);
+                },
+                onOpen: function () {
+                    kendoConsole.log("event :: open");
+                },
+                onChange: function () {
+                    kendoConsole.log("event :: change (" + this.displaySelectedProduct() + ")");
+                },
+                onClose: function () {
+                    kendoConsole.log("event :: close");
+                },
+                products: new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: "https://demos.telerik.com/kendo-ui/service/products",
+                            dataType: "jsonp"
+                        }
+                    }
+                })
+            });
+            kendo.bind($("#demo18"), viewModel);
+        </script>
+    </div>
+
+
+    <div class="kd-example-console">
+         <div class="header">
+             <span class="title">CONSOLE LOG</span>
+             <span class="clear kd-text-secondary">Clear log</span>
+         </div>
+         <div class="console"></div>
+    </div>
+
+</body>

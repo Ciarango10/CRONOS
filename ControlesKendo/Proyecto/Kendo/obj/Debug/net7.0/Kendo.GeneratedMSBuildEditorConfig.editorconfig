@@ -1,0 +1,569 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Kendo
+build_property.RootNamespace = Kendo
+build_property.ProjectDir = D:\Usuario\Escritorio\Codigo\Cronos\ControlesKendo\Proyecto\Kendo\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Usuario\Escritorio\Codigo\Cronos\ControlesKendo\Proyecto\Kendo
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Barcode/Barcode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFyY29kZVxCYXJjb2RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Barcode/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFyY29kZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Barcode/Qrcode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFyY29kZVxRcmNvZGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/AreaCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXEFyZWFDaGFydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/BarCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXEJhckNoYXJ0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/BoxPlotChart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXEJveFBsb3RDaGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/BubbleCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXEJ1YmJsZUNoYXJ0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/BulletCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXEJ1bGxldENoYXJ0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/Chart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXENoYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/ChartApiMethods.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXENoYXJ0QXBpTWV0aG9kcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/DonutCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXERvbnV0Q2hhcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/FunnelCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXEZ1bm5lbENoYXJ0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/HeatMap.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXEhlYXRNYXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/LineCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXExpbmVDaGFydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/PieCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXFBpZUNoYXJ0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/PolarCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXFBvbGFyQ2hhcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/RadarCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXFJhZGFyQ2hhcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/RangeAreaCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXFJhbmdlQXJlYUNoYXJ0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/RangeBarCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXFJhbmdlQmFyQ2hhcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/ScatterCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXFNjYXR0ZXJDaGFydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/Sparklines.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXFNwYXJrbGluZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/StockCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXFN0b2NrQ2hhcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/TreeMap.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXFRyZWVNYXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Charts/WaterFallCharts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRzXFdhdGVyRmFsbENoYXJ0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/ConversationalUI/chat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udmVyc2F0aW9uYWxVSVxjaGF0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/DataManagement/FileManager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YU1hbmFnZW1lbnRcRmlsZU1hbmFnZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/DataManagement/Filter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YU1hbmFnZW1lbnRcRmlsdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/DataManagement/Grid.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YU1hbmFnZW1lbnRcR3JpZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/DataManagement/Grid2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YU1hbmFnZW1lbnRcR3JpZDIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/DataManagement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YU1hbmFnZW1lbnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/DataManagement/Spreadsheet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YU1hbmFnZW1lbnRcU3ByZWFkc2hlZXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/DiagramsMaps/Diagram.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhZ3JhbXNNYXBzXERpYWdyYW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/DiagramsMaps/Map.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhZ3JhbXNNYXBzXE1hcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/DiagramsMaps/OrgChart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhZ3JhbXNNYXBzXE9yZ0NoYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/AutoComplete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xBdXRvQ29tcGxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/Captcha.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xDYXB0Y2hhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/CheckBox.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xDaGVja0JveC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/CheckBoxGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xDaGVja0JveEdyb3VwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/ColorGradient.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xDb2xvckdyYWRpZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/ColorPalette.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xDb2xvclBhbGV0dGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/ColorPicker.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xDb2xvclBpY2tlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/ComboBox.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xDb21ib0JveC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/DateInput.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xEYXRlSW5wdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/DatePicker.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xEYXRlUGlja2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/DateRangePicker.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xEYXRlUmFuZ2VQaWNrZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/DateTimePicker.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xEYXRlVGltZVBpY2tlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/DropDownList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xEcm9wRG93bkxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/DropDownTree.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xEcm9wRG93blRyZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/Editor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xFZGl0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/FlatColorPicker.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xGbGF0Q29sb3JQaWNrZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/ImageEditor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xJbWFnZUVkaXRvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/ListBox.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xMaXN0Qm94LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/MaskedTextBox.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xNYXNrZWRUZXh0Qm94LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/MultiColumnComboBox.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xNdWx0aUNvbHVtbkNvbWJvQm94LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/MultiSelect.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xNdWx0aVNlbGVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/NumericTextBox.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xOdW1lcmljVGV4dEJveC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/RadioButton.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xSYWRpb0J1dHRvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/RadioGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xSYWRpb0dyb3VwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/Rating.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xSYXRpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/Signature.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xTaWduYXR1cmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/Slider.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xTbGlkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/Switch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xTd2l0Y2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/TextArea.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xUZXh0QXJlYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/TextBox.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xUZXh0Qm94LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/TimeDurationPicker.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xUaW1lRHVyYXRpb25QaWNrZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/TimePicker.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xUaW1lUGlja2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/Upload.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xVcGxvYWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Editors/Validator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdG9yc1xWYWxpZGF0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Gauge/ArcGauge.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2F1Z2VcQXJjR2F1Z2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Gauge/CircularGauge.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2F1Z2VcQ2lyY3VsYXJHYXVnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Gauge/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2F1Z2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Gauge/LinearGauge.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2F1Z2VcTGluZWFyR2F1Z2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Gauge/RadialGauge.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2F1Z2VcUmFkaWFsR2F1Z2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/InteractivityUx/CircularProgressBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJhY3Rpdml0eVV4XENpcmN1bGFyUHJvZ3Jlc3NCYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/InteractivityUx/DragAndDrop.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJhY3Rpdml0eVV4XERyYWdBbmREcm9wLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/InteractivityUx/Effects.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJhY3Rpdml0eVV4XEVmZmVjdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/InteractivityUx/Loader.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJhY3Rpdml0eVV4XExvYWRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/InteractivityUx/ProgressBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJhY3Rpdml0eVV4XFByb2dyZXNzQmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/InteractivityUx/RippleContainer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJhY3Rpdml0eVV4XFJpcHBsZUNvbnRhaW5lci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/InteractivityUx/SkeletonContainer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJhY3Rpdml0eVV4XFNrZWxldG9uQ29udGFpbmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/InteractivityUx/Sortable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJhY3Rpdml0eVV4XFNvcnRhYmxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/InteractivityUx/Styling.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZXJhY3Rpdml0eVV4XFN0eWxpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Layout/Avatar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XEF2YXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Layout/Badge.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XEJhZGdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Layout/Cards.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XENhcmRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Layout/Dialog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XERpYWxvZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Layout/ExpansionPanel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XEV4cGFuc2lvblBhbmVsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Layout/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XEZvcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Layout/Notification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XE5vdGlmaWNhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Layout/Popover.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XFBvcG92ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Layout/ResponsivePanel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XFJlc3BvbnNpdmVQYW5lbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Layout/Splitter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XFNwbGl0dGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Layout/TileLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XFRpbGVMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Layout/Tooltip.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XFRvb2x0aXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Layout/Window.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGF5b3V0XFdpbmRvdy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Media/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Media/MediaPlayer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWFcTWVkaWFQbGF5ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Media/ScrollView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWFcU2Nyb2xsVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/ActionSheet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxBY3Rpb25TaGVldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/AppBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxBcHBCYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/BottomNavigation/API.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxCb3R0b21OYXZpZ2F0aW9uXEFQSS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/BottomNavigation/Appearance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxCb3R0b21OYXZpZ2F0aW9uXEFwcGVhcmFuY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/BottomNavigation/Events.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxCb3R0b21OYXZpZ2F0aW9uXEV2ZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/BottomNavigation/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxCb3R0b21OYXZpZ2F0aW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/BottomNavigation/Items.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxCb3R0b21OYXZpZ2F0aW9uXEl0ZW1zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/BottomNavigation/KeyboardNavigation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxCb3R0b21OYXZpZ2F0aW9uXEtleWJvYXJkTmF2aWdhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/BottomNavigation/RightToLeftSupport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxCb3R0b21OYXZpZ2F0aW9uXFJpZ2h0VG9MZWZ0U3VwcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/BottomNavigation/Templates.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxCb3R0b21OYXZpZ2F0aW9uXFRlbXBsYXRlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/Breadcrumb.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxCcmVhZGNydW1iLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/Button.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxCdXR0b24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/ButtonGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxCdXR0b25Hcm91cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/Drawer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxEcmF3ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/DropDownButton.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxEcm9wRG93bkJ1dHRvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/FloatingActionButton.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxGbG9hdGluZ0FjdGlvbkJ1dHRvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/Menu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxNZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/PanelBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxQYW5lbEJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/SplitButton.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxTcGxpdEJ1dHRvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/Stepper.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxTdGVwcGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/TabStrip.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxUYWJTdHJpcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/Timeline.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxUaW1lbGluZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/ToolBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxUb29sQmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/TreeView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxUcmVlVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Navigation/Wizard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmF2aWdhdGlvblxXaXphcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/PDF/PdfExport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUERGXFBkZkV4cG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/PDF/PdfViewer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUERGXFBkZlZpZXdlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Scheduling/Calendar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGluZ1xDYWxlbmRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Scheduling/Gantt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGluZ1xHYW50dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Scheduling/MultiViewCalendar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGluZ1xNdWx0aVZpZXdDYWxlbmRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Scheduling/Scheduler.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGluZ1xTY2hlZHVsZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/ControlesKendo/Proyecto/Kendo/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-pyafgybm00

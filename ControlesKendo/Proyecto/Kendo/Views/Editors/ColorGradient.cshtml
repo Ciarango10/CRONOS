@@ -1,0 +1,319 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/colorgradient/index">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div class="hidden-on-narrow wide" style="padding-top: 54px; text-align: center;">
+        <div id="bike">
+            <div id="bike-tail" class="bike"></div><div id="bike-head"  class="bike"></div>
+        </div>
+		<br>
+		<br>
+        <div>
+            <label for="colorGradient">Bike color</label>
+            <div id="colorGradient" class="picker"></div>
+        </div>
+    </div>
+
+    <div class="responsive-message"></div>
+
+    <style>
+        #bike {
+            margin: 0 0 10px;
+            background: url(../content/web/colorpicker/background.png);
+        }
+
+        #bike-head, #bike-tail {
+            background: url(../content/web/colorpicker/motor.png);
+            display: inline-block;
+            height: 299px;
+            width: 241px;
+            background-color: #000;
+        }
+
+        #bike-tail {
+            background-color: #000;
+        }
+
+        #bike-head {
+            background-color: #e15613;
+            background-position: -241px 0;
+        }
+
+		#colorGradient {
+			margin: 0 auto;
+		}
+    </style>
+
+    <script>
+        function select(e) {
+            $(".bike").css("background-color", e.value);
+        }
+
+        $("#colorGradient").kendoColorGradient({
+            input: true,
+            value: "#000",
+            change: select,
+            opacity: true
+        });
+    </script>
+
+    <div class="k-d-inline-flex hidden-on-narrow wide">
+        <div class="column">
+            <label for="picker">Choose Your Color | RGB </label>
+            <div id="picker"></div>
+        </div>
+        <div class="column" style="margin:inherit">
+            <label for="no-inputs-picker">Choose Your Color | HEX </label>
+            <div id="no-inputs-picker"></div>
+        </div>
+    </div>
+
+    <script>
+        $("#picker").kendoColorGradient({
+            value: "#ff0000",
+            format: "rgb",
+            formats:["rgb","hex"]
+        });
+        $("#no-inputs-picker").kendoColorGradient({
+            value:"#fff700",
+            format:"hex",
+            formats:["rgb","hex"]
+        });
+    </script>
+
+    <style>
+        .k-d-inline-flex {
+            width: 100%;
+            margin: 0 auto;
+            padding-top: 42px;
+        }
+
+        .column {
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+    
+    <div class="hidden-on-narrow wide" style="margin-top: 42px;">
+        <div class="example-config">
+            Try to apply different colors to the text on right side. Notice how the
+            text becomes gradually harder for reading when the contrast ratio
+            becomes smaller.
+        </div>
+        <div class="row">
+            <div class="column">
+                <div id="colorGradient3"></div>
+            </div>
+            <div class="column">
+                <p class="text-wrapper">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry. Lorem Ipsum has been the industry's standard dummy text
+                    ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book. It has survived not
+                    only five centuries, but also the leap into electronic typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s
+                    with the release of Letraset sheets containing Lorem Ipsum passages,
+                    and more recently with desktop publishing software like Aldus
+                    PageMaker including versions of Lorem Ipsum.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var foregroundColor = $('.k-body').css("color");
+        var backgroundColor = $('.k-body').css("background-color");
+        $("#colorGradient3").kendoColorGradient({
+            opacity: true,
+            value: foregroundColor,
+            contrastTool: {
+                backgroundColor: backgroundColor
+            },
+            change: function (e) {
+                $(".text-wrapper").css("color", e.value);
+            }
+        });
+
+    </script>
+
+    <style>
+        .row {
+            display: flex;
+        }
+
+        .example-config {
+            margin: 0 0 20px;
+            padding: 20px;
+            background-color: rgba(0,0,0,.03);
+            border: 1px solid rgba(0,0,0,.08);
+        }
+
+        .demo-section {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .column {
+            padding-right: 20px;
+            padding-bottom: 20px;
+        }
+
+        .k-colorpicker {
+            vertical-align: top;
+            margin: 20px 0;
+        }
+
+        .text-wrapper {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+
+    <div style="padding-top: 54px;">
+        <label for="colorGradient" style="text-align: center; display: block">ColorGradient</label>
+        <div id="colorGradient4" style="margin:auto;"></div>
+    </div>
+    <script>
+        $("#colorGradient4").kendoColorGradient({
+            opacity: true
+        });
+
+        $(document).on("keydown.examples", function (e) {
+            if (e.altKey && e.keyCode === 87 /* w */) {
+                $("#colorGradient4").data("kendoColorGradient").focus();
+            }
+        });
+    </script>
+
+    <div style="padding-top:54px;">
+        <div id="colorgradient5" value="#00f" style="margin: auto;"></div>
+    </div>
+    <script>
+        var colorGradient = $("#colorgradient5").kendoColorGradient().data("kendoColorGradient");
+
+        colorGradient.bind({
+            change: function(e) {
+                kendoConsole.log("Change in picker #" + this.element.attr("id") + " :: " + e.value);
+            }
+        });
+    </script>    
+
+     <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+     </div>
+    
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Values</h4>
+            <ul class="options">
+                <li>
+                    <input id="value6" value="#ff0000" style="width: 100px; margin: 0;" />
+                    <button id="set6">Set value</button>
+                </li>
+                <li><button id="get6">Get value</button></li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>State control</h4>
+            <ul class="options">
+                <li>
+                    <button id="enable6">Enable</button>
+                    <button id="focus6">Focus</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="margin-top: 54px;">
+        <div id="colorgradient6" value="#00f" style="margin: auto;"></div>
+    </div>
+
+    <script>
+        var isEnabled = true;
+        var colorgradient = $("#colorgradient6").kendoColorGradient({
+            value: "#b72bba",
+            input: true,
+            opacity: true
+        }).data("kendoColorGradient");
+
+        $("#enable6").click(function () {
+            colorgradient.enable(!isEnabled);
+            isEnabled = !isEnabled;
+        });
+        $("#focus6").click(function () {
+            colorgradient.focus();
+        });
+        $("#get6").click(function () {
+            alert(colorgradient.value());
+        });
+
+        $("#set6").click(function () {
+            var color = $("#value6").val();
+            try {
+                color = kendo.parseColor(color);
+                colorgradient.value(color);
+            } catch (ex) {
+                alert('Cannot parse color: "' + color + '"');
+            }
+        });
+    </script>
+
+    <style>
+        .configurator button {
+            min-width: 80px;
+        }
+    </style>
+
+    <div id="demo7">
+	    <div style="margin-top: 54px;"> 
+	         <div style="height:400px;padding-top:85px; text-align:center">
+	               <div data-role="colorgradient" style="margin:auto;"
+	                       data-input="false"
+	                       data-opacity="true"
+	                       data-formats="['rgb']"
+	                       data-bind="enabled: isEnabled,
+	                                  value: selectedColor,
+	                                  events: { change: onChange }">
+	               </div>
+	         </div>        
+	    </div>
+	
+	<script>
+	    var viewModel = kendo.observable({
+	        selectedColor: null,
+	        isVisible: true,
+	        isEnabled: true,
+	        onChange: function() {
+	            kendoConsole.log("event :: change (" + this.get("selectedColor") + ")");
+	        }
+	    });
+	    kendo.bind($("#demo7"), viewModel);
+	</script>
+    </div>
+
+
+    <div class="kd-example-console">
+        <div class="header">
+             <span class="title">CONSOLE LOG</span>
+             <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+</body>
+
+

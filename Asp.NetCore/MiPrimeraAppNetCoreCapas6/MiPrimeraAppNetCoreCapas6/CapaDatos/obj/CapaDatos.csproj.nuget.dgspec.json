@@ -1,0 +1,191 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaDatos\\CapaDatos.csproj": {}
+  },
+  "projects": {
+    "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaDatos\\CapaDatos.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaDatos\\CapaDatos.csproj",
+        "projectName": "CapaDatos",
+        "projectPath": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaDatos\\CapaDatos.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaDatos\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaEntidad\\CapaEntidad.csproj": {
+                "projectPath": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaEntidad\\CapaEntidad.csproj"
+              },
+              "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaUsuario\\CapaUsuario.csproj": {
+                "projectPath": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaUsuario\\CapaUsuario.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[6.0.0-preview.2.21154.6, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[6.0.0-preview.2.21154.6, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaEntidad\\CapaEntidad.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaEntidad\\CapaEntidad.csproj",
+        "projectName": "CapaEntidad",
+        "projectPath": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaEntidad\\CapaEntidad.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaEntidad\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaUsuario\\CapaUsuario.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaUsuario\\CapaUsuario.csproj",
+        "projectName": "CapaUsuario",
+        "projectPath": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaUsuario\\CapaUsuario.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaUsuario\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

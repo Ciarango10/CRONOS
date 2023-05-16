@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Personas</h1>
+<button id="btnBotonNuevo" class="btn btn-primary mt-2 mb-2" onclick="NuevaPersona()" >Nuevo</button>
+@*<fieldset class="mb-4 mt-4">
+    <legend>Filtrado Persona</legend>
+    <form id="frmBusqueda" method="post" class="mb-3">
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <label>Nombre Completo</label>
+                <input type="text" class="form-control" name="nombrecompleto" />
+            </div>
+
+            <div class="col-md-6">
+                <label>Nombre Sexo</label>
+                <br />
+                <input type="radio" name="iidsexo" value="1" /> <label>Masculino</label>
+                <input type="radio" name="iidsexo" value="2" /> <label>Femenino</label>
+            </div>
+
+        </div>
+
+    </form>
+
+    <button class="btn btn-primary" onclick="BuscarDatos()">Buscar</button>
+    <button class="btn btn-danger" onclick="LimpiarLaboratorio()">Limpiar</button>
+
+</fieldset>*@
+
+ 
+
+    <div id="divTabla">
+
+    </div>
+
+
+    <script src="~/js/sweetalert.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/generic.js"></script>
+    <script src="~/js/persona.js"></script>
+
+

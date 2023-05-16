@@ -1,0 +1,415 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/scrollview/index">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div id="example">
+        <div style="margin:auto; width:70%">
+            <div id="scrollView" style="width: 1022px; height: 515px; max-width: 100%;">
+                <div class="photo photo1" data-role="page">
+                </div><div class="photo photo2" data-role="page">
+                </div><div class="photo photo3" data-role="page">
+                </div><div class="photo photo4" data-role="page">
+                </div><div class="photo photo5" data-role="page">
+                </div><div class="photo photo6" data-role="page">
+                </div><div class="photo photo7" data-role="page">
+                </div><div class="photo photo8" data-role="page">
+                </div><div class="photo photo9" data-role="page">
+                </div><div class="photo photo10" data-role="page">
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function() {
+                $("#scrollView").kendoScrollView({
+                    enablePager: true,
+                    contentHeight: "100%"
+                });
+            });
+        </script>
+        <style>
+
+
+            #scrollview-home .photo {
+                display: inline-block;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+
+            .photo1 {
+                background-image: url("../content/shared/images/photos/1.jpg");
+            }
+
+            .photo2 {
+                background-image: url("../content/shared/images/photos/2.jpg");
+            }
+
+            .photo3 {
+                background-image: url("../content/shared/images/photos/3.jpg");
+            }
+
+            .photo4 {
+                background-image: url("../content/shared/images/photos/4.jpg");
+            }
+
+            .photo5 {
+                background-image: url("../content/shared/images/photos/5.jpg");
+            }
+
+            .photo6 {
+                background-image: url("../content/shared/images/photos/6.jpg");
+            }
+
+            .photo7 {
+                background-image: url("../content/shared/images/photos/7.jpg");
+            }
+
+            .photo8 {
+                background-image: url("../content/shared/images/photos/8.jpg");
+            }
+
+            .photo9 {
+                background-image: url("../content/shared/images/photos/9.jpg");
+            }
+
+            .photo10 {
+                background-image: url("../content/shared/images/photos/10.jpg");
+            }
+        </style>
+    </div>
+
+    <div id="example" style="margin:auto; width:60%">
+        <div id="scrollView2" style="height: 500px; width:100%;"></div>
+
+        <script id="scrollview-template2" type="text/x-kendo-template">
+            <div class="img-wrapper">
+                # for (var i = 0; i < data.length; i++) { #
+                <div>
+                    <div style="width: 140px; height: 140px; background-image: #=setBackground(data[i].ProductID)#; background-repeat:no-repeat; background-size: cover;"></div>
+                    <p>#= data[i].ProductName #</p>
+                </div>
+             # } #
+            </div>
+        </script>
+
+        <script>
+            var dataSource = new kendo.data.DataSource({
+                type: "odata",
+                transport: {
+                    read: {
+                        url: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
+                    }
+                },
+                serverPaging: true,
+                pageSize: 3
+            });
+
+            $("#scrollView2").kendoScrollView({
+                dataSource: dataSource,
+                template: $("#scrollview-template2").html(),
+                contentHeight: "100%",
+                enablePager: false
+            });
+
+            function setBackground(id) {
+                return "url(https://demos.telerik.com/kendo-ui/content/web/foods/" + id + ".jpg)";
+            }
+        </script>
+
+        <style>
+
+            div.k-scrollview ul.k-scrollview-wrap > li {
+                text-align: center;
+                display: table;
+                box-sizing: border-box;
+            }
+
+            ul.k-scrollview-wrap > li > .img-wrapper {
+                padding: 2em;
+                display: table-cell;
+                vertical-align: middle;
+                white-space: initial;
+            }
+
+                ul.k-scrollview-wrap > li > .img-wrapper > div {
+                    width: 30%;
+                    min-width: 150px;
+                    box-sizing: border-box;
+                    display: inline-block;
+                    vertical-align: top;
+                    margin-bottom: 1em;
+                }
+
+                    ul.k-scrollview-wrap > li > .img-wrapper > div > div {
+                        margin: auto;
+                        margin-bottom: 0.5em;
+                    }
+
+        </style>
+    </div>
+
+    <div id="example" style="margin:auto; width:60%">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Scroll to page</h4>
+                <ul class="options">
+                    <li>
+                        <span class="k-state-default"><input id="pageValue3" value="4" style="float:none" /></span>
+                        <button id="set3">Scroll</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Next / Previous</h4>
+                <ul class="options">
+                    <li>
+                        <button id="next3">Next</button>
+                        <button id="previous3">Previous</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="scrollView3" style="height: 400px; width:930px;"></div>
+
+        <script id="scrollview-template3" type="text/x-kendo-template">
+            <div>
+                <div style="width: 100%; height: 100%; background-image: #=setBackground(data.ProductID)#;"></div>
+                <p>#= data.ProductName #</p>
+            </div>
+        </script>
+    </div>
+    <script>
+        function setBackground(id) {
+            return "url(../content/shared/images/photos/" + (Math.floor(Math.random() * 28) + 1) + ".jpg)";
+        }
+
+        $(document).ready(function () {
+            var dataSource = new kendo.data.DataSource({
+                type: "odata",
+                transport: {
+                    read: {
+                        url: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
+                    }
+                },
+                serverPaging: true
+            });
+
+            $("#scrollView3").kendoScrollView({
+                dataSource: dataSource,
+                template: $("#scrollview-template3").html(),
+                contentHeight: "100%"
+            });
+
+            var scrollview = $("#scrollView3").data("kendoScrollView");
+
+            var setValue = function () {
+                scrollview.scrollTo(parseInt($("#pageValue3").val()));
+            };
+
+            $("#next3").click(function () {
+                scrollview.next();
+            });
+
+            $("#previous3").click(function () {
+                scrollview.prev();
+            });
+            
+            $("#set3").click(setValue);
+        });
+    </script>
+
+    <style>
+        #scrollView {
+            max-width: 100%;
+        }
+
+        .k-scrollview-page > div {
+            width: 100%;
+            height: 100%;
+        }
+
+            .k-scrollview-page > div > div {
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+    </style>
+
+    <div id="example" style="margin:auto; width:70%">
+        <div id="scrollView4" style="width: 660px; height: 420px; max-width: 100%; margin: auto;">
+            <div class="photo photo1" data-role="page">
+            </div><div class="photo photo2" data-role="page">
+            </div><div class="photo photo3" data-role="page">
+            </div><div class="photo photo4" data-role="page">
+            </div><div class="photo photo5" data-role="page">
+            </div><div class="photo photo6" data-role="page">
+            </div><div class="photo photo7" data-role="page">
+            </div><div class="photo photo8" data-role="page">
+            </div><div class="photo photo9" data-role="page">
+            </div><div class="photo photo10" data-role="page">
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+
+
+                function onChange(e) {
+                    kendoConsole.log("page " + e.nextPage);
+                }
+
+                function onRefresh(e) {
+                    kendoConsole.log("Total: " + e.pageCount + " Current: " + e.page);
+                }
+
+                $("#scrollView4").kendoScrollView({
+                    enablePager: true,
+                    contentHeight: "100%",
+                    change: onChange,
+                    refresh: onRefresh
+                });
+            });
+        </script>
+    </div>
+
+    <style>
+
+
+        #scrollview-home .photo {
+            display: inline-block;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .photo1 {
+            background-image: url("../content/shared/images/photos/11.jpg");
+        }
+
+        .photo2 {
+            background-image: url("../content/shared/images/photos/12.jpg");
+        }
+
+        .photo3 {
+            background-image: url("../content/shared/images/photos/13.jpg");
+        }
+
+        .photo4 {
+            background-image: url("../content/shared/images/photos/14.jpg");
+        }
+
+        .photo5 {
+            background-image: url("../content/shared/images/photos/15.jpg");
+        }
+
+        .photo6 {
+            background-image: url("../content/shared/images/photos/16.jpg");
+        }
+
+        .photo7 {
+            background-image: url("../content/shared/images/photos/17.jpg");
+        }
+
+        .photo8 {
+            background-image: url("../content/shared/images/photos/18.jpg");
+        }
+
+        .photo9 {
+            background-image: url("../content/shared/images/photos/19.jpg");
+        }
+
+        .photo10 {
+            background-image: url("../content/shared/images/photos/20.jpg");
+        }
+    </style>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div id="example">
+        <div style="margin:auto; width:70%" id="container5">
+            <div data-role="scrollview" data-content-height="100%" style="width: 1024px; height: 550px; max-width: 100%">
+                <div class="photo photo1" data-role="page">
+                </div><div class="photo photo2" data-role="page">
+                </div><div class="photo photo3" data-role="page">
+                </div><div class="photo photo4" data-role="page">
+                </div><div class="photo photo5" data-role="page">
+                </div><div class="photo photo6" data-role="page">
+                </div><div class="photo photo7" data-role="page">
+                </div><div class="photo photo8" data-role="page">
+                </div><div class="photo photo9" data-role="page">
+                </div><div class="photo photo10" data-role="page">
+                </div>
+            </div>
+        </div>
+
+        <style>
+            #scrollview-home .photo {
+                display: inline-block;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+
+            .photo1 {
+                background-image: url("../content/shared/images/photos/15.jpg");
+            }
+
+            .photo2 {
+                background-image: url("../content/shared/images/photos/16.jpg");
+            }
+
+            .photo3 {
+                background-image: url("../content/shared/images/photos/17.jpg");
+            }
+
+            .photo4 {
+                background-image: url("../content/shared/images/photos/18.jpg");
+            }
+
+            .photo5 {
+                background-image: url("../content/shared/images/photos/19.jpg");
+            }
+
+            .photo6 {
+                background-image: url("../content/shared/images/photos/20.jpg");
+            }
+
+            .photo7 {
+                background-image: url("../content/shared/images/photos/21.jpg");
+            }
+
+            .photo8 {
+                background-image: url("../content/shared/images/photos/22.jpg");
+            }
+
+            .photo9 {
+                background-image: url("../content/shared/images/photos/23.jpg");
+            }
+
+            .photo10 {
+                background-image: url("../content/shared/images/photos/24.jpg");
+            }
+        </style>
+
+        <script>
+            $(document).ready(function () {
+                var viewModel = kendo.observable({
+                });
+                kendo.bind($("#container5"), viewModel);
+            });
+        </script>
+    </div>
+</body>

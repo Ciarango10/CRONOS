@@ -1,0 +1,96 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MiPrimeraAppNetCoreCapas6
+build_property.RootNamespace = MiPrimeraAppNetCoreCapas6
+build_property.ProjectDir = D:\Usuario\Escritorio\Codigo\Cronos\Asp.NetCore\MiPrimeraAppNetCoreCapas6\MiPrimeraAppNetCoreCapas6\MiPrimeraAppNetCoreCapas6\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Usuario\Escritorio\Codigo\Cronos\Asp.NetCore\MiPrimeraAppNetCoreCapas6\MiPrimeraAppNetCoreCapas6\MiPrimeraAppNetCoreCapas6
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/DetalleMedicamento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWxsZU1lZGljYW1lbnRvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/Laboratorio/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFib3JhdG9yaW9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/Medicamento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/Pagina/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnaW5hXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/Persona/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/Sucursal/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VjdXJzYWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/TipoAdministracion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0FkbWluaXN0cmFjaW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/TipoMedicamento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01lZGljYW1lbnRvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/TipoMedicamento/Inicio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01lZGljYW1lbnRvXEluaWNpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/TipoMedicamento/SinMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01lZGljYW1lbnRvXFNpbk1lbnUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/TipoUsuario/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1VzdWFyaW9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/Venta/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmVudGFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Usuario/Escritorio/Codigo/Cronos/Asp.NetCore/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/MiPrimeraAppNetCoreCapas6/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

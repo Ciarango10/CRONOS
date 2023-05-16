@@ -1,0 +1,788 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/taskboard/index#">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+</head>
+<script src="../content/shared/js/cardsData.js"></script>
+
+<div id="example">
+    <div class="demo-section auto">
+        <script id="column-template" type="text/x-kendo-template">
+            <span class="column-template-container">
+                <span class="column-status">
+                    # if (status == "todo" || status == "inProgress" || status == "done") { #
+                    <span class="column-badge" id="badge-#= status #">0</span>
+                    # } else { #
+                    <span class="column-badge">0</span>
+                    # } #
+                    <span class="column-text">#: text #</span>
+                </span>
+                <span class="column-buttons">#= buttons #</span>
+            </span>
+        </script>
+
+        <script id="card-template" type="text/x-kendo-template">
+            <div class="template-container">
+                <span class="template-header">
+                    <span class="template-title">#: description #</span>
+                    <span class="template-menu">#=cardMenuButton#</span>
+                </span>
+                # if (image != "") { #
+                <img src="#= image #" style="height:135px; width: 270px;">
+                # } #
+            </div>
+        </script>
+
+        <div id="taskBoard"></div>
+
+        <script>
+            $("#taskBoard").kendoTaskBoard({
+                columnSettings: {
+                    template: kendo.template($("#column-template").html()),
+                    buttons: ["editColumn", "addCard", "deleteColumn"],
+                    width: 320
+                },
+                columns: {
+                    data: [
+                        { id: 1, text: "Hacer", status: "todo" },
+                        { id: 2, text: "In Progress", status: "inProgress" },
+                        { id: 3, text: "Done", status: "done" }
+                    ],
+                    schema: {
+                        model: {
+                            id: "id",
+                            fields: {
+                                id: { type: "number" },
+                                text: { field: "text", defaultValue: "" },
+                                status: {
+                                    field: "status", defaultValue: function () {
+                                        return kendo.guid();
+                                    }
+                                }
+                            }
+                        }
+                    },
+                },
+                dataSource: {
+                    data: cardsData,
+                    schema: {
+                        model: {
+                            id: "id",
+                            fields: {
+                                id: { type: "number" },
+                                order: { type: "number" },
+                                title: { field: "title", defaultValue: "No title" },
+                                description: { field: "description", validation: { required: true } },
+                                image: { from: "image", defaultValue: "" },
+                            }
+                        }
+                    }
+                },
+                dataOrderField: "order",
+                template: kendo.template($("#card-template").html()),
+                height: 970,
+                dataBound: onDataBound,
+                columnsDataBound: onColumnDataBound
+            });
+
+            function onDataBound(e) {
+                setBadgeText()
+            }
+
+            function onColumnDataBound(e) {
+                setBadgeText()
+            }
+
+            function setBadgeText() {
+                var taskBoard = $("#taskBoard").data("kendoTaskBoard");
+
+                for (var i = 0; i < taskBoard.columns().length; i++) {
+                    var status = taskBoard.columnDataItem(taskBoard.columns()[i]).status;
+
+                    if (status == "todo") {
+                        var totalToDo = taskBoard.itemsByStatus("todo").length;
+
+                        initBadge("todo", "warning", totalToDo);
+                    }
+                    else if (status == "inProgress") {
+                        var totalInProgress = taskBoard.itemsByStatus("inProgress").length;
+
+                        initBadge("inProgress", "info", totalInProgress);
+                    }
+                    else if (status == "done") {
+                        var totalDone = taskBoard.itemsByStatus("done").length;
+
+                        initBadge("done", "success", totalDone);
+                    }
+                    else {
+                        var column = $(taskBoard.columns()[i]);
+                        var totalNoStatus = taskBoard.itemsByColumn(column).length;
+
+                        initNoStatusBadge(column, "light", totalNoStatus);
+                    }
+                }
+            }
+
+            function initBadge(id, color, totalItems) {
+                $('#badge-' + id).kendoBadge({
+                    themeColor: color,
+                    shape: 'circle',
+                    text: totalItems
+                });
+            }
+
+            function initNoStatusBadge(column, color, totalItems) {
+                var badgeElement = column.find(".column-badge");
+
+                $(badgeElement).kendoBadge({
+                    themeColor: color,
+                    shape: 'circle',
+                    text: totalItems
+                });
+            }
+        </script>
+    </div>
+</div>
+
+<div>
+    Binding to local data
+    <div class="demo-section wide">
+        <div id="taskBoard2"></div>
+    </div>
+</div>
+<script>
+     $("#taskBoard2").kendoTaskBoard({
+            columns: [
+                { text: "Por Hacer", status: "todo" },
+                { text: "En Progreso", status: "inProgress" },
+                { text: "Finalizado", status: "done" }
+            ],
+            dataSource: {
+                data: cardsData,
+                schema: {
+                    model: {
+                        id: "id",
+                        fields: {
+                            id: { type: "number" },
+                            order: { type: "number", defaultValue: 0 },
+                            title: { field: "title", defaultValue: "No title" },
+                            description: { field: "description", validation: { required: true } },
+                        }
+                    }
+                }
+            },
+            dataStatusField: "status",
+            dataOrderField: "order",
+            dataCategoryField: "color",
+            height: 750,
+            resources: [
+                {
+                    field: "color",
+                    dataSource: [
+                        { value: "orange", color: "#ffa500" },
+                        { value: "green", color: "#008000" },
+                        { value: "blue", color: "#0000ff" }
+                    ]
+                }
+            ]
+     });
+</script>
+
+<div>
+    Binding to remote data
+    <div class="demo-section wide">
+        <div id="taskBoard3"></div>
+    </div>
+</div>
+
+<script>
+    var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service";
+
+    $("#taskBoard3").kendoTaskBoard({
+        columnSettings: {
+            dataTextField: "Text",
+            dataStatusField: "Status",
+            dataOrderField: "Order",
+
+        },
+        columns: {
+            transport: {
+                read: {
+                    url: crudServiceBaseUrl + "/taskboard/columns"
+                }
+            },
+            schema: {
+                model: {
+                    id: "ID",
+                    fields: {
+                        "ID": { type: "number" },
+                        "Text": { type: "string" },
+                        "Status": { type: "string", defaultValue: "todo" },
+                        "Order": { type: "number" }
+                    }
+                }
+            }
+        },
+        dataCategoryField: "Category",
+        dataDescriptionField: "Description",
+        dataTitleField: "Title",
+        dataStatusField: "Status",
+        dataOrderField: "Order",
+        dataSource: {
+            transport: {
+                read: {
+                    url: crudServiceBaseUrl + "/taskboard"
+                },
+                update: { // La operacion actualizacion es requerida en caso de que se quieran mover las cartas entre columnas
+                    url: crudServiceBaseUrl + "/taskboard/update",
+                    method: "POST"
+                }
+            },
+            schema: {
+                model: {
+                    id: "ID",
+                    fields: {
+                        "ID": { type: "number" },
+                        "Category": { type: "string", defaultValue: "lowpriority" },
+                        "Description": { type: "string" },
+                        "Title": { type: "string", validation: { required: true } },
+                        "Status": { type: "string", defaultValue: "todo" },
+                        "Order": { type: "number" }
+                    }
+                }
+            }
+        },
+        resources: [{
+            field: "Category",
+            title: "Priority",
+            dataSource: [
+                { value: "urgent", text: "Urgent", color: "orange" },
+                { value: "highpriority", text: "High Priority", color: "blue" },
+                { value: "lowpriority", text: "Low Priority", color: "green" }
+            ]
+        }],
+        editable: false,
+        cardMenu: false,
+        height: 750
+    });
+</script>
+
+<div>
+    Editable
+    <div class="demo-section wide">
+        <div id="taskBoard4"></div>
+    </div>
+</div>
+
+<script>
+    var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service";
+
+    var priorities = new kendo.data.DataSource({
+        data: [
+            { value: "urgent", text: "Urgent", color: "orange" },
+            { value: "highpriority", text: "High Priority", color: "blue" },
+            { value: "lowpriority", text: "Low Priority", color: "green" }
+        ]
+    });
+
+    $("#taskBoard4").kendoTaskBoard({
+        columnSettings: {
+            dataTextField: "Text",
+            dataStatusField: "Status",
+            dataOrderField: "Order"
+        },
+        columns: {
+            transport: {
+                read: {
+                    url: crudServiceBaseUrl + "/taskboard/columns"
+                },
+                create: {
+                    url: crudServiceBaseUrl + "/taskboard/columns_create",
+                    method: "POST"
+                },
+                update: {
+                    url: crudServiceBaseUrl + "/taskboard/columns_update",
+                    method: "POST"
+                },
+                destroy: {
+                    url: crudServiceBaseUrl + "/taskboard/columns_destroy",
+                    method: "POST"
+                }
+            },
+            schema: {
+                model: {
+                    id: "ID",
+                    fields: {
+                        "ID": { type: "number" },
+                        "Text": { type: "string" },
+                        "Status": { type: "string", defaultValue: "todo" },
+                        "Order": { type: "number" }
+                    }
+                }
+            }
+        },
+        dataCategoryField: "Category",
+        dataDescriptionField: "Description",
+        dataTitleField: "Title",
+        dataStatusField: "Status",
+        dataOrderField: "Order",
+        dataSource: {
+            transport: {
+                read: {
+                    url: crudServiceBaseUrl + "/taskboard"
+                },
+                create: {
+                    url: crudServiceBaseUrl + "/taskboard/create",
+                    method: "POST"
+                },
+                update: {
+                    url: crudServiceBaseUrl + "/taskboard/update",
+                    method: "POST"
+                },
+                destroy: {
+                    url: crudServiceBaseUrl + "/taskboard/destroy",
+                    method: "POST"
+                }
+            },
+            schema: {
+                model: {
+                    id: "ID",
+                    fields: {
+                        "ID": { type: "number" },
+                        "Category": { type: "string", defaultValue: "lowpriority" },
+                        "Description": { type: "string" },
+                        "Title": { type: "string", validation: { required: true } },
+                        "Status": { type: "string", defaultValue: "todo" },
+                        "Order": { type: "number" }
+                    }
+                }
+            }
+        },
+        resources: [{
+            field: "Category",
+            title: "Priority",
+            dataSource: priorities
+        }],
+        previewPane: {
+            template: "<p>#:Description#</p>" +
+                "<p>#:resources.Category.title#: <span style='background-color: #:resources.Category.color#'>&nbsp;</span> #:resources.Category.text#</p>"
+        },
+        editable: {
+            form: {
+                buttonsTemplate: "",
+                items: [{
+                    field: "Title",
+                    label: "Title:"
+                }, {
+                    field: "Description",
+                    label: "Description:"
+                }, {
+                    field: "Category",
+                    label: "Priority:",
+                    editor: "DropDownList",
+                    editorOptions: {
+                        dataTextField: "text",
+                        dataValueField: "value",
+                        dataSource: priorities,
+                        template: "<span style='background-color: #:color#'>&nbsp;</span> #:text#",
+                        valueTemplate: "<span style='background-color: #:color#'>&nbsp;</span> #:text#"
+                    }
+                }]
+            }
+        },
+        height: 750
+    });
+</script>
+
+<div>
+    TEMPLATE
+    <div class="demo-section wide">
+
+        <script id="column-template5" type="text/x-kendo-template">
+            <div class="column-template-container">
+                <div>
+                    <img src="#= Image #" style="height:50px; width: 50px;">
+                </div>
+                <div>
+                    <h3>#: CategoryName #</h3>
+                </div>
+            </div>
+        </script>
+
+        <script id="card-template5" type="text/x-kendo-template">
+            <div class="template-container">
+                <div class="template-header">
+                    <p><a class="k-card-title k-link" href="" data-command="SelectCardCommand">#: title #</a></p>
+                </div>
+                <p>#: description#</p>
+                <p>#: kendo.toString( start, "MMMM dd")#</p>
+            </div>
+        </script>
+
+        <script id="previewPane-header-template5" type="text/x-kendo-template">
+            <div class="k-taskboard-pane-header">
+                <h3 class="k-taskboard-pane-header-text">#: title #</h3>
+                <span class="k-spacer"></span>
+                <div class="k-taskboard-pane-header-actions">
+                    <button class="k-button k-button-flat-base k-button-flat k-button-md k-rounded-md" title="Close" data-command="ClosePaneCommand">
+                        <span class="k-button-icon k-icon k-i-close"></span>
+                    </button>
+                </div>
+            </div>
+        </script>
+
+        <script id="previewPane-content-template5" type="text/x-kendo-template">
+            <div class="k-taskboard-pane-content">
+                <p>#: description #</p>
+                <p>#: kendo.toString(start, "MMMM dd, h:mm tt")# - #:kendo.toString(end, "MMMM dd, h:mm tt")#</p>
+            </div>
+            <div class="k-taskboard-pane-actions k-action-buttons k-actions-end">
+                <button class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md" title="Delete" data-command="DeleteCardCommand" data-options="null">
+                    <span class="k-button-icon k-icon k-i-delete "></span>Delete
+                </button>
+                <button class="k-button k-button-solid-primary k-button-solid k-button-md k-rounded-md" title="Edit" data-command="EditCardCommand" data-options="null">
+                    <span class="k-button-icon k-icon k-i-edit "></span>Edit
+                </button>
+            </div>
+        </script>
+
+        <script id="tooltip-template5" type="text/x-kendo-template">
+            <div class="tooltip-template-container">
+                # var card = target.closest(".k-taskboard-card"); #
+
+                # var taskBoard = $("\\#taskBoard5").data("kendoTaskBoard") #
+                # var item = taskBoard.dataItem(card);  #
+                <p>#: item.title#</p>
+                <p>#: item.description#</p>
+                <p>#: kendo.toString( item.start, "MMMM dd, h:mm tt")# - #:kendo.toString( item.end, "MMMM dd, h:mm tt")#</p>
+            </div>
+        </script>
+
+        <div id="taskBoard5"></div>
+
+    </div>
+</div>
+
+<script>
+    var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service";
+
+    $("#taskBoard5").kendoTaskBoard({
+        columnSettings: {
+            template: kendo.template($("#column-template5").html()),
+            dataTextField: "CategoryName",
+            dataStatusField: "CategoryID",
+        },
+        columns: {
+            data: [
+                { CategoryName: "Alex Bennett", CategoryID: 1, Image: "../content/web/Employees/9.jpg" },
+                { CategoryName: "Bob McKenna", CategoryID: 2, Image: "../content/web/Employees/6.jpg" },
+                { CategoryName: "Charlie Ashworth", CategoryID: 3, Image: "../content/web/Employees/5.jpg" },
+            ],
+            schema: {
+                model: {
+                    id: "CategoryID",
+                    fields: {
+                        CategoryID: { type: "number" },
+                        CategoryName: { type: "string" },
+                        Image: { type: "string" }
+                    }
+                }
+            },
+        },
+        dataDescriptionField: "description",
+        dataTitleField: "title",
+        dataStatusField: "ownerId",
+        dataSource: {
+            transport: {
+                read: {
+                    url: crudServiceBaseUrl + "/tasks",
+                    dataType: "jsonp"
+                },
+                update: {
+                    url: crudServiceBaseUrl + "/tasks/update",
+                    dataType: "jsonp"
+                },
+                parameterMap: function (options, operation) {
+                    if (operation !== "read" && options.models) {
+                        return { models: kendo.stringify(options.models) };
+                    }
+                }
+            },
+            schema: {
+                model: {
+                    id: "taskId",
+                    fields: {
+                        taskId: { from: "TaskID", type: "number" },
+                        title: { from: "Title", defaultValue: "No title", validation: { required: true } },
+                        start: { type: "date", from: "Start" },
+                        end: { type: "date", from: "End" },
+                        description: { from: "Description" },
+                        ownerId: { from: "OwnerID", defaultValue: 1 },
+                    }
+                }
+            }
+        },
+        template: kendo.template($("#card-template5").html()),
+        previewPane: {
+            template: $("#previewPane-content-template5").html(),
+            headerTemplate: $("#previewPane-header-template5").html()
+        },
+        editable: false,
+        height: 500,
+        dataBound: onDataBound,
+        execute: onExecute
+    });
+
+    function onDataBound(e) {
+        var tooltip = $("#taskBoard5").data("kendoTooltip");
+
+        if (!tooltip) {
+            $("#taskBoard5").kendoTooltip({
+                filter: ".k-taskboard-card",
+                content: kendo.template($("#tooltip-template5").html()),
+                position: "right"
+            });
+        }
+    }
+
+    function onExecute(e) {
+        if (e.command === "MoveCardCommand") {
+            e.preventDefault();
+        }
+    }
+</script>
+
+<div class="configurator">
+    <div class="box-col">
+        <h4>Importante</h4>
+        <ol>
+            <li>Tareas en "Realizado" solo son leibles y no pueden ser movidas a otras columnas</li>
+            <li>Tareas en 'Progreso' solo pueden ser movidas a "Realizado"</li>
+            <li>El maximo numero de tareas en "Progreso" es 4</li>
+        </ol>
+    </div>
+</div>
+<div>
+    Validaciones
+    <div class="demo-section wide">
+        <div id="taskBoard6"></div>
+    </div>
+</div>
+
+<script>
+    $("#taskBoard6").kendoTaskBoard({
+        columnSettings: {
+            buttons: ["editColumn", "addCard"],
+        },
+        columns: [
+            { text: "Hacer", status: "todo" },
+            { text: "En Progreso", status: "inProgress" },
+            { text: "Realizado", status: "done" }
+        ],
+        dataSource: {
+            data: cardsData,
+            schema: {
+                model: {
+                    id: "id",
+                    fields: {
+                        id: { type: "number" },
+                        order: { type: "number" },
+                        title: { field: "title", defaultValue: "No title" },
+                        description: { field: "description", validation: { required: true } },
+                    }
+                }
+            },
+        },
+        dataOrderField: "order",
+        height: 750,
+        resources: [
+            {
+                field: "color",
+                dataSource: [
+                    { value: "orange", color: "#ff0000" },
+                    { value: "green", color: "#00ff00" },
+                    { value: "blue", color: "#0000ff" }
+                ]
+            }
+        ],
+        columnsDataBound: onColumnsDataBound,
+        dataBound: onDataBound,
+        moveStart: onMoveStart,
+        moveEnd: onMoveEnd,
+    });
+
+    var sourceColumnStatus = "";
+
+    function onColumnsDataBound(e) {
+        setReadonlyColumn("done");
+    }
+
+    function onDataBound(e) {
+        setReadonlyColumn("done");
+    }
+
+    function onMoveStart(e) {
+        sourceColumnStatus = e.column.status;
+    }
+
+    function onMoveEnd(e) {
+        var taskBoard = e.sender;
+
+        if (e.action == "receive") {
+            if (e.column.status == "inProgress") {
+                var totalInProgress = taskBoard.itemsByStatus("inProgress").length;
+
+                if (totalInProgress > 4 & sourceColumnStatus != "inProgress") {
+                    e.preventDefault();
+                    alert('No pueden haber mas de 4 tareas en "progreso"');
+                }
+            }
+            else if (e.column.status == "done") {
+                if (sourceColumnStatus == "todo") {
+                    e.preventDefault();
+                    alert('Las tareas en "progreso" solo pueden ser movidas a "realizadas" ')
+                }
+            }
+
+            sourceColumnStatus = "";
+        }
+    }
+
+    function setReadonlyColumn(status) {
+        var taskBoard = $("#taskBoard6").data("kendoTaskBoard");
+        var cardsDone = taskBoard.itemsByStatus(status);
+
+        $(cardsDone).each(function (index) {
+            taskBoard.readOnly($(this), true);
+        });
+    }
+</script>
+
+<div>
+    Eventos
+    <div class="demo-section wide">
+        <div id="taskBoard7"></div>
+    </div>
+</div>
+
+<script>
+    $("#taskBoard7").kendoTaskBoard({
+        columns: [
+            { text: "Hacer", status: "todo" },
+            { text: "En Progreso", status: "inProgress" },
+            { text: "Realizado", status: "done" }
+        ],
+        dataSource: {
+            data: cardsData,
+            schema: {
+                model: {
+                    id: "id",
+                    fields: {
+                        id: { type: "number" },
+                        order: { type: "number" },
+                        title: { field: "title", defaultValue: "No title" },
+                        description: { field: "description", validation: { required: true } },
+                    }
+                }
+            }
+        },
+        dataOrderField: "order",
+        height: 750,
+        resources: [
+            {
+                field: "color",
+                dataSource: [
+                    { value: "orange", color: "#ffa500" },
+                    { value: "green", color: "#008000" },
+                    { value: "blue", color: "#0000ff" }
+                ]
+            }
+        ],
+        change: onChange,
+        columnsDataBinding: onColumnDataBinding,
+        columnsDataBound: onColumnDataBound,
+        dataBinding: onDataBinding,
+        dataBound: onDataBound,
+        deleteCard: onDeleteCard,
+        deleteColumn: onDeleteColumn,
+        editCard: onEditCard,
+        editColumn: onEditColumn,
+        move: onMove,
+        moveEnd: onMoveEnd,
+        moveStart: onMoveStart,
+        saveCard: onSaveCard,
+        saveColumn: onSaveColumn,
+        select: onSelect
+    });
+
+    function onChange(e) {
+        console.log("Evento: Cambio");
+    }
+
+    function onColumnDataBinding(e) {
+        console.log("event: ColumnDataBinding");
+    }
+
+    function onColumnDataBound(e) {
+        console.log("event: ColumnDataBound");
+    }
+
+    function onDataBinding(e) {
+        console.log("event: DataBinding");
+    }
+
+    function onDataBound(e) {
+        console.log("event: DataBound");
+    }
+
+    function onDeleteCard(e) {
+        console.log("event: Eliminar Tarea");
+    }
+
+    function onDeleteColumn(e) {
+       console.log("event: Eliminar Columna");
+    }
+
+    function onEditCard(e) {
+        console.log("event: Editar Tarea");
+    }
+
+    function onEditColumn(e) {
+        console.log("event: Editar Columna");
+    }
+
+    function onMove(e) {
+        console.log("event: Mover");
+    }
+
+    function onMoveEnd(e) {
+        console.log("event: Mover Final");
+    }
+
+    function onMoveStart(e) {
+        console.log("event: Mover Inicio");
+    }
+
+    function onSaveCard(e) {
+        console.log("event: Guardar Tarea");
+    }
+
+    function onSaveColumn(e) {
+        console.log("event: Guardar Columna");
+    }
+
+    function onSelect(e) {
+        console.log("event: Seleccionado");
+    }
+</script>
+
+@section scripts {
+    <script src="~/js/taskboard.js"></script>
+}

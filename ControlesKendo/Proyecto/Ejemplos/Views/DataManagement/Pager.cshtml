@@ -1,0 +1,68 @@
+﻿<div id="example" class="center">
+    <div class="demo-section auto">
+        <div class="contests-wrapper">
+        </div>
+        <div id="pager"></div>
+
+        <script id="template" type="text/x-kendo-template">
+            <section class="contest-card-wrapper">
+                <h3 title="#= Title #">#= Title #</h3>
+                <img class="contest-image" src='../content/web/pager/images/#=Id#.jpg' alt="#= Title #" />
+                <span class="contest-rating"><span class="k-icon k-i-user"></span> #= Participants #/ 100</span>
+                <button class="join-button k-button k-button-solid-primary k-button-solid k-button-md k-rounded-md">
+                    Join
+                </button>
+            </section>
+        </script>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+    var template = kendo.template($("#template").html());
+
+    var dataSource = new kendo.data.DataSource({
+        transport: {
+            read: "../DataManagement/DatosGrid"
+        },
+        pageSize: 4,
+        change: function () {
+            $(".contests-wrapper").html(kendo.render(template, this.view()));
+        }
+    });
+
+    $("#pager").kendoPager({
+        dataSource: dataSource
+    });
+
+    dataSource.read();
+});
+</script>
+
+<div>
+    Pager Integration
+    <div class="demo-section auto">
+        <div id="pager2"></div>
+        <div id="grid2"></div>
+    </div>
+</div>
+
+<div>
+    <div class="demo-section auto">
+        <div class="contests-wrapper"></div>
+        <div id="pager3"></div>
+
+        <script id="template3" type="text/x-kendo-template">
+            <section class="contest-card-wrapper">
+                <h3 title="#= Title #">#= Title #</h3>
+                <img class="contest-image" src='../content/web/pager/images/#=Id#.jpg' alt="#= Title #" />
+                <span class="contest-rating"><span class="k-icon k-i-user"></span> #= Participants #/ 100</span>
+                <button class="join-button k-button k-button-solid-primary k-button-solid k-button-md k-rounded-md">
+                    Join
+                </button>
+            </section>
+        </script>
+    </div>
+</div>
+@section scripts {
+    <script src="~/js/pager.js"></script>
+}

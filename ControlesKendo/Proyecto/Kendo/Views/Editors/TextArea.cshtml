@@ -1,0 +1,399 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/textarea/index">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <textarea id="invitation" required data-required-msg="Please enter a text." data-max-msg="Enter value between 1 and 200"></textarea>
+            <div class="k-form-footer">
+                <div class="k-counter-container"><span class="k-counter-value">0</span>/200</div>
+                <button class="k-button k-button-solid-primary k-button-solid k-button-md k-rounded-md">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // create TextArea from input HTML element
+            $("#invitation").kendoTextArea({
+                label: "Send invitation:",
+                rows: 10,
+                maxLength: 200,
+                placeholder: "Enter your text here."
+            });
+
+            $("#invitation").on('input', function (e) {
+                $('.k-counter-container .k-counter-value').html($(e.target).val().length);
+            });
+
+            $("#invitationForm").kendoValidator();
+
+            $("form").submit(function (event) {
+                event.preventDefault();
+            });
+        });
+    </script>
+
+    <style>
+        .k-floating-label-container {
+            width: 100%;
+        }
+
+        .k-form-footer {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #example .k-button {
+            margin-top: 20px;
+            width: 80px;
+            margin-left: auto;
+        }
+
+        #example .k-counter-container {
+            color: #9C9C9C;
+            font-size: 13px;
+            margin-top: 5px;
+            margin-left: auto;
+        }
+    </style>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>SIZE</h4>
+                <ul class="options">
+                    <li>
+                        <input id="size" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>BORDER RADIUS</h4>
+                <ul class="options">
+                    <li>
+                        <input id="rounded" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>FILL MODE</h4>
+                <ul class="options">
+                    <li>
+                        <input id="fillMode" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>OVERFLOW</h4>
+                <ul class="options">
+                    <li>
+                        <input id="overflow" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>RESIZE ORIENTATION</h4>
+                <ul class="options">
+                    <li>
+                        <input id="resize" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+            <div class="k-w-300">
+                <textarea id="description2"></textarea>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                var textarea = $("#description2").kendoTextArea({
+                    label: "Set value",
+                    value: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." +
+                        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." +
+                        "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+                    rows: 3
+                }).data('kendoTextArea');
+
+                $("#size").kendoDropDownList({
+                    dataSource: ["small", "medium", "large", "none"],
+                    value: "medium",
+                    change: function () {
+                        let value = this.value();
+                        textarea.setOptions({ size: value });
+                    }
+                });
+
+                $("#rounded").kendoDropDownList({
+                    dataSource: ["small", "medium", "large", "full", "none"],
+                    value: "medium",
+                    change: function () {
+                        let value = this.value();
+                        textarea.setOptions({ rounded: value });
+                    }
+                });
+
+                $("#fillMode").kendoDropDownList({
+                    dataSource: ["solid", "flat", "outline", "none"],
+                    value: "solid",
+                    change: function () {
+                        let value = this.value();
+                        textarea.setOptions({ fillMode: value });
+                    }
+                });
+
+                $("#overflow").kendoDropDownList({
+                    dataSource: ["auto", "hidden", "visible", "scroll", "clip", "none"],
+                    value: "auto",
+                    change: function () {
+                        let value = this.value();
+                        textarea.setOptions({ overflow: value });
+                    }
+                });
+
+                $("#resize").kendoDropDownList({
+                    dataSource: ["both", "horizontal", "vertical", "none"],
+                    value: "none",
+                    change: function () {
+                        let value = this.value();
+                        textarea.setOptions({ resize: value });
+                    }
+                });
+            });
+        </script>
+
+        <style>
+            .k-picker.k-dropdownlist {
+                width: 140px;
+            }
+        </style>
+    </div>
+    
+    
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<textarea id="description3"></textarea>
+		</div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            function onChange() {
+                kendoConsole.log("Change :: " + this.value());
+            };
+
+            $("#description3").kendoTextArea({
+				label: "Set value",
+                change: onChange,
+                rows:5
+            });
+        });
+    </script>
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+    
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<textarea id="description4"></textarea>
+		</div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#description4").kendoTextArea({
+                label: {
+                    content: "Description",
+                    floating: true
+                },
+                rows:5
+            });
+        });
+    </script>
+
+    <style>
+        .k-floating-label-container {
+            width: 100%;
+        }
+    </style>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Get / Set Value</h4>
+                <ul class="options">
+                    <li>
+                        <button id="get">Get value</button> or <button id="focus">Focus</button>
+                    </li>
+                    <li>
+                        <input id="value" value="Lorem ipsum dolor sit amet" />
+                        <button id="set">Set value</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Enable / Disable</h4>
+                <ul class="options">
+                    <li>
+                        <button id="enable">Enable</button>
+                        <button id="disable">Disable</button>
+                    </li>
+                    <li>
+                        <button id="readonly">Readonly</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+	    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		    <div class="k-w-300">
+			    <textarea id="description5"></textarea>
+		    </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                var textarea = $("#description5").kendoTextArea({
+                    label: {
+                        content: "Set value",
+                        floating: true
+                    },
+                    rows: 5
+                }).data('kendoTextArea');
+
+                var setValue = function () {
+                    textarea.value($("#value").data("kendoTextBox").value());
+                    textarea.floatingLabel.refresh();
+                };
+
+                $("#enable").click(function () {
+                    textarea.enable();
+                });
+
+                $("#disable").click(function () {
+                    textarea.enable(false);
+                });
+
+                $("#readonly").click(function () {
+                    textarea.readonly();
+                });
+
+                $("#focus").click(function () {
+                    textarea.focus();
+                });
+
+                $("#value").kendoTextBox({
+                    change: setValue
+                });
+
+                $("#set").click(setValue);
+
+                $("#get").click(function () {
+                    alert(textarea.value());
+                });
+            });
+        </script>
+
+        <style>
+            .k-floating-label-container {
+                width: 100%;
+            }
+        </style>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300 k-rtl">
+			<textarea id="description6"></textarea>
+		</div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // create TextBox from input HTML element
+            $("#description6").kendoTextArea({
+				label: "Set value",
+                placeholder: "Description...",
+                rows: 5
+            });
+        });
+    </script>
+
+    <div id="demo7">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Configuration</h4>
+                <ul>
+                    <li><label><input type="checkbox" data-bind="checked: isEnabled"> Enable</label></li>
+                    <li><label><input type="checkbox" data-bind="checked: isVisible"> Visible</label></li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Information</h4>
+                Kendo UI TextArea supports the
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a> and
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+            </div>
+        </div>
+        <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+            <div class="k-w-300">
+                <textarea data-role="textarea"
+                          data-label="Set value"
+                          data-format="c"
+                          data-min="0"
+                          data-max="100"
+                          data-rows="5"
+                          data-bind="visible: isVisible,
+                              enabled: isEnabled,
+                              value: textareaValue,
+                              events: { change: onChange }">
+                          </textarea>
+            </div>
+        </div>
+
+        <script>
+            var viewModel = kendo.observable({
+                textareaValue: "Lorem ipsum dolor sit amet",
+                isEnabled: true,
+                isVisible: true,
+                onChange: function () {
+                    kendoConsole.log("event :: change (" + this.get("textareaValue") + ")");
+                }
+            });
+            kendo.bind($("#demo7"), viewModel);
+        </script>
+    </div>
+
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+</body>

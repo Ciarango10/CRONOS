@@ -1,0 +1,490 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/timedurationpicker/index#">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 27px;">
+        <div class="k-w-300">
+            <div id="window">
+                <div class="banner">
+                </div>
+            </div>
+            <form id="exampleform"></form>
+        </div>
+    </div>
+
+    <script>
+        let interval;
+
+        $(document).ready(function() {
+            $("#window").kendoWindow({
+                height: 397,
+                width: 443,
+                visible: false,
+                resizable: false,
+                title: false,
+                draggable: {
+                    dragHandle: "#window"
+                }
+            });
+
+            $("#exampleform").kendoForm({
+                orientation: "vertical",
+                formData: {
+                    Title: "Modern UI Made Easy",
+                    Start: new Date(new Date().getTime() + 15 * 60000),
+                    Duration: 5400000,
+                    Banner: 900000
+                },
+                items: [{
+                    type: "group",
+                    label: "Conference Session",
+                    items: [
+                        { field: "Title", label: "Session title:", validation: { required: true } },
+                        { field: "Start", label: { text: "Start:" }, editor: "DateTimePicker", validation: { required: true } },
+                        {
+                            field: "Duration", label: "Duration:",
+                            editor: function(container, options) {
+                                $("<input data-validateDurationRequired-msg='Duration is required.' data-validateDuration-msg='Should be less than 5 hours' name='" + options.field + "'data-bind='value: " + options.field + "'/>")
+                                    .appendTo(container)
+                                    .kendoTimeDurationPicker({
+                                        columns: [{ format: "# hours ", name: "hours", max: 4 }, { format: " ## minutes", name: "minutes", step: 15 }],
+                                        separator: ":",
+                                        shortcuts: [
+                                            { text: "1 h", value: 3600000 },
+                                            { text: "1 h 30 m", value: 5400000 }
+                                        ]
+                                    })
+                            },
+                            validation: {
+                                validateDuration: function(input) {
+                                    if (input.is("[name='Duration']")) {
+                                        return !input.getKendoTimeDurationPicker()._validationIcon.is(":visible");
+                                    }
+                                    return true;
+                                },
+                                validateDurationRequired: function(input) {
+                                    if (input.is("[name='Duration']")) {
+                                        return input.getKendoTimeDurationPicker().value() > 0;
+                                    }
+                                    return true;
+                                }
+                            }
+                        },
+                        {
+                            field: "Banner", label: "Show banner before the session:",
+                            editor: function(container, options) {
+                                $("<input data-validateBanneRequired-msg='Banner is required.' data-validateBanner-msg='Should not be more than 30 min' name='" + options.field + "'data-bind='value: " + options.field + "'/>")
+                                    .appendTo(container)
+                                    .kendoTimeDurationPicker({
+                                        columns: [{ format: "## minutes", name: "minutes", max: 30, min: 1 }]
+                                    })
+                            },
+                            validation: {
+                                validateBanner: function(input) {
+                                    if (input.is("[name='Banner']")) {
+                                        return !input.getKendoTimeDurationPicker()._validationIcon.is(":visible");
+                                    }
+                                    return true;
+                                },
+                                validateBanneRequired: function(input) {
+                                    if (input.is("[name='Banner']")) {
+                                        return input.getKendoTimeDurationPicker().value() > 0;
+                                    }
+                                    return true;
+                                }
+                            }
+                        }
+                    ]
+                }],
+                submit: function(e) {
+                    let model = e.model;
+                    let duration = convertToTime(model.Duration),
+                        banner = convertToTime(model.Banner);
+
+                    e.preventDefault();
+
+                    $(".banner").html(`
+                        <button class='close'></button>
+                        <div class="title">${duration.hours}h ${duration.minutes}m <strong>${model.Title}</strong></div>
+                        <div class="title">session will start in</div>
+                        <div class="countdown">${banner.minutes} : ${banner.seconds}0</div>
+                    `);
+
+                    initCloseButton();
+                    countdown(model.Banner);
+
+                    $("#window").data("kendoWindow").open().center();
+                }
+            });
+        });
+
+        function countdown(ms) {
+            clearInterval(interval);
+            interval = setInterval(() => {
+                ms -= 1000,
+                    banner = convertToTime(ms);
+
+                $(".countdown").html(`${banner.minutes} : ${banner.seconds < 10 ? 0 : ''}${banner.seconds}`);
+
+                if (ms === 0) {
+                    clearInterval(interval);
+                    $(".countdown").html(`STARTING`);
+                }
+            }, 1000);
+        }
+
+        function convertToTime(milliseconds) {
+            let seconds = Math.floor(milliseconds / 1000);
+            let minutes = Math.floor(seconds / 60);
+            let hours = Math.floor(minutes / 60);
+
+            seconds = seconds % 60;
+            minutes = minutes % 60;
+            hours = hours % 24;
+
+            return {
+                hours,
+                minutes,
+                seconds
+            };
+        }
+
+        function initCloseButton() {
+            $(".close").kendoButton({
+                size: "small",
+                icon: "close",
+                click: () => {
+                    $("#window").data("kendoWindow").close();
+                }
+            });
+        }
+    </script>
+
+    <style>
+        #window {
+            padding: 0;
+        }
+
+        .banner {
+            background-image: url("../content/web/timedurationpicker/banner.png");
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: none;
+        }
+
+        .title {
+            font-size: 28px;
+            color: #666666;
+        }
+
+        .countdown {
+            font-size: 42px;
+            color: #006AE8;
+            padding-top: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            padding: 2px !important;
+            color: #424242;
+            background-color: #f5f5f5;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <input id="timedurationpicker2" title="timedurationpicker" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#timedurationpicker2").kendoTimeDurationPicker({
+                columns: [
+                    { name: "hours", format: "## hours ", min: 8, max: 11 },
+                    { name: "minutes", format: " ## minutes ", min: 15, max: 45, step: 5 },
+                    { name: "seconds", format: " ## seconds", min: 10, max: 50, step: 10 }
+                ],
+                separator: ":"
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <input id="timedurationpicker3" title="timedurationpicker" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#timedurationpicker3").kendoTimeDurationPicker({
+                columns: [{ name: "hours", format: "## hours "}, { name: "minutes", format: " ## minutes"}],
+                shortcuts: [
+                    { text: "1h 30min", value: 5400000 },
+                    { text: "2h 30min", value: 9000000 },
+                    { text: "4 hours", value: 14400000 }
+                ],
+                separator: ":"
+            });
+        });
+    </script>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Size</h4>
+                    <input id="size" name="size" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Fill Mode</h4>
+                    <input id="fillMode" name="fillMode" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Border Radius</h4>
+                    <input id="rounded" name="rounded" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <input id="timedurationpicker4" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#size").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "medium",
+                change: onChange,
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "None", value: "none" }
+                ]
+            });
+            $("#rounded").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "medium",
+                change: onChange,
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "Full", value: "full" },
+                    { text: "None", value: "none" }
+                ]
+            });
+            $("#fillMode").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "solid",
+                change: onChange,
+                dataSource: [
+                    { text: "Solid", value: "solid" },
+                    { text: "Flat", value: "flat" },
+                    { text: "Outline", value: "outline" },
+                    { text: "None", value: "none" }
+                ]
+            });
+            function onChange(e) {
+                var timedurationpicker = $("#timedurationpicker").data("kendoTimeDurationPicker");
+                var size = $("#size").data("kendoDropDownList").value();
+                var rounded = $("#rounded").data("kendoDropDownList").value();
+                var fillMode = $("#fillMode").data("kendoDropDownList").value();
+
+                timedurationpicker.setOptions({
+                    size: size,
+                    rounded: rounded,
+                    fillMode: fillMode
+                });
+            }
+            $("#timedurationpicker4").kendoTimeDurationPicker({
+                columns: [{ name: "hours", format: "## hours " }, { name: "minutes", format: " ## minutes" }]
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <input id="timedurationpicker5" title="timedurationpicker" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#timedurationpicker5").kendoTimeDurationPicker({
+                columns: [ { name: "hours", format: "## hours "}, { name: "minutes", format: " ## minutes"} ],
+                open: function() {
+                    kendoConsole.log("TimeDurationPicker has been opened.");
+                },
+                close: function() {
+                    kendoConsole.log("TimeDurationPicker has been closed.");
+                },
+                change: function() {
+                    kendoConsole.log("TimeDurationPicker value has been changed.");
+                }
+            });
+        });
+    </script>
+
+            <div class="kd-example-console">
+                <div class="header">
+                    <span class="title">CONSOLE LOG</span>
+                    <span class="clear kd-text-secondary">Clear log</span>
+                </div>
+                <div class="console"></div>
+            </div>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Toggle Readonly</h4>
+            <ul class="options">
+                <li>
+                    <input id="readonly" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Toggle Enabled</h4>
+            <ul class="options">
+                <li>
+                    <input id="enable" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Value</h4>
+            <ul class="options">
+                <li>
+                    <button id="get-value">Get Value</button>
+                    <button id="set-value">Set Value</button>
+                    <input id="value-input" value="5400000" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <input id="timedurationpicker6" title="timedurationpicker" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            let timedurationpicker = $("#timedurationpicker6").kendoTimeDurationPicker({
+                value: 9000000,
+                columns: [{ name: "hours", format: "## hours " }, { name: "minutes", format: " ## minutes" }]
+            }).data("kendoTimeDurationPicker");
+
+            $("#enable").kendoSwitch({
+                checked: true,
+                change: function () {
+                    let value = this.value();
+                    timedurationpicker.enable(value);
+                }
+            });
+
+            $("#readonly").kendoSwitch({
+                checked: false,
+                change: function () {
+                    let value = this.value();
+                    timedurationpicker.readonly(value);
+                }
+            });
+
+            $("#get-value").kendoButton({
+                click: function () {
+                    kendo.alert(timedurationpicker.value());
+                }
+            });
+
+            $("#set-value").kendoButton({
+                click: function () {
+                    let value = $("#value-input").val();
+                    timedurationpicker.value(parseInt(value));
+                }
+            });
+        });
+    </script>
+
+    <div id="wrapper7">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Configuration</h4>
+                <ul>
+                    <li><label><input type="checkbox" data-bind="checked: isVisible">Visible</label></li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Information</h4>
+                Kendo UI DateTimePicker supports the
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a> and
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a>
+                bindings.
+            </div>
+        </div>
+
+        <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+            <div class="k-w-300">
+                <input data-role="timedurationpicker"
+                       data-columns="['hours', 'minutes', 'seconds']"
+                       data-bind="visible: isVisible,
+                          value: time,
+                          events: { change: onChange }" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var viewModel = kendo.observable({
+            time: 70000000,
+            isEnabled: true,
+            isVisible: true,
+            onChange: function () {
+                kendoConsole.log("event :: change (" + this.get("time") + "ms)");
+            }
+        });
+        kendo.bind($("#wrapper7"), viewModel);
+    </script>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+</body>

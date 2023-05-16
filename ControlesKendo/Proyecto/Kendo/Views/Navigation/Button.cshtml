@@ -1,0 +1,673 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/button/index">
+    <base href="https://demos.telerik.com/kendo-ui/button/multiple">
+    <base href="https://demos.telerik.com/kendo-ui/button/images">
+    <base href="https://demos.telerik.com/kendo-ui/button/events">
+    <base href="https://demos.telerik.com/kendo-ui/button/api">
+    <base href="https://demos.telerik.com/kendo-ui/button/right-to-left-support">
+    <base href="https://demos.telerik.com/kendo-ui/button/keyboard-navigation">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+
+<body>
+    <div id="example">
+        <div class="demo-section">
+            <div>
+                <h4>Basic Button</h4>
+                <p>
+                    <button id="primaryTextButton">Primary Button</button>
+                    <button id="textButton">Button</button>
+                </p>
+            </div>
+
+            <div>
+                <h4>Disabled Buttons</h4>
+                <p>
+                    <a id="primaryDisabledButton">Disabled Primary Button</a>
+                    <a id="disabledButton">Disabled Button</a>
+                </p>
+            </div>
+
+            <div>
+                <h4>Buttons with Icons</h4>
+                <p>
+                    <a id="iconTextButton">Filter</a>
+                    <a id="kendoIconTextButton">Clear Filter</a>
+                    <em id="iconButton"></em>
+                </p>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function (){
+                
+                $("#primaryTextButton").kendoButton({
+                    themeColor: "primary"
+                });
+
+                $("#textButton").kendoButton();
+
+                $("#primaryDisabledButton").kendoButton({
+                    themeColor: "primary",
+                    enable: false
+                });
+
+                $("#disabledButton").kendoButton({
+                    themeColor: "primary",
+                    enable: false
+                });
+
+                $("#iconTextButton").kendoButton({
+                    icon: "filter"
+                });
+
+                $("#kendoIconTextButton").kendoButton({
+                    icon: "filter-clear"
+                });
+
+                $("#iconButton").kendoButton({
+                    icon: "refresh"
+                });
+            });
+        </script>
+
+        <style>
+            .demo-section p{
+                margin: 0 0 30px;
+                line-height: 50px;
+            }
+
+            .demo-section p .k-button{
+                margin: 0 10px 0 0;
+            }
+
+            .k-button-solid-primary{
+                min-width:150px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <h4>Standard Initialization</h4>
+            <p>
+                <button type="button" class="editButton">Edit Button 1</button>
+                <button type="button" class="closeButton">Close Button 1</button>
+            </p>
+            <p>
+                <button type="button" class="editButton">Edit Button 2</button>
+                <button type="button" class="closeButton">Close Button 2</button>
+            </p>
+        </div>
+
+        <div class="demo-section">
+            <h4>Initializarion with kendo.init</h4>
+            <div id="buttonContainer">
+                <p>
+                    <button type="button" data-role="button" data-icon="edit">Edit Button 1</button>
+                    <button type="button" data-role="button" data-icon="close">Close Button 1</button>
+                </p>
+            
+            <p>
+                <button type="button" data-role="button" data-icon="edit" data-enable="false">Disabled via data attribute</button>
+                <button type="button" data-role="button" data-icon="close" disabled="disabled">Disabled via HTML attribute</button>
+            </p>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                $(".editButton").kendoButton({
+                    icon: "edit"
+                });
+
+                $(".closeButton").kendoButton({
+                    icon:"close"
+                });
+
+                kendo.init("#buttonContainer");
+            });
+        </script>
+
+        <style>
+            .demo-section p {
+                line-height: 50px;
+            }
+
+            .demo-section p .k-button{
+                margin-right: 10px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <h4>Kendo UI Button with icons</h4>
+            <button type="button" id="iconButton2">Sprite Icon</button>
+            <button type="button" id="kendoIconButton">Kendo UY font icon</button>
+            <button type="button" id="imageButton">Image Icon</button>
+        </div>
+        <script>
+            $(document).ready(function() {
+                $("#iconButton2").kendoButton({
+                    spriteCssClass: "k-icon netherlandsFlag"
+                });
+
+                $("#kendoIconButton").kendoButton({
+                    icon: "filter"
+                });
+
+                $("#imageButton").kendoButton({
+                    imageUrl: "../content/shared/icons/sports/snowboarding.png"
+                });
+            });
+        </script>
+
+        <style>
+            .demo-section {
+                line-height: 4em;
+            }
+
+                .demo-section .k-button {
+                    margin-right: 10px;
+                }
+
+            .k-button .k-image {
+                height: 16px;
+            }
+
+            .netherlandsFlag {
+                background-image: url("../content/shared/styles/flags.png");
+                background-position: 0 -64px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <h4>Buttons</h4>
+            <button type="button" id="textButton3">Text Button</button>
+            <span id="refreshButton3">Refresh Button</span>
+            <a id="disabledButton3">Disabled Button</a>
+
+            <p class="demo-hint">The disabled button will not fire click events.</p>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                function onClick(e) {
+                    kendoConsole.log("event :: clickeaste(" + $(e.event.target).closest(".k-button").attr("id") + ")");
+                }
+
+                $("#textButton3").kendoButton({
+                    click: onClick
+                });
+
+                $("#refreshButton3").kendoButton({
+                    icon: "refresh",
+                    click: onClick
+                });
+
+                $("#disabledButton3").kendoButton({
+                    enable: false,
+                    click: onClick
+                });
+            });
+        </script>
+        <style>
+            .demo-section {
+                line-height: 4em;
+            }
+
+                .demo-section .k-button {
+                    margin-right: 10px;
+                }
+        </style>
+    </div>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Size</h4>
+                        <input id="size" name="size" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Theme Color</h4>
+                        <input id="themeColor" name="themeColor" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Fill Mode</h4>
+                        <input id="fillMode" name="fillMode" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Border Radius</h4>
+                        <input id="rounded" name="rounded" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div>
+           <button id="button">Button</button>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+
+                $("#size").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "medium",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Small", value: "small" },
+                        { text: "Medium", value: "medium" },
+                        { text: "Large", value: "large" },
+                        { text: "None", value: "none" }
+
+                    ]
+                });
+
+                $("#themeColor").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "base",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Base", value: "base" },
+                        { text: "Primary", value: "primary" },
+                        { text: "Secondary", value: "secondary" },
+                        { text: "Teritary", value: "teritary" },
+                        { text: "Info", value: "info" },
+                        { text: "Success", value: "success" },
+                        { text: "Warning", value: "warning" },
+                        { text: "Error", value: "error" },
+                        { text: "Dark", value: "dark" },
+                        { text: "Light", value: "light" },
+                        { text: "Inverse", value: "inverse" },
+                        { text: "None", value: "none" }
+                    ]
+                });
+
+                $("#rounded").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "medium",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Small", value: "small" },
+                        { text: "Medium", value: "medium" },
+                        { text: "Large", value: "large" },
+                        { text: "Full", value: "full" },
+                        { text: "None", value: "none" }
+                    ]
+                });
+
+                $("#fillMode").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "solid",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Solid", value: "solid" },
+                        { text: "Outline", value: "outline" },
+                        { text: "Flat", value: "flat" },
+                        { text: "Link", value: "link" },
+                        { text: "None", value: "none" }
+                    ]
+                });
+
+                var original = $("#button").clone(true);
+
+                function onChange(e) {
+                    e.preventDefault();
+                    var button = $("#button"),
+                        clone = original.clone(true);
+
+                    button.data("kendoButton");
+                    button.replaceWith(clone);
+                    initButton();
+                }
+
+                var initButton = function () {
+                    var size = $("#size").data("kendoDropDownList").value();
+                    var themeColor = $("#themeColor").data("kendoDropDownList").value();
+                    var rounded = $("#rounded").data("kendoDropDownList").value();
+                    var fillMode = $("#fillMode").data("kendoDropDownList").value();
+
+                    $("#button").kendoButton({
+                        size: size,
+                        themeColor: themeColor,
+                        rounded: rounded,
+                        fillMode: fillMode
+                    }).data("kendoButton");
+                };
+
+                initButton();
+            });
+        </script>
+
+        <style>
+	        .k-picker.k-dropdownlist {
+		        width: 140px;
+	        }
+        </style>
+    </div>
+
+    <div id="example">
+
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Button API Functions</h4>
+                <ul class="options">
+                    <li>
+                        <button id="enableButton4" type="button">Enable</button>
+                        <button id="disableButton4" type="button">Disable</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <button id="iconTextButton4">Kendo UI Button</button>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                var buttonObject = $("#iconTextButton4").kendoButton({
+                    icon: "ungroup"
+                }).data("kendoButton");
+
+
+                $("#enableButton4").click(function () {
+                    buttonObject.enable(true);
+                });
+
+                $("#disableButton4").click(function () {
+                    buttonObject.enable(false);
+                });
+            });
+        </script>
+
+        <style>
+            .demo-section {
+                text-align: center;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+
+        <div class="demo-section k-rtl">
+            <h4>Basic Button</h4>
+            <p>
+                <button type="button" id="textButton5">Submit</button>
+            </p>
+
+            <h4>Buttons with icons</h4>
+            <p>
+                <a id="iconTextButton5">Filter</a>
+                <em id="iconButton5"></em>
+            </p>
+
+            <h4>Disabled Button</h4>
+            <p>
+                <span id="disabledButton5">Disabled</span>
+            </p>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#textButton5").kendoButton();
+
+                $("#iconTextButton5").kendoButton({
+                    icon: "filter"
+                });
+
+                $("#iconButton5").kendoButton({
+                    icon: "refresh"
+                });
+
+                $("#disabledButton5").kendoButton({
+                    enable: false
+                });
+            });
+        </script>
+
+        <style>
+            .demo-section p {
+                margin: 0 0 30px;
+                line-height: 4em;
+            }
+
+            .demo-section .k-button {
+                margin-left: 10px;
+            }
+
+            #textButton5, #disabledButton5 {
+                width: 150px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <h4>Buttons</h4>
+            <button type="button" id="textButton6">Text button</button>
+            <span id="iconTextButton6">Icon and Text</span>
+            <em id="iconButton6"><span class="k-icon refresh"></span></em>
+            <a id="disabledButton6">Disabled button</a>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+
+                function onClick(e) {
+                    kendoConsole.log("event :: click (" + $(e.event.target).closest(".k-button").attr("id") + ")");
+                }
+
+                $("#textButton6").kendoButton({
+                    click: onClick
+                });
+
+                $("#iconTextButton6").kendoButton({
+                    icon: "ungroup",
+                    click: onClick
+                });
+
+                $("#iconButton6").kendoButton({
+                    icon: "refresh",
+                    click: onClick
+                });
+
+                $("#disabledButton6").kendoButton({
+                    enable: false,
+                    click: onClick
+                });
+
+                $(document.body).keydown(function (e) {
+                    if (e.altKey && e.keyCode == 87) {
+                        $("#textButton6")[0].focus();
+                    }
+                });
+            });
+        </script>
+
+        <style>
+            .demo-section{
+                line-height: 4em;
+            }
+
+            .demo-section .k-button {
+            margin-right: 10px;
+        }
+        </style>
+    </div>
+    
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div id="example7">
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Configuration</h4>
+            <div>
+                <label><input type="checkbox" data-bind="checked: isEnabled">Enable</label>
+            </div>
+            <div>
+                <label><input type="checkbox" data-bind="checked: isVisible">Visible</label>
+            </div>
+        </div>
+        <div class="box-col">
+            <h4>Information</h4>
+            Kendo UI Button supports the
+            <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+            <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a> and
+            <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+        </div>
+    </div>
+
+    <div class="demo-section wide">
+        <div>
+            <h4>Button</h4>
+            <button data-role="button"
+                    data-icon="edit"
+                    data-bind="visible: isVisible, enabled: isEnabled, events: { click: onClick }"
+                    style="width: 180px">
+                Click me
+            </button>
+        </div>
+    </div>
+    <script>
+        var viewModel = kendo.observable({
+            isVisible: true,
+            isEnabled: true,
+            onClick: function () {
+                kendoConsole.log("event :: click");
+            }
+        });
+        kendo.bind($("#example7"), viewModel);
+    </script>
+</div>
+
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+
+
+        <div id="example">
+            <div class="demo-section">
+                <h4>Overlay badges</h4>
+                <div>
+                    <button id="overlayDot">Overlat dot</button>
+                    <button id="overlayPill">Overlay Pill</button>
+                    <button id="overlayRectangle">Overlay Rectangle</button>
+                </div>
+                <hr class="k-hr" />
+
+                <h4>Inline Badges</h4>
+                <div>
+                    <button id="inlineDot">Inline dot</button>
+                    <button id="inlinePill">Inline Pill</button>
+                    <button id="inlineRectangle">Inline Rectangle</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#overlayDot").kendoButton({
+                    badge: {
+                        shape: "dot",
+                        themeColor: "success"
+                    }
+                });
+
+                $("#overlayPill").kendoButton({
+                    badge: {
+                        text: 1234,
+                        max: 99,
+                        shape: "pill",
+                        themeColor: "error"
+                    }
+                });
+
+                $("#overlayRectangle").kendoButton({
+                    badge: {
+                        text: "success",
+                        shape: "rectangle",
+                        themeColor: "info"
+                    }
+                });
+
+                $("#inlineDot").kendoButton({
+                    badge: {
+                        position: "inline",
+                        shape: "dot",
+                        themeColor: "success"
+                    }
+                });
+
+                $("#inlinePill").kendoButton({
+                    badge: {
+                        position: "inline",
+                        text: 1234,
+                        max: 99,
+                        shape: "pill",
+                        themeColor: "error"
+                    }
+                });
+
+                $("#inlineRectangle").kendoButton({
+                    badge:{
+                        position: "inline",
+                        text: "success",
+                        shape: "rectangle",
+                        themeColor: "info"
+                    }
+                });
+            });
+        </script>
+</body>

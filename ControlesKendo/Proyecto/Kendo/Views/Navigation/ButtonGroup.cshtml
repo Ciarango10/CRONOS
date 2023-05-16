@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <base href="https://demos.telerik.com/kendo-ui/buttongroup/events">
+        <base href="https://demos.telerik.com/kendo-ui/buttongroup/right-to-left-support">
+        <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+        <title></title>
+        <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+        <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.rtl.min.css" />
+        <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+        <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+        <script src="../content/shared/js/console.js"></script>
+        <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+        <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.rtl.min.css" />
+        <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    </head>
+    <body>
+        <div id="example">
+            <div class="demo-section">
+                <div id="select-period">
+                    <span>Month</span>
+                    <span>Quarter</span>
+                    <span>Year</span>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function() {
+                $("#select-period").kendoButtonGroup({
+                    index: 0
+                });
+            });
+        </script>
+        <style>
+            .demo-section {
+                text-align: center;
+            }
+        </style>
+
+        <div id="example2">
+            <div class="demo-section">
+                <ul data-role="buttongroup" data-index="0">
+                    <li data-badge="3">One</li>
+                    <li>Two</li>
+                    <li data-badge="5">Three</li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            kendo.bind($("#example2"));
+        </script>
+
+        <style>
+            .demo-section {
+                text-align: center;
+            }
+
+            #example2{
+                margin-top: 20px;
+            }
+        </style>
+
+        <div id="example3">
+            <div class="demo-section">
+                <h4>ButtonGroup with text and icon</h4>
+                <div id="player">
+                    <span data-icon="play">Play</span>
+                    <span data-icon="pause">Pause</span>
+                    <span data-icon="stop">Stop</span>
+                </div>
+                <br /><br />
+                <h4>ButtonGroup only with icons</h4>
+                <div id="player2">
+                    <span data-icon="play"></span>
+                    <span data-icon="pause"></span>
+                    <span data-icon="stop"></span>
+                </div>
+            </div>
+            <script>
+                $(document).ready(function(){
+                    $("#player").kendoButtonGroup();
+                    $("#player2").kendoButtonGroup();
+                });
+            </script>
+
+            <style>
+                .demo-section{
+                    text-align: center;
+                }
+
+                #example3 {
+                    margin-top: 20px;
+                }
+            </style>
+        </div>
+
+        <div id="example4">
+            <div class="demo-section">
+                <div class="box-col">
+                    <h4>Single Selection</h4>
+                    <ul id="align">
+                        <li data-icon="align-left">
+                        </li>
+                        <li data-icon="align-center">
+                        </li>
+                        <li data-icon="align-right">
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-col">
+                    <h4>Multiple Selection</h4>
+                    <ul id="inlineFormatting">
+                        <li data-icon="bold">
+                        </li>
+                        <li data-icon="italic">
+                        </li>
+                        <li data-icon="underline">
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $("#align").kendoButtonGroup({
+                        selection: "single"
+                    });
+                    $("#inlineFormatting").kendoButtonGroup({
+                        selection: "multiple"
+                    });
+                });
+            </script>
+            <style>
+                .demo-section {
+                    text-align: center;
+                }
+            </style>
+        </div>
+
+        <div id="example5">
+            <div class="demo-section">
+                <ul id="select-period5">
+                    <li>
+                        Month
+                    </li>
+                    <li>
+                        Quarter
+                    </li>
+                    <li>
+                        Year
+                    </li>
+                </ul>
+            </div>    
+        </div>
+        <script>
+            $(function () {
+                $("#select-period5").kendoButtonGroup({
+                    select: function (e) {
+                        kendoConsole.log("selected index:" + e.indices);
+                    },
+                    index: 0
+                });
+            });
+        </script>
+        <style>
+            .demo-section{
+                text-align: center;
+            }
+
+            #example5{
+                margin-top: 20px;
+            }
+        </style>
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+
+        <div id="example6">
+            <div class="configurator">
+                <div class="header">Configurator</div>
+                <div class="box-col">
+                    <h4>Enable / Disable</h4>
+                    <ul class="options">
+                        <li>
+                            <button id="enableButtonGroup" type="button">Enable</button>
+                            <button id="disableButtonGroup" type="button">Disable</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="box-col">
+                    <h4>Select</h4>
+                    <ul class="options">
+                        <li>
+                            <input type="text" value="0" id="buttonIndex"/>
+                            <button type="button" id="selectButton">Select</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <div id="select-period6"></div>
+            </div>
+
+            <script>
+                $(document).ready(function(){
+                    var buttonGroup = $("#select-period6").kendoButtonGroup({
+                        index: 0,
+                        items: [
+                            {text: "Month"},
+                            {text: "Quarter"},
+                            {text: "Year" },
+                        ]
+                    }).data("kendoButtonGroup");
+
+                    $("#enableButtonGroup").click(function(){
+                        buttonGroup.enable(true);
+                    });
+                    $("#disableButtonGroup").click(function(){
+                        buttonGroup.enable(false);
+                    });
+                    $("#selectButton").click(function(){
+                        buttonGroup.select(parseInt($("#buttonIndex").val()));
+                    });
+                });
+            </script>
+        </div>
+
+        <style>
+            .demo-section{
+                text-align: center;
+            }
+        </style>
+
+        <div id="example7">
+            <div class="demo-section k-rtl">
+                <h4>Basic ButtonGroup</h4>
+                <ul id="select-period7">
+                    <li>
+                        Month
+                    </li>
+                    <li>
+                        Quarter
+                    </li>
+                    <li>
+                        Year
+                    </li>
+                </ul>
+                <br /><br />
+                <h4>ButtonGroup with icons</h4>
+                <ul id="player7">
+                    <li data-icon="play">
+                        Play
+                    </li>
+                    <li data-icon="pause">
+                        Pause
+                    </li>
+                    <li data-icon="rewind">
+                        Rewind
+                    </li>
+                </ul>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $("#select-period7").kendoButtonGroup();
+                    $("#player7").kendoButtonGroup();
+                });
+            </script>
+        </div>
+
+            <div id="example">
+                <div class="demo-section">
+                    <ul id="select-period8">
+                        <li>
+                            Month
+                        </li>
+                        <li>
+                            Quarter
+                        </li>
+                        <li>
+                            Year
+                        </li>
+                    </ul>
+                </div>
+
+                <script>
+                    $(document).ready(function(){
+                        $("#select-period8").kendoButtonGroup({
+                            index:0
+                        });
+                        $(document.body).keydown(function(e) {
+                            if(e.altKey && e.keyCode ==87){
+                                $("#select-period8")[0].focus();
+                            }
+                        });
+                    });
+                </script>
+
+                <style>
+                    .demo-section{
+                        text-align: center;
+                    }
+                </style>
+            </div>
+
+            <div id="example8">
+                <div class="demo-section">
+                    <ul data-role="buttongroup"
+                        data-index="1"
+                        data-bind="visible: isVisible, events: { select: onSelect }">
+                        <li data-icon="bold"></li>
+                        <li data-icon="italic"></li>
+                        <li data-icon="underline"></li>
+                    </ul>
+                </div>
+            </div>
+            <script>
+                var viewModel = kendo.observable({
+                    isEnabled: true,
+                    isVisible: true,
+                    onSelect: function (e) {
+                        var buttonGroup = e.sender;
+                        var index = buttonGroup.current().index();
+                        kendoConsole.log("event :: select (" + index + ")", false);
+                    }
+                });
+                kendo.bind($("#example8"), viewModel);
+            </script>
+            <style>
+                .demo-section {
+                    text-align: center;
+                }
+            </style>
+
+            <div class="kd-example-console">
+                <div class="header">
+                    <span class="title">CONSOLE LOG</span>
+                    <span class="clear kd-text-secondary">Clear log</span>
+                </div>
+                <div class="console"></div>
+            </div>
+
+    </body>
+</html>

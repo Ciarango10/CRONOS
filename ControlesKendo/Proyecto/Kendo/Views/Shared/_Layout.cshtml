@@ -1,0 +1,496 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Kendo</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Kendo.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2023.1.117/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2023.1.117/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2023.1.117/js/kendo.all.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Kendo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ol class="navbar-nav flex-grow-1">
+                        <li class="nav-item" id="navigationMenu">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="Index">Navigation</a>
+                            <ul class="menu">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="ActionSheet">ActionSheet</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="Appbar">AppBar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="Breadcrumb">Breadcrumb</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="Button">Button</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="ButtonGroup">ButtonGroup</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="navigation" asp-action="DropDownButton">DropDownButton</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="FloatingActionButton">FloatingActionButton</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="Menu">Menu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="PanelBar">PanelBar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="SplitButton">SplitButton</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="Stepper">Stepper</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="TabStrip">TabStrip</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="ToolBar">ToolBar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="Drawer">Drawer</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="Timeline">Timeline</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="TreeView">TreeView</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Navigation" asp-action="Wizard">Wizard</a>
+                                </li>
+                                <li class="nav-item" id="bottomNavigationMenu">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="BottomNavigation" asp-action="Index">BottomNavigation</a>
+                                    <ul class="menu">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="BottomNavigation" asp-action="API">API</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="BottomNavigation" asp-action="Appearance">Appearance</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="BottomNavigation" asp-action="Events">Events</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="BottomNavigation" asp-action="Items">Items</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="BottomNavigation" asp-action="KeyboardNavigation">Keyboard Navigation</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="BottomNavigation" asp-action="RightToLeftSupport">Right To Left Support</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="BottomNavigation" asp-action="Templates">Templates</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        <li>
+                        <li class="nav-item" id="mediaMenu">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Media" asp-action="Index">Media</a>
+                            <ul class="menuMedia">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Media" asp-action="MediaPlayer">MediaPlayer</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Media" asp-action="ScrollView">ScrollView</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item" id="barcodes">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Barcode" asp-action="Index">Barcodes</a>
+                            <ul class="menuBarcodes">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Barcode" asp-action="Barcode">Barcode</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Barcode" asp-action="Qrcode">Qrcode</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item" id="editors">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="Index">Editors</a>
+                            <ul class="menuEditors">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="AutoComplete">Autocomplete</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="Captcha">Captcha</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="ColorGradient">ColorGradient</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="ColorPalette">ColorPalette</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="ColorPicker">ColorPicker</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="ComboBox">ComboBox</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="CheckBox">CheckBox</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="CheckBoxGroup">CheckBoxGroup</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="DateInput">DateInput</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="DatePicker">DatePicker</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="DateRangePicker">DateRangePicker</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="DateTimePicker">DateTimePicker</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="DropDownList">DropDownList</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="DropDownTree">DropDownTree</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="Editor">Editor</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="FlatColorPicker">FlatColorPicker</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="ImageEditor">ImageEditor</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="Signature">Signature</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="ListBox">ListBox</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="MaskedTextBox">MaskedTextBox</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="MultiColumnComboBox">MultiColumnComboBox</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="MultiSelect">MultiSelect</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="NumericTextBox">NumericTextBox</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="Rating">Rating</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="RadioButton">RadioButton</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="RadioGroup">RadioGroup</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="Slider">Slider</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="Switch">Switch</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="TextArea">TextArea</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="TextBox">TextBox</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="TimePicker">TimePicker</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="TimeDurationPicker">TimeDurationPicker</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="Upload">Upload</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Editors" asp-action="Validator">Validator</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item" id="dataManagement">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="DataManagement" asp-action="Index">DataManagement</a>
+                            <ul class="menuDataManagement">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="DataManagement" asp-action="FileManager">FileManager</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="DataManagement" asp-action="Filter">Filter</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="DataManagement" asp-action="Grid">Grid</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="DataManagement" asp-action="Grid2">Grid2</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="DataManagement" asp-action="Spreadsheet">Spreadsheet</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item" id="charts">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Chart" asp-action="Index">Charts</a>
+                            <ul class="menuCharts">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="Chart">Chart</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="AreaCharts">AreaCharts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="BarCharts">BarCharts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="BoxPlotChart">BoxPlotChart</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="BubbleCharts">BubbleCharts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="BulletCharts">BulletCharts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="ChartApiMethods">ChartApiMethods</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="DonutCharts">DonutCharts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="HeatMap">HeatMap</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="FunnelCharts">FunnelCharts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="LineCharts">LineCharts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="PieCharts">PieCharts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="PolarCharts">PolarCharts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="RadarCharts">RadarCharts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="RangeBarCharts">RangeBarCharts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="RangeAreaCharts">RangeAreaCharts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="ScatterCharts">ScatterCharts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="Sparklines">Sparklines</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="StockCharts">StockCharts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="TreeMap">TreeMap</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Charts" asp-action="WaterFallCharts">WaterFallCharts</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item" id="gauges">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Gauge" asp-action="Index">Gauge</a>
+                            <ul class="menuGauge">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Gauge" asp-action="LinearGauge">Linear Gauge</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Gauge" asp-action="CircularGauge">Circular Gauge</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Gauge" asp-action="RadialGauge">Radial Gauge</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Gauge" asp-action="ArcGauge">Arc Gauge</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item" id="pdf">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Pdf" asp-action="Index">PDF</a>
+                            <ul class="menuPdf">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Pdf" asp-action="PdfExport">PDF Export</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Pdf" asp-action="PdfViewer">PDF Viewer</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item" id="scheduling">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Scheduling" asp-action="Index">Scheduling</a>
+                            <ul class="menuScheduling">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Scheduling" asp-action="Calendar">Calendar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Scheduling" asp-action="MultiViewCalendar">MultiViewCalendar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Scheduling" asp-action="Gantt">Gantt</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Scheduling" asp-action="Scheduler">Scheduler</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item" id="layout">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Layout" asp-action="Index">Layout</a>
+                            <ul class="menuLayout">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Layout" asp-action="Avatar">Avatar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Layout" asp-action="Badge">Badge</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Layout" asp-action="Cards">Cards</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Layout" asp-action="Dialog">Dialog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Layout" asp-action="ExpansionPanel">Expansion Panel</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Layout" asp-action="Form">Form</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Layout" asp-action="Notification">Notification</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Layout" asp-action="Popover">Popover</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Layout" asp-action="ResponsivePanel">Responsive Panel</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Layout" asp-action="Splitter">Splitter</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Layout" asp-action="TileLayout">Tile Layout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Layout" asp-action="Tooltip">Tooltip</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Layout" asp-action="Window">Window</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item" id="interactivityUx">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="InteractivityUx" asp-action="Index">Interactivity & UX</a>
+                            <ul class="menuUx">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="InteractivityUx" asp-action="SkeletonContainer">Skeleton Container</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="InteractivityUx" asp-action="DragAndDrop">Drag and Drop</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="InteractivityUx" asp-action="Effects">Effects</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="InteractivityUx" asp-action="Loader">Loader</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="InteractivityUx" asp-action="ProgressBar">Progress Bar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="InteractivityUx" asp-action="CircularProgressBar">Circular Progress Bar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="InteractivityUx" asp-action="Sortable">Sortable</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="InteractivityUx" asp-action="Styling">Styling</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="InteractivityUx" asp-action="RippleContainer">RippleContainer</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item" id="diagramMap">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="DiagramsMaps" asp-action="Index">Diagrams & Maps</a>
+                            <ul class="menuDiagramMap">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="DiagramsMaps" asp-action="Diagram">Diagram</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="DiagramsMaps" asp-action="Map">Maps</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="DiagramsMaps" asp-action="OrgChart">OrgCharts</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item" id="conversationalUI">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="ConversationalUI" asp-action="Index">Conversational UI</a>
+                            <ul class="menuConversationalUI">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="ConversationalUI" asp-action="Chat">Chat</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Kendo - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2023.1.117/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2023.1.117/js/kendo.all.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

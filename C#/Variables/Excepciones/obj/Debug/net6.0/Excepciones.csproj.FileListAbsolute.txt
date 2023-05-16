@@ -1,0 +1,15 @@
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\bin\Debug\net6.0\Excepciones.exe
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\bin\Debug\net6.0\Excepciones.deps.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\bin\Debug\net6.0\Excepciones.runtimeconfig.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\bin\Debug\net6.0\Excepciones.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\bin\Debug\net6.0\Excepciones.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\obj\Debug\net6.0\Excepciones.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\obj\Debug\net6.0\Excepciones.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\obj\Debug\net6.0\Excepciones.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\obj\Debug\net6.0\Excepciones.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\obj\Debug\net6.0\Excepciones.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\obj\Debug\net6.0\Excepciones.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\obj\Debug\net6.0\refint\Excepciones.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\obj\Debug\net6.0\Excepciones.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\obj\Debug\net6.0\Excepciones.genruntimeconfig.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Excepciones\obj\Debug\net6.0\ref\Excepciones.dll

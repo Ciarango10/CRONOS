@@ -1,0 +1,15 @@
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\bin\Debug\net6.0\FunctionalProgramming.exe
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\bin\Debug\net6.0\FunctionalProgramming.deps.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\bin\Debug\net6.0\FunctionalProgramming.runtimeconfig.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\bin\Debug\net6.0\FunctionalProgramming.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\bin\Debug\net6.0\FunctionalProgramming.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\obj\Debug\net6.0\FunctionalProgramming.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\obj\Debug\net6.0\FunctionalProgramming.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\obj\Debug\net6.0\FunctionalProgramming.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\obj\Debug\net6.0\FunctionalProgramming.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\obj\Debug\net6.0\FunctionalProgramming.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\obj\Debug\net6.0\FunctionalProgramming.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\obj\Debug\net6.0\refint\FunctionalProgramming.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\obj\Debug\net6.0\FunctionalProgramming.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\obj\Debug\net6.0\FunctionalProgramming.genruntimeconfig.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\FunctionalProgramming\obj\Debug\net6.0\ref\FunctionalProgramming.dll

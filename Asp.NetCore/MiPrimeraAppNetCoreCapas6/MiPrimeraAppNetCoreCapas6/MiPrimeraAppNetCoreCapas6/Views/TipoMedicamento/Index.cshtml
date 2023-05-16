@@ -1,0 +1,47 @@
+﻿
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="~/css/datatable.css" />
+<h1>Pagina Principal</h1>
+@*<fieldset>
+   <legend>Datos tipo medicamento</legend>
+   <form method="post" id="frmGuardarTipoMedicamento" class="mb-3" >
+   <div class="row">
+        <div class="col-md-6">
+             <label>Id tipo medicamento</label>
+             <input  type="text"  readonly name="idtipomedicamento" class="form-control" />
+        </div>
+         <div class="col-md-6">
+              <label>Nombre</label>
+             <input  type="text"  name="nombre" class="form-control ob max-100 min-3 sl" />
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+             <label>Descripciòn</label>
+             <textarea name="descripcion" class="form-control ob max-200 min-5 slcenb" ></textarea>
+        </div>
+
+    </div>
+   </form>
+   <button class="btn btn-primary" onclick="GuardarDatos()">Guardar</button>
+   <button class="btn btn-danger" onclick="LimpiarTipoMedicamento()" >Limpiar</button>
+</fieldset>*@
+<div class="input-group mb-3" id="divBusquedaForm" >
+  <input type="text" class="form-control" id="txtnombrebusqueda"
+  placeholder="Ingrese tipo medicamento" onkeyup="filtrarTipoMedicamento()"  />
+ 
+</div>
+<div id="divTabla">
+
+</div>
+
+
+<script src="~/js/jquery.js"></script>
+<script src="~/js/datatable.js"></script>
+<script src="~/js/sweetalert.js"></script>
+<script src="~/js/generic.js"></script>
+<script src="~/js/tipomedicamento.js"></script>

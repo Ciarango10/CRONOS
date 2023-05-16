@@ -1,0 +1,716 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/upload/index">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div id="example">
+        <div class="demo-section wide" style="margin-bottom:0px; position: relative;">
+            <div style="width:40%; float:left">
+                <input name="files" id="files" type="file" aria-label="files" />
+            </div>
+            <div style="float:right">
+                <div class="dropZoneElement">
+                    <div class="textWrapper">
+                        <p>Drag &amp; Drop Files Here</p>
+                        <p class="dropImageHereText">Drop file here to upload</p>
+                    </div>
+                </div>
+            </div>
+            <div class="or">
+                <h4>OR</h4>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-col">
+            <h4>Select allowed files types for upload</h4>
+            <div id="fileTypes"></div>
+        </div>
+        <div class="box-col">
+            <input type="checkbox" id="limitUploadSize" class="k-checkbox k-checkbox-md k-rounded-md">
+            <label class="k-checkbox-label" for="limitUploadSize">Limit File Size to 4MB</label>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#fileTypes").kendoMultiSelect({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: [
+                    { text: "jpg", value: "jpg" },
+                    { text: "pdf", value: "pdf" },
+                    { text: "docx", value: "docx" },
+                    { text: "xlsx", value: "xlsx" },
+                    { text: "zip", value: "zip" },
+                ],
+                value: ["jpg", "pdf", "docx", "xlsx", "zip"],
+                change: onChange,
+            });
+
+            function onChange() {
+                var upload = $("#files").getKendoUpload();
+                upload.destroy();
+
+                initUpload();
+            }
+
+            $("#limitUploadSize").change(function () {
+                var upload = $("#files").getKendoUpload();
+                upload.destroy();
+
+                initUpload();
+            });
+
+
+            var initUpload = function () {
+                var validation = {};
+                var limitUploadSize = $("#limitUploadSize").prop("checked");
+                var filetypes = $("#fileTypes").getKendoMultiSelect().value();
+                if (limitUploadSize) {
+                    validation.maxFileSize = 4194304;
+                }
+                validation.allowedExtensions = filetypes
+
+                $("#files").kendoUpload({
+                    async: {
+                        chunkSize: 11000,// bytes
+                        saveUrl: "chunksave",
+                        removeUrl: "remove",
+                        autoUpload: false
+                    },
+                    validation: validation,
+                    dropZone: ".dropZoneElement"
+                }).data("kendoUpload");
+
+            };
+
+            initUpload();
+        });
+    </script>
+
+    <style>
+        .dropZoneElement {
+            position: relative;
+            display: inline-block;
+            background-color: #f8f8f8;
+            border: 1px solid #c7c7c7;
+            width: 350px;
+            height: 200px;
+            text-align: center;
+        }
+
+        .textWrapper {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            font-size: 18px;
+            line-height: 1.2em;
+            font-family: Arial,Helvetica,sans-serif;
+            color: #000;
+        }
+
+        .dropImageHereText {
+            color: #c7c7c7;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .wrapper:after {
+            content: ".";
+            display: inline-block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .or {
+            margin: auto;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 45%;
+            transform: translate(-50%,-45%);
+        }
+    </style>
+
+    <div id="example">
+        <form method="post" action="/kendo-ui/upload/submit">
+            <div class="demo-section">
+                <input name="files" id="files2" type="file" aria-label="files" />
+                <p style="padding-top: 1em; text-align: right">
+                    <button type="submit" class="k-button k-button-solid-primary k-button-solid k-button-md k-rounded-md">Submit</button>
+                </p>
+            </div>
+        </form>
+        <script>
+            $(document).ready(function() {
+                $("#files2").kendoUpload();
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div>
+            <div class="demo-section">
+                <input name="files3" id="files" type="file" />
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                $("#files3").kendoUpload({
+                    async: {
+                        saveUrl: "save",
+                        removeUrl: "remove",
+                        autoUpload: true
+                    }
+                });
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div>
+            <div class="demo-section">
+                <input name="files" id="files4" type="file" />
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#files4").kendoUpload({
+                    async: {
+                        chunkSize: 11000,// bytes
+                        saveUrl: "chunksave",
+                        removeUrl: "remove",
+                        autoUpload: true
+                    },
+                    validation: {
+                        maxFileSize: 20000000
+                    }
+                });
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <div class="wrapper">
+                <div id="products5"></div>
+                <div class="dropZoneElement">
+                    <div class="textWrapper">
+                        <p><span>+</span>Add Image</p>
+                        <p class="dropImageHereText">Drop image here to upload</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input name="files" id="files5" type="file" />
+
+        <script type="text/x-kendo-template" id="template">
+            <div class="product">
+                <img src="../content/web/foods/#= name #" alt="#: name # image" />
+            </div>
+        </script>
+
+        <script>
+            $(function () {
+                var template = kendo.template($("#template").html());
+                var initialFiles = [{ name: "1.jpg" }, { name: "2.jpg" }, { name: "3.jpg" }, { name: "4.jpg" }, { name: "5.jpg" }, { name: "6.jpg" }];
+
+                $("#products5").html(kendo.render(template, initialFiles));
+
+                $("#files5").kendoUpload({
+                    async: {
+                        saveUrl: "save",
+                        removeUrl: "remove",
+                        autoUpload: true
+                    },
+                    validation: {
+                        allowedExtensions: [".jpg", ".jpeg", ".png", ".bmp", ".gif"]
+                    },
+                    success: onSuccess,
+                    showFileList: false,
+                    dropZone: ".dropZoneElement"
+                });
+
+                function onSuccess(e) {
+                    if (e.operation == "upload") {
+                        for (var i = 0; i < e.files.length; i++) {
+                            var file = e.files[i].rawFile;
+
+                            if (file) {
+                                var reader = new FileReader();
+
+                                reader.onloadend = function () {
+                                    $("<div class='product'><img src=" + this.result + " /></div>").appendTo($("#products"));
+                                };
+
+                                reader.readAsDataURL(file);
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+
+        <style>
+            .dropZoneElement {
+                position: relative;
+                display: inline-block;
+                background-color: #f8f8f8;
+                border: 1px solid #c7c7c7;
+                width: 230px;
+                height: 110px;
+                text-align: center;
+            }
+
+            .textWrapper {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 100%;
+                font-size: 24px;
+                line-height: 1.2em;
+                font-family: Arial,Helvetica,sans-serif;
+                color: #000;
+            }
+
+            .dropImageHereText {
+                color: #c7c7c7;
+                text-transform: uppercase;
+                font-size: 12px;
+            }
+
+            .product {
+                float: left;
+                position: relative;
+                margin: 0 10px 10px 0;
+                padding: 0;
+            }
+
+                .product img {
+                    width: 110px;
+                    height: 110px;
+                }
+
+            .wrapper:after {
+                content: ".";
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div>
+            <div class="demo-section">
+                <input name="files" id="files6" type="file" />
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                $("#files6").kendoUpload({
+                    async: {
+                        saveUrl: "chunksave",
+                        removeUrl: "remove",
+                        chunkSize: 11000,
+                    },
+                    directory: true,
+                    directoryDrop: true,
+                    validation: {
+                        maxFileSize: 20000000
+                    }
+                });
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <h4>Upload PDF</h4>
+            <input name="files" id="files7" type="file" />
+            <div class="demo-hint">You can only upload <strong>PDF</strong> files.</div>
+
+            <h4 style="margin-top: 2em;">Upload Image</h4>
+            <input name="files" id="files-jpg7" type="file" />
+            <div class="demo-hint">You can only upload <strong>GIF</strong>, <strong>JPG</strong>, <strong>PNG</strong> files.</div>
+
+        </div>
+
+        <div class="demo-section">
+            <h4>Upload Documents</h4>
+            <input name="files" id="docs7" type="file" />
+            <div class="demo-hint">Maximum allowed file size is <strong>4MB</strong>.</div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                $("#files7").kendoUpload({
+                    async: {
+                        saveUrl: "save",
+                        removeUrl: "remove"
+                    },
+                    validation: {
+                        allowedExtensions: [".pdf"]
+                    }
+                });
+
+                $("#files-jpg7").kendoUpload({
+                    async: {
+                        saveUrl: "save",
+                        removeUrl: "remove",
+                        batch: true
+                    },
+                    validation: {
+                        allowedExtensions: [".gif", ".jpg", ".png"]
+                    }
+                });
+
+                $("#docs7").kendoUpload({
+                    async: {
+                        saveUrl: "save",
+                        removeUrl: "remove",
+                        autoUpload: true
+                    },
+                    validation: {
+                        maxFileSize: 4194304
+                    }
+                });
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div>
+            <div class="demo-section">                    
+                <input name="files" id="files8" type="file" />
+            </div>                
+        </div>           
+        <script>
+            function onSelect(e) {
+                kendoConsole.log("Select :: " + getFileInfo(e));
+            }
+
+            function onUpload(e) {
+                kendoConsole.log("Upload :: " + getFileInfo(e));
+            }
+
+            function onSuccess(e) {
+                kendoConsole.log("Success (" + e.operation + ") :: " + getFileInfo(e));
+            }
+
+            function onError(e) {
+                kendoConsole.log("Error (" + e.operation + ") :: " + getFileInfo(e));
+            }
+
+            function onComplete(e) {
+                kendoConsole.log("Complete");
+            }
+
+            function onCancel(e) {
+                kendoConsole.log("Cancel :: " + getFileInfo(e));
+            }
+
+            function onRemove(e) {
+                kendoConsole.log("Remove :: " + getFileInfo(e));
+            }
+
+            function onProgress(e) {
+                kendoConsole.log("Upload progress :: " + e.percentComplete + "% :: " + getFileInfo(e));
+            }
+
+            function getFileInfo(e) {
+                return $.map(e.files, function(file) {
+                    var info = file.name;
+
+                    // File size is not available in all browsers
+                    if (file.size > 0) {
+                        info  += " (" + Math.ceil(file.size / 1024) + " KB)";
+                    }
+                    return info;
+                }).join(", ");
+            }
+
+            $(document).ready(function() {
+                $("#files8").kendoUpload({
+                    async: {
+                        saveUrl: "save",
+                        removeUrl: "remove",
+                        autoUpload: true
+                    },
+                    cancel: onCancel,
+                    complete: onComplete,
+                    error: onError,
+                    progress: onProgress,
+                    remove: onRemove,
+                    select: onSelect,
+                    success: onSuccess,
+                    upload: onUpload
+                });
+            });
+        </script>
+    </div>
+
+
+    <div class="kd-example-console">
+       <div class="header">
+             <span class="title">CONSOLE LOG</span>
+             <span class="clear kd-text-secondary">Clear log</span>
+       </div>
+       <div class="console"></div>
+    </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>API Functions</h4>
+                <ul class="options">
+                    <li>
+                        <button class="toggleEnabled">Toggle enabled state</button>
+                    </li>
+                    <li>
+                        <button class="enable">Enable</button> <button class="disable">Disable</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <form method="post">
+            <div class="demo-section">
+                <input name="files" id="files9" type="file" />
+            </div>
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8H5Or2EwL9BJhePO21bUOUXruVjX7uAPjvvLP2Yx5ySq6WKvtv0o58I-CzK9Avbeka7xqUGe7ZwSx6pMlUxufug5Ukbacr8DDel_x1o6A6RGHlZxu5FqqDRp1TWNmQLdzOBbEKoBB5EUW8ZA4q-B51E" />
+        </form>
+        <script>
+            function getUpload() {
+                return $("#files9").data("kendoUpload");
+            }
+            $(document).on("kendoReady", function () { // To edit in Dojo, change kendoReady with ready
+                $("#files9").kendoUpload();
+
+                $(".toggleEnabled").click(function () {
+                    getUpload().toggle();
+                });
+
+                $(".enable").click(function () {
+                    getUpload().enable();
+                });
+
+                $(".disable").click(function () {
+                    getUpload().disable();
+                });
+            });
+        </script>
+    </div>
+
+      <div id="example">
+            <div class="demo-section">
+                <input type="file" name="files" id="files10" />
+            </div>
+
+            <script id="fileTemplate10" type="text/x-kendo-template">
+                <span class='k-progress'></span>
+                <div class='file-wrapper'>
+                    <span class='file-icon #=addExtensionClass(files[0].extension)#'></span>
+                    <h4 class='file-heading file-name-heading'>Name: #=name#</h4>
+                    <h4 class='file-heading file-size-heading'>Size: #=size# bytes</h4>
+                    <strong class="k-upload-status">
+                        <button type='button' class='k-upload-action'></button>
+                        <button type='button' class='k-upload-action'></button>
+                    </strong>
+                </div>
+            </script>
+
+            <script>
+                $(document).ready(function () {
+                    $("#files10").kendoUpload({
+                        multiple: true,
+                        async: {
+                            saveUrl: "save",
+                            removeUrl: "remove",
+                            autoUpload: false
+                        },
+                        template: kendo.template($('#fileTemplate10').html())
+                    });
+                });
+
+                function addExtensionClass(extension) {
+                    switch (extension) {
+                        case '.jpg':
+                        case '.img':
+                        case '.png':
+                        case '.gif':
+                            return "img-file";
+                        case '.doc':
+                        case '.docx':
+                            return "doc-file";
+                        case '.xls':
+                        case '.xlsx':
+                            return "xls-file";
+                        case '.pdf':
+                            return "pdf-file";
+                        case '.zip':
+                        case '.rar':
+                            return "zip-file";
+                        default:
+                            return "default-file";
+                    }
+                }
+            </script>
+
+            <style>
+                .file-icon {
+                    display: inline-block;
+                    float: left;
+                    width: 48px;
+                    height: 48px;
+                    margin-left: 10px;
+                    margin-top: 13.5px;
+                }
+
+                .img-file { background-image: url(../content/web/upload/jpg.png) }
+                .doc-file { background-image: url(../content/web/upload/doc.png) }
+                .pdf-file { background-image: url(../content/web/upload/pdf.png) }
+                .xls-file { background-image: url(../content/web/upload/xls.png) }
+                .zip-file { background-image: url(../content/web/upload/zip.png) }
+                .default-file { background-image: url(../content/web/upload/default.png) }
+
+                #example .file-heading {
+                    font-family: Arial;
+                    font-size: 1.1em;
+                    display: inline-block;
+                    float: left;
+                    width: 60%;
+                    margin: 0 0 0 20px;
+                    height: 25px;
+                    -ms-text-overflow: ellipsis;
+                    -o-text-overflow: ellipsis;
+                    text-overflow: ellipsis;
+                    overflow:hidden;
+                    white-space:nowrap;
+                }
+
+                #example .file-name-heading {
+                    font-weight: bold;
+                    margin-top: 20px;
+                }
+
+                 #example .file-size-heading {
+                    font-weight: normal;
+                    font-style: italic;
+                }
+
+                li.k-file div.file-wrapper {
+                    position: relative;
+                    height: 75px;
+                    width: 100%;
+                }
+            </style>
+      </div>
+
+    <div id="example">
+        <div>
+            <div class="demo-section">
+                <input name="files" id="files11" type="file" />
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                if (sessionStorage.initialFiles === undefined) {
+                    sessionStorage.initialFiles = "[]";
+                }
+
+                var initialFiles = JSON.parse(sessionStorage.initialFiles);
+
+                $("#files11").kendoUpload({
+                    multiple: true,
+                    async: {
+                        saveUrl: "save",
+                        removeUrl: "remove",
+                        autoUpload: true
+                    },
+                    files: initialFiles,
+                    success: onSuccess
+                });
+
+                function onSuccess(e) {
+                    var currentInitialFiles = JSON.parse(sessionStorage.initialFiles);
+                    for (var i = 0; i < e.files.length; i++) {
+                        var current = {
+                            name: e.files[i].name,
+                            extension: e.files[i].extension,
+                            size: e.files[i].size
+                        }
+
+                        if (e.operation == "upload") {
+                            currentInitialFiles.push(current);
+                        } else {
+                            var indexOfFile = currentInitialFiles.indexOf(current);
+                            currentInitialFiles.splice(indexOfFile, 1);
+                        }
+                    }
+                    sessionStorage.initialFiles = JSON.stringify(currentInitialFiles);
+                }
+            });
+        </script>
+    </div>
+
+    <div id="example">
+            <div class="k-rtl">                
+                <div class="demo-section">
+                    <input name="files" id="files12" type="file" />
+                </div>                
+            </div>
+
+            <script>
+                $(document).ready(function() {
+                    $("#files12").kendoUpload({
+                        async: {
+                            saveUrl: "save",
+                            removeUrl: "remove",
+                            autoUpload: true
+                        }
+                    });
+                });
+            </script>
+    </div>
+
+    <div id="example">
+        <div>
+            <div class="demo-section">
+                <input name="files" id="files13" type="file" accesskey="w" />
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#files13").kendoUpload({
+                    async: {
+                        chunkSize: 11000,// bytes
+                        saveUrl: "chunksave",
+                        removeUrl: "remove",
+                        autoUpload: false
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>

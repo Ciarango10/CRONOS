@@ -1,0 +1,555 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/numerictextbox/index">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <ul id="fieldlist">
+                <li>
+                    <input id="currency" type="number" title="currency" value="30" min="0" max="100" />
+                </li>
+                <li>
+                    <input id="percentage" value="0.05" title="percentage" />
+                </li>
+                <li>
+                    <input id="custom" value="2" title="custom" />
+                </li>
+                <li>
+                    <input id="numeric" type="number" title="numeric" value="17" min="0" max="100" step="1" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            // create NumericTextBox from input HTML element
+            $("#numeric").kendoNumericTextBox({
+                label: "Set currently in stock"
+            });
+
+            // create Curerncy NumericTextBox from input HTML element
+            $("#currency").kendoNumericTextBox({
+                label: "Set price",
+                format: "c",
+                decimals: 3
+            });
+
+            // create Percentage NumericTextBox from input HTML element
+            $("#percentage").kendoNumericTextBox({
+                label: "Set price discount",
+                format: "p0",
+                min: 0,
+                max: 0.1,
+                step: 0.01
+            });
+
+            // create NumericTextBox from input HTML element using custom format
+            $("#custom").kendoNumericTextBox({
+                label: "Set weight",
+                format: "#.00 kg"
+            });
+        });
+    </script>
+
+    <style>
+        #fieldlist {
+            margin: 0 0 -2em;
+            padding: 0;
+        }
+
+            #fieldlist li {
+                list-style: none;
+                padding-bottom: 2em;
+            }
+    </style>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Size</h4>
+                    <input id="size" name="size" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Fill Mode</h4>
+                    <input id="fillMode" name="fillMode" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Border Radius</h4>
+                    <input id="rounded" name="rounded" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <input id="numeric2" min="0" max="100" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#size").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "medium",
+                change: onChange,
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "None", value: "none" }
+                ]
+            });
+            $("#rounded").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "medium",
+                change: onChange,
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "Full", value: "full" },
+                    { text: "None", value: "none" }
+                ]
+            });
+            $("#fillMode").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "solid",
+                change: onChange,
+                dataSource: [
+                    { text: "Solid", value: "solid" },
+                    { text: "Flat", value: "flat" },
+                    { text: "Outline", value: "outline" },
+                    { text: "None", value: "none" }
+                ]
+            });
+            function onChange(e) {
+                var numeric = $("#numeric2").data("kendoNumericTextBox");
+                var size = $("#size").data("kendoDropDownList").value();
+                var rounded = $("#rounded").data("kendoDropDownList").value();
+                var fillMode = $("#fillMode").data("kendoDropDownList").value();
+
+                numeric.setOptions({
+                    size: size,
+                    rounded: rounded,
+                    fillMode: fillMode
+                });
+            }
+            $("#numeric2").kendoNumericTextBox({
+                label: "Value",
+                value: 10
+            });
+        });
+    </script>
+
+    <style>
+        .k-picker.k-dropdownlist {
+            width: 140px;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<input id="round_numeric" style="width: 100%;" value="12.55" />
+			<span class="info-text">
+            (fraction is just truncated after the 2nd digit)
+			</span>
+			<br />
+			<br />
+			<br />
+			<input id="restrict_numeric" style="width: 100%;" value="12.5" />
+			<span class="info-text">
+            (limit fraction length up to 2 digits)
+			</span>
+		</div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#round_numeric").kendoNumericTextBox({
+				label: "Number rounding",
+				round: false
+            });
+
+            $("#restrict_numeric").kendoNumericTextBox({
+				label: "Restrict decimals",
+				restrictDecimals: true
+            });
+        });
+    </script>
+
+    <style>
+        .info-text {
+            color: #999;
+            opacity: .7;
+            font-style: italic;
+            padding-left: .3em;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="numerictextbox">Set value</label>
+            <input id="numerictextbox4" />
+		</div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+
+            function onChange() {
+                kendoConsole.log("Change :: " + this.value());
+            }
+
+            function onSpin() {
+                kendoConsole.log("Spin :: " + this.value());
+            }
+
+            $("#numerictextbox4").kendoNumericTextBox({
+                change: onChange,
+                spin: onSpin
+            });
+        });
+    </script>
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<input id="numerictextbox6" />
+		</div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#numerictextbox6").kendoNumericTextBox({
+                format: "n0",
+                label: {
+                    content: "Set age",
+                    floating: true
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .k-floating-label-container {
+            width: 100%;
+        }
+    </style>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Get / Set Value</h4>
+            <ul class="options">
+                <li>
+                    <button id="get">Get value</button> or <button id="focus">Focus</button>
+                </li>
+                <li>
+                    <input id="value" value="10" style="float:none;width: 150px" />
+                    <button id="set">Set value</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Enable / Disable</h4>
+            <ul class="options">
+                <li>
+                    <button id="enable">Enable</button>
+                    <button id="disable">Disable</button>
+                </li>
+                <li>
+                    <button id="readonly">Readonly</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <input id="numerictextbox7" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#numerictextbox7").kendoNumericTextBox({
+                format: "n0",
+                label: {
+                    content: "Set age",
+                    floating: true
+                }
+            });
+
+            var numerictextbox = $("#numerictextbox7").data("kendoNumericTextBox");
+
+            var setValue = function () {
+                numerictextbox.value($("#value").val());
+                numerictextbox.floatingLabel.refresh();
+            };
+
+            $("#enable").click(function () {
+                numerictextbox.enable();
+            });
+
+            $("#disable").click(function () {
+                numerictextbox.enable(false);
+            });
+
+            $("#readonly").click(function () {
+                numerictextbox.readonly();
+            });
+
+            $("#focus").click(function () {
+                numerictextbox.focus();
+            });
+
+            $("#value").kendoNumericTextBox({
+                change: setValue
+            });
+
+            $("#set").click(setValue);
+
+            $("#get").click(function () {
+                alert(numerictextbox.value());
+            });
+        });
+    </script>
+
+    <style>
+        .k-floating-label-container {
+            width: 100%;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300 k-rtl">
+            <input id="numerictextbox9" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#numerictextbox9").kendoNumericTextBox({
+                label: "Set value"
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <input id="numerictextbox10" accesskey="w" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#numerictextbox10").kendoNumericTextBox({
+                label: "Set value"
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <form id="ticketsForm">
+                <ul id="fieldlist">
+                    <li>
+                        <label for="amount">Amount</label>
+                        <input id="amount11"
+                               name="Amount"
+                               type="text"
+                               data-min="1"
+                               data-max="10"
+                               required
+                               placeholder="Type a number between 1 and 10..." />
+                        <span class="k-invalid-msg" data-for="Amount"></span>
+                    </li>
+                    <li class="confirm">
+                        <button class="k-button k-button-solid-primary k-button-solid k-button-md k-rounded-md">Submit</button>
+                    </li>
+                    <li class="status">
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#amount11").kendoNumericTextBox();
+
+            var validator = $("#ticketsForm").kendoValidator({
+                rules: {
+                    range: function (input) {
+                        var min = parseFloat($(input).data("min"), 10);
+                        var max = parseFloat($(input).data("max"), 10);
+                        var value = parseFloat($(input).val(), 10);
+
+                        if (isNaN(min) || isNaN(max) || isNaN(value)) {
+                            return true;
+                        }
+
+                        return min <= value && value <= max;
+                    }
+                },
+                messages: {
+                    range: function (input) {
+                        var min = parseFloat($(input).data("min"), 10);
+                        var max = parseFloat($(input).data("max"), 10);
+
+                        return kendo.format("Value should be between {0} and {1}!", min, max);
+                    }
+                }
+            }).data("kendoValidator");
+
+            window.validator = validator;
+
+            $("form").submit(function (event) {
+                event.preventDefault();
+
+                var status = $(".status");
+
+                if (validator.validate()) {
+                    status.text("Hooray! Your tickets has been booked!")
+                        .removeClass("invalid")
+                        .addClass("valid");
+                } else {
+                    status.text("Oops! There is invalid data in the form.")
+                        .removeClass("valid")
+                        .addClass("invalid");
+                }
+            });
+        });
+    </script>
+
+    <style>
+        #fieldlist {
+            margin: 0;
+            padding: 0;
+        }
+
+            #fieldlist li {
+                list-style: none;
+                padding-bottom: .7em;
+                text-align: left;
+            }
+
+            #fieldlist label {
+                display: block;
+                padding-bottom: .3em;
+                font-weight: bold;
+                text-transform: uppercase;
+                font-size: 12px;
+            }
+
+            #fieldlist li.status {
+                text-align: center;
+            }
+
+            #fieldlist li .k-widget:not(.k-tooltip) {
+                margin: 0 5px 5px 0;
+            }
+
+        .confirm {
+            padding-top: 1em;
+        }
+
+        .valid {
+            color: green;
+        }
+
+        .invalid {
+            color: red;
+        }
+    </style>
+
+    <div id="demo">
+	    <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Configuration</h4>
+                <ul>
+                    <li><label><input type="checkbox" data-bind="checked: isEnabled">Enable</label></li>
+                    <li><label><input type="checkbox" data-bind="checked: isVisible">Visible</label></li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Information</h4>
+                Kendo UI NumericTextBox supports the
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a> and
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+            </div>
+        </div>
+        <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+	        <div class="k-w-300">	
+            <input data-role="numerictextbox"
+                   data-format="c"
+                   data-min="0"
+                   data-max="100"
+                   data-bind="visible: isVisible,
+                              enabled: isEnabled,
+                              value: selectedNumber,
+                              events: { change: onChange }">
+	        </div>
+        </div>
+        <script>
+            var viewModel = kendo.observable({
+                selectedNumber: 0,
+                isEnabled: true,
+                isVisible: true,
+                onChange: function() {
+                    kendoConsole.log("event :: change (" + this.get("selectedNumber") + ")");
+                }
+            });
+            kendo.bind($("#demo"), viewModel);
+        </script>
+    </div>
+
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+
+</body>

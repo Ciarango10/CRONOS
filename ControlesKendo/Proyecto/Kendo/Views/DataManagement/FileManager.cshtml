@@ -1,0 +1,485 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/filemanager/index#">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div id="example">
+        <div id="filemanager"></div>
+
+        <script>
+            $("#filemanager").kendoFileManager({
+                dataSource: {
+                    schema: kendo.data.schemas.filemanager,
+                    transport: {
+                        read: {
+                            url: "/kendo-ui/service/FileManager/Read",
+                            method: "POST"
+                        },
+                        create: {
+                            url: "/kendo-ui/service/FileManager/Create",
+                            method: "POST"
+                        },
+                        update: {
+                            url: "/kendo-ui/service/FileManager/Update",
+                            method: "POST"
+                        },
+                        destroy: {
+                            url: "/kendo-ui/service/FileManager/Destroy",
+                            method: "POST"
+                        }
+                    }
+                },
+                uploadUrl: "../DataManagement/Enviar",
+                toolbar: {
+                    items: [
+                        { name: "createFolder" },
+                        { name: "upload" },
+                        { name: "sortDirection" },
+                        { name: "sortField" },
+                        { name: "changeView" },
+                        { name: "spacer" },
+                        { name: "details" },
+                        { name: "search" }
+                    ]
+                },
+                contextMenu: {
+                    items: [
+                        { name: "rename" },
+                        { name: "delete" }
+                    ]
+                },
+                draggable: true,
+                resizable: true
+            });
+
+            $(document).ready(function () {
+                var filemanager = $("#filemanager").getKendoFileManager();
+
+                filemanager.executeCommand({ command: "TogglePaneCommand", options: { type: "preview" } });
+                filemanager.toolbar.fileManagerDetailsToggle.switchInstance.toggle();
+            })
+        </script>
+    </div>
+
+    <script id="preview-template" type="text/kendo-ui-template">
+        <div class="#:styles.fileInfo#">
+            <div class="#:styles.filePreview#">
+                <span class="k-file-icon k-icon k-i-#: !selection[0].isDirectory ? kendo.getFileGroup(selection[0].extension, true) : "folder" #"></span>
+            </div>
+            <span class="#:styles.fileName#">#:selection[0].name#</span>
+            #if(metaFields){#
+            <dl class="#:styles.fileMeta#">
+                #for(var i = 0; i < metaFields.length; i+=1){#
+                #var field = metaFields[i]#
+                <dt class="#:styles.metaLabel#">#:messages[field]#: </dt>
+                <dd class="#:styles.metaValue# #:styles[field]#">
+                    #if(field == "size"){#
+                     #:kendo.getFileSizeMessage(selection[0][field])#
+                    #} else if(selection[0][field] instanceof Date) {#
+                     #:kendo.toString(selection[0][field], "G")#
+                    #} else if(field == "extension") {#
+                     #:kendo.getFileGroup(selection[0].extension)#
+                    #} else {#
+                     #:selection[0][field]#
+                    #}#
+                </dd>
+                <dd class="k-line-break"></dd>
+                # } #
+            </dl>
+            #}#
+        </div>
+    </script>
+
+    <div id="example">
+        <div id="filemanager2"></div>
+
+        <script>
+            $("#filemanager2").kendoFileManager({
+                dataSource: {
+                    schema: kendo.data.schemas.filemanager,
+                    transport: {
+                        read: {
+                            url: "/kendo-ui/service/FileManager/Read",
+                            method: "POST"
+                        },
+                        create: {
+                            url: "/kendo-ui/service/FileManager/Create",
+                            method: "POST"
+                        },
+                        update: {
+                            url: "/kendo-ui/service/FileManager/Update",
+                            method: "POST"
+                        },
+                        destroy: {
+                            url: "/kendo-ui/service/FileManager/Destroy",
+                            method: "POST"
+                        }
+                    }
+                },
+                uploadUrl: "/kendo-ui/service/FileManager/Upload",
+                toolbar: {
+                    items: [
+                        { name: "createFolder" },
+                        { name: "upload" },
+                        { name: "sortField" },
+                        { name: "changeView" },
+                        { name: "spacer" },
+                        { name: "details" },
+                        { name: "search" }
+                    ]
+                },
+                contextMenu: {
+                    items: [
+                        { name: "rename" },
+                        { name: "delete" }
+                    ]
+                },
+                previewPane: {
+                    singleFileTemplate: kendo.template($("#preview-template").html())
+                },
+                draggable: true
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div id="filemanager3"></div>
+
+        <script>
+            $(document).ready(function () {
+                $("#filemanager3").kendoFileManager({
+                    dataSource: {
+                        schema: kendo.data.schemas.filemanager,
+                        transport: {
+                            read: {
+                                url: "/kendo-ui/service/FileManager/Read",
+                                method: "POST"
+                            },
+                            create: {
+                                url: "/kendo-ui/service/FileManager/Create",
+                                method: "POST"
+                            },
+                            update: {
+                                url: "/kendo-ui/service/FileManager/Update",
+                                method: "POST"
+                            },
+                            destroy: {
+                                url: "/kendo-ui/service/FileManager/Destroy",
+                                method: "POST"
+                            }
+                        }
+                    },
+                    uploadUrl: "/kendo-ui/service/FileManager/Upload",
+                    toolbar: {
+                        items: [
+                            { name: "createFolder" },
+                            { name: "upload" },
+                            { name: "sortField" },
+                            { name: "changeView" },
+                            { name: "spacer" },
+                            { name: "details" },
+                            { name: "search" }
+                        ]
+                    },
+                    contextMenu: {
+                        items: [
+                            { name: "rename" },
+                            { name: "delete" }
+                        ]
+                    },
+                    draggable: true,
+                    resizable: true,
+                    dataBound: onDataBound,
+                    drop: onDrop,
+                    execute: onExecute,
+                    navigate: onNavigate,
+                    open: onOpen,
+                    select: onSelect,
+                    command: onCommand
+                });
+            });
+
+            function onDataBound(e) {
+                kendoConsole.log("event: DataBound");
+            }
+
+            function onDrop(e) {
+                kendoConsole.log("event: Drop");
+            }
+
+            function onExecute(e) {
+                kendoConsole.log("event: Execute");
+            }
+
+            function onNavigate(e) {
+                kendoConsole.log("event: Navigate");
+            }
+
+            function onOpen(e) {
+                kendoConsole.log("event: Open");
+            }
+
+            function onSelect(e) {
+                kendoConsole.log("event: Select");
+            }
+
+            function onCommand(e) {
+                kendoConsole.log("event: Command; context: " + e.status + ", " + e.action + ", " + e.data.item.path);
+            }
+        </script>
+    </div>
+
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>API methods</h4>
+                <ul class="options">
+                    <li>
+                        <button id="path">Get path</button>
+                    </li>
+                    <li>
+                        <button id="getView">Get view</button>
+                    </li>
+                    <li>
+                        <button id="refresh">Refresh</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Select view</h4>
+                <ul class="options">
+                    <li>
+                        <select id="setView">
+                            <option value="list">list</option>
+                            <option value="grid">grid</option>
+                        </select>
+                    </li>
+                    <li>
+                        <button id="files">Get selected files/folders</button>
+                    </li>
+                    <li>
+                        <button id="size">Get size</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="filemanager4"></div>
+
+        <script>
+            $(document).ready(function () {
+                $("#filemanager4").kendoFileManager({
+                    dataSource: {
+                        schema: kendo.data.schemas.filemanager,
+                        transport: {
+                            read: {
+                                url: "/kendo-ui/service/FileManager/Read",
+                                method: "POST"
+                            },
+                            create: {
+                                url: "/kendo-ui/service/FileManager/Create",
+                                method: "POST"
+                            },
+                            update: {
+                                url: "/kendo-ui/service/FileManager/Update",
+                                method: "POST"
+                            },
+                            destroy: {
+                                url: "/kendo-ui/service/FileManager/Destroy",
+                                method: "POST"
+                            }
+                        }
+                    },
+                    uploadUrl: "/kendo-ui/service/FileManager/Upload",
+                    toolbar: {
+                        items: [
+                            { name: "createFolder" },
+                            { name: "upload" },
+                            { name: "sortField" },
+                            { name: "changeView" },
+                            { name: "spacer" },
+                            { name: "details" },
+                            { name: "search" }
+                        ]
+                    },
+                    contextMenu: {
+                        items: [
+                            { name: "rename" },
+                            { name: "delete" }
+                        ]
+                    },
+                    draggable: true
+                });
+
+                var filemanager = $("#filemanager4").getKendoFileManager();
+
+                $("#setView").kendoDropDownList({
+                    optionLabel: "Select view...",
+                    change: viewOnChange,
+                });
+
+                $("#path").click(function () {
+                    alert(filemanager.path());
+                });
+
+                $("#getView").click(function () {
+                    alert(filemanager.view().widgetComponent.options.name);
+                });
+
+                $("#refresh").click(function () {
+                    filemanager.refresh();
+                });
+
+                $("#files").click(function () {
+                    var selectedString = $.map(filemanager.getSelected(), function (obj) {
+                        return obj.name
+                    }).join(',');
+
+                    alert(selectedString);
+                });
+
+                $("#size").click(function () {
+                    var size = filemanager.size();
+                    alert("width: " + size.width + ", height: " + size.height);
+                });
+
+                function viewOnChange() {
+                    filemanager.view($("#setView").val());
+                }
+            })
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="k-rtl">
+            <div id="filemanager5"></div>
+        </div>
+
+        <script>
+            $("#filemanager5").kendoFileManager({
+                dataSource: {
+                    schema: kendo.data.schemas.filemanager,
+                    transport: {
+                        read: {
+                            url: "/kendo-ui/service/FileManager/Read",
+                            method: "POST"
+                        },
+                        create: {
+                            url: "/kendo-ui/service/FileManager/Create",
+                            method: "POST"
+                        },
+                        update: {
+                            url: "/kendo-ui/service/FileManager/Update",
+                            method: "POST"
+                        },
+                        destroy: {
+                            url: "/kendo-ui/service/FileManager/Destroy",
+                            method: "POST"
+                        }
+                    }
+                },
+                uploadUrl: "/kendo-ui/service/FileManager/Upload",
+                toolbar: {
+                    items: [
+                        { name: "createFolder" },
+                        { name: "upload" },
+                        { name: "sortField" },
+                        { name: "changeView" },
+                        { name: "spacer" },
+                        { name: "details" },
+                        { name: "search" }
+                    ]
+                },
+                contextMenu: {
+                    items: [
+                        { name: "rename" },
+                        { name: "delete" }
+                    ]
+                },
+                draggable: true
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div id="filemanager6"></div>
+
+        <script>
+            $("#filemanager6").kendoFileManager({
+                dataSource: {
+                    schema: kendo.data.schemas.filemanager,
+                    transport: {
+                        read: {
+                            url: "/kendo-ui/service/FileManager/Read",
+                            method: "POST"
+                        },
+                        create: {
+                            url: "/kendo-ui/service/FileManager/Create",
+                            method: "POST"
+                        },
+                        update: {
+                            url: "/kendo-ui/service/FileManager/Update",
+                            method: "POST"
+                        },
+                        destroy: {
+                            url: "/kendo-ui/service/FileManager/Destroy",
+                            method: "POST"
+                        }
+                    }
+                },
+                uploadUrl: "/kendo-ui/service/FileManager/Upload",
+                toolbar: {
+                    items: [
+                        { name: "createFolder" },
+                        { name: "upload" },
+                        { name: "sortField" },
+                        { name: "changeView" },
+                        { name: "spacer" },
+                        { name: "details" },
+                        { name: "search" }
+                    ]
+                },
+                contextMenu: {
+                    items: [
+                        { name: "rename" },
+                        { name: "delete" }
+                    ]
+                },
+                draggable: true,
+                resizable: true
+            });
+        </script>
+
+        <script>
+            $(function () {
+                //focus the component
+                $(document).on("keydown.examples", function (e) {
+                    if (e.altKey && e.keyCode === 87 /* w */) {
+                        $("#filemanager6").data("kendoFileManager").wrapper.focus();
+                    }
+                });
+            });
+        </script>
+    </div>
+
+</body>

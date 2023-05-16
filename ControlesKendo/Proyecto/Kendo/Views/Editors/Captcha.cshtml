@@ -1,0 +1,312 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/captcha/index">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div id="example">
+        <h2>Sign Up</h2>
+        <div id="validation-success"></div>
+        <form id="form" action="./submit" method="POST"></form>
+        <script>
+            $("#form").kendoForm({
+                orientation: "vertical",
+                formData: {
+                    Username: "JohnD",
+                    FirstName: "John",
+                    LastName: "Doe",
+                    Email: "john.doe@gmail.com",
+                    Password: "somepassword"
+                },
+                items: [
+                    { field: "Username", label: "Username:", hint: "Please type in your username", validation: { required: true }, attributes: { placeholder: "Username" } },
+                    { field: "FirstName", label: "First Name:", hint: "Please type in your first name", validation: { required: true }, attributes: { placeholder: "First Name" } },
+                    { field: "LastName", label: "Last Name:", hint: "Please type in your last name", validation: { required: true }, attributes: { placeholder: "Last Name" } },
+                    { field: "Email", label: "Email:", hint: "Please type a valid email address", validation: { required: true, email: true }, attributes: { placeholder: "Email Address" } },
+                    {
+                        field: "Password",
+                        label: "Password:",
+                        validation: { required: true },
+                        hint: "Hint: enter alphanumeric characters only.",
+                        hint: "Hint: enter alphanumeric characters only.",
+                        editor: function (container, options) {
+                            $('<input type="password" id="Password" name="' + options.field + '" title="Password" required="required" autocomplete="off" aria-labelledby="Password-form-label" data-bind="value: Password" aria-describedby="Password-form-hint"/>')
+                                .appendTo(container)
+                                .kendoTextBox();
+                        }
+                    },
+                    {
+                        field: "Captcha", label: "", validation: { required: true }, attributes: { style: "width: 280px" }, editor: "Captcha", editorOptions: {
+                            handler: "./reset",
+                            audioHandler: function (args) {
+                                args.success("./audio?captchaId=" + args.data.captchaId);
+                            },
+                            validationHandler: "./validate",
+                            error: function (data) {
+                                console.log(data);
+                            }
+                        }
+                    }
+                ],
+                buttonsTemplate: "<button class='k-button k-button-solid-primary k-button-solid k-button-md k-rounded-md k-form-submit' type='submit'>Sign Up</button>"
+            });
+            $("#form").kendoValidator();
+        </script>
+        <style>
+            #form {
+                margin: auto;
+                max-width: 280px;
+            }
+
+
+            h2 {
+                margin: 30px auto;
+                color: #FF6358;
+                height: 38px;
+                width: 94px;
+            }
+
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Validation</h4>
+                <ul class="options">
+                    <li>
+                        <button id="validate">Validate</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Enable/Disable/Readonly</h4>
+                <ul class="options">
+                    <li>
+                        <button id="enable">Enable/Disable</button>
+                    </li>
+                    <li>
+                        <button id="readonly">Readonly</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Audio</h4>
+                <button id="audio">Audio</button>
+            </div>
+            <div class="box-col">
+                <h4>Get Captcha ID</h4>
+                <button id="getId">Captcha ID</button>
+            </div>
+            <div class="box-col">
+                <h4>Reset Captcha</h4>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+        <div id="captcha-wrapper">
+            <input id="captcha2" name="captcha" placeholder="Enter captcha" />
+        </div>
+
+        <script>
+            var enabled = true;
+            var readonly = false;
+            var captcha = $("#captcha2").kendoCaptcha({
+                handler: "./reset",
+                audioHandler: function (args) {
+                    args.success("./audio?captchaId=" + args.data.captchaId);
+                },
+                validationHandler: "./validate",
+                error: function (data) {
+                    console.log(data);
+                }
+            }).data("kendoCaptcha");
+            $("#form").kendoValidator();
+
+            $("#validate").click(function () {
+                captcha.validate().done(function (data) {
+                    kendo.alert("Server response: " + captcha.isValid());
+                });;
+            });
+
+            $("#enable").click(function () {
+                captcha.enable(!enabled);
+                enabled = !enabled;
+            })
+            $("#readonly").click(function () {
+                captcha.readonly(!readonly);
+                readonly = !readonly;
+            })
+            $("#audio").click(function () {
+                captcha.speak();
+            })
+            $("#getId").click(function () {
+                kendo.alert("Captcha Id: " + captcha.getCaptchaId());
+            })
+            $("#reset").click(function () {
+                captcha.reset();
+            })
+        </script>
+        <style>
+            #captcha-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 405px;
+            }
+
+            .k-captcha {
+                margin: auto;
+                max-width: 280px;
+            }
+
+            .k-captcha-image, .k-captcha > img {
+                width: 100%;
+            }
+
+            .k-captcha-image-controls {
+                height: inherit;
+            }
+
+            .k-captcha-image, .k-captcha-image > img {
+                width: 100%;
+            }
+
+            .k-captcha-image-controls > button {
+                height: 50% !important;
+            }
+        </style>
+    </div>
+
+    <div id="example4">
+        <input id="captcha4" name="captcha" placeholder="Enter captcha" />
+        <script>
+            var captcha = $("#captcha4").kendoCaptcha({
+                handler: "./reset",
+                audioHandler: function (args) {
+                    args.success("./audio?captchaId=" + args.data.captchaId);
+                },
+                validationHandler: "./validate",
+                error: function (data) {
+                    console.log(data);
+                },
+                change: onChange,
+                requestStart: onRequestStart,
+                requestEnd: onRequestEnd,
+                error: onError
+            }).data("kendoCaptcha");
+
+            function onChange(ev) {
+                kendoConsole.log("Change event triggered. Value: " + ev.value)
+                captcha.validate();
+            }
+
+            function onRequestStart(ev) {
+                kendoConsole.log("RequestStart event triggered. Request type: " + ev.type + ".");
+            }
+
+            function onRequestEnd(ev) {
+                kendoConsole.log("RequestEnd event triggered. Request type: " + ev.type + ".");
+            }
+
+            function onError(ev) {
+                kendoConsole.log("Error event triggered. Request type: " + ev.type + ".");
+            }
+        </script>
+        <style>
+            #example4 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 405px;
+            }
+
+            .k-captcha {
+                margin: auto;
+                max-width: 280px;
+            }
+
+                .k-captcha-image, .k-captcha > img {
+                    width: 100%;
+                }
+
+            .k-captcha-image-controls {
+                height: inherit;
+            }
+
+            .k-captcha-image, .k-captcha-image > img {
+                width: 100%;
+            }
+
+            .k-captcha-image-controls > button {
+                height: 50% !important;
+            }
+        </style>
+    </div>
+
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div id="example5">
+        <div class="k-rtl">
+            <input id="captcha5" name="captcha" placeholder="Enter captcha" />
+        </div>
+        <script>
+            var captcha = $("#captcha5").kendoCaptcha({
+                handler: "./reset",
+                audioHandler: function (args) {
+                    args.success("./audio?captchaId=" + args.data.captchaId);
+                },
+                validationHandler: "./validate",
+                error: function (data) {
+                    console.log(data);
+                }
+            }).data("kendoCaptcha");
+            $(document).on("keydown.examples", function (e) {
+                if (e.altKey && e.keyCode === 87 /* w */) {
+                    $("#captcha5").focus();
+                }
+            });
+        </script>
+        <style>
+            #example5 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 405px;
+            }
+
+            .k-captcha {
+                margin: auto;
+                max-width: 280px;
+            }
+
+            .k-captcha-image-controls {
+                height: inherit;
+            }
+
+            .k-captcha-image, .k-captcha-image > img {
+                width: 100%;
+            }
+
+            .k-captcha-image-controls > button {
+                height: 50% !important;
+            }
+        </style>
+    </div>
+</body>

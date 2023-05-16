@@ -1,0 +1,378 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/flatcolorpicker/index">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div class="hidden-on-narrow wide" style="padding-top: 54px; text-align: center;">
+        <div id="bike">
+            <div id="bike-tail" class="bike"></div><div id="bike-head" class="bike"></div>
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="flatColorPicker" style="display: block;">Bike color</label>
+            <div id="flatColorPicker" class="picker"></div>
+        </div>
+    </div>
+
+    <div class="responsive-message"></div>
+
+    <style>
+        #bike {
+            margin: 0 0 10px;
+            background: url(../content/web/colorpicker/background.png);
+        }
+
+        #bike-head, #bike-tail {
+            background: url(../content/web/colorpicker/motor.png);
+            display: inline-block;
+            height: 299px;
+            width: 241px;
+            background-color: #000;
+        }
+
+        #bike-tail {
+            background-color: #000;
+        }
+
+        #bike-head {
+            background-color: #e15613;
+            background-position: -241px 0;
+        }
+    </style>
+
+    <script>
+        function select(e) {
+            $(".bike").css("background-color", e.value);
+        }
+
+        $("#flatColorPicker").kendoFlatColorPicker({
+            input: true,
+            buttons: false,
+            value: "#ff0000",
+            change: select,
+            opacity: true,
+            preview: true
+        });
+
+    </script>
+
+    <div class="hidden-on-narrow wide" style="text-align: center; margin-top: 54px;">
+        <div id="bike2">
+            <div id="bike-tail2"></div><div id="bike-head2"></div>
+        </div>
+        <div class="picker-wrapper">
+            <label style="display: block;">Tail color</label>
+            <div id="tail2" class="picker"></div>
+        </div>
+        <div class="picker-wrapper">
+            <label style="display: block;">Front &amp; side color</label>
+            <div id="head2" class="picker"></div>
+        </div>
+    </div>
+    <style>
+
+        #bike2 {
+            margin: 0 0 10px;
+            background: url(../content/web/colorpicker/background.png);
+        }
+
+        #bike-head2, #bike-tail2 {
+            background: url(../content/web/colorpicker/motor.png);
+            display: inline-block;
+            height: 299px;
+            width: 241px;
+        }
+
+        #bike-tail2 {
+            background-color: #000;
+        }
+
+        #bike-head2 {
+            background-color: #e15613;
+            background-position: -241px 0;
+        }
+
+        .picker-wrapper {
+            display: inline-block;
+            text-align: left;
+            margin: 0 18px;
+        }
+
+    </style>
+    <script>
+        function select(e) {
+            $("#bike-" + this.element.attr("id")).css("background-color", e.value);
+        }
+
+        $("#tail2").kendoFlatColorPicker({
+            preview: false,
+            value: "#000",
+            change: select,
+            view: "palette",
+            views: ["gradient", "palette"]
+        });
+
+        $("#head2").kendoFlatColorPicker({
+            buttons: true,
+            value: "#e15613",
+            change: select,
+            view: "gradient",
+            views: ["gradient", "palette"]
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center  hidden-on-narrow wide">
+        <div class="column k-d-flex k-flex-col">
+            <label for="rgb">Choose Your Color | RGB</label>
+            <div id="rgb3"> </div>
+        </div>
+        <div class="column k-d-flex k-flex-col">
+            <label for="hex">Choose Your Color | HEX</label>
+            <div id="hex3"> </div>
+        </div>
+    </div>
+
+    <script>
+
+        $("#rgb3").kendoFlatColorPicker({
+            buttons:true,
+            value: "#ff0000",
+            format: "rgb",
+            formats:["rgb","hex"]
+        });
+        $("#hex3").kendoFlatColorPicker({
+            buttons:true,
+            value: "#fff700",
+            format: "hex",
+            formats: ["rgb", "hex"]
+        });
+    </script>
+
+    <style>
+		.k-d-flex {
+			margin-top: 54px;
+		}
+
+        .column {
+            margin:auto;
+            text-align: center;
+        }
+    </style>
+
+    <div class="k-d-flex hidden-on-narrow wide" style="margin-top: 54px;">
+        <div class="column">
+            <label style="display: block;" for="foreground-picker">Foreground Color</label>
+            <div id="foreground-picker4"></div>
+        </div>
+        <div class="column">
+            <div id="background4">Text for Contrast Tool Demo</div>
+        </div>
+        <div class="column" style="margin-top:0px;">
+            <label style="display: block;" for="background-picker">Background Color</label>
+            <div id="background-picker4"></div>
+        </div>
+
+    </div>
+
+    <script>
+        var foregroundColor = $('.k-body').css("color");
+        var backgroundColor = $('.k-body').css("background-color");
+        $("#foreground-picker4").kendoFlatColorPicker({
+            opacity: true,
+            value: foregroundColor,
+            contrastTool: {
+                backgroundColor: backgroundColor
+            },
+            change: function (e) {
+                $("#background4").css("color", e.value);
+            }
+        });
+        $("#background-picker4").kendoFlatColorPicker({
+            opacity: true,
+            value: backgroundColor,
+            input: false,
+            views: ["gradient"],
+            change: function (e) {
+                var foregroundPicker = $("#foreground-picker4").data("kendoFlatColorPicker")
+                $("#background4").css("background-color", e.value);
+                foregroundPicker.setBackgroundColor(e.value)
+            }
+        });
+    </script>
+
+    <style>
+        #background4 {
+            border-radius: 20px;
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .column {
+            margin: auto;
+            text-align: center;
+        }
+
+        .k-colorpicker {
+            vertical-align: top;
+            margin: 20px 0;
+        }
+    </style>
+
+    <div style="padding-top: 54px;">
+	    <label style="text-align: center; display: block">ColorGradient</label>
+
+        <div style="text-align: center;">
+            <div id="colorFlatPicker5" style="margin:auto;"></div>
+        </div>
+    </div>
+
+    <script>
+        $("#colorFlatPicker5").kendoFlatColorPicker({
+            opacity: true
+        });
+
+        $(document).on("keydown.examples", function (e) {
+            if (e.altKey && e.keyCode === 87 /* w */) {
+                $("#colorFlatPicker5").data("kendoFlatColorPicker").focus();
+            }
+        });
+    </script>
+    <style>
+        .k-colorgradient-input-label{
+            text-align:initial;
+        }
+    </style>
+
+    <div style="text-align:center; margin-top: 54px;">
+        <div id="flatColorPicker6" value="#00f"></div>
+        <script>
+            var flatColorPicker = $("#flatColorPicker6").kendoFlatColorPicker().data("kendoFlatColorPicker");
+
+            flatColorPicker.bind({
+                change: function (e) {
+                    kendoConsole.log("Change in picker #" + this.element.attr("id") + " :: " + e.value);
+                }
+            });
+        </script>
+    </div>
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Values</h4>
+            <ul class="options">
+                <li>
+                    <input id="value" value="#ff0000" style="width: 100px; margin: 0;" />
+                    <button id="set">Set value</button>
+                </li>
+                <li><button id="get">Get value</button></li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>State control</h4>
+            <ul class="options">
+                <li>
+                    <button id="enable">Enable</button>
+                    <button id="focus">Focus</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="text-align:center; margin-top: 54px;">
+        <div id="flatcolorpicker7" value="#00f"></div>
+    </div>
+    <script>
+        var isEnabled = true;
+        var flatcolorpicker = $("#flatcolorpicker7").kendoFlatColorPicker({
+            value: "#ed1c24",
+            input: true,
+            opacity: true
+        }).data("kendoFlatColorPicker");
+
+        $("#enable").click(function () {
+            flatcolorpicker.enable(!isEnabled);
+            isEnabled = !isEnabled;
+        });
+        $("#focus").click(function () {
+            flatcolorpicker.focus();
+        });
+        $("#get").click(function () {
+            alert(flatcolorpicker.value());
+        });
+
+        $("#set").click(function () {
+            var color = $("#value").val();
+            try {
+                color = kendo.parseColor(color);
+                flatcolorpicker.value(color);
+            } catch (ex) {
+                alert('Cannot parse color: "' + color + '"');
+            }
+        });
+    </script>
+    <style>
+
+        .configurator button {
+            min-width: 80px;
+        }
+    </style>
+
+    <div id="demo" style="text-align:center; margin-top: 54px;">
+        <label style="display: block;">Choose a color and click Apply</label>
+        <div data-role="flatcolorpicker" style="margin:auto;"
+             data-buttons="true"
+             data-opacity="true"
+             data-views="['gradient']"
+             data-format="rgb"
+             data-formats="['rgb']"
+             data-bind="enabled: isEnabled,
+                              value: selectedColor,
+                              events: { change: onChange }">
+        </div>
+    </div>
+    
+    <script>
+        var viewModel = kendo.observable({
+            selectedColor: null,
+            isVisible: true,
+            isEnabled: true,
+            onChange: function () {
+                kendoConsole.log("event :: change (" + this.get("selectedColor") + ")");
+            }
+        });
+        kendo.bind($("#demo"), viewModel);
+    </script>
+
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+    
+</body>

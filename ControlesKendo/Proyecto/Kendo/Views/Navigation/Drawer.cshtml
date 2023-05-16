@@ -1,0 +1,743 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/drawer/index">
+     <base href="https://demos.telerik.com/kendo-ui/drawer/api">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+
+
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+
+
+
+</head>
+<body>
+    <div id="example">
+        <div class="demo-section wide">
+            <div id="toolbar"></div>
+            <div id="drawer">
+                <div id="drawer-content">
+                    <div id="Inbox">
+                        <ul class="inboxList">
+                            <li>
+                                <h6>Monday meeting</h6>
+                                <p>Hi Tom, Since Monday I'll be out of office, I'm rescheduling the meeting for Tuesday.</p>
+                            </li>
+                            <li>
+                                <h6>I'm sorry, Tom</h6>
+                                <p>Hi Tom, my aunt comes for a visit this Saturday, so I can't come back to St. Pete...</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="Notifications" class="hidden">
+                        <ul>
+                            <li>Monday meeting</li>
+                            <li>Regarding org chart changes</li>
+                            <li>Meeting with Cliff</li>
+                            <li>Global Marketing Meeting</li>
+                            <li>Out tonight with collegues?</li>
+                        </ul>
+                    </div>
+                    <div id="Calendar" class="hidden">
+                        <ul>
+                            <li>
+                                <h6>11/5 Monday</h6>
+                                <p>Martha Birthday</p>
+                            </li>
+                            <li>
+                                <h6>15/6 Sunday</h6>
+                                <p>Job interview for internal position</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="Attachments" class="hidden">
+                        <ul>
+                            <li>Build enterprise apps</li>
+                            <li>Fw: Regarding Multiline textbox</li>
+                            <li>Away next week</li>
+                            <li>Fw: Your Costume is ready</li>
+                            <li>Update completed</li>
+                        </ul>
+                    </div>
+                    <div id="Favourites" class="hidden">
+                        <ul>
+                            <li>90% Discount!</li>
+                            <li>90% Discount!</li>
+                            <li>One time offer!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#drawer").kendoDrawer({
+                    template: "<ul> \
+                                        <li data-role='drawer-item' class='k-selected'><span class='k-icon k-i-inbox'></span><span class='k-item-text' data-id='Inbox'>Inbox</span></li> \
+                                        <li data-role='drawer-separator'></li> \
+                                        <li data-role='drawer-item'><span class='k-icon k-i-notification k-i-bell'></span><span class='k-item-text' data-id='Notifications'>Notifications</span></li> \
+                                        <li data-role='drawer-item'><span class='k-icon k-i-calendar'></span><span class='k-item-text' data-id='Calendar'>Calendar</span></li> \
+                                        <li data-role='drawer-separator'></li> \
+                                        <li data-role='drawer-item'><span class='k-icon k-i-hyperlink-email'></span><span class='k-item-text' data-id='Attachments'>Attachments</span></li> \
+                                        <li data-role='drawer-item'><span class='k-icon k-i-star-outline k-i-bookmark-outline'></span><span class='k-item-text' data-id='Favourites'>Favourites</span></li> \
+                                      </ul>",
+                    mode: "push",
+                    mini: true,
+                    itemClick: function (e) {
+                        if (!e.item.hasClass("k-drawer-separator")) {
+                            e.sender.drawerContainer.find("#drawer-content > div").addClass("hidden");
+                            e.sender.drawerContainer.find("#drawer-content").find("#" + e.item.find(".k-item-text").attr("data-id")).removeClass("hidden");
+                        }
+                    },
+                    position: 'left',
+                    minHeight: 330,
+                    swipeToOpen: true
+                });
+            });
+
+            function toggleDrawer() {
+                var drawerInstance = $("#drawer").data().kendoDrawer;
+                var drawerContainer = drawerInstance.drawerContainer;
+
+                if (drawerContainer.hasClass("k-drawer-expanded")) {
+                    drawerInstance.hide();
+                } else {
+                    drawerInstance.show();
+                }
+            }
+
+            $("#toolbar").kendoToolBar({
+                items: [
+                    { type: "button", icon: "menu", attributes: { "class": "k-flat" }, click: toggleDrawer },
+                    { template: "<h3 style='margin-left: 20px;'>Mail Box</h3>" }
+                ]
+            });
+        </script>
+        <style>
+            #drawer-content li {
+                font-size: 1.2em;
+                padding-left: .89em;
+                background: 0 0;
+                border-radius: 0;
+                border-width: 0 0 1px;
+                border-color: rgba(33, 37, 41, 0.125);
+                border-style: solid;
+                line-height: 1.5em;
+                padding: 1.09em .84em 1.23em .84em;
+            }
+
+                #drawer-content li:last-child {
+                    border: 0;
+                }
+
+            .hidden {
+                display: none;
+            }
+
+            #example .demo-section {
+                max-width: 640px;
+            }
+
+            .k-toolbar .k-icon {
+                font-size: 18px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <div id="toolbar2"></div>
+            <div id="drawer2">
+                <div id="drawer-content2">
+                    <div id="Paris">
+                        <span class="rainy ">&nbsp;</span>
+                        <div class="weather">
+                            <h2>17<span>&ordm;C</span></h2>
+                            <p>Rainy weather in Paris.</p>
+                        </div>
+                    </div>
+                    <div class="hide">
+                        <span class="sunny">&nbsp;</span>
+                        <div class="weather">
+                            <h2>29<span>&ordm;C</span></h2>
+                            <p>Sunny weather in Madrid.</p>
+                        </div>
+                    </div>
+                    <div class="hide">
+                        <span class="sunny">&nbsp;</span>
+                        <div class="weather">
+                            <h2>21<span>&ordm;C</span></h2>
+                            <p>Sunny weather in Rome.</p>
+                        </div>
+                    </div>
+                    <div class="hide">
+                        <span class="cloudy">&nbsp;</span>
+                        <div class="weather">
+                            <h2>16<span>&ordm;C</span></h2>
+                            <p>Cloudy weather in Berlin.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#drawer2").kendoDrawer({
+                    template: "<ul> \
+                                            <li data-role='drawer-item' class='k-selected'><span class='k-icon flag france-flag'></span><span class='k-item-text'>Paris</span></li> \
+                                            <li data-role='drawer-item'><span class='k-icon flag spain-flag'></span><span class='k-item-text'>Madrid</span></li> \
+                                            <li data-role='drawer-item'><span class='k-icon flag italy-flag'></span><span class='k-item-text'>Rome</span></li> \
+                                            <li data-role='drawer-item'><span class='k-icon flag germany-flag'></span><span class='k-item-text'>Berlin</span></li> \
+                                          </ul>",
+                    mode: "push",
+                    mini: true,
+                    position: 'left',
+                    itemClick: function (e) {
+                        $("#drawer-content2 > div").addClass("hide");
+                        $("#drawer-content2 > div").eq(e.item.index()).removeClass("hide");
+                    },
+                    minHeight: 330,
+                    swipeToOpen: true
+                });
+
+                function toggleDrawer() {
+                    var drawerInstance = $("#drawer2").data().kendoDrawer;
+                    var drawerContainer = drawerInstance.drawerContainer;
+
+                    if (drawerContainer.hasClass("k-drawer-expanded")) {
+                        drawerInstance.hide();
+                    } else {
+                        drawerInstance.show();
+                    }
+                }
+
+                $("#toolbar2").kendoToolBar({
+                    items: [
+                        { type: "button", icon: "menu", attributes: { "class": "k-flat" }, click: toggleDrawer },
+                        { template: "<h3 style='margin-left: 20px;'>Weather Forecast in Europe</h3>" }
+                    ]
+                });
+            });
+        </script>
+        <style>
+            .sunny, .cloudy, .rainy {
+                display: block;
+                margin: 30px auto 10px;
+                width: 128px;
+                height: 128px;
+                background: url('../content/web/tabstrip/weather.png') transparent no-repeat 0 0;
+            }
+
+            .flag {
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-color: transparent;
+            }
+
+            .france-flag {
+                background-image: url('../content/web/drawer/france-flag.png');
+            }
+
+            .spain-flag {
+                background-image: url('../content/web/drawer/spain-flag.png');
+            }
+
+            .italy-flag {
+                background-image: url('../content/web/drawer/italy-flag.png');
+            }
+
+            .germany-flag {
+                background-image: url('../content/web/drawer/germany-flag.png');
+            }
+
+            .cloudy {
+                background-position: -128px 0;
+            }
+
+            .rainy {
+                background-position: -256px 0;
+            }
+
+            .weather {
+                margin: 0 auto 30px;
+                text-align: center;
+            }
+
+            .hide {
+                display: none;
+            }
+
+            .k-drawer-content {
+                padding: 1em;
+            }
+
+            #example .demo-section {
+                max-width: 640px;
+            }
+
+            .k-toolbar .k-icon {
+                font-size: 18px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <div id="drawer3">
+                <div id="drawer-content3">
+                    <div id="About" class="hidden">
+                        <h4 class="header">Kendo UI</h4>
+                        <h6>
+                            Kendo UI is a comprehensive HTML5 user interface framework for building interactive and high-performance websites and applications.
+                            It comes with a library of 70+ UI widgets, an abundance of data-visualization gadgets, client-side data source, and a built-in MVVM (Model-View-ViewModel) library.
+                        </h6>
+                        <h6>
+                            Kendo UI for jQuery provides AngularJS and Bootstrap integration and is also distributed as part of several product units that you can choose from depending on your project requirements.
+                            The suite includes widgets for enterprise-grade line-of-business applications and is suitable for creating professional websites that require expert and timely technical support.
+                        </h6>
+                    </div>
+
+                    <div id="All" class="hidden">
+                        <h4 class="header">
+                            <div class="kendoka"></div>
+                            Check all available components of Kendo UI for JQuery at the following
+                            <a href="https://demos.telerik.com/kendo-ui/">Demos</a>
+                            article.
+                        </h4>
+                    </div> 
+                    <div id="Angular" class="accordion-header hidden">
+                        <h6>
+                            Kendo UI allows to quickly build stunning and high-performance responsive web applications
+                        </h6>
+                    </div>
+
+                    <div id="GettingStarted" class="hidden">
+                        <h4 class="header">A Complete UI Toolkit for Web Development</h4>
+                        <h6>
+                            <strong>Progress&reg; Kendo UI&reg;</strong> delivers everything you need to build a modern web application under tight deadlines,
+                            with out-of-the-box features and functions that can speed your development time by 50 percent:
+                        </h6>
+                        <ul>
+                            <li>Flexible - Use your preferred framework, including jQuery, AngularJS/Angular, React, and Vue.js.</li>
+                            <li>
+                                Versatile - Leverage more than 200 customizable UI components spread across the various libraries to create
+                                eye-catching, data-rich desktop, tablet, and mobile web apps.
+                            </li>
+                            <li>
+                                Powerful - Accelerate development time with responsive layout, powerful data-binding, cross-browser compatibility and
+                                ready-to-use themes.
+                            </li>
+                            <li>
+                                Supported -Get started fast with easy integration backed by comprehensive documentation, flexible support options,
+                                hands-on training courses and a large developer community.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="Kendo" class="hidden">
+                        <h4 class="header">Build Better Javascript Apps Faster</h4>
+                        <h6>
+                            The ultimate collection of JavaScript UI components with libraries for jQuery, Angular, React, and Vue. Quickly build
+                            eye-catching, high-performance, responsive web applications, regardless of your JavaScript framework choice.
+                        </h6>
+                        <ul>
+                            <li>Decreases time-to-market</li>
+                            <li>Provides advanced UI features</li>
+                            <li>Supports popular frameworks</li>
+                            <li>Reduces design risk</li>
+                        </ul>
+                        <a href="https://www.telerik.com/kendo-ui">Click here for more information</a>
+                    </div>
+
+                    <div id="ThemeSupport" class="hidden">
+                        <h4 class="header">Kendo UI provides themes that you can use to style your application.</h4>
+                        <h6>Currently, the Kendo ships the following themes:</h6>
+                        <ul>
+                            <li>Kendo UI Default theme</li>
+                            <li>Kendo UI Bootstrap theme</li>
+                            <li>Kendo UI Material theme</li>
+                        </ul>
+                        <h6>
+                            The Kendo UI <strong>Theme Builder</strong> is a web application which enables you to create new or customize existing
+                            themes.
+                        </h6>
+                        <h6>
+                            The Theme Builder renders the same look and feel as all other components in the suite and delivers full control over their
+                            visual elements.
+                        </h6>
+                        <a href="https://themebuilder.telerik.com">Play with the Theme Builder</a>
+                    </div>
+
+                    <div id="Overview">
+                        <h4 class="header">Spend your time developing core functionality, not UI components</h4>
+                        <h6>
+                            Build your next application, or augment an existing one, with easy-to-use Kendo UI components designed with performance and
+                            rich user experience in mind.
+                        </h6>
+                        <h6>
+                            Easily add advanced UI components into your existing designs or take advantage of our comprehensive library in new design
+                            starts. Kendo UI lets you save time by integrating components to handle all the key functionality you need in a UI, letting
+                            you focus your development efforts on your proprietary features.
+                        </h6>
+                    </div>
+
+                    <div id="Popular" class="hidden">
+                        <h4 class="header">Most Popular Widgets</h4>
+                        <ul>
+                            <li>Grid</li>
+                            <li>Charts</li>
+                            <li>Dropdowns</li>
+                            <li>Inputs</li>
+                            <li>Themes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#drawer3").kendoDrawer({
+                template: "<ul> \
+                                    <li data-role='drawer-item'><span class='k-icon k-i-information'></span><span class='k-item-text' data-id='GettingStarted'>Getting Started</span><span class='k-spacer'></span><span class='k-icon k-i-arrow-chevron-right'></span></li> \
+                                    <li data-role='drawer-separator'></li> \
+                                    <li data-role='drawer-item' class='hidden'><span class='k-icon k-i-none'></span><span class='k-icon k-i-question'></span><span class='k-item-text' data-id='Kendo'>About Kendo UI</span></li> \
+                                    <li data-role='drawer-item' class='hidden'><span class='k-icon k-i-none'></span><span class='k-icon k-i-palette'></span><span class='k-item-text' data-id='ThemeSupport'>Supported Themes</span></li> \
+                                    <li data-role='drawer-separator'></li> \
+                                    <li data-role='drawer-item' class='k-selected'><span class='k-icon k-i-zoom'></span><span class='k-item-text' data-id='Overview'>Overview</span><span class='k-spacer'></span><span class='k-icon k-i-arrow-chevron-down'></li> \
+                                    <li data-role='drawer-item'><span class='k-icon k-i-none'></span><span class='k-icon k-i-js'></span><span class='k-item-text' data-id='About'>About Kendo</span></li> \
+                                    <li data-role='drawer-item'><span class='k-icon k-i-none'></span><span class='k-icon k-i-style-builder'></span><span class='k-item-text' data-id='All'>All Kendo Components</span></li> \
+                                    <li data-role='drawer-separator'></li> \
+                                    <li data-role='drawer-item'><span class='k-icon k-i-star'></span><span class='k-item-text' data-id='Popular'>Most popular components</span></li> \
+                                  </ul>",
+                mode: "push",
+                itemClick: function (e) {
+                    if (!e.item.hasClass("k-drawer-separator")) {
+                        var drawerContainer = e.sender.drawerContainer;
+                        var expandIcon = e.item.find("span.k-i-arrow-chevron-right");
+                        var collapseIcon = e.item.find("span.k-i-arrow-chevron-down");
+                        drawerContainer.find("#drawer-content3 > div").addClass("hidden");
+                        drawerContainer.find("#drawer-content3").find("#" + e.item.find(".k-item-text").attr("data-id")).removeClass("hidden");
+
+                        if (expandIcon.length) {
+                            e.item.nextAll(".k-drawer-item:not(.k-drawer-separator):lt(2)").removeClass("hidden");
+                            expandIcon.removeClass("k-i-arrow-chevron-right").addClass("k-i-arrow-chevron-down");
+                        }
+
+                        if (collapseIcon.length) {
+                            e.item.nextAll(".k-drawer-item:not(.k-drawer-separator):lt(2)").addClass("hidden");
+                            collapseIcon.addClass("k-i-arrow-chevron-right").removeClass("k-i-arrow-chevron-down");
+                        }
+                    }
+                },
+                autoCollapse: false,
+                position: 'left',
+                minHeight: 330,
+                swipeToOpen: true
+            });
+
+            var drawerInstance = $("#drawer3").data().kendoDrawer;
+            drawerInstance.show();
+        });
+    </script>
+    <style>
+        #drawer-content li {
+            font-size: 1.2em;
+            padding-left: .89em;
+            background: 0 0;
+            border-radius: 0;
+            border-width: 0 0 1px;
+            border-color: rgba(33, 37, 41, 0.125);
+            line-height: 1.5em;
+            padding: 0em 0.4em 0.7em .84em
+        }
+
+            #drawer-content li:last-child {
+                border: 0;
+            }
+
+        .hidden {
+            display: none;
+        }
+
+        #demo-runner #example div.demo-section {
+            max-width: 800px;
+        }
+
+        .k-toolbar .k-icon {
+            font-size: 18px;
+        }
+
+        #drawer-content ul {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        h6 {
+            font-size: 1rem;
+            margin-bottom: .5rem;
+            font-family: inherit;
+            font-weight: 500;
+            line-height: 1.2;
+            color: inherit;
+        }
+
+        .k-drawer-content {
+            padding: 15px;
+        }
+
+        .kendoka {
+            margin: 0 auto;
+            width: 300px;
+            height: 300px;
+            background-size: cover;
+            background-image: url('https://demos.telerik.com/kendo-ui/content/shared/images/site/kendoka-cta.svg');
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-left: 8px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+    
+    <div id="example">
+        <div class="demo-section">
+            <div class="box">
+                <div class="box-col">
+                    <h4>Position</h4>
+                    <ul class="fieldlist">
+                        <li>
+                            <input type="radio" name="position" id="left" checked="checked">
+                            <label for="left">Left</label>
+                            <input type="radio" name="position" id="right">
+                            <label for="right">Right</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-col">
+                    <h4>Mode</h4>
+                    <ul class="fieldlist">
+                        <li>
+                            <input type="radio" name="mode" id="overlay" checked="checked">
+                            <label for="overlay">Overlay</label>
+                            <input type="radio" name="mode" id="push">
+                            <label for="push">Push</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-col">
+                    <h4>Show / Hide</h4>
+                    <ul class="fieldlist">
+                        <li>
+                            <button id="show">Show</button>
+                            <button id="hide">Hide</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="overlay-drawer4">
+            </div>
+            <div id="push-drawer4">
+                <div style="height: 200px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error accusantium odit, optio nulla maiores quo neque fugit debitis dignissimos incidunt maxime? Eum voluptatem blanditiis voluptatum praesentium dolorem, dolore placeat debitis quod delectus laborum assumenda cupiditate quaerat quam fugiat deleniti suscipit necessitatibus.</div>
+            </div>
+        </div>
+            <script>
+                $(document).ready(function () {
+                   $("#overlay-drawer4").kendoDrawer({
+                        template: "<ul> \
+                                            <li data-role='drawer-item'><span class='k-item-text'>First Item</span></li> \
+                                            <li data-role='drawer-separator'></li> \
+                                            <li data-role='drawer-item'><span class='k-item-text'>Second Item</span></li> \
+                                            <li data-role='drawer-item' class='k-selected'><span class='k-item-text'>Third Item</span></li> \
+                                            <li data-role='drawer-separator'></li> \
+                                            <li data-role='drawer-item'><span class='k-item-text'>Last Item</span></li> \
+                                          </ul>",
+                        position: 'left',
+                        swipeToOpen: false
+                    }).data().kendoDrawer;
+
+                $("#push-drawer4").kendoDrawer({
+                    template: "<ul> \
+                                        <li data-role='drawer-item'><span class='k-item-text'>First Item</span></li> \
+                                        <li data-role='drawer-separator'></li> \
+                                        <li data-role='drawer-item'><span class='k-item-text'>Second Item</span></li> \
+                                        <li data-role='drawer-item' class='k-selected'><span class='k-item-text'>Third Item</span></li> \
+                                        <li data-role='drawer-separator'></li> \
+                                        <li data-role='drawer-item'><span class='k-item-text'>Last Item</span></li> \
+                                       </ul>",
+                    position: 'left',
+                    mode: "push",
+                    width: 150,
+                    swipeToOpen: false
+                }).data().kendoDrawer;
+
+                  $("[name='mode']").click(function (e) {
+                    var drawerId = $("[name='mode']:not(:checked)").attr("id") + "-drawer";
+                    var position = $("[name='position']:checked").attr("id");
+                    $("#" + drawerId).data().kendoDrawer.hide();
+                    drawerId = e.currentTarget.id + "-drawer4";
+                    $("#" + drawerId).data().kendoDrawer.position(position);
+                    $("#" + drawerId).data().kendoDrawer.show();
+                });
+
+                $("[name='position']").click(function (e) {
+                    var drawerId = $("[name='mode']:checked").attr("id") + "-drawer4";
+                    var position = e.currentTarget.id;
+                    $("#" + drawerId).data().kendoDrawer.position(position);
+
+                });
+
+                $("#show").click(function (e) {
+                    var drawerId = $("[name='mode']:checked").attr("id") + "-drawer4";
+                    var position = $("[name='position']:checked").attr("id");
+                    var drawerInstance = $("#" + drawerId).data().kendoDrawer;
+
+                    drawerInstance.position(position);
+                    drawerInstance.show();
+                });
+
+                $("#hide").click(function (e) {
+                    var drawerId = $("[name='mode']:checked").attr("id") + "-drawer4";
+                    $("#" + drawerId).data().kendoDrawer.hide();
+                });
+            });
+        </script>
+        <style>
+            .fieldlist {
+                margin: 0 0 -1em;
+                padding: 0;
+            }
+
+            .fieldlist li {
+                list-style: none;
+                padding-bottom: 1em;
+            }
+
+            #overlay-drawer {
+                border: 0;
+                z-index: 99999;
+            }
+
+            .k-drawer-content {
+                padding: 1em;
+            }
+
+            #example .demo-section {
+                max-width: 640px;
+            }
+        </style>
+            
+    </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Show / Hide</h4>
+                <ul class="options">
+                    <li>
+                        <button id="show5">Show</button>
+                        <button id="hide5">Hide</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="demo-section">
+            <div id="drawer5">
+                <div style="height: 200px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error accusantium odit, optio nulla maiores quo neque fugit debitis dignissimos incidunt maxime? Eum voluptatem blanditiis voluptatum praesentium dolorem, dolore placeat debitis quod delectus laborum assumenda cupiditate quaerat quam fugiat deleniti suscipit necessitatibus.</div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#drawer5").kendoDrawer({
+                    template: "<ul> \
+                                                <li data-role='drawer-item'><span class='k-item-text'>First Item</span></li> \
+                                                <li data-role='drawer-separator'></li> \
+                                                <li data-role='drawer-item'><span class='k-item-text'>Second Item</span></li> \
+                                                <li data-role='drawer-item' class='k-selected'><span class='k-item-text'>Third Item</span></li> \
+                                                <li data-role='drawer-separator'></li> \
+                                                <li data-role='drawer-item'><span class='k-item-text'>Last Item</span></li> \
+                                              </ul>",
+                    mode: "push",
+                    position: 'left',
+                    width: 150,
+                    swipeToOpen: false
+                });
+
+                var drawer = $("#drawer5").data("kendoDrawer");
+
+
+                $("#show5").click(function () {
+                    drawer.show();
+                });
+
+                $("#hide5").click(function () {
+                    drawer.hide();
+                });
+            });
+        </script>
+        <style>
+            #example .demo-section {
+                max-width: 640px;
+            }
+
+            .k-drawer-content {
+                padding: 1em;
+            }
+        </style>
+    </div>
+
+    <div id="example6">
+        <div class="demo-section">
+            <div id="toolbar6" data-role="toolbar" data-items='[
+            {"type": "button", 
+             "icon": "menu", 
+             attributes: {"class":"k-flat"}}
+             ]' data-bind="events: { click: toggleDrawer}">
+            </div>
+            <div id="drawer6" data-role="drawer" data-width="150" data-mode="push" data-template="<ul><li data-role='drawer-item'><span class='k-item-text'>First Item</span></li><li data-role='drawer-separator'></li><li data-role='drawer-item'><span class='k-item-text'>Second Item</span></li><li data-role='drawer-item' class='k-selected'><span class='k-item-text'>Third Item</span></li><li data-role='drawer-separator'></li><li data-role='drawer-item'><span class='k-item-text'>Last Item</span></li></ul>">
+                <div style="height:200px;">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error accusantium odit, optio nulla maiores quo neque fugit debitis dignissimos incidunt maxime? Eum voluptatem blanditiis voluptatum praesentium dolorem, dolore placeat debitis quod delectus laborum assumenda cupiditate quaerat quam fugiat deleniti suscipit necessitatibus.
+                </div>
+            </div>
+        </div>
+        <script>
+            var viewModel = kendo.observable({
+                toggleDrawer: function(){
+                    var drawerInstance = $("#drawer6").data().kendoDrawer;
+                    var drawerContainer = drawerInstance.drawerContainer;
+
+                    if(drawerContainer.hasClass("k-drawer-expanded")){
+                        drawerInstance.hide();
+                    }else{
+                        drawerInstance.show();
+                    }
+                }
+            });
+
+            kendo.bind($("#example6"), viewModel);
+        </script>
+        <style>
+
+            #example6 .demo-section {
+                max-width: 640px;
+            }
+
+            .k-drawer-content {
+                padding: 1em;
+            }
+        </style>
+    </div>
+</body>

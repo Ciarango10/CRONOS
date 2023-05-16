@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "65ecf513-9e5a-4f96-9324-c32b1fcf9dd1": {
+      "ProjectGuid": "65ecf513-9e5a-4f96-9324-c32b1fcf9dd1",
+      "DisplayName": "MiPrimeraAppNetCoreCapas6",
+      "ColorIndex": 0
+    },
+    "9f736a0f-9fa2-478c-900d-e4bba4eb2342": {
+      "ProjectGuid": "9f736a0f-9fa2-478c-900d-e4bba4eb2342",
+      "DisplayName": "CapaDatos",
+      "ColorIndex": 1
+    },
+    "59a04f84-410a-46b9-be51-e48f31d8396a": {
+      "ProjectGuid": "59a04f84-410a-46b9-be51-e48f31d8396a",
+      "DisplayName": "CapaNegocio",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

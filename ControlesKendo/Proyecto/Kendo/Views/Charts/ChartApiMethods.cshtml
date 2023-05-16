@@ -1,0 +1,66 @@
+﻿<div>
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>API Functions</h4>
+            <ul class="options">
+                <li>
+                    <input id="typeColumn" name="seriesType"
+                           type="radio" value="column" checked="checked" autocomplete="off" />
+                    <label for="typeColumn">Columns</label>
+                </li>
+                <li>
+                    <input id="typeBar" name="seriesType"
+                           type="radio" value="bar" autocomplete="off" />
+                    <label for="typeBar">Bars</label>
+                </li>
+                <li>
+                    <input id="typeLine" name="seriesType"
+                           type="radio" value="line" autocomplete="off" />
+                    <label for="typeLine">Lines</label>
+                </li>
+                <li>
+                    <input id="stack" type="checkbox" autocomplete="off" checked="checked" />
+                    <label for="stack">Stacked</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="demo-section wide">
+        <div id="chart"></div>
+    </div>
+</div>
+
+<div>
+    Export Avanzado
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Advanced Export options</h4>
+            <div class="box-col">
+                <button class='export-pdf'>Export as PDF</button>
+            </div>
+            <div class="box-col">
+                <button class='export-img'>Export as Image</button>
+            </div>
+            <div class="box-col">
+                <button class='export-svg'>Export as SVG</button>
+            </div>
+        </div>
+    </div>
+    <div class="demo-section wide">
+        <div id="chart2"></div>
+    </div>
+</div>
+
+<div class="demo-section wide">
+    Seleccion
+    <div id="chart3"></div>
+</div>
+
+@*<div>
+    <div class="demo-section wide">
+        <div id="chart2"></div>
+    </div>
+</div>*@
+<script src="~/js/chartapimethods.js"></script>

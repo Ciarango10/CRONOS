@@ -1,0 +1,15 @@
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\bin\Debug\net6.0\TiposAnonimos.exe
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\bin\Debug\net6.0\TiposAnonimos.deps.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\bin\Debug\net6.0\TiposAnonimos.runtimeconfig.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\bin\Debug\net6.0\TiposAnonimos.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\bin\Debug\net6.0\TiposAnonimos.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\obj\Debug\net6.0\TiposAnonimos.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\obj\Debug\net6.0\TiposAnonimos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\obj\Debug\net6.0\TiposAnonimos.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\obj\Debug\net6.0\TiposAnonimos.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\obj\Debug\net6.0\TiposAnonimos.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\obj\Debug\net6.0\TiposAnonimos.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\obj\Debug\net6.0\refint\TiposAnonimos.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\obj\Debug\net6.0\TiposAnonimos.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\obj\Debug\net6.0\TiposAnonimos.genruntimeconfig.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\TiposAnonimos\obj\Debug\net6.0\ref\TiposAnonimos.dll

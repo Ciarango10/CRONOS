@@ -1,0 +1,402 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/dateinput/index">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="dateinput">Enter a date</label>
+            <input id="dateinput" title="please enter date" />
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#dateinput").kendoDateInput({
+                label: "Enter a date"
+            });
+        });
+    </script>
+    
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Size</h4>
+                    <input id="size" name="size" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Fill Mode</h4>
+                    <input id="fillMode" name="fillMode" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Border Radius</h4>
+                    <input id="rounded" name="rounded" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="dateinput">Enter a date</label>
+            <input id="dateinput2" title="please enter date" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#size").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "medium",
+                change: onChange,
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "None", value: "none" }
+                ]
+            });
+
+            $("#rounded").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "medium",
+                change: onChange,
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "Full", value: "full" },
+                    { text: "None", value: "none" }
+                ]
+            });
+
+            $("#fillMode").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "solid",
+                change: onChange,
+                dataSource: [
+                    { text: "Solid", value: "solid" },
+                    { text: "Flat", value: "flat" },
+                    { text: "Outline", value: "outline" },
+                    { text: "None", value: "none" }
+                ]
+            });
+
+            function onChange(e) {
+                var dateinput = $("#dateinput2").data("kendoDateInput");
+                var size = $("#size").data("kendoDropDownList").value();
+                var rounded = $("#rounded").data("kendoDropDownList").value();
+                var fillMode = $("#fillMode").data("kendoDropDownList").value();
+
+                dateinput.setOptions({
+                    size: size,
+                    rounded: rounded,
+                    fillMode: fillMode
+                });
+            }
+
+            $("#dateinput2").kendoDateInput();
+        });
+    </script>
+
+    <style>
+        .k-picker.k-dropdownlist {
+            width: 140px;
+        }
+    </style>
+
+     <div class="k-d-flex k-justify-content-center" style="padding-top: 100px;">
+		<div class="k-w-300">
+			<input id="dateinput3" title="please enter date"/>
+		</div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#dateinput3").kendoDateInput({
+			    label: { 
+                    content: "Enter a date",
+                    floating: true
+                }
+		    });
+        });
+    </script>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Set / Get Value</h4>
+            <ul class="options">
+                <li>
+                    <input id="value" value="10/10/2000" style="float:none; width:150px" />
+                    <button id="set">Set value</button>
+                    <button id="get">Get value</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Enable / Disable</h4>
+            <ul class="options">
+                <li>
+                    <button id="enable">Enable</button>
+                    <button id="disable">Disable</button>
+                    <button id="readonly">Readonly</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="dateinput">Enter a date</label>
+            <input id="dateinput4" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#dateinput4").kendoDateInput();
+
+            var dateinput = $("#dateinput4").data("kendoDateInput");
+
+            var setValue = function () {
+                dateinput.value($("#value").data("kendoDatePicker").value());
+            };
+
+            $("#enable").click(function () {
+                dateinput.enable();
+            });
+
+            $("#disable").click(function () {
+                dateinput.enable(false);
+            });
+
+            $("#readonly").click(function () {
+                dateinput.readonly();
+            });
+
+            $("#value").kendoDatePicker();
+
+            $("#set").click(setValue);
+
+            $("#get").click(function () {
+                alert(dateinput.value());
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="dateinput">Enter a date</label>
+			<input id="dateinput6"/>
+		</div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            function onChange() {
+                kendoConsole.log("Change :: " + kendo.toString(this.value(), 'd'));
+            }
+
+            $("#dateinput6").kendoDateInput({
+                change: onChange,
+                value: new Date()
+            });
+        });
+    </script>
+
+    <div class="kd-example-console">
+        <div class="header">
+             <span class="title">CONSOLE LOG</span>
+             <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div id="demo7">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Configuration</h4>
+                <div>
+                    <label><input type="checkbox" data-bind="checked: isEnabled">Enable</label>
+                </div>
+                <div>
+                    <label><input type="checkbox" data-bind="checked: isVisible">Visible</label>
+                </div>
+            </div>
+            <div class="box-col">
+                <h4>Information</h4>
+                Kendo UI DateInput supports the
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a> and
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+            </div>
+        </div>
+        <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+            <div class="k-w-300">
+                <label for="dateinput">Enter a date</label>
+                <input data-role="dateinput"
+                       data-bind="visible: isVisible,
+				                  enabled: isEnabled,
+				                  value: selectedDate,
+				                  events: { change: onChange }">
+            </div>
+        </div>
+        <script>
+            var viewModel = kendo.observable({
+                selectedDate: null,
+                isEnabled: true,
+                isVisible: true,
+                onChange: function () {
+                    kendoConsole.log("event :: change (" + kendo.toString(this.get("selectedDate"), "D") + ")");
+                }
+            });
+            kendo.bind($("#demo7"), viewModel);
+        </script>
+    </div>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top:54px;">
+        <div class="k-w-300 k-rtl">
+            <label for="dateinput">Enter a date</label>
+            <input id="dateinput9" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#dateinput9").kendoDateInput();
+        });
+    </script>
+
+    <script src="../content/web/globalization/cultures/kendo.culture.en-US.js"></script>
+    <script src="../content/web/globalization/cultures/kendo.culture.en-GB.js"></script>
+    <script src="../content/web/globalization/cultures/kendo.culture.de-DE.js"></script>
+    <script src="../content/web/globalization/cultures/kendo.culture.fr-FR.js"></script>
+    <script src="../content/web/globalization/cultures/kendo.culture.bg-BG.js"></script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+        <ul class="fieldlist">
+            <li class="culture">
+                <label for="culture">Choose culture:</label>
+                <input id="culture" value="en-US"/>
+            </li>
+            <li class="language">
+                <label for="language">Choose language:</label>
+                <input id="language" value="en-US"/>
+            </li>
+        </ul>
+		<br>
+		<br>
+            <label for="dateinput">Enter a date</label>
+            <input id="dateinput10" style="width: 100%" />
+		</div>
+	</div>
+
+        <style>
+            .fieldlist {
+                margin: 0 0 -1em;
+                padding: 0;
+            }
+    
+            .fieldlist li {
+                list-style: none;
+                padding-bottom: 1em;
+            }
+        </style>
+
+        <script>
+            function createDateInput() {
+                var element = $("#dateinput10");
+                let heading = '<h4>Enter a date</h4>';
+
+                if (element.data("kendoDateInput")) {
+                    element.data("kendoDateInput").destroy();
+                    element.empty();
+                    element = $('<input id="dateinput10" style="width: 100%" />');
+
+                    $(heading).appendTo($("#product-view").empty());
+                    element.appendTo($("#product-view"));
+                }
+                element.kendoDateInput({
+                    format: "F" ,
+                    value:new Date()
+                });            
+            }
+
+            function changeCulture() {
+                kendo.culture(this.value());
+
+                $("#dateinput10").data("kendoDateInput").setOptions(
+                    {
+                    format: kendo.culture().calendar.patterns.F
+                    });
+            }
+            
+            function changeLanguage() {
+                kendo.ui.progress($("#dateinput10"), true);                
+                var baseUrl = '../content/web/globalization/messages/kendo.messages.';
+                $.getScript(baseUrl + this.value() + ".js", function () {
+                    kendo.ui.progress($("#dateinput10"), false);
+                    createDateInput();
+                });
+            }
+
+            $(document).ready(function() {
+                createDateInput();
+
+                $("#culture").kendoDropDownList({
+                    change: changeCulture,
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    dataSource: [
+                        {text: "bg-BG", value: "bg-BG"},
+                        {text: "de-DE", value: "de-DE"},
+                        {text: "en-US", value: "en-US"},
+                        {text: "en-GB", value: "en-GB"}
+                    ]
+                });
+
+                $("#language").kendoDropDownList({
+                    change: changeLanguage,
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    dataSource: [
+                        {text: "English", value: "en-US"},
+                        {text: "Bulgarian", value: "bg-BG"}
+                    ]
+                });
+            });
+        </script>
+</body>

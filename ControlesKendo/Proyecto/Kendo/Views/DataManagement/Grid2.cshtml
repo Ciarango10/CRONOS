@@ -1,0 +1,23 @@
+﻿<div>
+    <input id="grid" />
+
+</div>
+
+@section scripts{
+
+    <script>
+        function llenarDatos() {
+            console.log("ok");
+            $.ajax({
+                url: "../DataManagement/DatosGrid",
+                success: function (r) {
+                    console.log(r);
+                }
+            })
+        }
+        $(document).ready(function () {
+            console.log("1");
+        });
+        llenarDatos();
+    </script>
+}

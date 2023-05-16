@@ -1,0 +1,1090 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="https://demos.telerik.com/kendo-ui/floatingactionbutton/index">
+    <base href="https://demos.telerik.com/kendo-ui/floatingactionbutton/api">
+    <base href="https://demos.telerik.com/kendo-ui/floatingactionbutton/events">
+    <base href="https://demos.telerik.com/kendo-ui/floatingactionbutton/keyboard-navigation">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div id="treelist"></div>
+    <button id="fab"></button>
+
+    <script id="photo-template" type="text/x-kendo-template">
+        # var src = "../content/web/treelist/people/" + data.EmployeeId + ".jpg"#
+        # if(data.isNew() || data.EmployeeId > 100) {#
+        # src = "../content/web/Kendoka-32.png"#
+        # } #
+        <div class="k-avatar k-avatar-md k-avatar-image k-avatar-circle employee-photo">
+        <img src="#=src#"></img>
+        </div>
+        <div class="employee-name">#: FirstName #</div>
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var fab = $("#fab").kendoFloatingActionButton({
+                icon: "plus",
+                positionMode: "absolute",
+                alignOffset: {
+                    x: 50,
+                    y: 80
+                },
+                themeColor: "primary",
+                size: "medium",
+                click: addItem
+            }).data("kendoFloatingActionButton");
+
+            $("#fab").hover(function () {
+                fab.text("Add New Record");
+                fab.element.find(".k-fab-text")
+                    .stop().toggle(200);
+            }, function () {
+                fab.element.find(".k-fab-text")
+                    .stop()
+                    .toggle(200)
+                    .promise().done(function () {
+                        fab.text("");
+                    });
+            });
+
+            var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service";
+
+            var dataSource = new kendo.data.TreeListDataSource({
+                transport: {
+                    read: {
+                        url: crudServiceBaseUrl + "/EmployeeDirectory/All",
+                        dataType: "jsonp"
+                    },
+                    update: {
+                        url: crudServiceBaseUrl + "/EmployeeDirectory/Update",
+                        dataType: "jsonp"
+                    },
+                    destroy: {
+                        url: crudServiceBaseUrl + "/EmployeeDirectory/Destroy",
+                        dataType: "jsonp"
+                    },
+                    create: {
+                        url: crudServiceBaseUrl + "/EmployeeDirectory/Create",
+                        dataType: "jsonp"
+                    },
+                    parameterMap: function (options, operation) {
+                        if (operation !== "read" && options.models) {
+                            return { models: kendo.stringify(options.models) };
+                        }
+                    }
+                },
+                batch: true,
+                schema: {
+                    model: {
+                        id: "EmployeeId",
+                        parentId: "ReportsTo",
+                        fields: {
+                            EmployeeId: { type: "number", editable: false, nullable: false },
+                            ReportsTo: { nullable: true, type: "number" },
+                            FirstName: { validation: { required: true } },
+                            LastName: { validation: { required: true } },
+                            HireDate: { type: "date" },
+                            Phone: { type: "string" },
+                            HireDate: { type: "date" },
+                            BirthDate: { type: "date" },
+                            Extension: { type: "number", validation: { min: 0, required: true } },
+                            Position: { type: "string" }
+                        },
+                        expanded: true
+                    }
+                },
+                pageSize: 15
+            });
+
+            $("#treelist").kendoTreeList({
+                dataSource: dataSource,
+                editable: "popup",
+                height: 500,
+                columns: [
+                    {
+                        field: "FirstName", title: "First Name", width: 280,
+                        template: $("#photo-template").html()
+                    },
+                    { field: "LastName", title: "Last Name", width: 160 },
+                    { field: "Position" },
+                    { field: "HireDate", title: "Date Hired", format: "{0:dd/MM/yyyy}" },
+                    { field: "Phone", width: 200 },
+                ],
+                pageable: {
+                    pageSize: 20,
+                    pageSizes: true
+                }
+            });
+        });
+
+        function addItem() {
+            var treeList = $("#treelist").getKendoTreeList();
+            treeList.addRow();
+        }
+    </script>
+
+    <style>
+        .k-fab-text {
+            display: none;
+        }
+
+        .employee-photo {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-size: 32px 35px;
+            background-position: center center;
+            vertical-align: middle;
+            line-height: 32px;
+            box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+            margin-left: 5px;
+        }
+
+        .employee-name {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 32px;
+            padding-left: 3px;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-around">
+        <div class="k-card k-card-vertical">
+            <img src="https://demos.telerik.com/kendo-ui/content/shared/images/photos/4.jpg" class="k-card-media" />
+            <div class="k-card-body">
+                <button id="fab-text"></button>
+                <h2 class="k-card-title">Summer Mix 2020</h2>
+                <p class="k-card-subtitle">DJ Peril</p>
+            </div>
+        </div>
+
+        <div class="notes-wrap">
+            <h2>Notes: </h2>
+            <textarea id="notes" style="width: 100%"></textarea>
+            <div id="notes-overlay" class="k-overlay"></div>
+            <button id="fab-speed-dial"></button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#fab-text").kendoFloatingActionButton({
+                text: "Add to Queue",
+                positionMode: "absolute",
+                align: "top end",
+                alignOffset: {
+                    y: 237
+                },
+                click: function (ev) {
+                    kendo.alert("Added to Queue");
+                }
+            });
+
+            $("#fab-speed-dial").kendoFloatingActionButton({
+                icon: "cog",
+                positionMode: "absolute",
+                items: [{
+                    label: "Save",
+                    icon: "save",
+                    click: function(ev){
+                        kendo.alert("Save clicked");
+                    }
+                }, {
+                    label: "Share",
+                    icon: "share",
+                    click: function(ev){
+                        kendo.alert("Share Clicked");
+                    }
+                }],
+                expand: function(ev) {
+                    toggleNotesOverlay(true);
+                    ev.sender.icon("close");
+                },
+                collapse: function(ev) {
+                    toggleNotesOverlay(true);
+                    ev.sender.icon("share");
+                }
+            });
+
+            $("#notes").kendoTextArea({
+                rows: 6,
+                value: "DevReach 2019 Day 2 Morning Keynote: 'Technical Leadership: Lessons Learned at NASA'"
+            });
+        });
+
+        function toggleNotesOverlay(visible) {
+            var overlay = $("notes-overlay");
+
+            overlay.toggle(visible);
+        }
+    </script>
+
+    <style>
+        .k-fab {
+            z-index: 10002;
+        }
+
+        .k-card {
+            width: 350px;
+            height: auto;
+            position: relative;
+        }
+
+        .k-card-image, .k-card-media {
+            flex-shrink: 0;
+        }
+
+        #notes-overlay {
+            display: none;
+            position: absolute;
+        }
+
+        .notes-wrap {
+            width: 350px;
+            padding: 50px 20px 50px 20px;
+            border: 1px solid #dedede;
+            position: relative;
+        }
+
+        .notes-wrap > h2 {
+            font-size: 18px;
+            color: #656565;
+        }
+    </style>
+
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Alignment Settings relative to the container</h4>
+                <input id="alignment" name="layout" style="width:300px;" />
+            </div>
+            <div class="box-col">
+                <h4>Position Settings</h4>
+                <input id="position" name="layout" />
+            </div>
+            <div class="box-col">
+                <h4>Alignment Offset Settings</h4>
+                <ul class="options">
+                    <li>
+                        <label for="offsetX">Offset X</label>
+                        <input id="offsetX" type="number" title="numeric" value="50" max="100" step="10" />
+                    </li>
+
+                    <li>
+                        <label for="offsetY">Offset Y</label>
+                        <input id="offsetY" type="number" title="numeric" value="50" max="100" step="10" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="demo-section wide" style="height:300px; position:relative;">
+            <button id="fab2"></button>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                // Configurator
+                $("#offsetX").kendoNumericTextBox({
+                    change: onChange
+                });
+                $("#offsetY").kendoNumericTextBox({
+                    change: onChange
+                });
+                $("#alignment").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    autoWidth: true,
+                    dataSource: [
+                        { value: "top start", text: "top left" },
+                        { value: "top center", text: "top center" },
+                        { value: "top end", text: "top right" },
+                        { value: "middle start", text: "middle left" },
+                        { value: "middle end", text: "middle right" },
+                        { value: "bottom start", text: "bottom left" },
+                        { value: "bottom center", text: "bottom center" },
+                        { value: "bottom end", text: "bottom right" }
+                    ],
+                    change: onChange
+                });
+
+                $("#position").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    autoWidth: true,
+                    dataSource: [
+                        { value: "absolute", text: "absolute" },
+                        { value: "fixed", text: "fixed" }
+                    ],
+                    change: onChange
+                });
+
+                function getConfiguratorOptions() {
+                    var alignment = $("#alignment").data("kendoDropDownList").dataItem(),
+                        position = $("#position").data("kendoDropDownList").dataItem(),
+                        offsetX = $("#offsetX").data("kendoNumericTextBox").value(),
+                        offsetY = $("#offsetY").data("kendoNumericTextBox").value();
+
+                    return {
+                        positionMode: position.value,
+                        alignment: alignment.value,
+                        alignOffsetX: offsetX,
+                        alignOffsetY: offsetY
+                    }
+                }
+
+                function onChange(ev) {
+                    var fab = $("#fab2").getKendoFloatingActionButton(),
+                        options = getConfiguratorOptions();
+
+                    ev.preventDefault();
+
+                    fab.setOptions({
+                        positionMode: options.positionMode,
+                        align: options.alignment,
+                        alignOffset: {
+                            x: options.alignOffsetX,
+                            y: options.alignOffsetY
+                        },
+                    });
+                };
+
+                // FAB
+                var initFloatingActionButton = function () {
+                    var options = getConfiguratorOptions();
+
+                    $("#fab2").kendoFloatingActionButton({
+                        icon: "share",
+                        positionMode: options.positionMode,
+                        align: options.alignment,
+                        alignOffset: {
+                            x: options.alignOffsetX,
+                            y: options.alignOffsetY
+                        },
+                        themeColor: "primary",
+                        size: "medium",
+                        items: [{
+                            label: "Download",
+                            icon: "download",
+                            click: function () {
+                                kendo.alert("download action");
+                            }
+                        }, {
+                            label: "Print",
+                            icon: "print",
+                            click: function () {
+                                kendo.alert("print action");
+                            },
+                        }, {
+                            label: "Email",
+                            icon: "email",
+                            click: function () {
+                                kendo.alert("email action");
+                            }
+                        }]
+                    });
+                };
+
+                initFloatingActionButton();
+            });
+        </script>
+
+        <style>
+            .k-fab.k-pos-fixed {
+                z-index: 999999;
+            }
+        </style>
+
+        <div id="example">
+            <div class="demo-section wide">
+                <div id="page-overlay" class="k-overlay"></div>
+                <textarea id="editor" rows="10" cols="30" style="width:100%; height:550px" aria-label="editor">
+                &lt;br /&gt;
+                &lt;p style="text-align:center;"&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:large;"&gt;&lt;strong&gt;One of the Most Beautiful Islands on Earth - Tenerife&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p&gt;
+                    &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Overview&lt;/strong&gt;
+                    &lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p style="font-size: small;"&gt;
+                    &lt;strong&gt;Tenerife &lt;/strong&gt;is the largest and most populated island of the eight &lt;a href="https://en.wikipedia.org/wiki/Canary_Islands" target="_blank"&gt;Canary Islands&lt;/a&gt;. It is also the most populated island of &lt;strong&gt;Spain&lt;/strong&gt;, with a land area of 2,034.38 square kilometers (785 sq mi) and 904,713 inhabitants, 43% of the total population of the &lt;strong&gt;Canary Islands&lt;/strong&gt;.&amp;nbsp;The archipelago's beaches, climate, and important natural attractions make it a major tourist destination with over 12 million visitors per year.
+                &lt;/p&gt;
+                &lt;br /&gt;
+                &lt;img src="../content/web/editor/tenerife.png" style="float: right;" alt="" width="350" height="206" /&gt;
+
+                &lt;p&gt;&lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;
+                    &lt;strong&gt;Trip Highlights in Tenerife&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;span style="white-space:pre;"&gt;&lt;/span&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;
+                            &lt;strong style="color: rgb(0,80,5);"&gt;Trip to Loro Parque &lt;/strong&gt; &lt;br /&gt; Our top tip is to visit the famous &lt;em&gt;Loro Parque&lt;/em&gt; or 'Loro Park. It is a 13.5-hectare zoo on the outskirts of Puerto de la Cruz in Tenerife, Spain where it houses an extensive and diverse reserve of animal and plant species.
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(46,125,50);"&gt;Whale and Dolphin Watching Tour&amp;nbsp;&lt;br /&gt;&lt;/span&gt;&lt;/strong&gt; Another great option is to take boat excursion with almost guaranteed sightings of whales and dolphins. This is a day-long trip that includes lunch, island visits, fishing, and amazing views of ocean sceneries.
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;strong&gt;&lt;span style="color: rgb(96,173,94);"&gt;Teide National Park Stargazing&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;Last, but not least you can take a stargazing trip to Teide National Park, the 3rd best place in the world to view stars and described by NASA as a window to the universe.
+                            &lt;br /&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;br /&gt;
+                &lt;p&gt;
+                        &lt;span style="font-family:Verdana, Geneva, sans-serif;font-size:medium;"&gt;&lt;strong&gt;Climate&lt;/strong&gt;&lt;/span&gt;
+                &lt;/p&gt;
+
+                &lt;table style="width:100%;height:225px;text-align:center;"&gt;
+                &lt;tbody&gt;
+                &lt;tr style="height:20%;background-color: rgb(96,173,94);"&gt;
+                    &lt;td style="width:473px;text-align:center; font-size:medium; color: rgb(255,255,255);" colspan="14"&gt;&lt;strong&gt;Climate Data for &lt;a href="https://en.wikipedia.org/wiki/Santa_Cruz_de_Tenerife" target="_blank"&gt;Santa Cruz de Tenerife&lt;/a&gt;&lt;/strong&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:9.33333%;"&gt;
+                    &lt;td style="width:230px;"&gt;
+                        &lt;span style="font-size:small; color: rgb(46,125,50);"&gt;
+                            &lt;strong&gt;Month&lt;/strong&gt;
+                        &lt;/span&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jan&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Feb&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Mar&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Apr&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;May&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jun&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Jul&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Aug&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Sep&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Oct&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Nov&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Dec&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;strong&gt;&lt;span style="color: rgb(0,80,5);"&gt;Year&lt;/span&gt;&lt;/strong&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtDaily mean &amp;deg;C (&amp;deg;F)&lt;/strong&gt&lt;/td&gt;
+                    &lt;td style=""&gt;18.2&lt;br /&gt;(64.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;18.3&lt;br /&gt;(64.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.0&lt;br /&gt;(66.2)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.7&lt;br /&gt;(67.5)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.0&lt;br /&gt;(69.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;22.9&lt;br /&gt;(73.2)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;25.0&lt;br /&gt;(77.0)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;25.5&lt;br /&gt;(77.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;24.9&lt;br /&gt;(76.8)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;23.4&lt;br /&gt;(74.1)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.3&lt;br /&gt;(70.3)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;19.4&lt;br /&gt;(66.9)&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;21.5&lt;br /&gt;(70.7)&lt;br /&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtAverage rainy days (&amp;ge; 1.0 mm)&lt;/strong&gt&lt;/td&gt;
+                    &lt;td style=""&gt;8.0&lt;/td&gt;
+                    &lt;td style=""&gt;7.2&lt;/td&gt;
+                    &lt;td style=""&gt;6.9&lt;/td&gt;
+                    &lt;td style=""&gt;5.5 &lt;/td&gt;
+                    &lt;td style=""&gt;2.9&lt;/td&gt;
+                    &lt;td style=""&gt;0.9&lt;/td&gt;
+                    &lt;td style=""&gt;0.2&lt;/td&gt;
+                    &lt;td style=""&gt;0.8 &lt;/td&gt;
+                    &lt;td style=""&gt;2.7&lt;/td&gt;
+                    &lt;td style=""&gt;6.1&lt;/td&gt;
+                    &lt;td style=""&gt;8.8&lt;/td&gt;
+                    &lt;td style=""&gt;9.4&lt;/td&gt;
+                    &lt;td style=""&gt;59.4&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr style="height:23%;"&gt;
+                    &lt;td style="width:230px; color: rgb(46,125,50);"&gt;&lt;strong&gtMean monthly &lt;a href="https://en.wikipedia.org/wiki/Sunshine_duration" target="_blank"&gt;sunshine hours&lt;/strong&gt&lt;/a&gt;&lt;br /&gt;&lt;/td&gt;
+                    &lt;td style=""&gt;178&lt;/td&gt;
+                    &lt;td style=""&gt;186&lt;/td&gt;
+                    &lt;td style=""&gt;221&lt;/td&gt;
+                    &lt;td style=""&gt;237&lt;/td&gt;
+                    &lt;td style=""&gt;282&lt;/td&gt;
+                    &lt;td style=""&gt;306&lt;/td&gt;
+                    &lt;td style=""&gt;337&lt;/td&gt;
+                    &lt;td style=""&gt;319&lt;/td&gt;
+                    &lt;td style=""&gt;253&lt;/td&gt;
+                    &lt;td style=""&gt;222&lt;/td&gt;
+                    &lt;td style=""&gt;178&lt;/td&gt;
+                    &lt;td style=""&gt;168&lt;/td&gt;
+                    &lt;td style=""&gt;2,887&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;/tbody&gt;
+                &lt;/table&gt;
+                &lt;p&gt;
+                &lt;em&gt;* The data used in this demo is taken from &lt;a href="https://wikipedia.com" target="_blank"&gt;wikipedia.com&lt;/a&gt;.&lt;/em&gt;&lt;br /&gt;
+                &lt;em&gt;** The displayed photos are sourced from &lt;a href="https://pixabay.com" target="_blank"&gt;pixabay.com&lt;/a&gt;&lt;/em&gt;
+                &lt;/p&gt;
+            </textarea>
+                <button id="fab-bottom-end" style="z-index:10001;"></button>
+            </div>
+
+            <script>
+                $(document).ready(function () {
+                    $("#editor").kendoEditor({
+                        stylesheets: [
+                            "../content/shared/styles/editor.css",
+                        ]
+                    });
+
+                    var itemTemplate = kendo.template($("#fabItemTemplate").html());
+
+                    $("#fab-bottom-end").kendoFloatingActionButton({
+                        icon: 'share',
+                        positionMode: "absolute",
+                        align: "bottom end",
+                        alignOffset: {
+                            x: 100,
+                            y: 100
+                        },
+                        themeColor: "primary",
+                        size: "medium",
+                        items: [{
+                            label: "Darrel Sollis",
+                            template: itemTemplate({
+                                text: "Share with Darrel Sollis",
+                                image: "AROUT.jpg"
+                            }),
+                            click: function (e) {
+                                kendo.alert("Shared with " + $(e.target).text());
+                            }
+                        }, {
+                            label: "Mia Caldwell",
+                            template: itemTemplate({
+                                text: "Share with Mia Caldwell",
+                                image: "BSBEV.jpg"
+                            }),
+                            click: function (e) {
+                                kendo.alert("Shared with " + $(e.target).text());
+                            }
+                        }, {
+                            label: "Mallory Gillian",
+                            template: itemTemplate({
+                                text: "Share with Mallory Gillian",
+                                image: "FISSA.jpg"
+                            }),
+                            click: function (e) {
+                                kendo.alert("Shared with " + $(e.target).text());
+                            }
+                        }],
+                        expand: function (ev) {
+                            toggleOverlay(true);
+                            ev.sender.icon("close");
+                        },
+                        collapse: function (ev) {
+                            toggleOverlay(false);
+                            ev.sender.icon("share");
+                        }
+                    });
+
+                    function toggleOverlay(visible) {
+                        var overlay = $("#page-overlay");
+
+                        overlay.toggle(visible);
+                    }
+                });
+            </script>
+
+            <script id="fabItemTemplate" type="text/x-kendo-template">
+                <span class="k-fab-item-text">#:text#</span>
+                <span class="k-avatar k-avatar-solid-primary k-avatar-solid k-rounded-full k-avatar-md">
+                    <span class="avatar-image">
+                        <img src="../content/web/Customers/#:image#" />
+                    </span>
+                </span>
+            </script>
+        </div>
+
+        <style>
+            #page-overlay {
+                display: none;
+                position: absolute;
+            }
+
+            .k-fab {
+                z-index: 10002;
+            }
+
+            .avatar-image img {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Shape</h4>
+            <ul class="options">
+                <li>
+                    <input id="shapes4" name="shapes" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Size</h4>
+            <ul class="options">
+                <li>
+                    <input id="size4" name="size" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Theme Color</h4>
+            <ul class="options">
+                <li>
+                    <input id="themeColor4" name="themeColor" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Rounded</h4>
+            <ul class="options">
+                <li>
+                    <input id="rounded4" name="rounded" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="demo-section wide" style="height:300px">
+        <button id="fab4"></button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Configurator
+            $("#shapes4").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: [
+                    { text: "Rectangle", value: "rectangle" },
+                    { text: "Square", value: "square" }
+                ],
+                value: "rectangle",
+                change: onShapeSelectionChange
+            });
+
+            $("#size4").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "None", value: "none" }
+                ],
+                value: "medium",
+                change: onSizeSelectionChange
+            });
+
+            $("#themeColor4").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: [
+                    { text: "Primary", value: "primary" },
+                    { text: "Secondary", value: "secondary" },
+                    { text: "Tertiary", value: "tertiary" },
+                    { text: "Info", value: "info" },
+                    { text: "Success", value: "success" },
+                    { text: "Warning", value: "warning" },
+                    { text: "Error", value: "error" },
+                    { text: "Dark", value: "dark" },
+                    { text: "Light", value: "light" },
+                    { text: "Inverse", value: "inverse" },
+                    { text: "None", value: "none" }
+                ],
+                change: onThemeColorSelectionChange
+            })
+
+            $("#rounded4").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                change: onRoundedSelectionChange,
+                value: "full",
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "Full", value: "full" },
+                    { text: "None", value: "none" }
+                ]
+            }).data("kendoDropDownList");
+
+            // FAB
+            $("#fab4").kendoFloatingActionButton({
+                icon: "home",
+                text: "Home",
+                positionMode: "absolute",
+                align: "middle center"
+            }).data("kendoFloatingActionButton");
+        });
+
+        function onShapeSelectionChange(e) {
+            var fab = $("#fab4").getKendoFloatingActionButton();
+
+            fab.shape(e.sender.value());
+        };
+        function onThemeColorSelectionChange(e) {
+            var fab = $("#fab4").getKendoFloatingActionButton();
+
+            fab.themeColor(e.sender.value());
+        };
+        function onSizeSelectionChange(e) {
+            var fab = $("#fab4").getKendoFloatingActionButton();
+
+            fab.setOptions({ size: e.sender.value() });
+        };
+
+        function onRoundedSelectionChange(e) {
+            var fab = $("#fab4").getKendoFloatingActionButton();
+
+            fab.setOptions({ rounded: e.sender.value() });
+        };
+    </script>
+    <style>
+        .configurator input {
+            padding: 6.5px 8px !important;
+        }
+
+        .k-picker.k-dropdownlist {
+            width: 140px;
+        }
+    </style>
+
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>API Functions</h4>
+            <ul class="options">
+                <li>
+                    <button id="enable5">Enable</button> <button id="disable5">Disable</button>
+                </li>
+                <li>
+                    <button id="show5">Show</button> <button id="hide5">Hide</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Appearance</h4>
+            <ul class="options">
+                <li>
+                    <button id="getIcon5">Get Icon</button> <button id="setIcon5">Set Icon</button><input id="icon" value="gear" />
+                </li>
+                <li>
+                    <button id="getText5">Get Text</button> <button id="setText5">Set Text</button><input id="text" value="Settings" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Theme Color</h4>
+            <ul class="options">
+                <li>
+                    <input id="themeColor5" name="themeColor" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Shape</h4>
+            <ul class="options">
+                <li>
+                    <input id="shapes5" name="shapes" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Size</h4>
+            <ul class="options">
+                <li>
+                    <input id="size5" name="size" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="demo-section wide" style="height:300px">
+        <button id="fab5"></button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Configurator
+            $("#shapes5").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: [
+                    { text: "Rectangle", value: "rectangle" },
+                    { text: "Square", value: "square" }
+                ],
+                change: onShapeSelectionChange
+            });
+
+            $("#size5").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" }
+                ],
+                index: 2,
+                change: onSizeSelectionChange
+            });
+
+            $("#themeColor5").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: [
+                    { text: "Primary", value: "primary" },
+                    { text: "Secondary", value: "secondary" },
+                    { text: "Tertiary", value: "tertiary" },
+                    { text: "Info", value: "info" },
+                    { text: "Success", value: "success" },
+                    { text: "Warning", value: "warning" },
+                    { text: "Error", value: "error" },
+                    { text: "Dark", value: "dark" },
+                    { text: "Light", value: "light" },
+                    { text: "Inverse", value: "inverse" }
+                ],
+                change: onThemeColorSelectionChange
+            })
+
+            // FAB
+            var fab = $("#fab5").kendoFloatingActionButton({
+                icon: "home",
+                text: "Home",
+                positionMode: "absolute",
+                align: "bottom center",
+                alignOffset: {
+                    x: 0,
+                    y: 100
+                },
+                themeColor: "primary",
+                size: "large",
+
+            }).data("kendoFloatingActionButton");
+
+            $("#enable5").click(function () {
+                fab.enable(true);
+            });
+            $("#disable5").click(function () {
+                fab.enable(false);
+            });
+            $("#show5").click(function () {
+                fab.show();
+            });
+            $("#hide5").click(function () {
+                fab.hide();
+            });
+            $("#getIcon5").click(function () {
+                kendo.alert(fab.icon());
+            });
+            $("#setIcon5").click(function () {
+                fab.icon($("#icon").val());
+            });
+            $("#getText5").click(function () {
+                kendo.alert(fab.text());
+            });
+            $("#setText5").click(function () {
+                fab.text($("#text").val());
+            });
+            $("#getThemeColor5").click(function () {
+                kendo.alert(fab.themeColor());
+            });
+            $("#setThemeColor5").click(function () {
+                fab.themeColor($("#themeColor").val());
+            });
+            $("#getShape5").click(function () {
+                kendo.alert(fab.shape());
+            });
+        });
+
+        function onShapeSelectionChange(e) {
+            var fab = $("#fab5").getKendoFloatingActionButton();
+
+            fab.shape(e.sender.value());
+        };
+        function onThemeColorSelectionChange(e) {
+            var fab = $("#fab5").getKendoFloatingActionButton();
+
+            fab.themeColor(e.sender.value());
+        };
+        function onSizeSelectionChange(e) {
+            var fab = $("#fab5").getKendoFloatingActionButton();
+
+            fab.setOptions({ size: e.sender.value() });
+        };
+    </script>
+    <style>
+        .configurator input {
+            padding: 6px 8px !important;
+        }
+    </style>
+
+    <div class="demo-section" style="height: 200px">
+        <button id="fab6"></button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#fab6").kendoFloatingActionButton({
+                icon: 'share',
+                positionMode: "absolute",
+                align: "bottom center",
+                alignOffset: {
+                    x:50,
+                    y:50
+                },
+                themeColor: "info",
+                size: "medium",
+                items: [{
+                    label: "Download",
+                    icon:"download",
+                    click: onItemClick
+                },
+                {
+                    label:"Print",
+                    icon: "print",
+                    click: onItemClick
+                },
+                {
+                    label:"Email",
+                    icon:"email",
+                    click: onItemClick
+                }],
+                expand: onExpand,
+                collapse: onCollapse
+            });
+
+            function onExpand(){
+                kendoConsole.log("event: expand");
+            };
+
+            function onCollapse(){
+                kendoConsole.log("event: Collapse");
+            };
+
+            function onItemClick(e) {
+                kendoConsole.log($(e.target).text() + "item clicked");
+            };
+        });
+    </script>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-around k-rtl">
+        <div class="k-card">
+            <div class="k-card-body">
+                <h5 class="k-card-title">San Francisco</h5>
+                <h6 class="k-card-subtitle">City in California</h6>
+            </div>
+            <img class="k-card-image" src="../content/web/cards/sanfran.jpg" />
+            <div class="k-card-body">
+                <p>San Francisco, officially City and County of San Francisco and colloquially known as SF, San Fran or "The City", is the cultural, commercial, and financial center of Northern California.</p>
+            </div>
+            <div class="k-card-actions k-card-actions-stretched k-card-actions-vertical">
+                <span class="k-card-action"><span class="k-button k-button-flat-primary k-button-flat k-button-md k-rounded-md">Map</span></span>
+                <span class="k-card-action"><span class="k-button k-button-flat-primary k-button-flat k-button-md k-rounded-md">Weather</span></span>
+            </div>
+            <button id="fab-speed-dial8"></button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#fab-speed-dial8").kendoFloatingActionButton({
+                icon: "bookmark",
+                text: "Bookmark",
+                positionMode: "absolute",
+                align: "top end",
+                themeColor: "primary",
+                shape: "pill",
+                size: "small",
+                click: function (ev) {
+                    kendo.alert("Bookmarked");
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .k-card {
+            width: 320px;
+            margin: 5%;
+        }
+
+        .k-card-action > .k-button{
+            width:100%;
+        }
+    </style>
+
+    <div class="demo-section" style="height: 300px">
+        <button id="fab9"></button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#fab9").kendoFloatingActionButton({
+                icon: "share",
+                positionMode: "absolute",
+                align: "bottom center",
+                alignOffser: {
+                    x: 50,
+                    y: 50
+                },
+                themeColor: "info",
+                size: "large",
+                shape: "pill",
+                items: [{
+                    label: "Download",
+                    icon: "download",
+                    click: function() {
+                        kendo.alert("download action");
+                    }
+                },
+                {
+                    label:"Print",
+                    icon:"print",
+                    click: function (){
+                        kendo.alert("print action");
+                    }
+                },
+                {
+                    label: "Email",
+                    icon:"email",
+                    click: function(){
+                        kendo.alert("email action");
+                    }
+                }],
+            });
+        });
+
+        $(document).keydown(function(e) {
+            if(e.altKey && e.keyCode === 87){
+                $("#fab9").data("kendoFloatingActionButton").wrapper.focus();
+            }
+        });
+    </script>
+</body>
+</html>

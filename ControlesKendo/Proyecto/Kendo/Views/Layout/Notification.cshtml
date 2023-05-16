@@ -1,0 +1,56 @@
+﻿<span id="popupNotification"></span>
+<span id="staticNotification"></span>
+<div class="demo-section">
+    <h4>Show notification</h4>
+    <p>
+        <button id="showPopupNotification" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md">Popup abajo-derecha</button><br />
+        <button id="showStaticNotification" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md">Estatico en el panel abajo</button>
+    </p>
+    <div style="padding-top: 1em;">
+        <h4>Esconder Notificacion</h4>
+        <button id="hideAllNotifications" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md">Esconder todas notificaciones</button>
+    </div>
+</div>
+<div id="appendto" class="demo-section"></div>
+
+Templates
+<span id="notification2" style="display:none;"></span>
+<div class="demo-section" style="text-align: center;">
+    <h4>Mostrar Notificacion: </h4>
+    <p>
+        <button id="showEmailNotification2" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md">Email</button><br />
+        <button id="showErrorNotification2" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md">Error</button><br />
+        <button id="showSuccessNotification2" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md">Upload Success</button>
+    </p>
+    <h4>Esconder Notificacion: </h4>
+    <p>
+        <button id="hideAllNotifications2" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md">Esconder todas las notificaciones</button>
+    </p>
+</div>
+<script id="emailTemplate2" type="text/x-kendo-template">
+    <div class="new-mail">
+        <h3>#= title #</h3>
+        <p>#= message #</p>
+    </div>
+</script>
+<script id="errorTemplate2" type="text/x-kendo-template">
+    <div class="wrong-pass">
+        <h3>#= title #</h3>
+        <p>#= message #</p>
+    </div>
+</script>
+<script id="successTemplate2" type="text/x-kendo-template">
+    <div class="upload-success">
+        <h3>#= message #</h3>
+    </div>
+</script>
+
+Events
+<span id="notification3" style="display:none;"></span>
+<div class="demo-section" style="text-align: center;">
+    <p>
+        <button id="showNotification3" class="k-button k-button-solid-primary k-button-solid k-button-md k-rounded-md">Mostrar</button> &nbsp; &nbsp;
+        <button id="hideAllNotifications3" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md">Esconder todo</button>
+    </p>
+</div>
+<script src="~/js/notification.js"></script>

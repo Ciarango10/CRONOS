@@ -1,0 +1,345 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/mediaplayer/index">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div id="example">
+        <div class="demo-section wide" style="max-width: 644px;">
+            <div id="mediaplayer" style="height:360px"></div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $("#mediaplayer").kendoMediaPlayer({
+                    autoPlay: true,
+                    navigatable: true,
+                    media: {
+                        title: "ProgressNEXT 2019 Highlights",
+                        source: "https://youtu.be/2OvvwWShNWo"
+                    }
+                });
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide" style="max-width: 925px;">
+            <div id="mediaplayer2" style="height:360px"></div>
+            <div class="k-list-container playlist"><ul id="listView2" class="k-list"></ul></div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $("#mediaplayer2").kendoMediaPlayer({
+                    autoPlay: true
+                });
+
+                var videos = new kendo.data.DataSource({
+                    data: [{
+                        title: "Build HIPAA-Compliant Healthcare Apps Fast",
+                        poster: "https://img.youtube.com/vi/_S63eCewxRg/1.jpg",
+                        source: "https://www.youtube.com/watch?v=dyvxivS5EcI"
+                    },
+                    {
+                        title: "ProgressNEXT 2018 Highlights",
+                        poster: "https://img.youtube.com/vi/DYsiJRmIQZw/1.jpg",
+                        source: "https://www.youtube.com/watch?v=Gp7tcOcSKAU"
+                    },
+                    {
+                        title: "Kendo UI Testimonial",
+                        poster: "https://img.youtube.com/vi/gNlya720gbk/1.jpg",
+                        source: "https://www.youtube.com/watch?v=itoKeywVNBI"
+                    },
+                    {
+                        title: "Introducing Test Studio DevEdition",
+                        poster: "https://img.youtube.com/vi/rLtTuFbuf1c/1.jpg",
+                        source: "https://www.youtube.com/watch?v=A2rmIx9rPG0"
+                    },
+                    {
+                        title: "Progress Application Server OpenEdge",
+                        poster: "https://i.ytimg.com/vi/CpHKm2NruYc/1.jpg",
+                        source: "https://www.youtube.com/watch?v=3Ce11N9udR4&list=PLC679RvCan2BJ9HCdUyZhnhHKActnrape"
+                    }
+                    ]
+                });
+
+                var listView = $("#listView2").kendoListView({
+                    dataSource: videos,
+                    selectable: true,
+                    scrollable: false,
+                    template: kendo.template($("#template2").html()),
+                    change: onChange,
+                    dataBound: onDataBound
+                });
+
+                function onChange() {
+                    var index = this.select().index();
+                    var dataItem = this.dataSource.view()[index];
+                    $("#mediaplayer2").data("kendoMediaPlayer").media(dataItem);
+                }
+
+                function onDataBound(e) {
+                    this.select(this.content.children().first());
+                }
+
+            });
+        </script>
+        <script type="text/x-kendo-template" id="template2">
+            <li class="k-item k-state-default" onmouseover="$(this).addClass('k-hover')"
+                onmouseout="$(this).removeClass('k-hover')">
+                <span>
+                    <img src="#:poster#" />
+                    <h5>#:title#</h5>
+                </span>
+            </li>
+        </script>
+        <style>
+            .k-mediaplayer {
+                float: left;
+                box-sizing: border-box;
+                width: 70%;
+            }
+
+            .playlist {
+                float: left;
+                height: 360px;
+                overflow: auto;
+                width: 30%;
+            }
+
+                .playlist ul, .playlist li {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                .playlist .k-item {
+                    border-bottom-style: solid;
+                    border-bottom-width: 1px;
+                    padding: 14px 15px;
+                }
+
+                    .playlist .k-item:last-child {
+                        border-bottom-width: 0;
+                    }
+
+                .playlist span {
+                    cursor: pointer;
+                    display: block;
+                    overflow: hidden;
+                    text-decoration: none;
+                }
+
+                    .playlist span img {
+                        border: 0 none;
+                        display: block;
+                        height: 56px;
+                        object-fit: cover;
+                        width: 100px;
+                        float: left;
+                    }
+
+                .playlist h5 {
+                    display: block;
+                    font-weight: normal;
+                    margin: 0;
+                    overflow: hidden;
+                    padding-left: 10px;
+                    text-align: left;
+                }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section wide" style="max-width: 644px;">
+            <div id="mediaplayer3" style="height:360px"></div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $("#mediaplayer3").kendoMediaPlayer({
+                    autoPlay: true,
+                    play: onPlay,
+                    pause: onPause,
+                    end: onEnd,
+                    ready: onReady,
+                    timeChange: onTimeChange,
+                    volumeChange: onVolumeChange,
+                    media: {
+                        title: "NASA Chose Telerik",
+                        source: "https://www.youtube.com/watch?v=u0vMSEjx-jA"
+                    }
+                });
+            });
+
+            function onPlay() {
+                kendoConsole.log("event :: play");
+            }
+
+            function onPause() {
+                kendoConsole.log("event :: pause");
+            }
+
+            function onEnd() {
+                kendoConsole.log("event :: end");
+            }
+
+            function onReady() {
+                kendoConsole.log("event :: ready");
+            }
+
+            function onTimeChange() {
+                kendoConsole.log("event :: timeChange");
+            }
+
+            function onVolumeChange() {
+                kendoConsole.log("event :: volumeChange");
+            }
+        </script>
+    </div>
+
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <h4 style="display: flex; flex: 0 0 100%; padding: 16px 0 0 16px">API Functions</h4>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <button id="playButton4">Play</button>
+                    </li>
+                    <li>
+                        <button id="stopButton4">Stop</button>
+                    </li>
+                    <li>
+                        <button id="pauseButton4">Pause</button>
+                    </li>
+                    <li>
+                        <button id="fullScreenButton4">Full-screen</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <button id="toggleMuteButton4">Toggle mute</button>
+                    </li>
+                    <li>
+                        <button id="isEndedButton4">Video has ended</button>
+                    </li>
+                    <li>
+                        <button id="isPausedButton4">Video is paused</button>
+                    </li>
+                    <li>
+                        <button id="isPlayingButton4">Video is playing</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <input id="volumeValue4" value="50" style="float:none; width:90px;" />
+                        <button id="volumeButton4">Set volume</button>
+                    </li>
+                    <li>
+                        <input id="seekValue4" value="50" style="float:none; width:90px;" />
+                        <button id="seekButton4">Seek to</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="demo-section wide" style="max-width: 644px;">
+            <div id="mediaplayer4" style="height:360px"></div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $("#mediaplayer4").kendoMediaPlayer({
+                    autoPlay: true,
+                    navigatable: true,
+                    media: {
+                        title: "Build HIPAA-Compliant Healthcare Apps Fast",
+                        source: "https://www.youtube.com/watch?v=dyvxivS5EcI"
+                    }
+                });
+
+                var mediaPlayer = $("#mediaplayer4").data("kendoMediaPlayer");
+
+                var setVolume = function () {
+                    mediaPlayer.volume($("#volumeValue4").val());
+                };
+
+                var seekTo = function () {
+                    mediaPlayer.seek($("#seekValue4").data("kendoNumericTextBox").value() * 1000);
+                };
+
+                $("#playButton4").click(function () {
+                    mediaPlayer.play();
+                });
+
+                $("#stopButton4").click(function () {
+                    mediaPlayer.stop();
+                });
+
+                $("#pauseButton4").click(function () {
+                    mediaPlayer.pause();
+                });
+
+                $("#fullScreenButton4").click(function () {
+                    mediaPlayer.fullScreen(true);
+                });
+
+                $("#toggleMuteButton4").click(function () {
+                    mediaPlayer.mute(!mediaPlayer.mute());
+                });
+
+                $("#isEndedButton4").click(function () {
+                    alert(mediaPlayer.isEnded());
+                });
+
+                $("#isPausedButton4").click(function () {
+                    alert(mediaPlayer.isPaused());
+                });
+
+                $("#isPlayingButton4").click(function () {
+                    alert(mediaPlayer.isPlaying());
+                });
+
+                $("#volumeValue4").kendoNumericTextBox({
+                    change: setVolume,
+                    min: 0,
+                    max: 100,
+                    format: "#",
+                    decimals: 0
+                });
+
+                $("#seekValue4").kendoNumericTextBox({
+                    change: seekTo,
+                    min: 0,
+                    max: 97,
+                    format: "#",
+                    decimals: 0
+                });
+
+                $("#seekButton4").click(seekTo);
+
+                $("#volumeButton4").click(setVolume);
+            });
+        </script>
+    </div>
+
+</body>

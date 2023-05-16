@@ -1,0 +1,61 @@
+﻿<div id="example">
+    <div class="demo-section wide">
+        <div id="agglomerations">
+            <span href="#" title="Canton - 26,300,000" id="canton"></span>
+            <span href="#" title="Jakarta - 25,800,000" id="jakarta"></span>
+            <span href="#" title="Mexico City - 23,500,000" id="mexico"></span>
+            <span href="#" title="Delhi - 23,500,000" id="delhi"></span>
+            <span href="#" title="Karachi - 22,100,000" id="karachi"></span>
+            <span href="#" title="New York - 21,500,000" id="newyork"></span>
+            <span href="#" title="Sao Paulo - 21,300,000" id="saopaolo"></span>
+            <span href="#" title="Mumbay/Bombay - 21,100,000" id="bombay"></span>
+            <span href="#" title="Los Angeles - 17,100,000" id="losangeles"></span>
+            <span href="#" title="Osaka - 16,800,000" id="osaka"></span>
+            <span href="#" title="Moscow - 16,200,000" id="moscow"></span>
+        </div>
+    </div>
+</div>
+
+Events
+<div class="demo-section">
+    <span id="autohide-true" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md wider">Pasa por encima de mi!</span>
+    <span id="autohide-false" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md wider">Pasa por encima de mi tambien!</span>
+</div>
+
+Content Template
+<div class="demo-section wide">
+    <ul id="products3" class="dairy-photos">
+        <li>
+            <a href="#" data-id="11" title="A cheese made in the artisan tradition by rural dairy farmers in the north of Spain"><img src="~/img/11.jpg" />Queso de Cabrales</a>
+        </li>
+        <li>
+            <a href="#" data-id="12" title="A cheese made in the La Mancha region of Spain from the milk of sheep of the Manchega breed"><img src="~/img/12.jpg" />Queso<br /> Manchego</a>
+        </li>
+        <li>
+            <a href="#" data-id="31" title="A veined Italian blue cheese, made from unskimmed cow's milk"><img src="~/img/31.jpg" />Gorgonzola Telino</a>
+        </li>
+        <li>
+            <a href="#" data-id="32" title="An Italian cheese made from cream"><img src="~/img/32.jpg" /> Mascarpone Fabioli</a>
+        </li>
+        <li>
+            <a href="#" data-id="33" title="A white cheese made from goat milk"><img src="~/img/33.jpg" /> Geitost</a>
+        </li>
+        <li>
+            <a href="#" data-id="59" title="A semi-firm, cow's milk cheese"><img src="~/img/59.jpg" /> Raclette Courdavault</a>
+        </li>
+        <li>
+            <a href="#" data-id="60" title="A soft, creamy, surface-ripened cow's milk cheese"><img src="~/img/60.jpg" /> Camembert Pierrott</a>
+        </li>
+        <li>
+            <a href="#" data-id="72" title="A fresh cheese, originally from southern Italy, made from either buffalo's or cow's milk by the pasta filata method"><img src="~/img/72.jpg" /> Mozzarella di Giovanni</a>
+        </li>
+    </ul>
+
+    <script id="template3" type="text/x-kendo-template">
+        <div class="template-wrapper">
+            <img src="../content/web/foods/200/#=target.data('id')#.jpg" alt="#=target.data('title')#" />
+            <p>#=target.data('title')#</p>
+        </div>
+    </script>
+</div>
+<script src="~/js/tooltip.js"></script>

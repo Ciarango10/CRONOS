@@ -1,0 +1,59 @@
+﻿<div>
+    <div id="spreadsheet" style="width: 100%;"></div>
+</div>
+<div>
+    Filtrado de celdas
+    <div id="spreadsheet2" style="width: 100%;"></div>
+</div>
+<div>
+        Celdas ajustables
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Rows count</h4>
+                <ul class="options">
+                  <li>
+                    <input type="number" id="rowsCount" /> 				
+                  </li>			
+                </ul>
+          </div>
+          <div class="box-col">
+            <h4>Columns count</h4>
+            <ul class="options">
+              <li>
+                <input type="number" id="columnsCount" /> 
+                <button id="resize">Apply</button>
+              </li>
+            </ul>
+          </div>	
+    </div>
+    <div id="spreadsheet3" style="width: 100%;"></div>
+</div>
+
+<div>
+    Celdas desactivadas
+    <div class="configurator">
+          <div class="header">Configurator</div>
+          <div class="box-col">
+              <h4>Disable cells</h4>
+              <ul class="options">
+                  <li>
+                      <button id="toggle4">Disable / Enable 'Apellidos' column</button>
+                  </li>
+              </ul>
+         </div>
+    </div>
+</div>
+<div id="spreadsheet4" style="width: 100%;"></div>
+<div>
+    Varios tipos de input 
+    <div id="spreadsheet5" style="width: 100%;"></div>
+</div>
+<div>
+    Captura de eventos
+    <button type="button" id="exportButton6">Export Spreadsheet sheet to PDF</button>
+    <div id="spreadsheet6" style="width: 100%;"></div>
+</div>
+@section scripts{
+    <script src="~/js/spreadsheet.js"></script>
+}

@@ -1,0 +1,332 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/textbox/index">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <input id="textbox" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // create TextBox from input HTML element
+            $("#textbox").kendoTextBox({
+                placeholder: "Name",
+                label: "Set name"
+            });
+        });
+    </script>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Size</h4>
+                    <input id="size" name="size" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Fill Mode</h4>
+                    <input id="fillMode" name="fillMode" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Border Radius</h4>
+                    <input id="rounded" name="rounded" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <input id="textbox2" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#size").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "medium",
+                change: onChange,
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "None", value: "none" }
+                ]
+            });
+            $("#rounded").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "medium",
+                change: onChange,
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "Full", value: "full" },
+                    { text: "None", value: "none" }
+                ]
+            });
+            $("#fillMode").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "solid",
+                change: onChange,
+                dataSource: [
+                    { text: "Solid", value: "solid" },
+                    { text: "Flat", value: "flat" },
+                    { text: "Outline", value: "outline" },
+                    { text: "None", value: "none" }
+                ]
+            });
+            function onChange(e) {
+                var textBox = $("#textbox2").data("kendoTextBox");
+                var size = $("#size").data("kendoDropDownList").value();
+                var rounded = $("#rounded").data("kendoDropDownList").value();
+                var fillMode = $("#fillMode").data("kendoDropDownList").value();
+
+                textBox.setOptions({
+                    size: size,
+                    rounded: rounded,
+                    fillMode: fillMode
+                });
+                console.log(textBox.options)
+            }
+            $("#textbox2").kendoTextBox({
+                label: "Set name",
+                placeholder: "name"
+            });
+        });
+    </script>
+
+    <style>
+        .k-picker.k-dropdownlist {
+            width: 140px;
+        }
+    </style>
+
+     <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<input id="textbox3" />
+		</div>
+    </div>  
+
+    <script>
+        $(document).ready(function() {
+            function onChange() {
+                kendoConsole.log("Change :: " + this.value());
+            };
+
+            $("#textbox3").kendoTextBox({
+				label: "Set name",
+                change: onChange
+            });
+        });
+    </script>
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+       
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<input id="textbox4" />
+		</div>
+    </div> 
+
+    <script>
+        $(document).ready(function() {
+            $("#textbox4").kendoTextBox({
+                label: {
+                    content: "Set name",
+                    floating: true
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .k-floating-label-container {
+            width: 100%;
+        }
+    </style>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Get / Set Value</h4>
+            <ul class="options">
+                <li>
+                    <button id="get">Get value</button> or <button id="focus">Focus</button>
+                </li>
+                <li>
+                    <input id="value" value="John Doe" />
+                    <button id="set">Set value</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Enable / Disable</h4>
+            <ul class="options">
+                <li>
+                    <button id="enable">Enable</button>
+                    <button id="disable">Disable</button>
+                </li>
+                <li>
+                    <button id="readonly">Readonly</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <input id="textbox5" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#textbox5").kendoTextBox({
+                label: {
+                    content: "Set name",
+                    floating: true
+                }
+            });
+
+            var textbox = $("#textbox5").data("kendoTextBox");
+
+            var setValue = function () {
+                textbox.value($("#value").data("kendoTextBox").value());
+                textbox.floatingLabel.refresh();
+            };
+
+            $("#enable").click(function () {
+                textbox.enable();
+            });
+
+            $("#disable").click(function () {
+                textbox.enable(false);
+            });
+
+            $("#readonly").click(function () {
+                textbox.readonly();
+            });
+
+            $("#focus").click(function () {
+                textbox.focus();
+            });
+
+            $("#value").kendoTextBox({
+                change: setValue
+            });
+
+            $("#set").click(setValue);
+
+            $("#get").click(function () {
+                alert(textbox.value());
+            });
+        });
+    </script>
+
+    <style>
+        .k-floating-label-container {
+            width: 100%;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-rtl k-w-300">
+			<input id="textbox6" />
+		</div>
+    </div> 
+
+    <script>
+        $(document).ready(function() {
+            // create TextBox from input HTML element
+            $("#textbox6").kendoTextBox({
+				label: "Set name",
+                placeholder: "Name..."
+            });
+        });
+    </script>
+
+    <div id="demo7">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Configuration</h4>
+                <ul>
+                    <li><label><input type="checkbox" data-bind="checked: isEnabled">Enable</label></li>
+                    <li><label><input type="checkbox" data-bind="checked: isVisible">Visible</label></li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Information</h4>
+                Kendo UI TextBox supports the
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a> and
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+            </div>
+        </div>
+
+        <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+            <div class="k-w-300">
+                <input data-role="textbox"
+                       data-label="Set value"
+                       data-format="c"
+                       data-min="0"
+                       data-max="100"
+                       data-bind="visible: isVisible,
+                            enabled: isEnabled,
+                            value: textboxValue,
+                            events: { change: onChange }">
+            </div>
+        </div>
+        <script>
+            var viewModel = kendo.observable({
+                textboxValue: "John Doe",
+                isEnabled: true,
+                isVisible: true,
+                onChange: function () {
+                    kendoConsole.log("event :: change (" + this.get("textboxValue") + ")");
+                }
+            });
+            kendo.bind($("#demo7"), viewModel);
+        </script>
+    </div>
+
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+</body>

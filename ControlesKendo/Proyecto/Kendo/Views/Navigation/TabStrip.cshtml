@@ -1,0 +1,1086 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/tabstrip/index">
+    <base href="https://demos.telerik.com/kendo-ui/tabstrip/ajax">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+
+    <div id="example1">
+        <div class="demo-section">
+            <div id="tabstrip1">
+                <ul>
+                    <li class="k-active">
+                        Paris
+                    </li>
+                    <li>
+                        New York
+                    </li>
+                    <li>
+                        London
+                    </li>
+                    <li>
+                        Moscow
+                    </li>
+                </ul>
+                <div>
+                    <span class="rainy">&nbsp;</span>
+                    <div class="weather">
+                        <h2>17<span>&ordm;C</span></h2>
+                        <p>Rainy weather in Paris.</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="sunny">&nbsp;</span>
+                    <div class="weather">
+                        <h2>29<span>&ordm;C</span></h2>
+                        <p>Sunny weather in New York.</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="sunny">&nbsp;</span>
+                    <div class="weather">
+                        <h2>21<span>&ordm;C</span></h2>
+                        <p>Sunny weather in London.</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="cloudy">&nbsp;</span>
+                    <div class="weather">
+                        <h2>16<span>&ordm;C</span></h2>
+                        <p>Cloudy weather in Moscow.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .sunny, .cloudy, .rainy {
+                display: block;
+                margin: 30px auto 10px;
+                width: 128px;
+                height: 128px;
+                background: url('../content/web/tabstrip/weather.png') transparent no-repeat 0 0;
+            }
+
+            .cloudy {
+                background-position: -128px 0;
+            }
+
+            .rainy {
+                background-position: -256px 0;
+            }
+
+            .weather {
+                margin: 0 auto 30px;
+                text-align: center;
+            }
+
+            #tabstrip1 h2 {
+                font-weight: lighter;
+                font-size: 5em;
+                line-height: 1;
+                padding: 0 0 0 30px;
+                margin: 0;
+            }
+
+                #tabstrip1 h2 span {
+                    background: none;
+                    padding-left: 5px;
+                    font-size: .3em;
+                    vertical-align: top;
+                }
+
+            #tabstrip1 p {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+
+        <script>
+            $(document).ready(function () {
+                $("#tabstrip1").kendoTabStrip({
+                    animation: {
+                        open: {
+                            effects: "fadeIn"
+                        }
+                    }
+                });
+            });
+        </script>
+    </div>
+
+    <div id="example">
+
+        <div class="demo-section">
+
+            <h4>TabStrip with images</h4>
+
+            <div id="tabstrip-images2"></div>
+        </div>
+
+        <script>
+            $("#tabstrip-images2").kendoTabStrip({
+                animation: { open: { effects: "fadeIn" } },
+                dataTextField: "text",
+                dataImageUrlField: "imageUrl",
+                dataContentField: "content",
+                dataSource: [
+                    {
+                        text: "Baseball",
+                        imageUrl: "../content/shared/icons/sports/baseball.png",
+                        content: "Baseball is a bat-and-ball sport played between two teams of nine players each. The aim is to score runs by hitting a thrown ball with a bat and touching a series of four bases arranged at the corners of a ninety-foot diamond. Players on the batting team take turns hitting against the pitcher of the fielding team, which tries to stop them from scoring runs by getting hitters out in any of several ways. A player on the batting team can stop at any of the bases and later advance via a teammate's hit or other means. The teams switch between batting and fielding whenever the fielding team records three outs. One turn at bat for each team constitutes an inning and nine innings make up a professional game. The team with the most runs at the end of the game wins."
+                    },
+                    {
+                        text: "Golf",
+                        imageUrl: "../content/shared/icons/sports/golf.png",
+                        content: "Golf is a precision club and ball sport, in which competing players (or golfers) use many types of clubs to hit balls into a series of holes on a golf course using the fewest number of strokes. It is one of the few ball games that does not require a standardized playing area. Instead, the game is played on golf courses, each of which features a unique design, although courses typically consist of either nine or 18 holes. Golf is defined, in the rules of golf, as playing a ball with a club from the teeing ground into the hole by a stroke or successive strokes in accordance with the Rules."
+                    },
+                    {
+                        text: "Swimming",
+                        imageUrl: "../content/shared/icons/sports/swimming.png",
+                        content: "Swimming has been recorded since prehistoric times; the earliest recording of swimming dates back to Stone Age paintings from around 7,000 years ago. Written references date from 2000 BC. Some of the earliest references to swimming include the Gilgamesh, the Iliad, the Odyssey, the Bible, Beowulf, and other sagas. In 1578, Nikolaus Wynmann, a German professor of languages, wrote the first swimming book, The Swimmer or A Dialogue on the Art of Swimming (Der Schwimmer oder ein Zwiegespräch über die Schwimmkunst). Competitive swimming in Europe started around 1800, mostly using breaststroke."
+                    }
+                ]
+
+            }).data("kendoTabStrip").select(0);
+        </script>
+
+        <div class="demo-section">
+
+            <h4>TabStrip with sprites</h4>
+
+            <div id="tabstrip-sprites2"></div>
+        </div>
+
+        <script>
+            $("#tabstrip-sprites2").kendoTabStrip({
+                animation: { open: { effects: "fadeIn" } },
+                dataTextField: "text",
+                dataSpriteCssClass: "spriteCssClass",
+                dataContentField: "content",
+                dataSource: [{
+                    text: "Brazil",
+                    spriteCssClass: "brazilFlag",
+                    content: "Brazil, officially the Federative Republic of Brazil, is the largest country in South America. It is the world's fifth largest country, both by geographical area and by population with over 192 million people. It is the only Portuguese-speaking country in the Americas and the largest lusophone country in the world."
+                },
+                {
+                    text: "India",
+                    spriteCssClass: "indiaFlag",
+                    content: "India, officially the Republic of India, is a country in South Asia. It is the seventh-largest country by geographical area, the second-most populous country with over 1.2 billion people, and the most populous democracy in the world. Bounded by the Indian Ocean on the south, the Arabian Sea on the south-west, and the Bay of Bengal on the south-east, it shares land borders with Pakistan to the west; China, Nepal, and Bhutan to the north-east; and Burma and Bangladesh to the east. In the Indian Ocean, India is in the vicinity of Sri Lanka and the Maldives; in addition, India's Andaman and Nicobar Islands share a maritime border with Thailand and Indonesia."
+                },
+                {
+                    text: "Netherlands",
+                    spriteCssClass: "netherlandsFlag",
+                    content: "The Netherlands is a constituent country of the Kingdom of the Netherlands, located mainly in North-West Europe and with several islands in the Caribbean. Mainland Netherlands borders the North Sea to the north and west, Belgium to the south, and Germany to the east, and shares maritime borders with Belgium, Germany and the United Kingdom. It is a parliamentary democracy organised as a unitary state. The country capital is Amsterdam and the seat of government is The Hague. The Netherlands in its entirety is often referred to as Holland, although North and South Holland are actually only two of its twelve provinces."
+
+                }]
+            }).data("kendoTabStrip").select(0);
+        </script>
+
+        <style>
+            #tabstrip-sprites .k-sprite {
+                background-image: url("../content/shared/styles/flags.png");
+            }
+
+            .brazilFlag {
+                background-position: 0 0;
+            }
+
+            .indiaFlag {
+                background-position: 0 -32px;
+            }
+
+            .netherlandsFlag {
+                background-position: 0 -64px;
+            }
+
+            .k-tabstrip .demo-section {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="wrapper">
+            <div id="tabstrip3">
+                <ul>
+                    <li class="k-active">Dimensions &amp; Weights</li>
+                    <li>Engine</li>
+                    <li>Chassis</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            var ts = $("#tabstrip3").kendoTabStrip({
+                animation: {open: {effects: "fadeIn"}},
+                contentUrls:[
+                    '../content/web/tabstrip/ajax/ajaxContent1.html',
+                    '../content/web/tabstrip/ajax/ajaxContent2.html',
+                    '../content/web/tabstrip/ajax/ajaxContent3.html'
+                ]
+            }).data('kendoTabStrip');
+        });
+    </script>
+
+    <style>
+        .wrapper {
+            height: 455px;
+            margin: 20px auto;
+            padding: 20px 0 0 0;
+            background: url('../content/web/tabstrip/bmw.png') no-repeat center 60px transparent;
+        }
+        #tabstrip {
+            max-width: 400px;
+            float: right;
+            margin-bottom: 20px;
+        }
+        .specification {
+            max-width: 670px;
+            margin: 10px 0;
+            padding: 0;
+        }
+        .specification dt, dd {
+            max-width: 140px;
+            float: left;
+            margin: 0;
+            padding: 5px 0 8px 0;
+        }
+        .specification dt {
+            clear: left;
+            width: 100px;
+            margin-right: 7px;
+            padding-right: 0;
+            opacity: 0.7;
+        }
+        .specification:after, .wrapper:after {
+            content: ".";
+            display: block;
+            clear: both;
+            height: 0;
+            visibility: hidden;
+        }
+    </style>
+
+    <div id="example">
+
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Animation Settings</h4>
+                <ul class="options">
+                    <li>
+                        <input id="toggle" name="animation" type="radio" /> <label for="toggle">toggle animation</label>
+                    </li>
+                    <li>
+                        <input id="expand" name="animation" type="radio" checked="checked" /> <label for="expand">expand animation</label>
+                    </li>
+                    <li>
+                        <input id="opacity" type="checkbox" checked="checked" /> <label for="opacity">animate opacity</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <div id="tabstrip4">
+                <ul>
+                    <li class="k-active">
+                        Regular Tab
+                    </li>
+                    <li>
+                        Second Tab
+                    </li>
+                    <li>
+                        Third Tab
+                    </li>
+                    <li>
+                        Fourth Tab
+                    </li>
+                </ul>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer felis libero, lobortis ac rutrum quis, varius a velit. Donec lacus erat, cursus sed porta quis, adipiscing et ligula. Duis volutpat, sem pharetra accumsan pharetra, mi ligula cursus felis, ac aliquet leo diam eget risus. Integer facilisis, justo cursus venenatis vehicula, massa nisl tempor sem, in ullamcorper neque mauris in orci.</p>
+                </div>
+                <div>
+                    <p>Ut orci ligula, varius ac consequat in, rhoncus in dolor. Mauris pulvinar molestie accumsan. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean velit ligula, pharetra quis aliquam sed, scelerisque sed sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam dui mi, vulputate vitae pulvinar ac, condimentum sed eros.</p>
+                </div>
+                <div>
+                    <p>Aliquam at nisl quis est adipiscing bibendum. Nam malesuada eros facilisis arcu vulputate at aliquam nunc tempor. In commodo scelerisque enim, eget sodales lorem condimentum rutrum. Phasellus sem metus, ultricies at commodo in, tristique non est. Morbi vel mauris eget mauris commodo elementum. Nam eget libero lacus, ut sollicitudin ante. Nam odio quam, suscipit a fringilla eget, dignissim nec arcu. Donec tristique arcu ut sapien elementum pellentesque.</p>
+                </div>
+                <div>
+                    <p>Maecenas vitae eros vel enim molestie cursus. Proin ut lacinia ipsum. Nam at elit arcu, at porttitor ipsum. Praesent id viverra lorem. Nam lacinia elementum fermentum. Nulla facilisi. Nulla bibendum erat sed sem interdum suscipit. Vestibulum eget molestie leo. Aliquam erat volutpat. Ut sed nulla libero. Suspendisse id euismod quam. Aliquam interdum turpis vitae purus consectetur in pulvinar libero accumsan. In id augue dui, ac volutpat ante. Suspendisse purus est, ullamcorper id bibendum sed, placerat id leo.</p>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .demo-section {
+                min-height: 250px;
+            }
+
+            .k-tabstrip > .demo-section {
+                padding: 20px;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                var original = $("#tabstrip4").clone(true);
+                original.find(".k-active").removeClass("k-active");
+
+                var getEffects = function () {
+                    return (($("#expand")[0].checked ? "expand:vertical " : "") + ($("#opacity")[0].checked ? "fadeIn" : "")) || false;
+                };
+
+                var initTabStrip = function () {
+                    $("#tabstrip4").kendoTabStrip({ animation: { open: { effects: getEffects() } } });
+                };
+
+                $(".options input").change(function () {
+                    var tabStrip = $("#tabstrip4"),
+                        selectedIndex = tabStrip.data("kendoTabStrip").select().index(),
+                        clone = original.clone(true);
+
+                    clone.children("ul")
+                        .children("li")
+                        .eq(selectedIndex)
+                        .addClass("k-active")
+                        .end();
+
+                    tabStrip.replaceWith(clone);
+
+                    initTabStrip();
+                });
+
+                initTabStrip();
+            });
+        </script>
+    </div>
+
+        <div id="example">
+
+            <div class="demo-section">
+
+                <h4>Left</h4>
+
+                <div id="tabstrip-left">
+                    <ul>
+                        <li class="k-active">
+                            One
+                        </li>
+                        <li>
+                            Two
+                        </li>
+                        <li>
+                            Three
+                        </li>
+                    </ul>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer felis libero, lobortis ac rutrum quis, varius a velit. Donec lacus erat, cursus sed porta quis, adipiscing et ligula. Duis volutpat, sem pharetra accumsan pharetra, mi ligula cursus felis, ac aliquet leo diam eget risus. Integer facilisis, justo cursus venenatis vehicula, massa nisl tempor sem, in ullamcorper neque mauris in orci.</p>
+                    </div>
+                    <div>
+                        <p>Ut orci ligula, varius ac consequat in, rhoncus in dolor. Mauris pulvinar molestie accumsan. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean velit ligula, pharetra quis aliquam sed, scelerisque sed sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam dui mi, vulputate vitae pulvinar ac, condimentum sed eros.</p>
+                    </div>
+                    <div>
+                        <p>Aliquam at nisl quis est adipiscing bibendum. Nam malesuada eros facilisis arcu vulputate at aliquam nunc tempor. In commodo scelerisque enim, eget sodales lorem condimentum rutrum. Phasellus sem metus, ultricies at commodo in, tristique non est. Morbi vel mauris eget mauris commodo elementum. Nam eget libero lacus, ut sollicitudin ante. Nam odio quam, suscipit a fringilla eget, dignissim nec arcu. Donec tristique arcu ut sapien elementum pellentesque.</p>
+                    </div>
+                </div>
+
+                <h4>Right</h4>
+
+                <div id="tabstrip-right">
+                    <ul>
+                        <li class="k-active">
+                            One
+                        </li>
+                        <li>
+                            Two
+                        </li>
+                        <li>
+                            Three
+                        </li>
+                    </ul>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer felis libero, lobortis ac rutrum quis, varius a velit. Donec lacus erat, cursus sed porta quis, adipiscing et ligula. Duis volutpat, sem pharetra accumsan pharetra, mi ligula cursus felis, ac aliquet leo diam eget risus. Integer facilisis, justo cursus venenatis vehicula, massa nisl tempor sem, in ullamcorper neque mauris in orci.</p>
+                    </div>
+                    <div>
+                        <p>Ut orci ligula, varius ac consequat in, rhoncus in dolor. Mauris pulvinar molestie accumsan. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean velit ligula, pharetra quis aliquam sed, scelerisque sed sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam dui mi, vulputate vitae pulvinar ac, condimentum sed eros.</p>
+                    </div>
+                    <div>
+                        <p>Aliquam at nisl quis est adipiscing bibendum. Nam malesuada eros facilisis arcu vulputate at aliquam nunc tempor. In commodo scelerisque enim, eget sodales lorem condimentum rutrum. Phasellus sem metus, ultricies at commodo in, tristique non est. Morbi vel mauris eget mauris commodo elementum. Nam eget libero lacus, ut sollicitudin ante. Nam odio quam, suscipit a fringilla eget, dignissim nec arcu. Donec tristique arcu ut sapien elementum pellentesque.</p>
+                    </div>
+                </div>
+
+                <h4>Bottom</h4>
+
+                <div id="tabstrip-bottom">
+                    <ul>
+                        <li class="k-active">
+                            One
+                        </li>
+                        <li>
+                            Two
+                        </li>
+                        <li>
+                            Three
+                        </li>
+                    </ul>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer felis libero, lobortis ac rutrum quis, varius a velit. Donec lacus erat, cursus sed porta quis, adipiscing et ligula. Duis volutpat, sem pharetra accumsan pharetra, mi ligula cursus felis, ac aliquet leo diam eget risus. Integer facilisis, justo cursus venenatis vehicula, massa nisl tempor sem, in ullamcorper neque mauris in orci.</p>
+                    </div>
+                    <div>
+                        <p>Ut orci ligula, varius ac consequat in, rhoncus in dolor. Mauris pulvinar molestie accumsan. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean velit ligula, pharetra quis aliquam sed, scelerisque sed sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam dui mi, vulputate vitae pulvinar ac, condimentum sed eros.</p>
+                    </div>
+                    <div>
+                        <p>Aliquam at nisl quis est adipiscing bibendum. Nam malesuada eros facilisis arcu vulputate at aliquam nunc tempor. In commodo scelerisque enim, eget sodales lorem condimentum rutrum. Phasellus sem metus, ultricies at commodo in, tristique non est. Morbi vel mauris eget mauris commodo elementum. Nam eget libero lacus, ut sollicitudin ante. Nam odio quam, suscipit a fringilla eget, dignissim nec arcu. Donec tristique arcu ut sapien elementum pellentesque.</p>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .demo-section * + h4 {
+                    margin-top: 2em;
+                }
+
+                .demo-section .k-tabstrip 
+                {
+                    height: 180px;
+                }
+
+            </style>
+            <script>
+                $(document).ready(function () {
+                    $("#tabstrip-left").kendoTabStrip({
+                        tabPosition: "left",
+                        animation: { open: { effects: "fadeIn" } }
+                    });
+
+                    $("#tabstrip-right").kendoTabStrip({
+                        tabPosition: "right",
+                        animation: { open: { effects: "fadeIn" } }
+                    });
+
+                    $("#tabstrip-bottom").kendoTabStrip({
+                        tabPosition: "bottom",
+                        animation: { open: { effects: "fadeIn" } }
+                    });
+                });
+            </script>
+        </div>
+
+        <div id="example">
+
+            <div class="demo-section">
+
+                <div class="tabstrip-container">
+                    <div id="tabstrip6">
+                        <ul>
+                            <li class="k-active">
+                                Tab 1 with long text
+                            </li>
+                            <li>
+                                Tab 2 with long text
+                            </li>
+                            <li>
+                                Tab 3 with long text
+                            </li>
+                            <li>
+                                Tab 4 with long text
+                            </li>
+                        </ul>
+                        <div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer felis libero, lobortis ac rutrum quis, varius a velit.</p>
+                        </div>
+                        <div>
+                            <p>Donec lacus erat, cursus sed porta quis, adipiscing et ligula. Duis volutpat, sem pharetra accumsan pharetra, mi ligula cursus felis, ac aliquet leo diam eget risus.</p>
+                        </div>
+                        <div>
+                            <p>Integer facilisis, justo cursus venenatis vehicula, massa nisl tempor sem, in ullamcorper neque mauris in orci.</p>
+                        </div>
+                        <div>
+                            <p>Ut orci ligula, varius ac consequat in, rhoncus in dolor. Mauris pulvinar molestie accumsan. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                $(document).ready(function() {
+                    $("#tabstrip6").kendoTabStrip();
+                });
+            </script>
+        </div>
+
+        <style>
+            .demo-section .tabstrip-container {
+                width: 500px;
+            }
+        </style>
+
+    <div id="example">
+        <div class="demo-section wide">
+            <div id="tabstrip7"></div>
+            <p class="button-container">
+                <button id="resetButton" type="button">Reset TabStrip</button>
+            </p>
+        </div>
+
+        <script>
+            var tabstrip;
+            var createTabStrip = function () {
+                tabstrip = $("#tabstrip7").kendoTabStrip({
+                    animation: false,
+                    dataTextField: "text",
+                    dataContentField: "content",
+                    dataSource: [
+                        {
+                            text: "Baseball",
+                            content: "Baseball is a bat-and-ball sport played between two teams of nine players each. The aim is to score runs by hitting a thrown ball with a bat and touching a series of four bases arranged at the corners of a ninety-foot diamond. Players on the batting team take turns hitting against the pitcher of the fielding team, which tries to stop them from scoring runs by getting hitters out in any of several ways. A player on the batting team can stop at any of the bases and later advance via a teammate's hit or other means. The teams switch between batting and fielding whenever the fielding team records three outs. One turn at bat for each team constitutes an inning and nine innings make up a professional game. The team with the most runs at the end of the game wins."
+                        },
+                        {
+                            text: "Golf",
+                            content: "Golf is a precision club and ball sport, in which competing players (or golfers) use many types of clubs to hit balls into a series of holes on a golf course using the fewest number of strokes. It is one of the few ball games that does not require a standardized playing area. Instead, the game is played on golf courses, each of which features a unique design, although courses typically consist of either nine or 18 holes. Golf is defined, in the rules of golf, as playing a ball with a club from the teeing ground into the hole by a stroke or successive strokes in accordance with the Rules."
+                        },
+                        {
+                            text: "Swimming",
+                            content: "Swimming has been recorded since prehistoric times; the earliest recording of swimming dates back to Stone Age paintings from around 7,000 years ago. Written references date from 2000 BC. Some of the earliest references to swimming include the Gilgamesh, the Iliad, the Odyssey, the Bible, Beowulf, and other sagas. In 1578, Nikolaus Wynmann, a German professor of languages, wrote the first swimming book, The Swimmer or A Dialogue on the Art of Swimming (Der Schwimmer oder ein Zwiegespräch über die Schwimmkunst). Competitive swimming in Europe started around 1800, mostly using breaststroke."
+                        },
+                        {
+                            text: "Snowboarding",
+                            content: "Snowboarding is a sport that involves descending a slope that is covered with snow on a snowboard attached to a rider's feet using a special boot set onto a mounted binding. The development of snowboarding was inspired by skateboarding, sledding, surfing and skiing. It was developed in the U.S.A. in the 1960s to 1970s and became a Winter Olympic Sport in 1998."
+                        }
+                    ]
+                }).data("kendoTabStrip");
+            };
+
+            var configureSortable = function () {
+                $("#tabstrip7 ul.k-tabstrip-items").kendoSortable({
+                    filter: "li.k-item",
+                    axis: "x",
+                    container: "ul.k-tabstrip-items",
+                    hint: function (element) {
+                        return $("<div id='hint' class='k-widget k-tabstrip'><ul class='k-tabstrip-items k-reset'><li class='k-item k-active k-tab-on-top'>" + element.html() + "</li></ul></div>");
+                    },
+                    start: function (e) {
+                        tabstrip.activateTab(e.item);
+                    },
+                    change: function (e) {
+                        var tabstrip = $("#tabstrip7").data("kendoTabStrip"),
+                            reference = tabstrip.tabGroup.children().eq(e.newIndex);
+
+                        if (e.oldIndex < e.newIndex) {
+                            tabstrip.insertAfter(e.item, reference);
+                        } else {
+                            tabstrip.insertBefore(e.item, reference);
+                        }
+                    }
+                });
+            };
+
+            var configureCloseTab = function () {
+                var tabsElements = $('#tabstrip7 li[role="tab"]');
+                tabsElements.append('<span data-type="remove" class="k-link"><span class="k-icon k-i-x"></span></span>');
+
+                tabstrip.tabGroup.on("click", "[data-type='remove']", function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    var item = $(e.target).closest(".k-item");
+                    tabstrip.remove(item.index());
+
+                    if (tabstrip.items().length > 0 && item.hasClass('k-active')) {
+                        tabstrip.select(0);
+                    }
+                });
+            };
+
+            createTabStrip();
+            configureSortable();
+            tabstrip.select(0);
+            configureCloseTab();
+
+            $("#resetButton").kendoButton({
+                themeColor: "primary",
+                click: function (e) {
+                    tabstrip.destroy();
+                    $("#tabstrip7").empty();
+                    createTabStrip();
+                    configureSortable();
+                    tabstrip.select(0);
+                    configureCloseTab();
+                }
+            });
+        </script>
+
+        <style>
+            .button-container {
+                padding-top: 1em;
+                text-align: right;
+            }
+
+            .k-tabstrip .k-tabstrip-items li .k-link {
+                padding-right: 0.46em;
+            }
+
+            .k-tabstrip .k-tabstrip-items li .k-link[data-type='remove'] {
+                padding-left: 0.46em;
+            }
+
+            .k-tabstrip .k-tabstrip-items li .k-link .k-icon {
+                margin: 0;
+            }
+
+            .k-tabstrip .k-tabstrip-items li .k-link .k-icon:hover {
+                color: red;
+            }
+
+            .k-tabstrip .demo-section {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            #hint {
+               border: none;
+            }
+
+            #hint .k-tabstrip-items {
+               padding: 0;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <div id="tabstrip8">
+                <ul>
+                    <li class="k-active">
+                        First Tab
+                    </li>
+                    <li>
+                        Ajax Tab
+                    </li>
+                    <li>
+                        Error Tab
+                    </li>
+                </ul>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer felis libero, lobortis ac rutrum quis, varius a velit. Donec lacus erat, cursus sed porta quis, adipiscing et ligula. Duis volutpat, sem pharetra accumsan pharetra, mi ligula cursus felis, ac aliquet leo diam eget risus. Integer facilisis, justo cursus venenatis vehicula, massa nisl tempor sem, in ullamcorper neque mauris in orci. Proin sagittis elementum odio, eu vestibulum arcu rhoncus eu. Pellentesque lorem arcu, tempus at dapibus nec, tincidunt a ante. Cras eget arcu id augue sollicitudin fermentum. Quisque ullamcorper ultrices ante, ut mollis neque tincidunt nec. Aenean sollicitudin lobortis nibh, vitae sagittis justo placerat et. Fusce laoreet consequat arcu, quis placerat massa lacinia vel. Etiam fringilla purus ac ipsum euismod nec aliquet lorem aliquet. Aliquam a nunc ac lorem lobortis pulvinar. Integer eleifend lobortis risus vel commodo. Integer nisl turpis, facilisis a porttitor nec, tempus ac enim. Proin pulvinar vestibulum ligula id mattis. Integer posuere faucibus accumsan.</p>
+                </div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <style>
+            .k-tabstrip > .demo-section {
+                padding: 1em;
+            }
+
+            .specification {
+                max-width: 670px;
+                margin: 10px 0;
+                padding: 0;
+            }
+
+                .specification dt, dd {
+                    max-width: 140px;
+                    float: left;
+                    margin: 0;
+                    padding: 5px 0 8px 0;
+                }
+
+                .specification dt {
+                    clear: left;
+                    width: 100px;
+                    margin-right: 7px;
+                    padding-right: 0;
+                    opacity: 0.7;
+                }
+
+                .specification:after, .wrapper:after {
+                    content: ".";
+                    display: block;
+                    clear: both;
+                    height: 0;
+                    visibility: hidden;
+                }
+        </style>
+    </div>
+    <script>
+        $(document).ready(function () {
+            function onSelect(e) {
+                kendoConsole.log("Selected: " + $(e.item).find("> .k-link").text());
+            }
+
+            function onShow(e) {
+                kendoConsole.log("Shown: " + $(e.item).find("> .k-link").text());
+            }
+
+            function onActivate(e) {
+                kendoConsole.log("Activated: " + $(e.item).find("> .k-link").text());
+            }
+
+            function onContentLoad(e) {
+                kendoConsole.log("Content loaded in <b>" + $(e.item).find("> .k-link").text() + "</b> and starts with <b>" + $(e.contentElement).text().substr(0, 20) + "...</b>");
+            }
+
+            function onError(e) {
+                kendoConsole.error("Loading failed with " + e.xhr.statusText + " " + e.xhr.status);
+            }
+
+            $("#tabstrip8").kendoTabStrip({
+                select: onSelect,
+                activate: onActivate,
+                show: onShow,
+                contentLoad: onContentLoad,
+                error: onError,
+                contentUrls: [, "../content/web/tabstrip/ajax/ajaxContent1.html", "error.html"]
+            });
+        });
+    </script>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+
+        <div id="example">
+            <div class="configurator">
+                <div class="header">Configurator</div>
+                <div class="box-col">
+                    <h4>Select</h4>
+                    <ul class="options">
+                        <li>
+                            <input type="text" value="0" id="tabIndex" /> <button class="selectTab">Select</button>
+                        </li>
+
+                    </ul>                   
+                </div>
+                <div class="box-col">
+                    <h4>Enable / Disable</h4>
+                    <ul class="options">
+                        <li>
+                            <button class="toggleTab">Enable/Disable Selected</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-col">
+                    <h4>Add / Remove</h4>
+                    <ul class="options">
+                        <li>
+                            <button class="removeItem">Remove Selected</button>
+                        </li>
+                        <li>
+                            <input type="text" value="Item" id="appendText" /> <button class="appendItem">Append</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="box-col">
+                    <h4>&nbsp;</h4>
+                    <ul class="options">
+                        <li>
+                            <input type="text" value="Item" id="beforeText" /> <button class="beforeItem">Insert Before</button>
+                        </li>
+                        <li>
+                            <input type="text" value="Item" id="afterText" /> <button class="afterItem">Insert After</button>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <div id="tabstrip9">
+                    <ul>
+                        <li class="k-active">
+                            Baseball
+                        </li>
+                        <li>
+                            Golf
+                        </li>
+                        <li>
+                            Swimming
+                        </li>
+                    </ul>
+                    <div>
+                        <p>Baseball is a bat-and-ball sport played between two teams of nine players each. The aim is to score runs by hitting a thrown ball with a bat and touching a series of four bases arranged at the corners of a ninety-foot diamond. Players on the batting team take turns hitting against the pitcher of the fielding team, which tries to stop them from scoring runs by getting hitters out in any of several ways. A player on the batting team can stop at any of the bases and later advance via a teammate's hit or other means. The teams switch between batting and fielding whenever the fielding team records three outs. One turn at bat for each team constitutes an inning and nine innings make up a professional game. The team with the most runs at the end of the game wins.</p>
+                    </div>
+                    <div>
+                        <p>Golf is a precision club and ball sport, in which competing players (or golfers) use many types of clubs to hit balls into a series of holes on a golf course using the fewest number of strokes. It is one of the few ball games that does not require a standardized playing area. Instead, the game is played on golf courses, each of which features a unique design, although courses typically consist of either nine or 18 holes. Golf is defined, in the rules of golf, as playing a ball with a club from the teeing ground into the hole by a stroke or successive strokes in accordance with the Rules.</p>
+                    </div>
+                    <div>
+                        <p>Swimming has been recorded since prehistoric times; the earliest recording of swimming dates back to Stone Age paintings from around 7,000 years ago. Written references date from 2000 BC. Some of the earliest references to swimming include the Gilgamesh, the Iliad, the Odyssey, the Bible, Beowulf, and other sagas. In 1578, Nikolaus Wynmann, a German professor of languages, wrote the first swimming book, The Swimmer or A Dialogue on the Art of Swimming. Competitive swimming in Europe started around 1800, mostly using breaststroke.</p>
+                    </div>
+                </div>
+            </div>
+            <script>
+                $(document).ready(function() {
+                    var getItem = function (target) {
+                            var itemIndex = target[0].value;
+
+                            return tabStrip.tabGroup.children("li").eq(itemIndex);
+                        },
+                        select = function(e) {
+                            if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode)
+                                tabStrip.select(getItem($("#tabIndex")));
+                        },
+                        append = function (e) {
+                            if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode)
+                                tabStrip.append({
+                                    text: $("#appendText").val(),
+                                    content: "<br>"
+                                });
+                        },
+                        before = function (e) {
+                            if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode)
+                                tabStrip.insertBefore({
+                                    text: $("#beforeText").val(),
+                                    content: "<br>"
+                                }, tabStrip.select());
+                        },
+                        after = function (e) {
+                            if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode)
+                                tabStrip.insertAfter({
+                                    text: $("#afterText").val(),
+                                    content: "<br>"
+                                }, tabStrip.select());
+                        };
+
+                    $(".toggleTab").click(function(e) {
+                        var tab = tabStrip.select();
+
+                        tabStrip.enable(tab, tab.hasClass("k-disabled"));
+                    });
+
+                    $(".removeItem").click( function (e) {
+                        var tab = tabStrip.select(),
+                            otherTab = tab.next();
+                        otherTab = otherTab.length ? otherTab : tab.prev();
+
+                        tabStrip.remove(tab);
+                        tabStrip.select(otherTab);
+                    });
+
+                    $(".selectTab").click(select);
+                    $("#tabIndex").keypress(select);
+
+                    $(".appendItem").click(append);
+                    $("#appendText").keypress(append);
+
+                    $(".beforeItem").click(before);
+                    $("#beforeText").keypress(before);
+
+                    $(".afterItem").click(after);
+                    $("#afterText").keypress(after);
+                });
+
+                var tabStrip = $("#tabstrip9").kendoTabStrip().data("kendoTabStrip");
+            </script>          
+        </div>
+
+        <div id="example">
+
+            <div class="k-rtl">
+
+                <div class="demo-section">
+
+                    <h4>TabStrip with images</h4>
+
+                    <div id="tabstrip-images10"></div>
+                </div>
+
+                <script>
+                    $("#tabstrip-images10").kendoTabStrip({
+                        animation: { open: { effects: "fadeIn"} },
+                        dataTextField: "text",
+                        dataImageUrlField: "imageUrl",
+                        dataContentField: "content",
+                        dataSource: [
+                            {
+                                text: "Baseball",
+                                imageUrl: "../content/shared/icons/sports/baseball.png",
+                                content: "Baseball is a bat-and-ball sport played between two teams of nine players each. The aim is to score runs by hitting a thrown ball with a bat and touching a series of four bases arranged at the corners of a ninety-foot diamond. Players on the batting team take turns hitting against the pitcher of the fielding team, which tries to stop them from scoring runs by getting hitters out in any of several ways. A player on the batting team can stop at any of the bases and later advance via a teammate's hit or other means. The teams switch between batting and fielding whenever the fielding team records three outs. One turn at bat for each team constitutes an inning and nine innings make up a professional game. The team with the most runs at the end of the game wins."
+                            },
+                            {
+                                text: "Golf",
+                                imageUrl: "../content/shared/icons/sports/golf.png",
+                                content: "Golf is a precision club and ball sport, in which competing players (or golfers) use many types of clubs to hit balls into a series of holes on a golf course using the fewest number of strokes. It is one of the few ball games that does not require a standardized playing area. Instead, the game is played on golf courses, each of which features a unique design, although courses typically consist of either nine or 18 holes. Golf is defined, in the rules of golf, as playing a ball with a club from the teeing ground into the hole by a stroke or successive strokes in accordance with the Rules."
+                            },
+                            {
+                                text: "Swimming",
+                                imageUrl: "../content/shared/icons/sports/swimming.png",
+                                content: "Swimming has been recorded since prehistoric times; the earliest recording of swimming dates back to Stone Age paintings from around 7,000 years ago. Written references date from 2000 BC. Some of the earliest references to swimming include the Gilgamesh, the Iliad, the Odyssey, the Bible, Beowulf, and other sagas. In 1578, Nikolaus Wynmann, a German professor of languages, wrote the first swimming book, The Swimmer or A Dialogue on the Art of Swimming (Der Schwimmer oder ein Zwiegespräch über die Schwimmkunst). Competitive swimming in Europe started around 1800, mostly using breaststroke."
+                            }
+                        ]
+
+                    }).data("kendoTabStrip").select(0);
+                </script>
+
+                <div class="demo-section">
+
+                    <h4>TabStrip with sprites</h4>
+
+                    <div id="tabstrip-sprites10"></div>
+                </div>
+
+                <script>
+                    $("#tabstrip-sprites10").kendoTabStrip({
+                        animation: { open: { effects: "fadeIn"} },
+                        dataTextField: "text",
+                        dataSpriteCssClass: "spriteCssClass",
+                        dataContentField: "content",
+                        dataSource: [
+                            {
+                                text: "Brazil",
+                                spriteCssClass: "brazilFlag",
+                                content: "Brazil, officially the Federative Republic of Brazil, is the largest country in South America. It is the world's fifth largest country, both by geographical area and by population with over 192 million people. It is the only Portuguese-speaking country in the Americas and the largest lusophone country in the world."
+                            },
+                            {
+                                text: "India",
+                                spriteCssClass: "indiaFlag",
+                                content: "India, officially the Republic of India, is a country in South Asia. It is the seventh-largest country by geographical area, the second-most populous country with over 1.2 billion people, and the most populous democracy in the world. Bounded by the Indian Ocean on the south, the Arabian Sea on the south-west, and the Bay of Bengal on the south-east, it shares land borders with Pakistan to the west; China, Nepal, and Bhutan to the north-east; and Burma and Bangladesh to the east. In the Indian Ocean, India is in the vicinity of Sri Lanka and the Maldives; in addition, India's Andaman and Nicobar Islands share a maritime border with Thailand and Indonesia."
+                            },
+                            {
+                                text: "Netherlands",
+                                spriteCssClass: "netherlandsFlag",
+                                content: "The Netherlands is a constituent country of the Kingdom of the Netherlands, located mainly in North-West Europe and with several islands in the Caribbean. Mainland Netherlands borders the North Sea to the north and west, Belgium to the south, and Germany to the east, and shares maritime borders with Belgium, Germany and the United Kingdom. It is a parliamentary democracy organised as a unitary state. The country capital is Amsterdam and the seat of government is The Hague. The Netherlands in its entirety is often referred to as Holland, although North and South Holland are actually only two of its twelve provinces."
+
+                            }]
+                    }).data("kendoTabStrip").select(0);
+                </script>
+
+            </div>
+
+
+            <style>
+                .demo-section {
+                    min-height: 280px;
+                }
+
+                #tabstrip-sprites .k-sprite {
+                    background-image: url("../content/shared/styles/flags.png");
+                }
+                .brazilFlag {
+                    background-position: 0 0;
+                }
+                .indiaFlag {
+                    background-position: 0 -32px;
+                }
+                .netherlandsFlag {
+                    background-position: 0 -64px;
+                }
+                .k-tabstrip .demo-section {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+            </style>
+        </div>
+
+        <div id="example11">
+            <div class="configurator">
+                <div class="header">Configurator</div>
+                <div class="box-col">
+                    <h4>Configuration</h4>
+                    <div>
+                        <label><input type="checkbox" data-bind="checked: isVisible">Visible</label>
+                    </div>
+                </div>
+                <div class="box-col">
+                    <h4>Information</h4>
+                    Kendo UI TabStrip supports the
+                    <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a> and
+                    <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+                </div>
+            </div>
+            <div class="demo-section">
+                <div>
+                    <h4>Select a tab</h4>
+                    <div data-role="tabstrip"
+                         data-bind="events: { select: onSelect },
+                         visible: isVisible">
+                        <ul>
+                            <li class="k-active">
+                                Paris
+                            </li>
+                            <li>
+                                New York
+                            </li>
+                            <li>
+                                London
+                            </li>
+                            <li>
+                                Moscow
+                            </li>
+                        </ul>
+                        <div>
+                            <span class="rainy">&nbsp;</span>
+                        </div>
+                        <div>
+                            <span class="sunny">&nbsp;</span>
+                        </div>
+                        <div>
+                            <span class="sunny">&nbsp;</span>
+                        </div>
+                        <div>
+                            <span class="cloudy">&nbsp;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var viewModel = kendo.observable({
+                    isVisible: true,
+                    onSelect: function (e) {
+                        var text = $(e.item).children(".k-link").text();
+                        kendoConsole.log("event :: select (" + text + ")");
+                    }
+                });
+                kendo.bind($("#example11"), viewModel);
+            </script>
+            <style>
+                .sunny, .cloudy, .rainy {
+                    display: block;
+                    margin: 20px auto;
+                    width: 128px;
+                    height: 128px;
+                    background: url('../content/web/tabstrip/weather.png') transparent no-repeat 0 0;
+                }
+
+                .cloudy {
+                    background-position: -128px 0;
+                }
+
+                .rainy {
+                    background-position: -256px 0;
+                }
+
+                .weather {
+                    margin: 0 auto 30px;
+                    text-align: center;
+                }
+            </style>
+        </div>
+
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+</body>

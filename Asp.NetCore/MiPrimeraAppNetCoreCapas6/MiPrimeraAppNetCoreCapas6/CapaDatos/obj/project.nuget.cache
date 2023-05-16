@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "dgSpecHash": "OcGlkFhzj2OE7seK8Rglu5I8pBwMTyGdOC/fjWyzJUVx6j7oqPi61Q4DBY+zzeKzbfm0WouEZkYmal77UfSp+g==",
+  "success": true,
+  "projectFilePath": "D:\\Usuario\\Escritorio\\Codigo\\Cronos\\Asp.NetCore\\MiPrimeraAppNetCoreCapas6\\MiPrimeraAppNetCoreCapas6\\CapaDatos\\CapaDatos.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0-preview.2.21154.6\\microsoft.extensions.configuration.6.0.0-preview.2.21154.6.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0-preview.2.21154.6\\microsoft.extensions.configuration.abstractions.6.0.0-preview.2.21154.6.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\6.0.0-preview.2.21154.6\\microsoft.extensions.configuration.fileextensions.6.0.0-preview.2.21154.6.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.configuration.json\\6.0.0-preview.2.21154.6\\microsoft.extensions.configuration.json.6.0.0-preview.2.21154.6.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0-preview.2.21154.6\\microsoft.extensions.fileproviders.abstractions.6.0.0-preview.2.21154.6.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\6.0.0-preview.2.21154.6\\microsoft.extensions.fileproviders.physical.6.0.0-preview.2.21154.6.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\6.0.0-preview.2.21154.6\\microsoft.extensions.filesystemglobbing.6.0.0-preview.2.21154.6.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0-preview.2.21154.6\\microsoft.extensions.primitives.6.0.0-preview.2.21154.6.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\system.data.sqlclient\\4.8.2\\system.data.sqlclient.4.8.2.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0-preview.2.21154.6\\system.runtime.compilerservices.unsafe.6.0.0-preview.2.21154.6.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\system.text.encodings.web\\6.0.0-preview.2.21154.6\\system.text.encodings.web.6.0.0-preview.2.21154.6.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\system.text.json\\6.0.0-preview.2.21154.6\\system.text.json.6.0.0-preview.2.21154.6.nupkg.sha512"
+  ],
+  "logs": []
+}

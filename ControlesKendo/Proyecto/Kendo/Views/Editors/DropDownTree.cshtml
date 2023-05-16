@@ -1,0 +1,877 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/dropdowntree/events">
+    <base href="https://demos.telerik.com/kendo-ui/dropdowntree/index">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="dropdowntree">Select an item</label>
+            <input id="dropdowntree" />
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            $("#dropdowntree").kendoDropDownTree({
+                placeholder: "Select ...",
+                height: "auto",
+                dataSource: [
+                    {
+                        text: "Furniture", expanded: true, items: [
+                            { text: "Tables & Chairs" },
+                            { text: "Sofas" },
+                            { text: "Occasional Furniture" }
+                        ]
+                    },
+                    {
+                        text: "Decor", items: [
+                            { text: "Bed Linen" },
+                            { text: "Curtains & Blinds" },
+                            { text: "Carpets" }
+                        ]
+                    }
+                ]
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="dropdowntree">Select one or more items</label>
+			<input id="dropdowntree2" />
+		</div>
+	</div>
+    <script>
+        $(document).ready(function () {
+
+            // create kendoDropDownTree from input HTML element
+            $("#dropdowntree2").kendoDropDownTree({
+                placeholder: "Select ...",
+                checkboxes: true,
+                checkAll: true,
+                autoClose: false,
+                dataSource: [
+                    {
+                        text: "Furniture", expanded: true, items: [
+                            { text: "Tables & Chairs" },
+                            { text: "Sofas" },
+                            { text: "Occasional Furniture" }
+                        ]
+                    },
+                    {
+                        text: "Decor", items: [
+                            { text: "Bed Linen" },
+                            { text: "Curtains & Blinds" },
+                            { text: "Carpets" }
+                        ]
+                    }
+                ]
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="dropdowntree">Select one or more items</label>
+            <input id="dropdowntree3" />
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            // create kendoDropDownTree from input HTML element
+            $("#dropdowntree3").kendoDropDownTree({
+                placeholder: "Select ...",
+                filter: "startswith",
+                dataSource: [
+                    {
+                        text: "Furniture", expanded: true, items: [
+                            { text: "Tables & Chairs" },
+                            { text: "Sofas" },
+                            { text: "Occasional Furniture" }
+                        ]
+                    },
+                    {
+                        text: "Decor", items: [
+                            { text: "Bed Linen" },
+                            { text: "Curtains & Blinds" },
+                            { text: "Carpets" }
+                        ]
+                    }
+                ]
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <input id="dropdowntree4" />
+        </div>
+    </div>
+    <script>
+        var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+        homogeneous = new kendo.data.HierarchicalDataSource({
+            transport: {
+                read: {
+                    url: serviceRoot + "/Employees",
+                    dataType: "jsonp"
+                }
+            },
+            schema: {
+                model: {
+                    id: "EmployeeId",
+                    hasChildren: "HasEmployees"
+                }
+            }
+        });
+
+        $("#dropdowntree4").kendoDropDownTree({
+            placeholder: "Select ...",
+            dataSource: homogeneous,
+            height: "auto",
+            dataTextField: "FullName"
+        });
+    </script>
+    
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <input id="dropdowntree5" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // TreeView bound to Categories > Products > OrderDetails
+
+            var OrderDetails = {
+                type: "odata",
+                transport: {
+                    read: {
+                        url: function (options) {
+                            return kendo.format("https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products({0})/Order_Details", options.ProductID);
+                        }
+                    }
+                },
+                schema: {
+                    model: {
+                        hasChildren: function () {
+                            return false;
+                        }
+                    }
+                }
+            };
+
+            var Products = {
+                type: "odata",
+                schema: {
+                    model: {
+                        id: "ProductID",
+                        hasChildren: "Order_Details",
+                        children: OrderDetails
+                    }
+                },
+                transport: {
+                    read: {
+                        url: function (options) {
+                            return kendo.format("https://demos.telerik.com/kendo-ui/service/Northwind.svc/Categories({0})/Products", options.CategoryID);
+                        }
+                    }
+                }
+            };
+
+            var Categories = new kendo.data.HierarchicalDataSource({
+                type: "odata",
+                transport: {
+                    read: {
+                        url: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Categories"
+                    }
+                },
+                schema: {
+                    model: {
+                        hasChildren: "Products",
+                        id: "CategoryID",
+                        children: Products
+                    }
+                }
+            });
+
+            $("#dropdowntree5").kendoDropDownTree({
+                placeholder: "Select ...",
+                height: 350,
+                dataSource: Categories,
+                dataTextField: ["CategoryName", "ProductName", "OrderID"]
+            });
+        });
+    </script>
+    
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Size</h4>
+                    <input id="size" name="size" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Rounded</h4>
+                    <input id="rounded" name="rounded" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Fill Mode</h4>
+                    <input id="fillMode" name="fillMode" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="dropdowntree-single">Single Selection:</label>
+            <input id="dropdowntree-single" />
+            <br>
+            <br>
+
+            <label for="dropdowntree-multiple">Multiple Selection</label>
+            <input id="dropdowntree-multiple" />
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            var ddtSingle = $("#dropdowntree-single").kendoDropDownTree({
+                placeholder: "Select ...",
+                height: "auto",
+                dataSource: [
+                    {
+                        text: "Furniture", expanded: true, items: [
+                            { text: "Tables & Chairs" },
+                            { text: "Sofas" },
+                            { text: "Occasional Furniture" }
+                        ]
+                    },
+                    {
+                        text: "Decor", items: [
+                            { text: "Bed Linen" },
+                            { text: "Curtains & Blinds" },
+                            { text: "Carpets" }
+                        ]
+                    }
+                ]
+            }).data("kendoDropDownTree");
+
+            var ddtMultiple = $("#dropdowntree-multiple").kendoDropDownTree({
+                placeholder: "Select ...",
+                checkboxes: true,
+                fillMode: "outline",
+                checkAll: true,
+                autoClose: false,
+                dataSource: [
+                    {
+                        text: "Furniture", expanded: true, items: [
+                            { text: "Tables & Chairs" },
+                            { text: "Sofas" },
+                            { text: "Occasional Furniture" }
+                        ]
+                    },
+                    {
+                        text: "Decor", items: [
+                            { text: "Bed Linen" },
+                            { text: "Curtains & Blinds" },
+                            { text: "Carpets" }
+                        ]
+                    }
+                ]
+            }).data("kendoDropDownTree");
+            var size = $("#size").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "medium",
+                change: onChange,
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "None", value: "none" }
+                ]
+            }).data("kendoDropDownList");
+            var rounded = $("#rounded").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                change: onChange,
+                value: "medium",
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "Full", value: "full" },
+                    { text: "None", value: "none" }
+                ]
+            }).data("kendoDropDownList");
+            var fill = $("#fillMode").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                change: onChange,
+                value: "solid",
+                dataSource: [
+                    { text: "Solid", value: "solid" },
+                    { text: "Flat", value: "flat" },
+                    { text: "Outline", value: "outline" },
+                    { text: "None", value: "none" }
+                ]
+            }).data("kendoDropDownList");
+            function onChange(e) {
+                var sizeValue = size.value();
+                var roundedValue = rounded.value();
+                var fillValue = fill.value();
+                var selectedValues = ddtMultiple.value();
+                ddtSingle.setOptions({
+                    size: sizeValue,
+                    rounded: roundedValue,
+                    fillMode: fillValue
+                })
+                ddtMultiple.value([]);
+                ddtMultiple.setOptions({
+                    size: sizeValue,
+                    rounded: roundedValue,
+                    fillMode: fillValue
+                })
+                ddtMultiple.value(selectedValues);
+            }
+        });
+    </script>
+
+    <style>
+        .k-picker.k-dropdownlist {
+            width: 140px;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 100px;">
+	    <div class="k-w-300">
+		    <input id="dropdowntree7" style="width:100%;"/>
+	    </div>
+    </div>
+    <script>
+        var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+            homogeneous = new kendo.data.HierarchicalDataSource({
+                transport: {
+                    read: {
+                        url: serviceRoot + "/Employees",
+                        dataType: "jsonp"
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "EmployeeId",
+                        hasChildren: "HasEmployees"
+                    }
+                }
+            });
+
+        $("#dropdowntree7").kendoDropDownTree({
+            label: { 
+                content: "Select an employee...",
+                floating: true
+            },
+            dataSource: homogeneous,
+            height: "auto",
+            dataTextField: "FullName"
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300 k-rtl">
+			<input id="dropdowntree8"/>
+		</div>
+	</div>
+
+    <script id="dropdowntree-template" type="text/kendo-ui-template">
+        #: item.text #
+    </script>
+    <script id="dropdowntree-value-template" type="text/kendo-ui-template">
+        <span class="k-sprite #: spriteCssClass #"></span>
+        <span> #: data.text # </span>
+    </script>
+    <script>
+        $("#dropdowntree8").kendoDropDownTree({
+            template: kendo.template($("#dropdowntree-template").html()),
+            valueTemplate: kendo.template($("#dropdowntree-value-template").html()),
+            dataTextField: "text",
+            dataSpriteCssClassField: "spriteCssClass",
+            dataSource: [{
+                id: 1, text: "My Documents", expanded: true, spriteCssClass: "rootfolder", items: [
+                    {
+                        id: 2, text: "Kendo UI Project", expanded: true, spriteCssClass: "folder", items: [
+                            { id: 3, text: "about.html", spriteCssClass: "html" },
+                            { id: 4, text: "index.html", spriteCssClass: "html" },
+                            { id: 5, text: "logo.png", spriteCssClass: "image" }
+                        ]
+                    },
+                    {
+                        id: 6, text: "New Web Site", expanded: true, spriteCssClass: "folder", items: [
+                            { id: 7, text: "mockup.jpg", spriteCssClass: "image" },
+                            { id: 8, text: "Research.pdf", spriteCssClass: "pdf" },
+                        ]
+                    },
+                    {
+                        id: 9, text: "Reports", expanded: true, spriteCssClass: "folder", items: [
+                            { id: 10, text: "February.pdf", spriteCssClass: "pdf" },
+                            { id: 11, text: "March.pdf", spriteCssClass: "pdf" },
+                            { id: 12, text: "April.pdf", spriteCssClass: "pdf" }
+                        ]
+                    }
+                ]
+            }]
+        });
+
+
+    </script>
+    <style>
+        .k-dropdowntree .k-sprite, .k-popup .k-sprite {
+            background-image: url("../content/web/treeview/coloricons-sprite.png");
+        }
+
+        .rootfolder {
+            background-position: 0 0;
+        }
+
+        .folder {
+            background-position: 0 -16px;
+        }
+
+        .pdf {
+            background-position: 0 -32px;
+        }
+
+        .html {
+            background-position: 0 -48px;
+        }
+
+        .image {
+            background-position: 0 -64px;
+        }
+
+        .k-dropdown-wrap .k-input {
+            display: block;
+        }
+
+        .k-dropdown-wrap .k-sprite {
+            vertical-align: middle;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="dropdowntree">Select Continents</label>
+            <input id="dropdowntree9" />
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            function onDataBound() {
+                if ("kendoConsole" in window) {
+                    kendoConsole.log("event: dataBound");
+                }
+            }
+
+            function onOpen() {
+                if ("kendoConsole" in window) {
+                    kendoConsole.log("event: open");
+                }
+            }
+
+            function onClose() {
+                if ("kendoConsole" in window) {
+                    kendoConsole.log("event: close");
+                }
+            }
+
+            function onChange() {
+                if ("kendoConsole" in window) {
+                    kendoConsole.log("event: change");
+                }
+            }
+
+            function onFiltering(e) {
+                if ("kendoConsole" in window) {
+                    kendoConsole.log("event :: filtering");
+                }
+            }
+
+            function onSelect(e) {
+                if ("kendoConsole" in window) {
+                    kendoConsole.log("event :: select");
+                }
+            }
+
+            var data = [
+                {
+                    text: "Furniture", expanded: true, items: [
+                        { text: "Tables & Chairs" },
+                        { text: "Sofas" },
+                        { text: "Occasional Furniture" }
+                    ]
+                },
+                {
+                    text: "Decor", items: [
+                        { text: "Bed Linen" },
+                        { text: "Curtains & Blinds" },
+                        { text: "Carpets" }
+                    ]
+                }
+            ];
+
+            $("#dropdowntree9").kendoDropDownTree({
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: data,
+                filter: "startswith",
+                dataBound: onDataBound,
+                filtering: onFiltering,
+                change: onChange,
+                close: onClose,
+                open: onOpen,
+                select: onSelect
+            });
+        });
+    </script>
+
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Open/Close</h4>
+            <ul class="options">
+                <li>
+                    <button id="open">Open</button> <button id="close">Close</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Enable/Disable</h4>
+            <ul class="options">
+                <li>
+                    <button id="enable">Enable</button> <button id="disable">Disable</button>
+                </li>
+                <li>
+                    <button id="readonly">Readonly</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Select</h4>
+            <ul class="options">
+                <li>
+                    <button id="getValue">Get values</button>
+                </li>
+                <li>
+                    <input id="value" value="1" style="width: 40px; margin: 0;" /> <button id="setValue">Select by value</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<input id="items" />
+		</div>
+	</div>
+
+    <script>
+        $(document).ready(function () {
+            var data = [
+                {
+                    id: 1, text: "Furniture", items: [
+                        { id: 2, text: "Tables & chairs" },
+                        { id: 3, text: "Sofas" },
+                        { id: 4, text: "Occasional furnitures" },
+                        { id: 5, text: "Childrens furniture" },
+                        { id: 6, text: "Beds" }
+                    ]
+                },
+                {
+                    id: 7, text: "Decor", items: [
+                        { id: 8, text: "Bed linen" },
+                        { id: 9, text: "Throws" },
+                        { id: 10, text: "Curtains & blinds" },
+                        { id: 11, text: "Rugs" },
+                        { id: 12, text: "Carpets" }
+                    ]
+                },
+                {
+                    id: 13, text: "Storage", items: [
+                        { id: 14, text: "Wall shelving" },
+                        { id: 15, text: "Kids storage" },
+                        { id: 16, text: "Multimedia storage" },
+                        { id: 17, text: "Floor shelving" },
+                        { id: 18, text: "Toilet roll holders" },
+                        { id: 19, text: "Storage jars" },
+                        { id: 20, text: "Drawers" },
+                        { id: 21, text: "Boxes" }
+                    ]
+                }
+            ];
+
+            $("#items").kendoDropDownTree({
+                placeholder: "Select item...",
+                dataTextField: "text",
+                dataValueField: "id",
+                filter: "startswith",
+                dataSource: data
+            });
+
+            var dropdowntree = $("#items").data("kendoDropDownTree"),
+                setValue = function (e) {
+                    if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode) {
+                        dropdowntree.dataSource.filter({}); //clear applied filter before setting value
+
+                        dropdowntree.value($("#value").val().split(","));
+                    }
+                };
+
+            $("#enable").click(function () {
+                dropdowntree.enable();
+            });
+
+            $("#disable").click(function () {
+                dropdowntree.enable(false);
+            });
+
+            $("#readonly").click(function () {
+                dropdowntree.readonly();
+            });
+
+            $("#open").click(function () {
+                dropdowntree.open();
+            });
+
+            $("#close").click(function () {
+                dropdowntree.close();
+            });
+
+            $("#getValue").click(function () {
+                alert(dropdowntree.value());
+            });
+
+            $("#setValue").click(setValue);
+            $("#value").keypress(setValue);
+
+            function filterTypeOnChanged() {
+                dropdowntree.options.filter = $("#filter").val();
+            }
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300 k-rtl">
+            <label for="dropdowntree">Select an item</label>
+            <input id="dropdowntree10" />
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            // create kendoDropDownTree from input HTML element
+            $("#dropdowntree10").kendoDropDownTree({
+                placeholder: "Select ...",
+                dataSource: [
+                    {
+                        text: "Furniture", expanded: true, items: [
+                            { text: "Tables & Chairs" },
+                            { text: "Sofas" },
+                            { text: "Occasional Furniture" }
+                        ]
+                    },
+                    {
+                        text: "Decor", items: [
+                            { text: "Bed Linen" },
+                            { text: "Curtains & Blinds" },
+                            { text: "Carpets" }
+                        ]
+                    }
+                ]
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="dropdowntree">Select an item</label>
+            <input id="dropdowntree11" />
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            // create kendoDropDownTree from input HTML element
+            $("#dropdowntree11").kendoDropDownTree({
+                checkboxes: true,
+                placeholder: "Select ...",
+                filter: "startswith",
+                dataSource: [
+                    {
+                        text: "Furniture", expanded: true, items: [
+                            { text: "Tables & Chairs" },
+                            { text: "Sofas" },
+                            { text: "Occasional Furniture" }
+                        ]
+                    },
+                    {
+                        text: "Decor", items: [
+                            { text: "Bed Linen" },
+                            { text: "Curtains & Blinds" },
+                            { text: "Carpets" }
+                        ]
+                    }
+                ]
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            //focus the widget
+            $(document).on("keydown.examples", function (e) {
+                if (e.altKey && e.keyCode === 87 /* w */) {
+                    $("#dropdowntree").data("kendoDropDownTree").wrapper.focus();
+                }
+            });
+        });
+    </script>
+
+    <div id="demo12">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Configuration</h4>
+                <ul>
+                    <li><label><input type="checkbox" data-bind="checked: isEnabled"> Enable</label></li>
+                    <li><label><input type="checkbox" data-bind="checked: isVisible"> Visible</label></li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Information</h4>
+                Kendo UI DropDownTree supports the
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/source">source</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a> and
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+            </div>
+        </div>
+
+	    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		    <div class="k-w-300">
+			    <div data-bind="invisible: isPrimitive">
+			    <label>DropDownTree</label>
+                <input data-role="dropdowntree"
+                       data-placeholder="Select a product"
+                       data-text-field="text"
+                       data-value-field="id"
+                       data-checkboxes="true"
+                       data-value-primitive="true"
+                       data-bind="value: selectedProduct,
+                                  source: products,
+                                  visible: isVisible,
+                                  enabled: isEnabled,
+                                  events: {
+                                    change: onChange,
+                                    open: onOpen,
+                                    close: onClose
+                                  }"/>
+			    </div>
+		    </div>
+	    </div>
+
+        <script>
+            var viewModel = kendo.observable({
+                selectedProduct: null,
+                isPrimitive: false,
+                isVisible: true,
+                isEnabled: true,
+                displaySelectedProduct: function () {
+                    var selectedProduct = this.get("selectedProduct");
+                    return kendo.stringify(selectedProduct, null, 4);
+                },
+                onOpen: function () {
+                    kendoConsole.log("event :: open");
+                },
+                onChange: function () {
+                    kendoConsole.log("event :: change (" + this.displaySelectedProduct() + ")");
+                },
+                onClose: function () {
+                    kendoConsole.log("event :: close");
+                },
+                products: new kendo.data.HierarchicalDataSource({
+                    data: [
+                        {
+                            id: 1, text: "Furniture", items: [
+                                { id: 2, text: "tables & chairs" },
+                                { id: 3, text: "sofas" },
+                                { id: 4, text: "occasional furnitures" },
+                                { id: 5, text: "childrens furniture" },
+                                { id: 6, text: "beds" }
+                            ]
+                        },
+                        {
+                            id: 7, text: "Decor", items: [
+                                { id: 8, text: "bed linen" },
+                                { id: 9, text: "throws" },
+                                { id: 10, text: "curtains & blinds" },
+                                { id: 11, text: "rugs" },
+                                { id: 12, text: "carpets" }
+                            ]
+                        },
+                        {
+                            id: 13, text: "Storage", items: [
+                                { id: 14, text: "wall shelving" },
+                                { id: 15, text: "kids storage" },
+                                { id: 16, text: "multimedia storage" },
+                                { id: 17, text: "floor shelving" },
+                                { id: 18, text: "toilet roll holders" },
+                                { id: 19, text: "storage jars" },
+                                { id: 20, text: "drawers" },
+                                { id: 21, text: "boxes" }
+                            ]
+                        }
+                    ]
+                })
+            });
+            kendo.bind($("#demo12"), viewModel);
+        </script>
+    </div>
+
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+</body>

@@ -1,0 +1,15 @@
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\bin\Debug\net6.0\Tuplas.exe
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\bin\Debug\net6.0\Tuplas.deps.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\bin\Debug\net6.0\Tuplas.runtimeconfig.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\bin\Debug\net6.0\Tuplas.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\bin\Debug\net6.0\Tuplas.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\obj\Debug\net6.0\Tuplas.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\obj\Debug\net6.0\Tuplas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\obj\Debug\net6.0\Tuplas.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\obj\Debug\net6.0\Tuplas.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\obj\Debug\net6.0\Tuplas.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\obj\Debug\net6.0\Tuplas.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\obj\Debug\net6.0\refint\Tuplas.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\obj\Debug\net6.0\Tuplas.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\obj\Debug\net6.0\Tuplas.genruntimeconfig.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Tuplas\obj\Debug\net6.0\ref\Tuplas.dll

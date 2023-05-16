@@ -1,0 +1,606 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/datetimepicker/index">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">       
+            <label for="datetimepicker">Remind me on</label>
+            <input id="datetimepicker" title="datetimepicker"/>
+         </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#datetimepicker").kendoDateTimePicker({
+                value: new Date(),
+                dateInput: true
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="datetimepicker">Select Date/Time:</label>
+            <input id="datetimepicker2" title="datetimepicker" />
+            <br>
+            <br>
+            <label for="dropDownList">Set component type</label>
+            <input id="dropDownList" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#datetimepicker2").kendoDateTimePicker({
+                componentType: "modern",
+                value: new Date()
+            });
+
+            $("#dropDownList").kendoDropDownList({
+                dataSource: ["modern", "classic"],
+                value: "modern",
+                change: function (e) {
+                    var picker = $("#datetimepicker2").data("kendoDateTimePicker");
+                    var type = this.value();
+                    var value = picker.value();
+                    var parent = $("#datetimepicker2").parent();
+
+                    picker.destroy();
+                    parent.empty();
+                    parent.append('<input id="datetimepicker2" title="datetimepicker" style="width: 100%;" />')
+
+                    $("#datetimepicker2").kendoDateTimePicker({
+                        componentType: type,
+                        value: value
+                    });
+                }
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="start">Start date</label>
+            <input id="start" title="datetimepicker" />
+            <br>
+            <br>
+            <br>
+            <label for="end">End date</label>
+            <input id="end" title="datetimepicker" />
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            function startChange() {
+                var startDate = start.value(),
+                    endDate = end.value();
+
+                if (startDate) {
+                    startDate = new Date(startDate);
+                    startDate.setDate(startDate.getDate());
+                    end.min(startDate);
+                } else if (endDate) {
+                    start.max(new Date(endDate));
+                } else {
+                    endDate = new Date();
+                    start.max(endDate);
+                    end.min(endDate);
+                }
+            }
+
+            function endChange() {
+                var endDate = end.value(),
+                    startDate = start.value();
+
+                if (endDate) {
+                    endDate = new Date(endDate);
+                    endDate.setDate(endDate.getDate());
+                    start.max(endDate);
+                } else if (startDate) {
+                    end.min(new Date(startDate));
+                } else {
+                    endDate = new Date();
+                    start.max(endDate);
+                    end.min(endDate);
+                }
+            }
+
+            var today = kendo.date.today();
+
+            var start = $("#start").kendoDateTimePicker({
+                value: today,
+                change: startChange,
+                parseFormats: ["MM/dd/yyyy"]
+            }).data("kendoDateTimePicker");
+
+            var end = $("#end").kendoDateTimePicker({
+                value: today,
+                change: endChange,
+                parseFormats: ["MM/dd/yyyy"]
+            }).data("kendoDateTimePicker");
+
+            start.max(end.value());
+            end.min(start.value());
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="datetimepicker">Birthday Calendar</label>
+            <input id="datetimepicker4" />
+        </div>
+    </div>
+
+    <script>
+        function isInArray(date, dates) {
+            for (var idx = 0, length = dates.length; idx < length; idx++) {
+                var d = dates[idx];
+                if (date.getFullYear() == d.getFullYear() &&
+                    date.getMonth() == d.getMonth() &&
+                    date.getDate() == d.getDate()) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        $(document).ready(function () {
+            var today = new Date(),
+                birthdays = [
+                    new Date(today.getFullYear(), today.getMonth(), 11, 10, 0, 0),
+                    new Date(today.getFullYear(), today.getMonth(), 11, 10, 30, 0),
+                    new Date(today.getFullYear(), today.getMonth(), 11, 14, 0, 0),
+                    new Date(today.getFullYear(), today.getMonth() + 1, 6, 20, 0, 0),
+                    new Date(today.getFullYear(), today.getMonth() + 1, 27, 8, 0, 0),
+                    new Date(today.getFullYear(), today.getMonth() + 1, 27, 18, 0, 0),
+                    new Date(today.getFullYear(), today.getMonth() - 1, 3, 12, 0, 0),
+                    new Date(today.getFullYear(), today.getMonth() - 2, 22, 16, 30, 0)
+                ];
+
+            $("#datetimepicker4").kendoDateTimePicker({
+                value: today,
+                dates: birthdays,
+                weekNumber: true,
+                month: {
+                    // template for dates in month view
+                    content: '# if (isInArray(data.date, data.dates)) { #' +
+                        '<div class="birthday"></div>' +
+                        '# } #' +
+                        '#= data.value #',
+                    weekNumber: ' <a class="italic">#= data.weekNumber #</a>'
+                },
+                footer: "Today - #=kendo.toString(data, 'd') #",
+            });
+        });
+    </script>
+
+    <style>
+        .k-calendar .demo-section {
+            table-layout: auto;
+        }
+
+        .k-calendar .k-month .k-link {
+            width: auto;
+            display: flex;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .birthday {
+            background: transparent url(../content/web/calendar/cake.png) no-repeat 0 50%;
+            display: inline-block;
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 3px;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+    </style>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>SIZE</h4>
+            <ul class="options">
+                <li>
+                    <input id="size" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>BORDER RADIUS</h4>
+            <ul class="options">
+                <li>
+                    <input id="rounded" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>FILL MODE</h4>
+            <ul class="options">
+                <li>
+                    <input id="fillMode" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="datetimepicker">Select Date/Time:</label>
+            <input id="datetimepicker5" title="datetimepicker" />
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var datetimepicker = $("#datetimepicker5").kendoDateTimePicker({
+                value: new Date(2021, 11, 30)
+            }).data("kendoDateTimePicker");
+
+            $("#size").kendoDropDownList({
+                dataSource: ["small", "medium", "large", "none"],
+                value: "medium",
+                change: function () {
+                    let value = this.value();
+                    datetimepicker.setOptions({ size: value });
+                }
+            });
+
+            $("#rounded").kendoDropDownList({
+                dataSource: ["small", "medium", "large", "full", "none"],
+                value: "medium",
+                change: function () {
+                    let value = this.value();
+                    datetimepicker.setOptions({ rounded: value });
+                }
+            });
+
+            $("#fillMode").kendoDropDownList({
+                dataSource: ["solid", "flat", "outline", "none"],
+                value: "solid",
+                change: function () {
+                    let value = this.value();
+                    datetimepicker.setOptions({ fillMode: value });
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .k-picker.k-dropdownlist {
+            width: 140px;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 100px;">
+	    <div class="k-w-300">       
+	        <input id="datetimepicker6" title="datetimepicker"/>
+	    </div>
+    </div>
+    
+    <script>
+        $(document).ready(function () {
+            // create DateTimePicker from input HTML element
+            $("#datetimepicker6").kendoDateTimePicker({
+                label: { 
+                    content: "Remind me on",
+                    floating: true
+                }
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">       
+			<label for="datetimepicker">Select date and time</label>
+			<input id="datetimepicker7"/>
+		 </div>
+	</div>
+
+    <script>
+        $(document).ready(function () {
+            function onOpen(e) {
+                kendoConsole.log("Open: " + e.view + " view");
+            }
+
+            function onClose(e) {
+                kendoConsole.log("Close: " + e.view + " view");
+            }
+
+            function onChange() {
+                kendoConsole.log("Change :: " + kendo.toString(this.value(), 'g'));
+            }
+
+            $("#datetimepicker7").kendoDateTimePicker({
+                change: onChange,
+                close: onClose,
+                open: onOpen
+            });
+        });
+    </script>
+
+    <div class="kd-example-console">
+         <div class="header">
+             <span class="title">CONSOLE LOG</span>
+             <span class="clear kd-text-secondary">Clear log</span>
+         </div>
+         <div class="console"></div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">       
+			<label for="weekend-datetime-picker">Disable weekends</label>
+			<input id="weekend-datetime-picker">
+			<br>
+			<br>
+			<br>
+			<label for="weekend-datetime-picker">Disable Federal Holidays in USA in 2015</label>
+			<input id="holidays-datetime-picker">
+		 </div>
+	</div>
+    <script>
+        $(document).ready(function() {
+            $("#weekend-datetime-picker").kendoDateTimePicker({
+                value: new Date("11/13/2015"),
+                disableDates: ["sa", "su"]
+            });
+
+            $("#holidays-datetime-picker").kendoDateTimePicker({
+                value: new Date("1/2/2015"),
+                dates: [
+                    new Date("1/1/2015"),
+                    new Date("1/19/2015"),
+                    new Date("2/16/2015"),
+                    new Date("4/16/2015"),
+                    new Date("5/10/2015"),
+                    new Date("5/25/2015"),
+                    new Date("6/21/2015"),
+                    new Date("7/3/2015"),
+                    new Date("9/7/2015"),
+                    new Date("10/12/2015"),
+                    new Date("11/11/2015"),
+                    new Date("11/26/2015"),
+                    new Date("11/27/2015"),
+                    new Date("12/25/2015")
+                ],
+                disableDates: function (date) {
+                    var dates = $("#holidays-datetime-picker").data("kendoDateTimePicker").options.dates;
+                    if (date && compareDates(date, dates)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            });
+
+            function compareDates(date, dates) {
+                for (var i = 0; i < dates.length; i++) {
+                    if (dates[i].getDate() == date.getDate() &&
+                        dates[i].getMonth() == date.getMonth() &&
+                        dates[i].getYear() == date.getYear()) {
+                        return true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+	    <div class="k-w-300">       
+		    <label for="datetimepicker">Remind me on</label>
+		    <input id="datetimepicker10" title="datetimepicker" />
+	    </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            // create DateTimePicker from input HTML element
+            $("#datetimepicker10").kendoDateTimePicker({
+                value: new Date(),
+                weekNumber: true,
+            });
+        });
+    </script>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Set / Get Value</h4>
+            <ul class="options">
+                <li>
+                    <input id="value" value="10/10/2000 12:00 AM" style="float:none; width:150px" />
+                    <button id="set">Set value</button>
+                </li>
+                <li style="text-align: right;">
+                    <button id="get">Get value</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Open / Close</h4>
+            <ul class="options">
+                <li>
+                    <button id="openDateView">Open date view</button>
+                    <button id="closeDateView">Close date view</button>
+                </li>
+                <li>
+                    <button id="openTimeView">Open time view</button>
+                    <button id="closeTimeView">Close time view</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Enable / Disable</h4>
+            <ul class="options">
+                <li>
+                    <button id="enable">Enable</button>
+                    <button id="disable">Disable</button>
+                    <button id="readonly">Readonly</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">       
+			<label for="datetimepicker">Select date/time</label>
+			<input id="datetimepicker11"/>
+		 </div>
+	</div>
+
+    <script>
+        $(document).ready(function () {
+            $("#datetimepicker11").kendoDateTimePicker()
+                .closest(".k-widget")
+                .attr("id", "datetimepicker_wrapper");
+
+            var datetimepicker = $("#datetimepicker11").data("kendoDateTimePicker");
+
+            var setValue = function () {
+                datetimepicker.value($("#value").val());
+            };
+
+            $("#enable").click(function () {
+                datetimepicker.enable();
+            });
+
+            $("#disable").click(function () {
+                datetimepicker.enable(false);
+            });
+
+            $("#readonly").click(function () {
+                datetimepicker.readonly();
+            });
+
+            $("#openDateView").click(function () {
+                datetimepicker.open("date");
+            });
+
+            $("#openTimeView").click(function () {
+                datetimepicker.open("time");
+            });
+
+            $("#closeDateView").click(function () {
+                datetimepicker.close("date");
+            });
+
+            $("#closeTimeView").click(function () {
+                datetimepicker.close("time");
+            });
+
+            $("#value").kendoDateTimePicker();
+
+            $("#set").click(setValue);
+
+            $("#get").click(function () {
+                alert(datetimepicker.value());
+            });
+        });
+    </script>
+
+    <style>
+        .box .k-textbox {
+            width: 80px;
+        }
+
+        .box .k-button {
+            min-width: 80px;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300 k-rtl">       
+			<label for="datetimepicker">Select date/time</label>
+			<input id="datetimepicker12"/>
+		</div>
+	</div>
+	
+	<script>
+	    $(document).ready(function() {
+	        $("#datetimepicker12").kendoDateTimePicker();
+	    });
+	</script>
+
+    <div id="demo13">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Configuration</h4>
+                <ul>
+                    <li><label><input type="checkbox" data-bind="checked: isEnabled">Enable</label></li>
+                    <li><label><input type="checkbox" data-bind="checked: isVisible">Visible</label></li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Information</h4>
+                Kendo UI DateTimePicker supports the
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a> and
+                <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+            </div>
+        </div>
+
+        <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+            <div class="k-w-300">
+                <label for="timepicker">Choose date and time</label>
+                <input data-role="datetimepicker"
+                       data-bind="visible: isVisible,
+                             enabled: isEnabled,
+                             value: selectedDate,
+                             events: { change: onChange }">
+            </div>
+        </div>
+        <script>
+            var viewModel = kendo.observable({
+                selectedDate: null,
+                isEnabled: true,
+                isVisible: true,
+                onChange: function () {
+                    kendoConsole.log("event :: change (" + kendo.toString(this.get("selectedDate"), "F") + ")");
+                }
+            });
+            kendo.bind($("#demo13"), viewModel);
+        </script>
+    </div>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">       
+			<label for="datetimepicker">Select date & time:</label>
+			<input id="datetimepicker13" accesskey="w"/>
+		</div>
+	</div>
+
+    <script>
+        $(document).ready(function () {
+            $("#datetimepicker13").kendoDateTimePicker();
+        });
+    </script>
+</body>
+<footer>
+
+</footer>

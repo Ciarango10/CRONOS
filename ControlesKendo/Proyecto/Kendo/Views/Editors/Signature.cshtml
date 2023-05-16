@@ -1,0 +1,567 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/signature/index">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+     <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div class="k-d-flex k-justify-content-center">
+        <div class="signature-container">
+            <div id="toolbar"></div>
+            <div class="signature-wrapper">
+                <div id="signature"></div>
+            </div>
+            <div class="notes">
+                By using the Kendo UI for jQuery signature component,
+                you can enable your end-users to draw handwritten signatures
+                using touch or pointer devices.
+            </div>
+            <div id="bottomtoolbar"></div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var signature = $("#signature").kendoSignature({
+                maximizable: false,
+                hideLine: true
+            }).getKendoSignature();
+
+            $("#toolbar").kendoToolBar({
+                items: [
+                    {
+                        template: "<label>Brush:</label><input id='colorpicker'/>",
+                        id: "brush",
+                        overflow: "never"
+                    },
+                    {
+                        type: "splitButton",
+                        text: "Size",
+                        id: "sizes",
+                        overflow: "never",
+                        menuButtons: [
+                            { text: "Normal" },
+                            { text: "Wide" }
+                        ],
+                        click: function (e) {
+                            signature.setOptions({
+                                strokeWidth: e.target.text() === "Wide" ? 3 : 1
+                            });
+                        }
+                    },
+                    {
+                        template: "<label>Background:</label><input id='background'/>",
+                        id: "bccolor",
+                        overflow: "never"
+                    }
+                ]
+            });
+
+            $("#bottomtoolbar").kendoToolBar({
+                items: [
+                    {
+                        type: "button",
+                        text: "Save",
+                        primary: true,
+                        icon: "save",
+                        click: function () {
+                            kendo.saveAs({
+                                dataURI: signature.value(),
+                                fileName: "signature.png"
+                            });
+                        }
+                    },
+                    {
+                        type: "button",
+                        text: "Clear",
+                        click: function () {
+                            signature.reset();
+                        }
+                    }
+                ]
+            });
+
+            $("#colorpicker").kendoColorPicker({
+                view: "gradient",
+                views: ["gradient", "palette"],
+                value: "#000000",
+                change: function (e) {
+                    signature.setOptions({
+                        color: e.value
+                    });
+                },
+                buttons: false
+            });
+
+            $("#background").kendoColorPicker({
+                view: "gradient",
+                views: ["gradient", "palette"],
+                value: "#FFFFFF",
+                change: function (e) {
+                    signature.setOptions({
+                        backgroundColor: e.value
+                    });
+                },
+                buttons: false
+            });
+        });
+    </script>
+
+    <style>
+        .signature-container {
+            width: 750px;
+        }
+
+        .signature-wrapper {
+            height: 270px;
+        }
+
+            .signature-wrapper .k-signature {
+                width: 100%;
+                height: 100%;
+            }
+
+        div.notes {
+            font-style: italic;
+            border-width: 1px;
+            border-bottom-width: 0;
+            border-style: solid;
+            padding: 1em;
+        }
+
+        .k-signature, .notes {
+            border-color: rgba(0, 0, 0, 0.08);
+            border-width: 0 1px;
+            border-radius: 0;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center">
+        <div class="signature-container">
+            <div class="signature-wrapper">
+                <div id="signature2"></div>
+            </div>
+            <div class="notes">
+                By using the Kendo UI for jQuery signature component,
+                you can enable your end-users to draw handwritten signatures
+                using touch or pointer devices.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $("#signature2").kendoSignature({
+            color: "red",
+            width: 600,
+            height: 340,
+            popupScale: 1
+        });
+    </script>
+
+    <style>
+        .signature-container {
+            width: 602px;
+        }
+
+        .signature-wrapper {
+            height: 341px;
+        }
+
+        div.notes {
+            font-style: italic;
+            border-width: 1px;
+            border-style: solid;
+            padding: 1em;
+        }
+
+        #signature, .notes {
+            border-color: rgba(0, 0, 0, 0.08);
+            border-width: 1px 1px 0 1px;
+            border-radius: 0;
+        }
+    </style>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>SIZE</h4>
+            <ul class="options">
+                <li>
+                    <input id="size" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>BORDER RADIUS</h4>
+            <ul class="options">
+                <li>
+                    <input id="rounded" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>FILL MODE</h4>
+            <ul class="options">
+                <li>
+                    <input id="fillMode" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Brush Color</h4>
+            <ul class="options">
+                <li>
+                    <input id='colorpicker3' />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Background Color</h4>
+            <ul class="options">
+                <li>
+                    <input id='background3' />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Brush Size</h4>
+            <ul class="options">
+                <li>
+                    <input id='brush-size3' />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center">
+        <div id="signature3"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var signature = $("#signature3").kendoSignature({
+                maximizable: true,
+                hideLine: false,
+                width: 600,
+                popupScale: 1,
+                height: 340
+            }).getKendoSignature();
+
+            $("#colorpicker3").kendoColorPicker({
+                view: "gradient",
+                views: ["gradient", "palette"],
+                value: "#000000",
+                change: function (e) {
+                    signature.setOptions({
+                        color: e.value
+                    });
+                },
+                buttons: false
+            });
+
+            $("#background3").kendoColorPicker({
+                view: "gradient",
+                views: ["gradient", "palette"],
+                value: "#FFFFFF",
+                change: function (e) {
+                    signature.setOptions({
+                        backgroundColor: e.value
+                    });
+                },
+                buttons: false
+            });
+
+            $("#brush-size3").kendoSlider({
+                min: 1,
+                max: 5,
+                tooltip: {
+                    enabled: false
+                },
+                change: function (e) {
+                    let value = this.value();
+                    signature.setOptions({
+                        strokeWidth: value
+                    });
+                }
+            });
+
+            $("#size").kendoDropDownList({
+                dataSource: ["small", "medium", "large", "none"],
+                value: "medium",
+                change: function () {
+                    let value = this.value();
+                    signature.setOptions({ size: value });
+                }
+            });
+
+            $("#rounded").kendoDropDownList({
+                dataSource: ["small", "medium", "large", "none"],
+                value: "medium",
+                change: function () {
+                    let value = this.value();
+                    signature.setOptions({ rounded: value });
+                }
+            });
+
+            $("#fillMode").kendoDropDownList({
+                dataSource: ["solid", "flat", "outline", "none"],
+                value: "solid",
+                change: function () {
+                    let value = this.value();
+                    signature.setOptions({ fillMode: value });
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .k-picker.k-dropdownlist {
+            width: 140px;
+        }
+    </style>
+
+    <div class="demo-section">
+        <div id="validation-success4"></div>
+
+        <form id="exampleform4"></form>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var validationSuccess = $("#validation-success4");
+
+            $("#exampleform4").kendoForm({
+                orientation: "vertical",
+                formData: {
+                    Username: "johny",
+                    Email: "john.doe@email.com",
+                    Birth: new Date(),
+                    Signature: ""
+                },
+                items: [{
+                    type: "group",
+                    label: "Registration Form",
+                    items: [
+                        { field: "Username", label: "Username:", validation: { required: true } },
+                        { field: "Email", label: "Email:", validation: { required: true, email: true } },
+                        { field: "Birth", label: { text: "Date of birth:", optional: true } },
+                        { field: "Signature", label: "Signature:", editor: "Signature", validation: { required: true } }
+                    ]
+                }],
+                validateField: function (e) {
+                    validationSuccess.html("");
+                },
+                submit: function (e) {
+                    e.preventDefault();
+                    validationSuccess.html("<div class='k-messagebox k-messagebox-success'>Form data is valid!</div>");
+                },
+                clear: function (ev) {
+                    validationSuccess.html("");
+                }
+            });
+        });
+    </script>
+
+    <button id="export5">Export as PNG</button>
+
+    <div class="k-d-flex k-justify-content-center">
+        <div id="signature5"></div>
+    </div>
+
+    <script>
+        let signature = $("#signature5").kendoSignature({ width: 600, height: 340, popupScale: 1 }).getKendoSignature();
+
+        $("#export5").kendoButton({
+            click: function() {
+                kendo.saveAs({
+                    dataURI: signature.value(),
+                    fileName: "signature.png"
+                })
+            }
+        });
+    </script>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+
+        <div class="box-col">
+            <h4>Open the popup</h4>
+            <ul class="options">
+                <li>
+                    <button id="open">Open</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Toggle Readonly</h4>
+            <ul class="options">
+                <li>
+                    <input id="readonly" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Toggle Enabled</h4>
+            <ul class="options">
+                <li>
+                    <input id="enable" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Toggle Line Smoothing</h4>
+            <ul class="options">
+                <li>
+                    <input id="smooth" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Toggle Dotted Line</h4>
+            <ul class="options">
+                <li>
+                    <input id="hide-line" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Clear the value</h4>
+            <ul class="options">
+                <li>
+                    <button id="clearValue">Clear value</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center">
+        <div id="signature6"></div>
+
+        <script>
+            $(document).ready(function () {
+                let signature = $("#signature6").kendoSignature({ width: 600, height: 340, popupScale: 1 }).data("kendoSignature");
+
+                $("#open").kendoButton({
+                    click: function () {
+                        signature.open();
+                    }
+                });
+
+                $("#enable").kendoSwitch({
+                    checked: true,
+                    change: function () {
+                        let value = this.value();
+                        signature.enable(value);
+                    }
+                });
+
+                $("#readonly").kendoSwitch({
+                    checked: false,
+                    change: function () {
+                        let value = this.value();
+                        signature.readonly(value);
+                    }
+                });
+
+                $("#smooth").kendoSwitch({
+                    checked: true,
+                    change: function () {
+                        let value = this.value();
+                        signature.setOptions({
+                            smooth: value
+                        });
+                    }
+                });
+
+                $("#hide-line").kendoSwitch({
+                    checked: true,
+                    change: function () {
+                        let value = this.value();
+                        signature.setOptions({
+                            hideLine: !value
+                        });
+                    }
+                });
+
+                $("#clearValue").kendoButton({
+                    click: function () {
+                        signature.reset();
+                    }
+                });
+            });
+        </script>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center">
+        <div class="signature-container">
+            <div class="signature-wrapper">
+                <div id="signature8"></div>
+            </div>
+            <div class="notes">
+                By using the Kendo UI for jQuery signature component,
+                you can enable your end-users to draw handwritten signatures
+                using touch or pointer devices.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let signature = $("#signature8").kendoSignature({ width: 600, height: 340, popupScale: 1 }).data("kendoSignature");
+
+        signature.bind("open", onPopupOpen);
+        signature.bind("close", onPopupClose);
+        signature.bind("change", onChange);
+
+        function onPopupOpen() {
+            kendoConsole.log("Signature popup has been opened.");
+        }
+
+        function onPopupClose() {
+            kendoConsole.log("Signature popup has been closed.");
+        }
+
+        function onChange() {
+            kendoConsole.log("Signature value has been changed to: " + this.value());
+        }
+    </script>
+
+    <style>
+        .signature-container {
+            width: 602px;
+        }
+
+        .signature-wrapper {
+            height: 341px;
+        }
+
+        div.notes {
+            font-style: italic;
+            border-width: 1px;
+            border-style: solid;
+            padding: 1em;
+        }
+
+        #signature, .notes {
+            border-color: rgba(0, 0, 0, 0.08);
+            border-width: 1px 1px 0 1px;
+            border-radius: 0;
+        }
+    </style>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+</body>

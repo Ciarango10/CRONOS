@@ -1,0 +1,96 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+@using CapaEntidad;
+@using CapaNegocio;
+@{
+    ViewData["Title"] = "Index";
+
+      string cadena=  Context.Session.GetString("persona");
+      PersonaCLS oPersonaCLS=  JsonConvert.DeserializeObject<PersonaCLS>(cadena);
+      int iidpersona=oPersonaCLS.iidpersona;
+      PersonaBL oPersonaBL=new PersonaBL();
+      PersonaCLS obj  =oPersonaBL.recuperarPersona(iidpersona);
+      obj.nombrecompleto = obj.nombre + " " + obj.appaterno + " " + obj.apmaterno;
+
+}
+
+<h1>Venta</h1>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <label>Nombre Completo</label>
+        <input type="text" value="@obj.nombrecompleto"  class="form-control" id="txtnombrecompleto"  readonly />
+    </div>
+      <div class="col-md-4">
+            <label>Correo</label>
+           <input type="text" value="@obj.correo"  class="form-control"  id="txtcorreo"   readonly />
+     </div>
+      <div class="col-md-4">
+            <label>Numero Telefonico</label>
+           <input type="text" value="@obj.numerotelefonico"  class="form-control" id="txtnumerotelefonico"   readonly />
+     </div>
+
+</div>
+
+<div class="row">
+     <div class="col-md-12">
+            <label>Direccion</label>
+           <input type="text" value="@obj.direccion"  class="form-control" id="txtdireccion"   readonly />
+     </div>
+</div>
+<div class="text-center">
+<button class="btn btn-dark mt-2" onclick="Agregar()">Agregar</button>
+</div>
+
+<div class="row mt-5">
+     
+     <div class="col-md-12">
+           <table class="table table-dark">
+               <thead>
+                   <tr>
+                       <td>Id</td>
+                       <td>Nombre</td>
+                       <td>Precio</td>
+                       <td>Cantidad</td>
+                       <td>Sub Total</td>
+                       <td>Operaciones</td>
+                   </tr>
+               </thead>
+               <tbody id="tbDatos">
+
+               </tbody>
+           </table>
+     </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="lbltitulo">Seleccione Medicamento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <div id="divContenedor">
+
+       </div>
+         
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="btnCerrarModal" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+     <script src="~/js/bootstrap.js"></script>
+
+     <script src="~/js/generic.js"></script>
+     <script src="~/js/venta.js"></script>
+
+

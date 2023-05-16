@@ -1,0 +1,253 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+@using CapaEntidad;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MiPrimeraAppNetCoreCapas6</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <style>
+        body {margin: 0; background: #181824; font-family: Arial; }
+nav {
+  position: fixed;
+  width: 100%;
+  max-width: 300px;
+  bottom: 0; top: 0;
+  display: block;
+  min-height: 300px;
+  height: 100%;
+  color: #fff;
+  opacity: 0.8;
+  transition: all 300ms;
+  -moz-transition: all 300ms;
+  -webkit-transition: all 300ms;
+}
+nav .vertical-menu hr{opacity: 0.1; border-width: 0.5px;}
+nav ul{width: 90%; padding-inline-start: 0; margin: 10px; height: calc(100% - 20px); }
+nav .vertical-menu-logo{padding: 20px; font-size: 1.3em; position: relative}
+nav .vertical-menu-logo .open-menu-btn{width: 30px; height: max-content; position: absolute; display: block; right: 20px; top: 0; bottom: 0; margin: auto; cursor: pointer;}
+nav .vertical-menu-logo .open-menu-btn hr{margin: 5px 0}
+nav li{list-style: none; padding: 10px 10px; cursor: pointer;}
+nav li:hover{ color: rgba(75, 105, 176,1); }
+nav li#user-info{position: absolute; bottom: 0; width: 80%;}
+nav li#user-info > span{display: block; float: right; font-size: 0.9em; position: relative; opacity: 0.6;}
+nav li#user-info > span:after{
+  content: '';
+  width: 12px;
+  height: 12px;
+  display: block;
+  position: absolute;
+  background: green;
+  left: -20px; top: 0; bottom: 0;
+  margin: auto;
+  border-radius: 50%;
+}
+.content-wrapper{
+  width: calc(100% - 300px);
+  height: 100%;
+  position: fixed;
+  background: #fff;
+  left: 300px;
+  padding: 20px;
+  z-index: 1500;
+}
+.closed-menu .content-wrapper{
+  width: 100%;
+  left: 50px;
+}
+.content-wrapper{
+    transition: all 300ms;
+}
+.vertical-menu-wrapper .vertical-menu-logo div{transition: all 100ms;}
+.closed-menu .vertical-menu-wrapper .vertical-menu-logo div{
+  margin-left: -100px;
+}
+.vertical-menu-wrapper .vertical-menu-logo .open-menu-btn{transition: all 300ms;}
+.closed-menu .vertical-menu-wrapper .vertical-menu-logo .open-menu-btn{
+  left: 7px;
+  right: 100%;
+}
+
+.closed-menu .vertical-menu-wrapper ul,.closed-menu .vertical-menu-wrapper hr{margin-left: -300px;}
+.vertical-menu-wrapper ul, .vertical-menu-wrapper hr{transition: all 100ms;}
+.content-wrapper{background: #ebebeb;}
+.content{
+  width: 90%;
+  min-height: 90%;
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+}
+    </style>
+
+</head>
+<body>
+
+@{
+        string cadena=  Context.Session.GetString("persona");
+        PersonaCLS oPersonaCLS=  JsonConvert.DeserializeObject<PersonaCLS>(cadena);
+         string cadenaMenus=  Context.Session.GetString("menus");
+        List<PaginaCLS> listapagina=  JsonConvert.DeserializeObject<List<PaginaCLS>>(cadenaMenus);
+
+}
+
+<nav class="vertical-menu-wrapper">
+  <div class="vertical-menu-logo">
+    <div>LOGO</div>
+    <p class="text-light">Bienvenido : @oPersonaCLS.nombrecompleto</p>
+    <span class="open-menu-btn"></span>
+  </div>
+  <ul class="vertical-menu" >
+            @foreach(PaginaCLS oPaginaCLS in listapagina)
+            {
+                <li> <a class="nav-link text-light" asp-area=""
+                               asp-controller="@oPaginaCLS.controlador" 
+                               asp-action="@oPaginaCLS.accion">@oPaginaCLS.mensaje</a></li>
+            }
+            @* <li> <a class="nav-link text-light" asp-area=""
+                               asp-controller="TipoMedicamento" asp-action="Index">Tipo Medicamento</a></li>
+    <li><a class="nav-link text-light" asp-area=""
+                               asp-controller="Sucursal" asp-action="Index">
+                                Sucursal
+                            </a></li>
+ 
+    <li><a class="nav-link text-light" asp-area=""
+                               asp-controller="Laboratorio" asp-action="Index">
+                                Laboratorio
+                            </a></li>
+     <li class="nav-item">
+                            <a class="nav-link text-light" asp-area=""
+                               asp-controller="Medicamento" asp-action="Index">
+                                Medicamento
+                            </a>
+                        </li>
+    <li class="nav-item">
+                              <a class="nav-link text-light" asp-area=""
+                               asp-controller="TipoUsuario" asp-action="Index">
+                                Tipo usuario
+                            </a>
+                        </li>
+                           <li class="nav-item">
+                            <a class="nav-link text-light" asp-area=""
+                               asp-controller="TipoAdministracion" asp-action="Index">
+                                Tipo Administracion
+                            </a>
+                        </li>
+                           <li class="nav-item">
+                             <a class="nav-link text-light" asp-area=""
+                               asp-controller="Persona" asp-action="Index">
+                                Persona
+                            </a>
+                        </li>
+
+                           <li class="nav-item">
+                             <a class="nav-link text-light" asp-area=""
+                               asp-controller="Pagina" asp-action="Index">
+                                Pagina
+                            </a>
+                        </li>*@
+                         <li class="nav-item">
+                             <a class="nav-link text-light" asp-area=""
+                               asp-controller="Login" asp-action="CerrarSesion">
+                                Cerrar Sesion
+                            </a>
+                        </li>
+  </ul>
+</nav>
+
+
+
+<div  class="content-wrapper" style="overflow:scroll" >
+  <div class="content" >
+            @RenderBody()
+        
+      
+  </div>
+</div>
+    
+   @* <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MiPrimeraAppNetCoreCapas6</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area=""
+                               asp-controller="TipoMedicamento" asp-action="Index">Tipo Medicamento</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area=""
+                               asp-controller="Sucursal" asp-action="Index">
+                                Sucursal
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area=""
+                               asp-controller="Laboratorio" asp-action="Index">
+                                Laboratorio
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area=""
+                               asp-controller="Medicamento" asp-action="Index">
+                                Medicamento
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area=""
+                               asp-controller="TipoUsuario" asp-action="Index">
+                                Tipo usuario
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area=""
+                               asp-controller="TipoAdministracion" asp-action="Index">
+                                Tipo Administracion
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area=""
+                               asp-controller="Persona" asp-action="Index">
+                                Persona
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <input type="hidden" id="hdfOculto" value="@Url.Content("~")" />
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>*@
+     <input type="hidden" id="hdfOculto" value="@Url.Content("~")" />
+   
+
+    <div id="divLoading" style="display:none;background-image:url(../img/loading.gif);position:absolute;top:0;left:0;
+       width:100%;height:100%;
+       background-repeat:no-repeat;background-position:center;z-index:2000  ">
+        
+    </div>
+
+   
+
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

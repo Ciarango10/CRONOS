@@ -1,0 +1,475 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/rating/index#">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div id="example">
+        <div class="demo-section">
+            <h4>Rating</h4>
+            <input id="rating" name="rating" style="width: 100%;" />
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#rating").kendoRating();
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <h4>Continuous Selection</h4>
+            <input id="ratingContinuous2" style="width: 100%;" />
+        </div>
+
+        <div class="demo-section">
+            <h4>Single Selection</h4>
+            <input id="ratingSingle2" style="width: 100%;" />
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#ratingContinuous2").kendoRating({
+                    min: 1,
+                    max: 6,
+                    selection: "continuous",
+                    value: 3
+                });
+
+                $("#ratingSingle2").kendoRating({
+                    min: 1,
+                    max: 6,
+                    selection: "single",
+                    value: 3
+                });
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <h4>Item Precision</h4>
+            <input id="ratingItem3" style="width: 100%;" />
+        </div>
+
+        <div class="demo-section">
+            <h4>Half Precision</h4>
+            <input id="ratingHalf3" style="width: 100%;" />
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#ratingItem3").kendoRating({
+                    min: 1,
+                    max: 6,
+                    precision: "item",
+                    value: 3
+                });
+
+                $("#ratingHalf3").kendoRating({
+                    min: 1,
+                    max: 6,
+                    precision: "half",
+                    value: 3.5
+                });
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <h4>Rating Label</h4>
+            <input id="rating4" style="width: 100%;" />
+        </div>
+
+        <div class="demo-section">
+            <h4>Rating Label Template</h4>
+            <input id="ratingLabelTemplate" style="width: 100%;" />
+        </div>
+
+        <div class="demo-section">
+            <h4>Rating Without Label</h4>
+            <input id="ratingLabelDisabled" style="width: 100%;" />
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#rating4").kendoRating({
+                    min: 1,
+                    max: 6,
+                    value: 3
+                });
+
+                $("#ratingLabelTemplate").kendoRating({
+                    min: 1,
+                    max: 6,
+                    value: 3,
+                    label: { template: "<span>#=value# out of #=maxValue#</span>" }
+                });
+
+                $("#ratingLabelDisabled").kendoRating({
+                    min: 1,
+                    max: 6,
+                    value: 3,
+                    label: false
+                });
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <h4>Rating</h4>
+            <input id="rating5" name="rating" style="width: 100%;" />
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#rating5").kendoRating();
+
+                var rating = $("#rating5").getKendoRating();
+
+                rating.wrapper.kendoTooltip({
+                    filter: ".k-rating-item",
+                    content: function (e) {
+                        return e.target.data("title");
+                    }
+                });
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section center">
+            <h4>Rating Templates</h4>
+            <input id="rating6" style="width: 100%;" />
+        </div>
+
+        <div class="demo-section center">
+            <h4>Rating Templates with SVG Icons</h4>
+            <input id="ratingSvg" style="width: 100%;" />
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                // Rating Templates
+                $("#rating6").kendoRating({
+                    min: 1,
+                    max: 6,
+                    value: 3,
+                    itemTemplate: "<i class='k-icon k-i-heart-outline'></i>",
+                    selectedTemplate: "<i class='k-icon k-i-heart'></i>",
+                    hoveredTemplate: "<i class='k-icon k-i-heart'></i>"
+                });
+
+                // Rating Templates with SVG Icons
+                var ratingSVG = $("#ratingSvg").kendoRating({
+                    min: 1,
+                    max: 5,
+                    value: 3,
+                    itemTemplate: $("#rating-item-template").html(),
+                    selectedTemplate: $("#rating-selected-template").html(),
+                    hoveredTemplate: $("#rating-selected-template").html(),
+                    label: { template: $("#rating-label-template").html() }
+                }).getKendoRating();
+
+                ratingSVG.wrapper.kendoTooltip({
+                    filter: ".k-rating-item",
+                    content: function (e) {
+                        return getLabelText(e.target.data("value"));
+                    }
+                });
+            });
+
+            function getLabelText(value) {
+                var label = "";
+
+                switch (value) {
+                    case 1:
+                        label = "Strongly Disagree";
+                        break;
+                    case 2:
+                        label = "Disagree";
+                        break;
+                    case 3:
+                        label = "Neutral";
+                        break;
+                    case 4:
+                        label = "Agree";
+                        break;
+                    case 5:
+                        label = "Strongly Agree";
+                        break;
+                }
+
+                return label;
+            }
+        </script>
+
+        <script id="rating-selected-template" type="x/kendo-template">
+            <svg width="50" height="30" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="Gradient#=index#">
+                        <stop class="main-stop" offset="0%" />
+                        <stop class="alt-stop" offset="90%" />
+                    </linearGradient>
+                </defs>
+
+                <rect class="k-i-rect" x="0" y="0" rx="5" ry="5" width="50" height="30" fill="url(\#Gradient#=index#)" />
+            </svg>
+        </script>
+
+        <script id="rating-item-template" type="x/kendo-template">
+            <svg width="50" height="30" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="0" rx="5" ry="5" width="50" height="30" fill-opacity="0" stroke="\#e9e9e9" stroke-width="2" />
+            </svg>
+        </script>
+
+        <script id="rating-label-template" type="x/kendo-template">
+            #= getLabelText(data.value) #
+        </script>
+
+        <style>
+            .k-rating {
+                flex-direction: column-reverse;
+            }
+
+            .k-rating-label {
+                justify-content: center;
+            }
+
+            .k-rating-item:nth-child(1) .main-stop {
+                stop-color: #FF0000;
+            }
+            .k-rating-item:nth-child(1) .alt-stop {
+                stop-color: #ff5101;
+            }
+
+            .k-rating-item:nth-child(2) .main-stop {
+                stop-color: #ff5101;
+            }
+            .k-rating-item:nth-child(2) .alt-stop {
+                stop-color: #ffaa02;
+            }
+
+            .k-rating-item:nth-child(3) .main-stop {
+                stop-color: #ffc801;
+            }
+            .k-rating-item:nth-child(3) .alt-stop {
+                stop-color: #fef100;
+            }
+
+            .k-rating-item:nth-child(4) .main-stop {
+                stop-color: #dbe300;
+            }
+            .k-rating-item:nth-child(4) .alt-stop {
+                stop-color: #a4cd00;
+            }
+
+            .k-rating-item:nth-child(5) .main-stop {
+                stop-color: #8bc301;
+            }
+            .k-rating-item:nth-child(5) .alt-stop {
+                stop-color: #4eaa01;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <h4>Rating Events</h4>
+            <input id="rating7" name="rating" style="width: 100%;" />
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#rating7").kendoRating({
+                    min: 1,
+                    max: 6,
+                    value: 3,
+                    change: onChange,
+                    select: onSelect
+                });
+
+                function onChange(e) {
+                    kendoConsole.log("Change :: old value: " + e.oldValue + ", new value: " + e.newValue);
+                }
+
+                function onSelect(e) {
+                    kendoConsole.log("Select :: target: " + e.target[0].title);
+                }
+            });
+        </script>
+    </div>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Get / Set Value</h4>
+                <ul class="options">
+                    <li>
+                        <button id="get">Get value</button>
+                        <button id="reset">Reset value</button>
+                    </li>
+                    <li>
+                        <input id="value" value="3" style="float:none" />
+                        <button id="set">Set value</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <h4>Enable / Disable</h4>
+                <ul class="options">
+                    <li>
+                        <button id="enable">Enable</button>
+                        <button id="disable">Disable</button>
+                    </li>
+                    <li>
+                        <button id="readonly">Toggle Readonly</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h4>Rating API</h4>
+            <input id="rating8" name="rating" style="width: 100%;" />
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                var rating = $("#rating8").kendoRating({
+                    min: 1,
+                    max: 6,
+                    value: 3
+                }).getKendoRating();
+
+                var setValue = function () {
+                    rating.value($("#value").val());
+                };
+
+                $("#enable").click(function () {
+                    rating.enable();
+                });
+
+                $("#disable").click(function () {
+                    rating.enable(false);
+                });
+
+                $("#readonly").click(function () {
+                    rating.readonly(!rating.options.readonly);
+                });
+
+                $("#value").kendoNumericTextBox({
+                    change: setValue,
+                    min: 1,
+                    max: 6
+                });
+
+                $("#set").click(setValue);
+
+                $("#get").click(function () {
+                    alert(rating.value());
+                });
+
+                $("#reset").click(function () {
+                    rating.value(null);
+                });
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section k-rtl">
+            <h4>Rating</h4>
+            <input id="rating9" name="rating" style="width: 100%;" />
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#rating9").kendoRating();
+            });
+        </script>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <h4>Rating</h4>
+            <input id="rating10" name="rating" style="width: 100%;" />
+        </div>   
+
+        <script>
+            $(function () {
+                $("#rating10").kendoRating();
+
+                //focus the widget
+                $(document).on("keydown.examples", function (e) {
+                    if (e.altKey && e.keyCode === 87 /* w */) {
+                        $("#rating10").data("kendoRating").wrapper.focus();
+                    }
+                });
+            });
+        </script>
+    </div>
+
+    <div id="example11">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <h4>Configuration</h4>
+                <ul>
+                    <li><label><input type="checkbox" data-bind="checked: isEnabled">Enable</label></li>
+                    <li><label><input type="checkbox" data-bind="checked: isVisible">Visible</label></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <input id="rating"
+                   data-role="rating"
+                   data-selection="single"
+                   data-precision="half"
+                   data-bind="visible: isVisible,
+                              enabled: isEnabled,
+                              value: selectedValue,
+                              events: { change: onChange }" />
+        </div>
+
+        <script>
+            var viewModel = kendo.observable({
+                selectedValue: 3.5,
+                isEnabled: true,
+                isVisible: true,
+                onChange: function () {
+                    kendoConsole.log("event :: change (" + this.get("selectedValue") + ")");
+                }
+            });
+
+            kendo.bind($("#example11"), viewModel);
+        </script>
+    </div>
+
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+</body>

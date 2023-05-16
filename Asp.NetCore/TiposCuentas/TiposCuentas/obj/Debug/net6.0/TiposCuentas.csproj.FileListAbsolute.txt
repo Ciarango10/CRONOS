@@ -1,0 +1,8 @@
+D:\Codigo\Cronos\Asp.NetCore\TiposCuentas\TiposCuentas\obj\Debug\net6.0\TiposCuentas.csproj.AssemblyReference.cache
+D:\Codigo\Cronos\Asp.NetCore\TiposCuentas\TiposCuentas\obj\Debug\net6.0\TiposCuentas.GeneratedMSBuildEditorConfig.editorconfig
+D:\Codigo\Cronos\Asp.NetCore\TiposCuentas\TiposCuentas\obj\Debug\net6.0\TiposCuentas.AssemblyInfoInputs.cache
+D:\Codigo\Cronos\Asp.NetCore\TiposCuentas\TiposCuentas\obj\Debug\net6.0\TiposCuentas.AssemblyInfo.cs
+D:\Codigo\Cronos\Asp.NetCore\TiposCuentas\TiposCuentas\obj\Debug\net6.0\TiposCuentas.csproj.CoreCompileInputs.cache
+D:\Codigo\Cronos\Asp.NetCore\TiposCuentas\TiposCuentas\obj\Debug\net6.0\TiposCuentas.MvcApplicationPartsAssemblyInfo.cache
+D:\Codigo\Cronos\Asp.NetCore\TiposCuentas\TiposCuentas\obj\Debug\net6.0\TiposCuentas.RazorAssemblyInfo.cache
+D:\Codigo\Cronos\Asp.NetCore\TiposCuentas\TiposCuentas\obj\Debug\net6.0\TiposCuentas.RazorAssemblyInfo.cs

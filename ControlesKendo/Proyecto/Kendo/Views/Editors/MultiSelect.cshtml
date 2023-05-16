@@ -1,0 +1,1026 @@
+﻿<head>
+	<base href="https://demos.telerik.com/kendo-ui/multiselect/index">
+	<style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+	<title></title>
+	<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+	<script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+	<script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+	<link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<h2>Invite Attendees</h2>
+			<label for="required">Required</label>
+			<select id="required" multiple="multiple" data-placeholder="Select attendees...">
+				<option>Steven White</option>
+				<option>Nancy King</option>	
+				<option>Nancy Davolio</option>
+				<option>Robert Davolio</option>
+				<option>Michael Leverling</option>
+				<option>Andrew Callahan</option>
+				<option>Michael Suyama</option>
+				<option selected>Anne King</option>
+				<option>Laura Peacock</option>
+				<option>Robert Fuller</option>
+				<option>Janet White</option>
+				<option>Nancy Leverling</option>
+				<option>Robert Buchanan</option>
+				<option>Margaret Buchanan</option>
+				<option selected>Andrew Fuller</option>
+				<option>Anne Davolio</option>
+				<option>Andrew Suyama</option>
+				<option>Nige Buchanan</option>
+				<option>Laura Fuller</option>
+			</select>
+			<label for="optional">Optional</label>
+			<select id="optional" multiple="multiple" data-placeholder="Select attendees...">
+				<option>Steven White</option>
+				<option>Nancy King</option>
+				<option>Nancy Davolio</option>
+				<option>Robert Davolio</option>
+				<option>Michael Leverling</option>
+				<option>Andrew Callahan</option>
+				<option>Michael Suyama</option>
+				<option>Anne King</option>
+				<option>Laura Peacock</option>
+				<option>Robert Fuller</option>
+				<option>Janet White</option>
+				<option>Nancy Leverling</option>
+				<option>Robert Buchanan</option>
+				<option>Margaret Buchanan</option>
+				<option>Andrew Fuller</option>
+				<option>Anne Davolio</option>
+				<option>Andrew Suyama</option>
+				<option>Nige Buchanan</option>
+				<option>Laura Fuller</option>
+			</select>
+			<button class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md" id="get">Send Invitation</button>
+		</div>
+	</div>
+	<style>
+		.demo-section label {
+			display: block;
+			margin: 15px 0 5px 0;
+		}
+		#get {
+			float: right;
+			margin: 25px auto 0;
+		}
+	</style>
+	<script>
+		$(document).ready(function() {
+			// create MultiSelect from select HTML element
+			var required = $("#required").kendoMultiSelect().data("kendoMultiSelect");
+			var optional = $("#optional").kendoMultiSelect({
+				autoClose: false
+			}).data("kendoMultiSelect");
+
+			$("#get").click(function() {
+				alert("Attendees:\n\nRequired: " + required.value() + "\nOptional: " + optional.value());
+			});
+		});
+	</script>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="products">Products</label>
+			<select id="products2"></select>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function () {
+			$("#products2").kendoMultiSelect({
+				placeholder: "Select products...",
+				dataTextField: "ProductName",
+				dataValueField: "ProductID",
+				autoBind: false,
+				dataSource: {
+					type: "odata",
+					serverFiltering: true,
+					transport: {
+						read: {
+							url: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products",
+						}
+					}
+				},
+				value: [
+					{ ProductName: "Chang", ProductID: 2 },
+					{ ProductName: "Uncle Bob's Organic Dried Pears", ProductID: 7 }
+				]
+			});
+		});
+	</script>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="orders">Search for shipping names</label>
+			<select id="orders3"></select>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function () {
+			$("#orders3").kendoMultiSelect({
+				placeholder: "Select addresses...",
+				itemTemplate: '<span class="order-id">#= OrderID #</span> #= ShipName #, #= ShipCountry #',
+				dataTextField: "ShipName",
+				dataValueField: "OrderID",
+				height: 520,
+				virtual: {
+					itemHeight: 26,
+					valueMapper: function (options) {
+						$.ajax({
+							url: "https://demos.telerik.com/kendo-ui/service/Orders/ValueMapper",
+							type: "GET",
+							dataType: "jsonp",
+							data: convertValues(options.value),
+							success: function (data) {
+								options.success(data);
+							}
+						})
+					}
+				},
+				dataSource: {
+					type: "odata",
+					transport: {
+						read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Orders"
+					},
+					schema: {
+						model: {
+							fields: {
+								OrderID: { type: "number" },
+								Freight: { type: "number" },
+								ShipName: { type: "string" },
+								OrderDate: { type: "date" },
+								ShipCity: { type: "string" }
+							}
+						}
+					},
+					pageSize: 80,
+					serverPaging: true,
+					serverFiltering: true
+				},
+				value: [10265, 10289]
+			});
+		});
+
+		function convertValues(value) {
+			var data = {};
+
+			value = $.isArray(value) ? value : [value];
+
+			for (var idx = 0; idx < value.length; idx++) {
+				data["values[" + idx + "]"] = value[idx];
+			}
+
+			return data;
+		}
+	</script>
+	<style>
+		.order-id {
+			display: inline-block;
+			min-width: 60px;
+		}
+	</style>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 100px;">
+		<div class="k-w-300">
+			<select id="products4"></select>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function () {
+			$("#products4").kendoMultiSelect({
+				label: {
+					content: "Select products...",
+					floating: true
+				},
+				dataTextField: "ProductName",
+				dataValueField: "ProductID",
+				autoBind: false,
+				dataSource: {
+					type: "odata",
+					serverFiltering: true,
+					transport: {
+						read: {
+							url: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products",
+						}
+					}
+				}
+			});
+		});
+	</script>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="customers">Search for shipping names</label>
+			<select id="customers5"></select>
+		</div>
+	</div>
+
+    <script>
+        $(document).ready(function() {
+            $("#customers5").kendoMultiSelect({
+                placeholder: "Select customers...",
+                dataTextField: "ContactName",
+                dataValueField: "CustomerID",
+                height: 400,
+                dataSource: {
+                    type: "odata",
+                    transport: {
+                        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Customers"
+                    },
+                    group: { field: "Country" }
+                }
+            });
+        });
+    </script>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="customers">Select Customers</label>
+			<select id="customers7" style="width: 100%;"></select>
+			<p class="demo-hint">
+				Click the MultiSelect to see the customized appearance.
+			</p>
+		</div>
+	</div>
+
+
+	<script>
+		$(document).ready(function () {
+			$("#customers7").kendoMultiSelect({
+				dataTextField: "ContactName",
+				dataValueField: "CustomerID",
+				headerTemplate: '<div class="dropdown-header k-widget k-header">' +
+					'<span>Photo</span>' +
+					'<span>Contact info</span>' +
+					'</div>',
+				footerTemplate: 'Total #: instance.dataSource.total() # items found',
+				itemTemplate: '<span class="k-state-default" style="background-image: url(\'../content/web/Customers/#:data.CustomerID#.jpg\')"></span>' +
+					'<span class="k-state-default"><h3>#: data.ContactName #</h3><p>#: data.CompanyName #</p></span>',
+				tagTemplate: '<span class="selected-value" style="background-image: url(\'../content/web/Customers/#:data.CustomerID#.jpg\')"></span><span>#:data.ContactName#</span>',
+				dataSource: {
+					transport: {
+						read: {
+							dataType: "jsonp",
+							url: "https://demos.telerik.com/kendo-ui/service/Customers",
+						}
+					}
+				},
+				height: 400
+			});
+
+			var customers = $("#customers7").data("kendoMultiSelect");
+			customers.wrapper.attr("id", "customers-wrapper");
+		});
+	</script>
+
+	<style>
+
+		.dropdown-header {
+			border-width: 0 0 1px 0;
+			text-transform: uppercase;
+		}
+
+			.dropdown-header > span {
+				display: inline-block;
+				padding: 10px;
+			}
+
+				.dropdown-header > span:first-child {
+					width: 50px;
+				}
+
+		.k-list-container > .k-footer {
+			padding: 10px;
+		}
+
+		.selected-value {
+			display: inline-block;
+			vertical-align: middle;
+			width: 18px;
+			height: 18px;
+			background-size: 100%;
+			margin-right: 5px;
+			border-radius: 50%;
+		}
+
+		#customers-list .k-list-item-text {
+			line-height: 1em;
+			min-width: 300px;
+		}
+
+		/* Material Theme padding adjustment*/
+
+		.k-material #customers-list .k-list-item-text,
+		.k-material #customers-list .k-list-item-text.k-hover,
+		.k-materialblack #customers-list .k-list-item-text,
+		.k-materialblack #customers-list .k-list-item-text.k-hover {
+			padding-left: 5px;
+			border-left: 0;
+		}
+
+		#customers-list .k-list-item-text > span {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			display: inline-block;
+			vertical-align: top;
+			margin: 20px 10px 10px 5px;
+		}
+
+			#customers-list .k-list-item-text > span:first-child {
+				-moz-box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+				-webkit-box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+				box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+				margin: 10px;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background-size: 100%;
+				background-repeat: no-repeat;
+			}
+
+
+		#customers-list h3 {
+			font-size: 1.2em;
+			font-weight: normal;
+			margin: 0 0 1px 0;
+			padding: 0;
+		}
+
+		#customers-list p {
+			margin: 0;
+			padding: 0;
+			font-size: .8em;
+		}
+	</style>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="products">Type a custom product name</label>
+			<select id="products8"></select>
+			<div class="demo-hint">e.g. 'custom'</div>
+		</div>
+	</div>
+
+	<script id="noDataTemplate" type="text/x-kendo-tmpl">
+		# var value = instance.input.val(); #
+		# var id = instance.element[0].id; #
+		<div>
+			No data found. Do you want to add new item - '#: value #' ?
+		</div>
+		<br />
+		<button class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md" onclick="addNew('#: id #', '#: value #')" ontouchend="addNew('#: id #', '#: value #')">Add new item</button>
+	</script>
+
+	<script>
+		function addNew(widgetId, value) {
+			var widget = $("#" + widgetId).getKendoMultiSelect();
+			var dataSource = widget.dataSource;
+
+			if (confirm("Are you sure?")) {
+				dataSource.add({
+					ProductID: 0,
+					ProductName: value
+				});
+
+				dataSource.sync();
+			}
+		}
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service";
+			var dataSource = new kendo.data.DataSource({
+				requestEnd: function (e) {
+					var widget = $("#products8").getKendoMultiSelect();
+					var dataSource = e.sender;
+
+					if (e.type === "create") {
+						var newValue = e.response[0].ProductID;
+
+						dataSource.one("sync", function () {
+							widget.value(widget.value().concat([newValue]));
+						});
+					}
+				},
+				batch: true,
+				transport: {
+					read: {
+						url: crudServiceBaseUrl + "/Products",
+						dataType: "jsonp"
+					},
+					create: {
+						url: crudServiceBaseUrl + "/Products/Create",
+						dataType: "jsonp"
+					},
+					parameterMap: function (options, operation) {
+						if (operation !== "read" && options.models) {
+							return { models: kendo.stringify(options.models) };
+						}
+					}
+				},
+				schema: {
+					model: {
+						id: "ProductID",
+						fields: {
+							ProductID: { type: "number" },
+							ProductName: { type: "string" }
+						}
+					}
+				}
+			});
+
+			$("#products8").kendoMultiSelect({
+				filter: "startswith",
+				dataTextField: "ProductName",
+				dataValueField: "ProductID",
+				dataSource: dataSource,
+				noDataTemplate: $("#noDataTemplate").html()
+			});
+		});
+	</script>
+	<style>
+		.k-no-data {
+			display: table;
+			width: 100%;
+			padding-top: 20px;
+		}
+	</style>
+
+
+	<div class="configurator">
+		<div class="header">Configurator</div>
+		<div class="box-col">
+			<ul class="options">
+				<li>
+					<h4>Size</h4>
+					<input id="size" name="size" />
+				</li>
+			</ul>
+		</div>
+		<div class="box-col">
+			<ul class="options">
+				<li>
+					<h4>Rounded</h4>
+					<input id="rounded" name="rounded" />
+				</li>
+			</ul>
+		</div>
+		<div class="box-col">
+			<ul class="options">
+				<li>
+					<h4>Fill Mode</h4>
+					<input id="fillMode" name="fillMode" />
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<select id="multiselect9"></select>
+		</div>
+	</div>
+
+	<script>
+		$(document).ready(function () {
+			var multiSelect = $("#multiselect9").kendoMultiSelect({
+				placeholder: "Select products...",
+				dataTextField: "ProductName",
+				dataValueField: "ProductID",
+				autoBind: false,
+				dataSource: {
+					type: "odata",
+					serverFiltering: true,
+					transport: {
+						read: {
+							url: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products",
+						}
+					}
+				},
+				value: [
+					{ ProductName: "Chang", ProductID: 2 },
+					{ ProductName: "Uncle Bob's Organic Dried Pears", ProductID: 7 }
+				]
+			}).data("kendoMultiSelect");
+			var size = $("#size").kendoDropDownList({
+				dataTextField: "text",
+				dataValueField: "value",
+				value: "medium",
+				change: onChange,
+				dataSource: [
+					{ text: "Small", value: "small" },
+					{ text: "Medium", value: "medium" },
+					{ text: "Large", value: "large" },
+					{ text: "None", value: "none" }
+				]
+			}).data("kendoDropDownList");
+
+			var rounded = $("#rounded").kendoDropDownList({
+				dataTextField: "text",
+				dataValueField: "value",
+				change: onChange,
+				value: "medium",
+				dataSource: [
+					{ text: "Small", value: "small" },
+					{ text: "Medium", value: "medium" },
+					{ text: "Large", value: "large" },
+					{ text: "Full", value: "full" },
+					{ text: "None", value: "none" }
+				]
+			}).data("kendoDropDownList");
+
+			var fill = $("#fillMode").kendoDropDownList({
+				dataTextField: "text",
+				dataValueField: "value",
+				change: onChange,
+				value: "solid",
+				dataSource: [
+					{ text: "Solid", value: "solid" },
+					{ text: "Flat", value: "flat" },
+					{ text: "Outline", value: "outline" },
+					{ text: "None", value: "none" }
+				]
+			}).data("kendoDropDownList");
+
+			function onChange(e) {
+				var sizeValue = size.value();
+				var roundedValue = rounded.value();
+				var fillValue = fill.value();
+
+				var selectedValues = multiSelect.value();
+				multiSelect.value([]);
+				multiSelect.setOptions({
+					size: sizeValue,
+					rounded: roundedValue,
+					fillMode: fillValue
+				})
+				multiSelect.value(selectedValues);
+
+			}
+
+		});
+	</script>
+
+	<style>
+	    .k-picker.k-dropdownlist {
+		    width: 140px;
+	    }
+    </style>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="select">Select Continents</label>
+			<select id="select10"></select>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function () {
+			function onDataBound() {
+				if ("kendoConsole" in window) {
+					kendoConsole.log("event: dataBound");
+				}
+			}
+
+			function onOpen() {
+				if ("kendoConsole" in window) {
+					kendoConsole.log("event: open");
+				}
+			}
+
+			function onClose() {
+				if ("kendoConsole" in window) {
+					kendoConsole.log("event: close");
+				}
+			}
+
+			function onChange() {
+				if ("kendoConsole" in window) {
+					kendoConsole.log("event: change");
+				}
+			}
+
+			function onSelect(e) {
+				if ("kendoConsole" in window) {
+					var dataItem = e.dataItem;
+					kendoConsole.log("event :: select (" + dataItem.text + " : " + dataItem.value + ")");
+				}
+			};
+
+			function onDeselect(e) {
+				if ("kendoConsole" in window) {
+					var dataItem = e.dataItem;
+					kendoConsole.log("event :: deselect (" + dataItem.text + " : " + dataItem.value + ")");
+				}
+			};
+
+			function onFiltering(e) {
+				if ("kendoConsole" in window) {
+					kendoConsole.log("event :: filtering");
+				}
+			}
+
+			var data = [
+				{ text: "Africa", value: "1" },
+				{ text: "Europe", value: "2" },
+				{ text: "Asia", value: "3" },
+				{ text: "North America", value: "4" },
+				{ text: "South America", value: "5" },
+				{ text: "Antarctica", value: "6" },
+				{ text: "Australia", value: "7" }
+			];
+
+			$("#select10").kendoMultiSelect({
+				dataTextField: "text",
+				dataValueField: "value",
+				dataSource: data,
+				dataBound: onDataBound,
+				filtering: onFiltering,
+				deselect: onDeselect,
+				select: onSelect,
+				change: onChange,
+				close: onClose,
+				open: onOpen
+			});
+		});
+	</script>
+
+
+	<div class="kd-example-console">
+		<div class="header">
+			<span class="title">CONSOLE LOG</span>
+			<span class="clear kd-text-secondary">Clear log</span>
+		</div>
+		<div class="console"></div>
+	</div>
+
+	<div class="configurator">
+		<div class="header">Configurator</div>
+		<div class="box-col">
+			<h4>API Functions</h4>
+			<ul class="options">
+				<li>
+					<button id="enable">Enable</button> <button id="disable">Disable</button>
+				</li>
+				<li>
+					<button id="readonly">Readonly</button>
+				</li>
+				<li>
+					<button id="open">Open</button> <button id="close">Close</button>
+				</li>
+				<li>
+					<button id="getValue">Get values</button>
+				</li>
+			</ul>
+		</div>
+		<div class="box-col">
+			<h4>Filter</h4>
+			<ul class="options">
+				<li>
+					<select id="filter">
+						<option value="startswith">Starts with</option>
+						<option value="contains">Contains</option>
+						<option value="eq">Equal</option>
+					</select>
+				</li>
+				<li>
+					<input id="word" value="The" style="width: 149px; margin: 0;" />
+				</li>
+				<li>
+					<button id="find">Find item</button>
+				</li>
+			</ul>
+		</div>
+		<div class="box-col">
+			<h4>Select</h4>
+			<ul class="options">
+				<li>
+					<input id="value" value="1,2" class="k-textbox" style="width: 40px; margin: 0;" /> <button id="setValue">Select by value</button>
+				</li>
+			</ul>
+		</div>
+		<div class="box-col">
+			<h4>Configuration</h4>
+			<ul class="options">
+				<li>
+					<input class="kd-checkbox" type="checkbox" id="showArrow" checked="checked">
+					<label for="showArrow" class="checkbox-label">Show dropdown arrow</label>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<select id="movies11" data-placeholder="Select movie..."></select>
+		</div>
+	</div>
+
+	<script>
+		$(document).ready(function () {
+			var data = [
+				{ text: "12 Angry Men", value: "1" },
+				{ text: "Il buono, il brutto, il cattivo.", value: "2" },
+				{ text: "Inception", value: "3" },
+				{ text: "One Flew Over the Cuckoo's Nest", value: "4" },
+				{ text: "Pulp Fiction", value: "5" },
+				{ text: "Schindler's List", value: "6" },
+				{ text: "The Dark Knight", value: "7" },
+				{ text: "The Godfather", value: "8" },
+				{ text: "The Godfather: Part II", value: "9" },
+				{ text: "The Shawshank Redemption", value: "10" },
+				{ text: "The Shawshank Redemption 2", value: "11" }
+			];
+
+			$("#movies11").kendoMultiSelect({
+				dataTextField: "text",
+				dataValueField: "value",
+				downArrow: true,
+				dataSource: data
+			});
+
+			$("#filter").kendoDropDownList({
+				change: filterTypeOnChanged
+			});
+
+			var multiSelect = $("#movies11").data("kendoMultiSelect"),
+				setValue = function (e) {
+					if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode) {
+						multiSelect.dataSource.filter({}); //clear applied filter before setting value
+
+						multiSelect.value($("#value").val().split(","));
+					}
+				},
+				setSearch = function (e) {
+					if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode) {
+						multiSelect.search($("#word").val());
+					}
+				};
+
+			$("#enable").click(function () {
+				multiSelect.enable();
+			});
+
+			$("#disable").click(function () {
+				multiSelect.enable(false);
+			});
+
+			$("#readonly").click(function () {
+				multiSelect.readonly();
+			});
+
+			$("#open").click(function () {
+				multiSelect.open();
+			});
+
+			$("#close").click(function () {
+				multiSelect.close();
+			});
+
+			$("#getValue").click(function () {
+				alert(multiSelect.value());
+			});
+
+			$("#setValue").click(setValue);
+			$("#value").keypress(setValue);
+
+			$("#find").click(setSearch);
+			$("#word").keypress(setSearch);
+
+			function filterTypeOnChanged() {
+				multiSelect.options.filter = $("#filter").val();
+			}
+
+			$('#showArrow').click(function () {
+				var showArrow = $(this).is(":checked")
+				multiSelect.setOptions({
+					downArrow: showArrow
+				})
+			})
+		});
+	</script>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="required">'Single' tag mode</label>
+			<select id="required12" multiple="multiple" data-placeholder="Select attendees...">
+			    <option>Steven White</option>
+			    <option>Nancy King</option>
+			    <option>Nancy Davolio</option>
+			    <option>Robert Davolio</option>
+			    <option>Michael Leverling</option>
+			    <option>Andrew Callahan</option>
+			    <option>Michael Suyama</option>
+			    <option selected>Anne King</option>
+			    <option>Laura Peacock</option>
+			    <option>Robert Fuller</option>
+			    <option>Janet White</option>
+			    <option>Nancy Leverling</option>
+			    <option>Robert Buchanan</option>
+			    <option>Margaret Buchanan</option>
+			    <option selected>Andrew Fuller</option>
+			    <option>Anne Davolio</option>
+			    <option>Andrew Suyama</option>
+			    <option>Nige Buchanan</option>
+			    <option>Laura Fuller</option>
+			</select>
+
+			<label for="optional">'Multiple' tag mode</label>
+			<select id="optional12" multiple="multiple" data-placeholder="Select attendees...">
+			    <option>Steven White</option>
+			    <option>Nancy King</option>
+			    <option>Nancy Davolio</option>
+			    <option>Robert Davolio</option>
+			    <option>Michael Leverling</option>
+			    <option>Andrew Callahan</option>
+			    <option>Michael Suyama</option>
+			    <option>Anne King</option>
+			    <option>Laura Peacock</option>
+			    <option>Robert Fuller</option>
+			    <option>Janet White</option>
+			    <option>Nancy Leverling</option>
+			    <option>Robert Buchanan</option>
+			    <option>Margaret Buchanan</option>
+			    <option>Andrew Fuller</option>
+			    <option>Anne Davolio</option>
+			    <option>Andrew Suyama</option>
+			    <option>Nige Buchanan</option>
+			    <option>Laura Fuller</option>
+			</select>
+		</div>
+	</div>
+
+    <style>
+        .demo-section * + h4 {
+            margin-top: 2em;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#required12").kendoMultiSelect({
+                autoClose: false,
+                tagMode: "single"
+            });
+
+            $("#optional12").kendoMultiSelect({
+                autoClose: false
+            });
+        });
+    </script>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300 k-rtl">
+			<label for="select">Select Continents</label>
+			<select id="select12"></select>
+		</div>
+	</div>
+
+        <script>
+            $(document).ready(function() {
+                var data = [
+                    { text: "Africa", value:"1" },
+                    { text: "Europe", value:"2" },
+                    { text: "Asia", value:"3" },
+                    { text: "North America", value:"4" },
+                    { text: "South America", value:"5" },
+                    { text: "Antarctica", value:"6" },
+                    { text: "Australia", value:"7" }
+                ];
+
+                $("#select12").kendoMultiSelect({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    dataSource: data
+                });
+            });
+        </script>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">
+			<label for="select">T-shirt Sizes</label>
+			<select id="select13" multiple="multiple" placeholder="Select sizes..." accesskey="w">
+				<option>X-Small</option>
+				<option>Small</option>
+				<option>Medium</option>
+				<option>Large</option>
+				<option>X-Large</option>
+				<option>2X-Large</option>
+			</select>
+		</div>
+	</div>
+
+    <script>
+        $(document).ready(function () {
+            $("#select13").kendoMultiSelect();
+        });
+    </script>
+
+	<div id="demo13">
+		<div class="configurator">
+			<div class="header">Configurator</div>
+			<div class="box-col">
+				<h4>Configuration</h4>
+				<ul>
+					<li><label><input type="checkbox" data-bind="checked: isPrimitive, events: { change: primitiveChanged }">Set <strong>data-value-primitive</strong></label></li>
+					<li><label><input type="checkbox" data-bind="checked: isEnabled">Enable</label></li>
+					<li><label><input type="checkbox" data-bind="checked: isVisible">Visible</label></li>
+				</ul>
+			</div>
+       
+		</div>
+
+		<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+			<div class="k-w-300">
+				<div data-bind="visible: isPrimitive">
+				<label>MultiSelect</label>
+				<select data-role="multiselect"
+						data-placeholder="Type a product e.g. 'Chai'"
+						data-value-primitive="true"
+						data-text-field="ProductName"
+						data-value-field="ProductID"
+						data-bind="value: selectedProduct,
+								  source: products,
+								  visible: isVisible,
+								  enabled: isEnabled,
+								  events: {
+									change: onChange,
+									open: onOpen,
+									close: onClose
+								  }"></select>
+				<p class="demo-hint">
+					<strong>data-value-primitive</strong> is set to <strong>true</strong>
+				</p>
+				</div>
+				<div data-bind="invisible: isPrimitive">
+					<label>MultiSelect</label>
+					<select data-role="multiselect"
+							data-placeholder="Type a product e.g. 'Chai'"
+							data-text-field="ProductName"
+							data-value-field="ProductID"
+							data-bind="value: selectedProduct,
+									  source: products,
+									  visible: isVisible,
+									  enabled: isEnabled,
+									  events: {
+										change: onChange,
+										open: onOpen,
+										close: onClose
+									  }"></select>
+					<p class="demo-hint">
+						<strong>data-value-primitive</strong> is <strong>not</strong> set.
+					</p>
+				</div>
+			</div>
+		</div>
+        
+
+		<script>
+			var viewModel = kendo.observable({
+				selectedProduct: null,
+				isPrimitive: false,
+				isVisible: true,
+				isEnabled: true,
+				primitiveChanged: function () {
+					this.set("selectedProduct", null);
+				},
+				displaySelectedProduct: function () {
+					var selectedProduct = this.get("selectedProduct");
+					return kendo.stringify(selectedProduct, null, 4);
+				},
+				onOpen: function () {
+					kendoConsole.log("event :: open");
+				},
+				onChange: function () {
+					kendoConsole.log("event :: change (" + this.displaySelectedProduct() + ")");
+				},
+				onClose: function () {
+					kendoConsole.log("event :: close");
+				},
+				products: new kendo.data.DataSource({
+					transport: {
+						read: {
+							url: "https://demos.telerik.com/kendo-ui/service/products",
+							dataType: "jsonp"
+						}
+					}
+				})
+			});
+			kendo.bind($("#demo13"), viewModel);
+		</script>
+	</div>
+
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+</body>

@@ -1,0 +1,15 @@
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\bin\Debug\net6.0\ListCommonMethods.exe
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\bin\Debug\net6.0\ListCommonMethods.deps.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\bin\Debug\net6.0\ListCommonMethods.runtimeconfig.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\bin\Debug\net6.0\ListCommonMethods.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\bin\Debug\net6.0\ListCommonMethods.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\obj\Debug\net6.0\ListCommonMethods.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\obj\Debug\net6.0\ListCommonMethods.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\obj\Debug\net6.0\ListCommonMethods.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\obj\Debug\net6.0\ListCommonMethods.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\obj\Debug\net6.0\ListCommonMethods.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\obj\Debug\net6.0\ListCommonMethods.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\obj\Debug\net6.0\refint\ListCommonMethods.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\obj\Debug\net6.0\ListCommonMethods.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\obj\Debug\net6.0\ListCommonMethods.genruntimeconfig.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\ListCommonMethods\obj\Debug\net6.0\ref\ListCommonMethods.dll

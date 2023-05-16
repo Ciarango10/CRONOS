@@ -1,0 +1,16 @@
+h1{
+    color: #f72585;
+    text-align: center;
+}
+h2{
+    color:#3f37c9;
+}
+p{
+    color:#457b9d;
+}
+/*Clase de CSS*/
+.tarjeta{
+    border: 10px solid #560bad;
+    background-color: #f1faee;
+    text-align: center;
+}

@@ -1,0 +1,58 @@
+﻿<div id="example" style="text-align: center;">
+    <h4>Seleccion una fecha colorida del Calendario</h4>
+    <div id="calendar"></div>
+
+    <script id="body-template" type="text/x-kendo-template">
+        <div id="breakfast"><span>Starbuck Breakfast </span><span class="time">8:00</span></div>
+        <div id="updates">Software Updates <span class="time">9:00</span></div>
+        <div id="performance">Performance Review <span class="time">14:00</span></div>
+        <div id="lecture">HR Lecture <span class="time">19:00</span></div>
+    </script>
+</div>
+
+Templates
+<div style="text-align: center;">
+    <h4>Selecciona un producto diario</h4>
+    <ul id="products2" class="dairy-photos">
+        <li>
+            <span data-id="11" title="Queso elaborado artesanalmente por ganaderos rurales del norte de España."><img src="~/img/11.jpg" /> Queso de Cabrales</span>
+        </li>
+        <li>
+            <span data-id="12" title="Un queso elaborado en la región de La Mancha de España a partir de leche de oveja de la raza manchega."><img src="~/img/12.jpg" /> Queso<br /> Manchego</span>
+        </li>
+        <li>
+            <span data-id="31" title="Queso azul italiano veteado, elaborado con leche de vaca sin desnatar."><img src="~/img/31.jpg" /> Gorgonzola Telino</span>
+        </li>
+        <li>
+            <span data-id="32" title="Un queso italiano hecho de crema."><img src="~/img/32.jpg" /> Mascarpone Fabioli</span>
+        </li>
+        <li>
+            <span data-id="33" title="Queso blanco elaborado con leche de cabra."><img src="~/img/33.jpg" /> Geitost</span>
+        </li>
+        <li>
+            <span data-id="59" title="Queso semiduro de leche de vaca."><img src="~/img/59.jpg" /> Raclette Courdavault</span>
+        </li>
+        <li>
+            <span data-id="60" title="Un queso de leche de vaca suave, cremoso y madurado en la superficie."><img src="~/img/60.jpg" /> Camembert Pierrott</span>
+        </li>
+        <li>
+            <span data-id="72" title="Queso fresco, originario del sur de Italia, elaborado con leche de búfala o de vaca mediante el método de la pasta hilada."><img src="~/img/72.jpg" /> Mozzarella di Giovanni</span>
+        </li>
+    </ul>
+    <script id="header-template2" type="text/x-kendo-template">
+        <div>#=target.first().text()#</div>
+    </script>
+
+    <script id="body-template2" type="text/x-kendo-template">
+        <div class="template-wrapper">
+            <img src="#=target.first().find("img").attr('src')#" alt="#=$.trim(target.first().text())#" />
+            <p>#=target.find("span").attr("title")#</p>
+        </div>
+    </script>
+</div>
+
+Events
+<div style="margin:auto; width:500px">
+    <span id="popover3" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md wider">Pasa por encima de mi!</span>
+</div>
+<script src="~/js/popover.js"></script>

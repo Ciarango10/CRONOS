@@ -1,0 +1,15 @@
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\obj\Debug\net6.0\Sobreescritura.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\obj\Debug\net6.0\Sobreescritura.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\obj\Debug\net6.0\Sobreescritura.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\obj\Debug\net6.0\Sobreescritura.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\obj\Debug\net6.0\Sobreescritura.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\bin\Debug\net6.0\Sobreescritura.exe
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\bin\Debug\net6.0\Sobreescritura.deps.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\bin\Debug\net6.0\Sobreescritura.runtimeconfig.json
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\bin\Debug\net6.0\Sobreescritura.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\bin\Debug\net6.0\Sobreescritura.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\obj\Debug\net6.0\Sobreescritura.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\obj\Debug\net6.0\refint\Sobreescritura.dll
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\obj\Debug\net6.0\Sobreescritura.pdb
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\obj\Debug\net6.0\Sobreescritura.genruntimeconfig.cache
+C:\Users\Usuario\Desktop\CRONOS\C#\Variables\Sobreescritura\obj\Debug\net6.0\ref\Sobreescritura.dll

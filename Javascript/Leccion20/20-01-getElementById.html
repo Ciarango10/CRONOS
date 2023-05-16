@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo DOM con Javascript</title>
+</head>
+<body>
+    <h1 id="cabecera">Ejemplo DOM con JavaScript</h1>
+    <p id="parrafo1">Saludos!</p>
+    <p id="parrafo2">Otro parrafo</p>
+
+<script>
+    let cabecero = document.getElementById("cabecera");
+    console.log(`valor cabecero: ${cabecero.innerHTML}`);
+    let parrafo = document.getElementById("parrafo1");
+    console.log(`valor parrafo: ${parrafo.innerHTML}`);
+    parrafo.innerHTML = "Nuevo valor del parrafo";
+    cabecero.innerHTML = "Nuevo Cabecero";
+</script>
+
+</body>
+</html>

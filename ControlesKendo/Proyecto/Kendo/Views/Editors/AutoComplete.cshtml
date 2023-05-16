@@ -1,0 +1,903 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/autocomplete/index">
+    <style>
+        html {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+
+
+</head>
+<body>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="countries">Choose shipping countries:</label>
+            <input id="countries" />
+            <div class="demo-hint">Start typing the name of an European country</div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var data = [
+                "Albania",
+                "Andorra",
+                "Armenia",
+                "Austria",
+                "Azerbaijan",
+                "Belarus",
+                "Belgium",
+                "Bosnia & Herzegovina",
+                "Bulgaria",
+                "Croatia",
+                "Cyprus",
+                "Czech Republic",
+                "Denmark",
+                "Estonia",
+                "Finland",
+                "France",
+                "Georgia",
+                "Germany",
+                "Greece",
+                "Hungary",
+                "Iceland",
+                "Ireland",
+                "Italy",
+                "Kosovo",
+                "Latvia",
+                "Liechtenstein",
+                "Lithuania",
+                "Luxembourg",
+                "Macedonia",
+                "Malta",
+                "Moldova",
+                "Monaco",
+                "Montenegro",
+                "Netherlands",
+                "Norway",
+                "Poland",
+                "Portugal",
+                "Romania",
+                "Russia",
+                "San Marino",
+                "Serbia",
+                "Slovakia",
+                "Slovenia",
+                "Spain",
+                "Sweden",
+                "Switzerland",
+                "Turkey",
+                "Ukraine",
+                "United Kingdom",
+                "Vatican City"
+            ];
+
+            //create AutoComplete UI component
+            $("#countries").kendoAutoComplete({
+                dataSource: data,
+                filter: "startswith",
+                placeholder: "Select country...",
+                separator: ", "
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">       
+			<label for="products">Find a product</label>
+			<input id="products" style="width: 100%;" />
+            <div class="demo-hint">Hint: type "che"</div>
+		</div>
+    </div>
+     <script>
+          $(document).ready(function() {
+            $("#products").kendoAutoComplete({
+               dataTextField: "ProductName",
+               filter: "contains",
+               minLength: 3,
+               dataSource: {
+                    type: "odata",
+                    serverFiltering: true,
+                    transport: {
+                    read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
+                    }
+               }
+            });
+          });
+     </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="orders">Search for shipping name</label>
+            <input id="orders" style="width: 100%;" />
+            <div class="demo-hint">Hint: type "an"</div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#orders").kendoAutoComplete({
+                filter: "contains",
+                template: '<span class="order-id">#= OrderID #</span> #= ShipName #, #= ShipCountry #',
+                dataTextField: "ShipName",
+                virtual: {
+                    itemHeight: 26,
+                    valueMapper: function (options) {
+                        $.ajax({
+                            url: "https://demos.telerik.com/kendo-ui/service/Orders/ValueMapper",
+                            type: "GET",
+                            dataType: "jsonp",
+                            data: convertValues(options.value),
+                            success: function (data) {
+                                options.success(data);
+                            }
+                        })
+                    }
+                },
+                height: 520,
+                dataSource: {
+                    type: "odata",
+                    transport: {
+                        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Orders"
+                    },
+                    schema: {
+                        model: {
+                            fields: {
+                                OrderID: { type: "number" },
+                                Freight: { type: "number" },
+                                ShipName: { type: "string" },
+                                OrderDate: { type: "date" },
+                                ShipCity: { type: "string" }
+                            }
+                        }
+                    },
+                    pageSize: 80,
+                    serverPaging: true,
+                    serverFiltering: true
+                }
+            });
+        });
+
+        function convertValues(value) {
+            var data = {};
+
+            value = $.isArray(value) ? value : [value];
+
+            for (var idx = 0; idx < value.length; idx++) {
+                data["values[" + idx + "]"] = value[idx];
+            }
+
+            return data;
+        }
+    </script>
+
+    <style>
+        .order-id {
+            display: inline-block;
+            min-width: 60px;
+        }
+    </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 100px;">
+        <div class="k-w-300">        
+	        <input id="products2" style="width: 100%;" />
+        </div>
+    </div>
+    <script>
+    $(document).ready(function() {
+        $("#products2").kendoAutoComplete({
+            dataTextField: "ProductName",
+            filter: "contains",
+            label: { 
+                content: "Find a product...",
+                floating: true
+            },
+            dataSource: {
+                type: "odata",
+                serverFiltering: true,
+                transport: {
+                    read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
+                }
+            }
+        });
+    });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="customers">Find a Customer</label>
+            <input id="customers" />
+            <div class="demo-hint">Hint: type "an"</div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#customers").kendoAutoComplete({
+                dataTextField: "ContactName",
+                height: 400,
+                dataSource: {
+                    type: "odata",
+                    transport: {
+                        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Customers"
+                    },
+                    group: { field: "Country" }
+                }
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">       
+			<label for="customers6">Customers</label>
+			<input id="customers6" style="width: 100%;"/>
+			<p class="demo-hint">Start typing to find a customer. E.g. "Ann"</p>
+		</div>
+	</div>
+
+    <script>
+      $(document).ready(function() {
+           var autocomplete = $("#customers6").kendoAutoComplete({
+               minLength: 1,
+               dataTextField: "ContactName",
+               headerTemplate: '<div class="dropdown-header k-widget k-header">' +
+                               '<span>Photo</span>' +
+                               '<span>Contact info</span>' +
+                                '</div>',
+              footerTemplate: 'Total #: instance.dataSource.total() # items found',
+              template: '<span class="k-state-default" style="background-image: url(\'../content/web/Customers/#:data.CustomerID#.jpg\')"></span>' +
+                        '<span class="k-state-default"><h3>#: data.ContactName #</h3><p>#: data.CompanyName #</p></span>',
+              dataSource: {
+                      transport: {
+                           read:{
+                              dataType: "jsonp",
+                              url: "https://demos.telerik.com/kendo-ui/service/Customers"
+                           }
+                      }
+              },
+              height: 400
+           }).data("kendoAutoComplete");
+      });
+    </script>
+
+            <style>
+
+                .dropdown-header {
+                    border-width: 0 0 1px 0;
+                    text-transform: uppercase;
+                }
+
+                .dropdown-header > span {
+                    display: inline-block;
+                    padding: 10px;
+                }
+
+                .dropdown-header > span:first-child {
+                    width: 50px;
+                }
+
+                .k-list-container > .k-footer {
+                    padding: 10px;
+                }
+
+                #customers-list .k-list-item-text {
+                    line-height: 1em;
+                    min-width: 300px;
+                }
+                
+                .k-material #customers-list .k-list-item-text,
+                .k-material #customers-list .k-list-item.k-hover,
+                .k-materialblack #customers-list .k-list-item-text,
+                .k-materialblack #customers-list .k-list-item-text.k-hover {
+                    padding-left: 5px;
+                    border-left: 0;
+                }
+
+                #customers-list .k-list-item-text > span {
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                    display: inline-block;
+                    vertical-align: top;
+                    margin: 20px 10px 10px 5px;
+                }
+
+                #customers-list .k-list-item-text > span:first-child {
+                    -moz-box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+                    -webkit-box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+                    box-shadow: inset 0 0 30px rgba(0,0,0,.3);
+                    margin: 10px;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+                }
+
+                #customers-list h3 {
+                    font-size: 1.2em;
+                    font-weight: normal;
+                    margin: 0 0 1px 0;
+                    padding: 0;
+                }
+
+                #customers-list p {
+                    margin: 0;
+                    padding: 0;
+                    font-size: .8em;
+                }
+
+            </style>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="products">Type a custom product name</label>
+            <input id="products7" style="width: 100%;" />
+            <div class="demo-hint">e.g. 'custom'</div>
+        </div>
+    </div>
+
+    <script id="noDataTemplate" type="text/x-kendo-tmpl">
+        <div>
+            No data found. Do you want to add new item - '#: instance.element.val() #' ?
+        </div>
+        <br />
+        <button class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md" onclick="addNew('#: instance.element[0].id #', '#: instance.element.val() #')">Add new item</button>
+    </script>
+
+    <script>
+        function addNew(widgetId, value) {
+            var widget = $("#" + widgetId).getKendoAutoComplete();
+            var dataSource = widget.dataSource;
+
+            if (confirm("Are you sure?")) {
+                dataSource.add({
+                    ProductID: 0,
+                    ProductName: value
+                });
+
+                dataSource.one("sync", function () {
+                    widget.close();
+                });
+
+                dataSource.sync();
+            }
+        };
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service";
+            var dataSource = new kendo.data.DataSource({
+                batch: true,
+                transport: {
+                    read: {
+                        url: crudServiceBaseUrl + "/Products",
+                        dataType: "jsonp"
+                    },
+                    create: {
+                        url: crudServiceBaseUrl + "/Products/Create",
+                        dataType: "jsonp"
+                    },
+                    parameterMap: function (options, operation) {
+                        if (operation !== "read" && options.models) {
+                            return { models: kendo.stringify(options.models) };
+                        }
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "ProductID",
+                        fields: {
+                            ProductID: { type: "number" },
+                            ProductName: { type: "string" }
+                        }
+                    }
+                }
+            });
+
+            $("#products7").kendoAutoComplete({
+                filter: "startswith",
+                dataTextField: "ProductName",
+                dataSource: dataSource,
+                noDataTemplate: $("#noDataTemplate").html()
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="states8">Select a state in USA:</label>
+            <input id="states8" />
+            <div class="demo-hint">Hint: type "m"</div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            function onOpen() {
+                if ("kendoConsole" in window) {
+                    kendoConsole.log("event :: open");
+                }
+            }
+
+            function onClose() {
+                if ("kendoConsole" in window) {
+                    kendoConsole.log("event :: close");
+                }
+            }
+
+            function onChange() {
+                if ("kendoConsole" in window) {
+                    kendoConsole.log("event :: change");
+                }
+            }
+
+            function onSelect(e) {
+                if ("kendoConsole" in window) {
+                    kendoConsole.log("event :: select (" + e.dataItem + ")");
+                }
+            }
+
+            function onDataBound(e) {
+                if ("kendoConsole" in window) {
+                    kendoConsole.log("event :: dataBound");
+                }
+            }
+
+            function onFiltering(e) {
+                if ("kendoConsole" in window) {
+                    kendoConsole.log("event :: filtering");
+                }
+            }
+
+            var data = [
+                "Alabama",
+                "Alaska",
+                "American Samoa",
+                "Arizona",
+                "Arkansas",
+                "California",
+                "Colorado",
+                "Connecticut",
+                "Delaware",
+                "District of Columbia",
+                "Florida",
+                "Georgia",
+                "Guam",
+                "Hawaii",
+                "Idaho",
+                "Illinois",
+                "Indiana",
+                "Iowa",
+                "Kansas",
+                "Kentucky",
+                "Louisiana",
+                "Maine",
+                "Maryland",
+                "Massachusetts",
+                "Michigan",
+                "Minnesota",
+                "Mississippi",
+                "Missouri",
+                "Montana",
+                "Nebraska",
+                "Nevada",
+                "New Hampshire",
+                "New Jersey",
+                "New Mexico",
+                "New York",
+                "North Carolina",
+                "North Dakota",
+                "Northern Marianas Islands",
+                "Ohio",
+                "Oklahoma",
+                "Oregon",
+                "Pennsylvania",
+                "Puerto Rico",
+                "Rhode Island",
+                "South Carolina",
+                "South Dakota",
+                "Tennessee",
+                "Texas",
+                "Utah",
+                "Vermont",
+                "Virginia",
+                "Virgin Islands",
+                "Washington",
+                "West Virginia",
+                "Wisconsin",
+                "Wyoming"
+            ];
+
+            $("#states8").kendoAutoComplete({
+                dataSource: data,
+                select: onSelect,
+                change: onChange,
+                close: onClose,
+                open: onOpen,
+                filtering: onFiltering,
+                dataBound: onDataBound
+            });
+        });
+    </script>
+
+    <div class="kd-example-console">
+        <div class="header">
+            <span class="title">CONSOLE LOG</span>
+            <span class="clear kd-text-secondary">Clear log</span>
+        </div>
+        <div class="console"></div>
+    </div>
+
+     <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Size</h4>
+                    <input id="size9" name="size" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Fill Mode</h4>
+                    <input id="fillMode9" name="fillMode" />
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <ul class="options">
+                <li>
+                    <h4>Border Radius</h4>
+                    <input id="rounded9" name="rounded" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">       
+			<label for="products">Select a product:</label>
+			<input id="products9" />
+		</div>
+	</div>
+
+    <script>
+        $(document).ready(function () {
+
+            var autocomplete = $("#products9").kendoAutoComplete({
+                placeholder: "Select product",
+                dataTextField: "ProductName",
+                dataValueField: "ProductID",
+                dataSource: {
+                    type: "odata",
+                    transport: {
+                        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
+                    }
+                }
+            }).data('kendoAutoComplete');
+
+            var size = $("#size9").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                value: "medium",
+                change: onChange,
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "None", value: "none" }
+                ]
+            }).data("kendoDropDownList");
+
+            var rounded = $("#rounded9").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                change: onChange,
+                value: "medium",
+                dataSource: [
+                    { text: "Small", value: "small" },
+                    { text: "Medium", value: "medium" },
+                    { text: "Large", value: "large" },
+                    { text: "Full", value: "full" },
+                    { text: "None", value: "none" }
+                ]
+            }).data("kendoDropDownList");
+
+            var fill = $("#fillMode9").kendoDropDownList({
+                dataTextField: "text",
+                dataValueField: "value",
+                change: onChange,
+                value: "solid",
+                dataSource: [
+                    { text: "Solid", value: "solid" },
+                    { text: "Flat", value: "flat" },
+                    { text: "Outline", value: "outline" },
+                    { text: "None", value: "none" }
+                ]
+            }).data("kendoDropDownList");
+
+            function onChange(e) {
+
+                var sizeValue = size.value();
+                var roundedValue = rounded.value();
+                var fillValue = fill.value();
+                var selectedValues = autocomplete.value();
+                autocomplete.value([]);
+                autocomplete.setOptions({
+                    size: sizeValue,
+                    rounded: roundedValue,
+                    fillMode: fillValue
+                })
+                autocomplete.value(selectedValues);
+            }
+        });
+    </script>
+
+    <style>
+	    .k-picker.k-dropdownlist {
+		    width: 140px;
+	    }
+    </style>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Set / Get Value</h4>
+            <ul class="options">
+                <li>
+                    <input id="value" type="text" />
+                    <button id="set">Set value</button>
+                </li>
+                <li style="text-align: right;">
+                    <button id="get">Get value</button>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Find item</h4>
+            <ul class="options">
+                <li>
+                    <input id="word" value="B" />
+                    <button id="search">Search</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300">
+            <label for="input">Pick a color</label>
+            <input id="input" style="width: 100%;" />
+            <div class="demo-hint">Hint: type "red"</div>
+        </div>
+    </div>
+
+    <script>
+        $(document).on("kendoReady", function () { // To edit in Dojo, change kendoReady with ready
+            var data = [
+                "Red-violet",
+                "Red",
+                "Red-orange",
+                "Orange",
+                "Yellow-orange",
+                "Yellow",
+                "Yellow-green",
+                "Green",
+                "Blue-green",
+                "Blue",
+                "Blue-violet",
+                "Violet"
+            ];
+
+            $("#input").kendoAutoComplete(data);
+
+            var autocomplete = $("#input").data("kendoAutoComplete"),
+                setValue = function (e) {
+                    if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode)
+                        autocomplete.value($("#value").val());
+                },
+                setSearch = function (e) {
+                    if (e.type != "keypress" || kendo.keys.ENTER == e.keyCode)
+                        autocomplete.search($("#word").val());
+                };
+
+            $("#set").click(setValue);
+            $("#value").keypress(setValue);
+            $("#search").click(setSearch);
+            $("#word").keypress(setSearch);
+
+            $("#get").click(function () {
+                alert(autocomplete.value());
+            });
+        });
+    </script>
+
+    <div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+        <div class="k-w-300 k-rtl">
+            <label for="states">Select a state in USA:</label>
+            <input id="states12" />
+            <div class="demo-hint">Hint: type <strong>m</strong></div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            var data = [
+                "Alabama",
+                "Alaska",
+                "American Samoa",
+                "Arizona",
+                "Arkansas",
+                "California",
+                "Colorado",
+                "Connecticut",
+                "Delaware",
+                "District of Columbia",
+                "Florida",
+                "Georgia",
+                "Guam",
+                "Hawaii",
+                "Idaho",
+                "Illinois",
+                "Indiana",
+                "Iowa",
+                "Kansas",
+                "Kentucky",
+                "Louisiana",
+                "Maine",
+                "Maryland",
+                "Massachusetts",
+                "Michigan",
+                "Minnesota",
+                "Mississippi",
+                "Missouri",
+                "Montana",
+                "Nebraska",
+                "Nevada",
+                "New Hampshire",
+                "New Jersey",
+                "New Mexico",
+                "New York",
+                "North Carolina",
+                "North Dakota",
+                "Northern Marianas Islands",
+                "Ohio",
+                "Oklahoma",
+                "Oregon",
+                "Pennsylvania",
+                "Puerto Rico",
+                "Rhode Island",
+                "South Carolina",
+                "South Dakota",
+                "Tennessee",
+                "Texas",
+                "Utah",
+                "Vermont",
+                "Virginia",
+                "Virgin Islands",
+                "Washington",
+                "West Virginia",
+                "Wisconsin",
+                "Wyoming"
+            ];
+
+            $("#states12").kendoAutoComplete({
+                dataSource: data,
+                placeholder: "Select state..."
+            });
+        });
+    </script>
+
+    <div id="demo">
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Configuration</h4>
+            <ul>
+                <li>
+                    <input id="0" type="checkbox" data-bind="checked: isPrimitive, events: { change: primitiveChanged }">
+                    <label class="checkbox-label" for="0">Set <strong>data-value-primitive</strong></label>
+                </li>
+                <li>
+                    <input id="1" type="checkbox" data-bind="checked: isEnabled">
+                    <label class="checkbox-label" for="1">Enable AutoComplete</label>
+                </li>
+                <li>
+                    <input id="2" type="checkbox" data-bind="checked: isVisible">
+                    <label class="checkbox-label" for="2">Visible</label>
+                </li>
+            </ul>
+        </div>
+        <div class="box-col">
+            <h4>Information</h4>
+            Kendo UI AutoComplete supports the
+            <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/enabled">enabled</a>,
+            <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/events">events</a>,
+            <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/source">source</a>,
+            <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/value">value</a> and
+            <a href="https://docs.telerik.com/kendo-ui/getting-started/framework/mvvm/bindings/visible">visible</a> bindings.
+        </div>
+    </div>
+
+	<div class="k-d-flex k-justify-content-center" style="padding-top: 54px;">
+		<div class="k-w-300">       
+			<label for="countries">Choose a country</label>
+			<input id="countries12" accesskey="w" />
+             <div class="demo-hint">Hint: type "s"</div>
+		</div>
+	</div>
+
+    <script>
+        $(document).ready(function () {
+             var data = [
+                   "Albania",
+					"Andorra",
+					"Armenia",
+					"Austria",
+					"Azerbaijan",
+					"Belarus",
+					"Belgium",
+					"Bosnia & Herzegovina",
+					"Bulgaria",
+					"Croatia",
+					"Cyprus",
+					"Czech Republic",
+					"Denmark",
+					"Estonia",
+					"Finland",
+					"France",
+					"Georgia",
+					"Germany",
+					"Greece",
+					"Hungary",
+					"Iceland",
+					"Ireland",
+					"Italy",
+					"Kosovo",
+					"Latvia",
+					"Liechtenstein",
+					"Lithuania",
+					"Luxembourg",
+					"Macedonia",
+					"Malta",
+					"Moldova",
+					"Monaco",
+					"Montenegro",
+					"Netherlands",
+					"Norway",
+					"Poland",
+					"Portugal",
+					"Romania",
+					"Russia",
+					"San Marino",
+					"Serbia",
+					"Slovakia",
+					"Slovenia",
+					"Spain",
+					"Sweden",
+					"Switzerland",
+					"Turkey",
+					"Ukraine",
+					"United Kingdom",
+					"Vatican City"
+             ];
+
+            $("#countries12").kendoAutoComplete({
+                dataSource: data,
+                filter: "startswith",
+                placeholder: "Select country...",
+                separator: ", "
+            });
+        });
+    </script>	
+</body>

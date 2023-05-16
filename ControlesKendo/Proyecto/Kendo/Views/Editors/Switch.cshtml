@@ -1,0 +1,323 @@
+﻿<head>
+    <base href="https://demos.telerik.com/kendo-ui/switch/index">
+    <style>html { font-size: 14px; font-family: Arial, Helvetica, sans-serif; }</style>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <link rel="stylesheet" href="../content/shared/styles/examples-offline.css">
+    <script src="../content/shared/js/console.js"></script>
+</head>
+<body>
+    <div id="example">
+        <div class="demo-section">
+            <div class="settings-head"></div>
+            <ul>
+                <li>Notifications <input type="checkbox" id="notifications-switch" aria-label="Notifications Switch" checked="checked" /></li>
+                <li>Send notifications <input id="mail-switch" aria-label="Mail Switch" /></li>
+                <li>Always visible <input id="visible-switch" aria-label="Visible Switch" /></li>
+                <li>Display real name <input id="name-switch" aria-label="Name Switch" /></li>
+            </ul>
+        </div>
+
+        <style>
+            .demo-section ul {
+                margin: 0;
+                padding: 0;
+            }
+
+                .demo-section ul li {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 10px 10px 10px 20px;
+                    min-height: 28px;
+                    line-height: 28px;
+                    vertical-align: middle;
+                    border-top: 1px solid rgba(128,128,128,.5);
+                }
+
+            .demo-section {
+                min-width: 220px;
+                margin-top: 50px;
+                padding: 0;
+            }
+
+                .demo-section ul li .k-switch {
+                    float: right;
+                }
+
+            .settings-head {
+                height: 66px;
+                background: url('../content/web/switch/settings-title.png') no-repeat 20px 50% #2db245;
+            }
+        </style>
+    </div>
+
+    <script>
+        $(function () {
+            $("#notifications-switch").kendoSwitch();
+
+            $("#mail-switch").kendoSwitch({
+                messages: {
+                    checked: "YES",
+                    unchecked: "NO"
+                }
+            });
+
+            $("#visible-switch").kendoSwitch({
+                checked: true
+            });
+
+            $("#name-switch").kendoSwitch();
+        });
+    </script>
+
+    <div id="example">
+        <div class="configurator">
+            <div class="header">Configurator</div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Size</h4>
+                        <input id="size" name="size" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Track</h4>
+                        <input id="track" name="track" />
+                    </li>
+                </ul>
+            </div>
+            <div class="box-col">
+                <ul class="options">
+                    <li>
+                        <h4>Thumb</h4>
+                        <input id="thumb" name="thumb" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="demo-section">
+            <div>
+                <input id="switch2" />
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $("#switch2").kendoSwitch();
+                var kSwitch = $("#switch2").data("kendoSwitch");
+                var size = $("#size").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    value: "medium",
+                    change: onChange,
+                    dataSource: [
+                        { text: "Small", value: "small" },
+                        { text: "Medium", value: "medium" },
+                        { text: "Large", value: "large" }
+                    ]
+                }).data("kendoDropDownList");
+
+                var track = $("#track").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    change: onChange,
+                    value: "full",
+                    dataSource: [
+                        { text: "Small", value: "small" },
+                        { text: "Medium", value: "medium" },
+                        { text: "Large", value: "large" },
+                        { text: "Full", value: "full" },
+                        { text: "None", value: "none" }
+                    ]
+                }).data("kendoDropDownList");
+
+                var thumb = $("#thumb").kendoDropDownList({
+                    dataTextField: "text",
+                    dataValueField: "value",
+                    change: onChange,
+                    value: "full",
+                    dataSource: [
+                        { text: "Small", value: "small" },
+                        { text: "Medium", value: "medium" },
+                        { text: "Large", value: "large" },
+                        { text: "Full", value: "full" },
+                        { text: "None", value: "none" }
+                    ]
+                }).data("kendoDropDownList");
+
+                function onChange(e) {
+                    var sizeValue = size.value();
+                    var roundedValue = track.value();
+                    var thumbValue = thumb.value();
+                    kSwitch.setOptions({
+                        size: sizeValue,
+                        trackRounded: roundedValue,
+                        thumbRounded: thumbValue
+                    })
+                }
+            });
+        </script>
+
+        <style>
+            .k-picker.k-dropdownlist {
+                width: 140px;
+            }
+        </style>
+    </div>
+
+    <div id="example">
+        <div class="demo-section">
+            <input type="checkbox" id="switch3" aria-label="Switch" checked="checked" />
+        </div>    
+    </div>
+
+    <style>
+        .demo-section {
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        $("#switch3").kendoSwitch({
+            change: function (e) {
+                kendoConsole.log("event :: change (" + (e.checked ? "checked" : "unchecked") + ")");
+            }
+        });
+    </script>
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+
+    <div class="configurator">
+        <div class="header">Configurator</div>
+        <div class="box-col">
+            <h4>Toggle</h4>
+            <button id="toggleSwitch4" type="button">Toggle Checked</button>
+        </div>
+        <div class="box-col">
+            <h4>Enable</h4>
+            <button id="enableSwitch4" type="button">Toggle Enabled</button>
+        </div>
+        <div class="box-col">
+            <h4>ReadOnly</h4>
+            <button id="readonlySwitch4" type="button">Toggle ReadOnly</button>
+        </div>
+    </div>
+    <div class="demo-section">
+        <input type="checkbox" id="switch4" checked="checked" />
+    </div>
+
+
+    <style>
+
+        .demo-section {
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            var switchInstance = $("#switch4").kendoSwitch().data("kendoSwitch");
+
+            $("#enableSwitch4").click(function () {
+                switchInstance.enable(!!switchInstance.element.attr("disabled"));
+            });
+
+            $("#readonlySwitch4").click(function () {
+                switchInstance.readonly(!switchInstance.element.attr("readonly"));
+            });
+
+            $("#toggleSwitch4").click(function () {
+                switchInstance.toggle();
+            });
+        });
+    </script>
+
+    <div id="example">
+        <div class="k-rtl demo-section">
+            <input type="checkbox" id="switch5" checked="checked" />
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $("#switch5").kendoSwitch();
+
+            //focus the widget
+            $(document).on("keydown.examples", function (e) {
+                if (e.altKey && e.keyCode === 87 /* w */) {
+                    $("#switch").data("kendoSwitch").wrapper.focus();
+                }
+            });
+        });
+    </script>
+
+    <div id="example">
+        <div class="demo-section">
+            <input type="checkbox" id="switch6" checked="checked" />
+        </div>
+    </div>
+    
+    <style>
+        .demo-section {
+            text-align: center;
+        }
+    </style>
+    
+    <script>
+        $(function () {
+            $("#switch6").kendoSwitch();
+
+            //focus the widget
+            $(document).on("keydown.examples", function (e) {
+                if (e.altKey && e.keyCode === 87 /* w */) {
+                    $("#switch").data("kendoSwitch").wrapper.focus();
+                }
+            });
+        });
+    </script>
+
+    <div id="example7">
+        <div class="demo-section">
+            <input data-role="switch"
+                   data-bind="enabled: isEnabled, visible: isVisible, checked: isChecked, events: { change: onChange }" />
+        </div>    
+    </div>
+
+    <style>
+        .demo-section {
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        var viewModel = kendo.observable({
+            isChecked: true,
+            isEnabled: true,
+            isVisible: true,
+            onChange: function (e) {
+                kendoConsole.log("event :: change (" + (e.checked ? "checked" : "unchecked") + ")");
+            }
+        });
+
+        kendo.bind($("#example7"), viewModel);
+    </script>
+
+
+        <div class="kd-example-console">
+            <div class="header">
+                <span class="title">CONSOLE LOG</span>
+                <span class="clear kd-text-secondary">Clear log</span>
+            </div>
+            <div class="console"></div>
+        </div>
+</body>

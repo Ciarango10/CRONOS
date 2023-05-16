@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Manejo DOM con JavaScript</title>
+</head>
+<body>
+    <h1 id='titulo'>Manejo DOM con JavaScript</h1>
+    <br/>
+    Nombre: <input type="text" onfocus="cambiar(this)" onblur="regresar(this)"/>
+    <br/><br/>
+    Apellido: <input type="text" onfocus="cambiar(this)" onblur="regresar(this)"/>
+    <script>
+        function cambiar(elementoInput){
+            elementoInput.style.background = 'yellow';
+        }
+        function regresar(elementoInput){
+            elementoInput.style.background = 'white';
+        }
+    </script>
+</body>
+</html>
